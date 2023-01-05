@@ -1,9 +1,13 @@
+import Home from './pages/Home';
+import Header from './components/Header';
 import './styles/normalize.scss';
+import './font/stylesheet.css';
 
 function App() {
-  // eslint-disable-next-line prettier/prettier
   return (
     <>
+      <Header />
+      <Home />
     </>
   );
 }
