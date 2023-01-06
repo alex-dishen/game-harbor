@@ -1,10 +1,6 @@
 import styled from 'styled-components';
+import places from '../utils/quickNavigation';
 import { ReactComponent as GitHub } from '../assets/github.svg';
-import { ReactComponent as Controller } from '../assets/controller.svg';
-import { ReactComponent as Dice } from '../assets/dice.svg';
-import { ReactComponent as Crown } from '../assets/crown.svg';
-import { ReactComponent as Cup } from '../assets/cup.svg';
-import { ReactComponent as Gift } from '../assets/gift.svg';
 import rawg from '../assets/RAWG.png';
 import video from '../assets/pyke.mp4';
 
@@ -35,26 +31,12 @@ function Home() {
         </Description>
         <Navigation>
           <h3>Quick Navigation</h3>
-          <div>
-            <Controller style={SVGSize} />
-            Games
-          </div>
-          <div>
-            <Dice style={SVGSize} />
-            Play Dice
-          </div>
-          <div>
-            <Gift style={SVGSize} />
-            Wish List
-          </div>
-          <div>
-            <Cup style={SVGSize} />
-            Best of the year
-          </div>
-          <div>
-            <Crown style={SVGSize} />
-            All time top 250
-          </div>
+          {places.map((place) => (
+            <div>
+              {place.icon}
+              {place.name}
+            </div>
+          ))}
         </Navigation>
       </Main>
       <Video autoPlay muted loop>

@@ -52,8 +52,7 @@ const Aside = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 30px 40px;
-  color: white;
+  margin-top: 30px;
 `;
 
 const CategoryHolder = styled.div`
