@@ -23,12 +23,11 @@ function Header() {
 }
 
 const HeaderWrapper = styled.header`
-  position: absolute;
-  top: 20px;
-  padding: 0 40px;
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 20px 0;
+  padding: 0 40px;
   background-color: transparent;
   color: white;
 `;
