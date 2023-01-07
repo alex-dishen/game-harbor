@@ -1,26 +1,27 @@
-# APP NAME
-The **APP NAME** project is created according to the assignment from **The Odin Project** [course](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript).
-<br>
-<br>
+# Game Harbor
 
-![Preview](public/.png)
+<!-- ![Preview](public/.png) -->
 
-### 🔗 **Live preview** of the project is [here](https://alex-dishen.github.io/REPOSITORY NAME/).
+<!-- ### 🔗 **Live preview** of the project is [here](https://alex-dishen.github.io/REPOSITORY NAME/). -->
 
-## **Features**
-* 
+<!-- ## **Features**
+*  -->
 
 ## **Outcome**
 * Used **React**
-* 
+* Used **TypeScript**
+* Used **Redux**
+* Used **Styled-Components**
+* Used **GraphQL**
+* Used **RAWG API**
 
 ## **Getting Started**
 ```
-HTTPS - git clone https://github.com/alex-dishen/REPOSITORY NAME.git
+HTTPS - git clone https://github.com/alex-dishen/shop.git
 
-SSH - git clone git@github.com:alex-dishen/REPOSITORY NAME.git
+SSH - git clone git@github.com:alex-dishen/shop.git
 
-cd REPOSITORY NAME
+cd shop
 
 npm install
 
@@ -28,5 +29,4 @@ npm start
 ```
 
 ## **Navigation**
-* See my next project [NEXT PROJECT](https://github.com/alex-dishen/REPOSITORY NAME)
-* See my previous project [PREVIOUS PROJECT](https://github.com/alex-dishen/REPOSITORY NAME)
+* See my previous project [Currency Converter](https://github.com/alex-dishen/currency-converter)
