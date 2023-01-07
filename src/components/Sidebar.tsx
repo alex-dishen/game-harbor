@@ -51,8 +51,10 @@ function Sidebar() {
 const Aside = styled.aside`
   display: flex;
   flex-direction: column;
+  height: 81vh;
   gap: 30px;
   margin-top: 30px;
+  overflow: scroll;
 `;
 
 const CategoryHolder = styled.div`

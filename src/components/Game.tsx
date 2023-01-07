@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-type GameProps = {
+type Props = {
   name: string;
   price: string;
   image: string;
 };
 
-function Game({ name, price, image }: GameProps) {
+function Game({ name, price, image }: Props) {
   return (
     <GameWrapper>
       <BackgroundImage style={{ backgroundImage: `url(${image})` }} />

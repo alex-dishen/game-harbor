@@ -1,24 +1,35 @@
+import { useState } from 'react';
 import styled from 'styled-components';
+import Cart from './Cart';
 import logo from '../assets/logo.png';
 import { ReactComponent as ShoppingBag } from '../assets/shopping-bag.svg';
 import { ReactComponent as MagnifyLoop } from '../assets/magnify.svg';
 
 function Header() {
+  const [isOpenCart, setIsOpenCart] = useState(false);
+
+  const openAndHideCart = () => {
+    setIsOpenCart(!isOpenCart);
+  };
+
   return (
-    <HeaderWrapper>
-      <LogoWrapper>
-        <Logo src={logo} alt="Logo" />
-        <div>Game Harbor</div>
-      </LogoWrapper>
-      <InputWrapper>
-        <Input />
-        <MagnifyGlass />
-      </InputWrapper>
-      <CartWrapper>
-        <Bag />
-        <div>Cart: 10</div>
-      </CartWrapper>
-    </HeaderWrapper>
+    <>
+      <HeaderWrapper>
+        <LogoWrapper>
+          <Logo src={logo} alt="Logo" />
+          <div>Game Harbor</div>
+        </LogoWrapper>
+        <InputWrapper>
+          <Input />
+          <MagnifyGlass />
+        </InputWrapper>
+        <CartWrapper onClick={openAndHideCart}>
+          <Bag />
+          <div>Cart: 10</div>
+        </CartWrapper>
+      </HeaderWrapper>
+      {isOpenCart && <Cart />}
+    </>
   );
 }
 

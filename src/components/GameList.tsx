@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-import games from '../utils/games';
+import { games } from '../utils/games';
 import Game from './Game';
 
 function GameList() {

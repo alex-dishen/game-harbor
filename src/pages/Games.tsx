@@ -28,13 +28,16 @@ function Games() {
 
 const GamesPageWrapper = styled.div`
   display: flex;
-  gap: 60px;
+  gap: 45px;
   padding: 25px 40px;
   color: white;
 `;
 
 const Main = styled.main`
   flex: 1;
+  padding: 0 10px 10px 10px;
+  height: 84.5vh;
+  overflow: scroll;
 
   svg {
     fill: white;
