@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { ReactComponent as ArrowLeft } from '../assets/arrow-left.svg';
 import { ReactComponent as ChevronLeft } from '../assets/chevron-left.svg';
@@ -9,7 +10,7 @@ function Game() {
   return (
     <GameWrapper>
       <Header>
-        <BackButton>
+        <BackButton to="/games" relative="path">
           <ArrowLeft /> Store
         </BackButton>
         <GameName>Game Name</GameName>
@@ -73,6 +74,12 @@ const GameWrapper = styled.div`
   gap: 20px;
   height: 100%;
   padding: 20px 40px 30px 40px;
+
+  svg {
+    height: 30px;
+    fill: rgb(204, 204, 204);
+    transition: 0.3s;
+  }
 `;
 
 const Header = styled.header`
@@ -82,21 +89,16 @@ const Header = styled.header`
   color: white;
 `;
 
-const BackButton = styled.div`
+const BackButton = styled(Link)`
   display: flex;
   align-items: center;
   gap: 10px;
   color: rgb(204, 204, 204);
   font-size: 22px;
   font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
   transition: 0.3s;
-
-  svg {
-    height: 30px;
-    fill: rgb(204, 204, 204);
-    transition: 0.3s;
-  }
 
   &:hover {
     color: rgb(24, 176, 171);
@@ -138,8 +140,6 @@ const LeftButton = styled.div`
 
   svg {
     height: 50px;
-    fill: rgb(204, 204, 204);
-    transition: 0.3s;
   }
 
   &:hover {
@@ -153,9 +153,7 @@ const RightButton = styled(LeftButton)`
   justify-content: flex-end;
 `;
 
-const Info = styled.div`
-  color: white;
-`;
+const Info = styled.div``;
 
 const About = styled.div`
   height: 300px;
@@ -195,8 +193,6 @@ const MoreButton = styled.div`
 
   svg {
     height: 20px;
-    fill: rgb(204, 204, 204);
-    transition: 0.3s;
   }
 
   &:hover {
@@ -210,8 +206,8 @@ const MoreButton = styled.div`
 
 const Price = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   padding: 16px 22px;
   background-color: rgb(26, 26, 26);
   color: white;

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import places from '../utils/quickNavigation';
+import QuickNavigation from '../components/QuickNavigation';
 import { ReactComponent as GitHub } from '../assets/github.svg';
 import rawg from '../assets/RAWG.png';
 import video from '../assets/pyke.mp4';
 
 function Home() {
-  const SVGSize = { height: '20px', width: '20px' };
+  const openPages = (name: string) => (name === 'Play Dice' ? 'game' : 'games');
   return (
     <>
       <Main>
@@ -29,15 +29,7 @@ function Home() {
             </RAWGAPILink>
           </Links>
         </Description>
-        <Navigation>
-          <h3>Quick Navigation</h3>
-          {places.map((place) => (
-            <div>
-              {place.icon}
-              {place.name}
-            </div>
-          ))}
-        </Navigation>
+        <QuickNavigation />
       </Main>
       <Video autoPlay muted loop>
         <source src={video} type="video/mp4" />
@@ -123,44 +115,6 @@ const RAWGAPILink = styled(GitHubLink)``;
 
 const RAWGLogo = styled.img`
   height: 20px;
-`;
-
-const Navigation = styled(Pitch)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 14px;
-  width: min(240px, 40vw);
-  padding: 15px 25px;
-  border-radius: 30px;
-
-  h3 {
-    margin: 0;
-    font-size: 22px;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 10px 0;
-    background-color: white;
-    color: black;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-
-    &:hover {
-      background-color: rgb(106, 190, 187);
-      transform: scale(1.05);
-    }
-
-    &:active {
-      transform: scale(1);
-    }
-  }
 `;
 
 const Video = styled.video`

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Cart from './Cart';
 import logo from '../assets/logo.png';
@@ -15,7 +16,7 @@ function Header() {
   return (
     <>
       <HeaderWrapper>
-        <LogoWrapper>
+        <LogoWrapper as={Link} to="/">
           <Logo src={logo} alt="Logo" />
           <div>Game Harbor</div>
         </LogoWrapper>
@@ -52,6 +53,8 @@ const InputWrapper = styled.div`
 const LogoWrapper = styled(InputWrapper)`
   font-size: 26px;
   font-weight: 500;
+  color: white;
+  text-decoration: none;
   cursor: pointer;
 `;
 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 
 function Game({ name, price, image }: Props) {
   return (
-    <GameWrapper>
+    <GameWrapper to="game">
       <BackgroundImage style={{ backgroundImage: `url(${image})` }} />
       <Info>
         <Price>
@@ -20,8 +21,10 @@ function Game({ name, price, image }: Props) {
   );
 }
 
-const GameWrapper = styled.div`
+const GameWrapper = styled(Link)`
   background-color: rgb(32, 32, 32);
+  text-decoration: none;
+  color: white;
   border-radius: 18px;
   transition: 0.3s;
 
