@@ -1,19 +1,18 @@
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-import { games } from '../utils/games';
 import Game from './Game';
 
 function GameList() {
   return (
     <GameListWrapper>
-      {games.map((game) => (
+      {/* {games.map((game) => (
         <Game
           key={uniqid()}
           name={game.name}
           price={game.price}
           image={game.cover}
         />
-      ))}
+      ))} */}
     </GameListWrapper>
   );
 }

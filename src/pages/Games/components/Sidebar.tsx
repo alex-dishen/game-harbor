@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-import { releases, tops, platforms, genres } from '../utils/categories';
+import { releases, tops, platforms, genres } from '../../../utils/categories';
 
 function Sidebar() {
   return (

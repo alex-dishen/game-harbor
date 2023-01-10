@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { chosenGames } from '../utils/games';
 
 function Cart() {
   return (
@@ -7,10 +6,10 @@ function Cart() {
       <CartWrapper>
         <Header>
           <div>10 Games</div>
-          <div>Clear</div>
+          <button type="button">Clear</button>
         </Header>
         <ChosenGames>
-          {chosenGames.map((game) => (
+          {/* {chosenGames.map((game) => (
             <GameHolder>
               <div>{game.name}</div>
               <div>
@@ -18,7 +17,7 @@ function Cart() {
                 <Cross>x</Cross>
               </div>
             </GameHolder>
-          ))}
+          ))} */}
         </ChosenGames>
         <TotalPrice>Total: $243.32</TotalPrice>
       </CartWrapper>
@@ -28,8 +27,8 @@ function Cart() {
 }
 
 const CartWrapper = styled.div`
+  z-index: 2;
   position: absolute;
-  z-index: 1;
   right: 0;
   display: flex;
   flex-direction: column;
@@ -45,13 +44,16 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
 
-  & div:first-child {
+  div {
     color: white;
     font-size: 24px;
     font-weight: 800;
   }
 
-  & div:last-child {
+  button {
+    background-color: inherit;
+    color: inherit;
+    border: none;
     cursor: pointer;
   }
 `;
@@ -65,39 +67,40 @@ const ChosenGames = styled.main`
   overflow: scroll;
 `;
 
-const GameHolder = styled.div`
-  display: flex;
-  justify-content: space-between;
-  padding: 13px;
-  background-color: rgb(38, 38, 38);
-  border-radius: 10px;
+// const GameHolder = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   padding: 13px;
+//   background-color: rgb(38, 38, 38);
+//   border-radius: 10px;
 
-  & > div:first-child {
-    color: white;
-  }
+//   & > div:first-child {
+//     color: white;
+//   }
 
-  & > div:last-child {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-`;
+//   & > div:last-child {
+//     display: flex;
+//     align-items: center;
+//     gap: 12px;
+//   }
+// `;
 
-const Cross = styled.div`
-  display: flex;
-  justify-content: center;
-  height: 22px;
-  width: 22px;
-  background-color: rgb(64, 64, 64);
-  border-radius: 50%;
-  cursor: pointer;
-`;
+// const Cross = styled.div`
+//   display: flex;
+//   justify-content: center;
+//   height: 22px;
+//   width: 22px;
+//   background-color: rgb(64, 64, 64);
+//   border-radius: 50%;
+//   cursor: pointer;
+// `;
 
 const TotalPrice = styled.footer`
-  color: rgb(153, 153, 153);
+  color: inherit;
 `;
 
 const Overlay = styled.div`
+  z-index: 1;
   position: absolute;
   width: 100%;
   height: 100%;

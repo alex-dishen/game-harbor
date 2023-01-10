@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Cart from './Cart';
 import logo from '../assets/logo.png';
-import { ReactComponent as ShoppingBag } from '../assets/shopping-bag.svg';
-import { ReactComponent as MagnifyLoop } from '../assets/magnify.svg';
+import { ReactComponent as Bag } from '../assets/shopping-bag.svg';
+import { ReactComponent as MagnifyGlass } from '../assets/magnify.svg';
 
 function Header() {
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -42,6 +42,12 @@ const HeaderWrapper = styled.header`
   padding: 0 40px;
   background-color: transparent;
   color: white;
+
+  svg {
+    height: 25px;
+    width: 25px;
+    fill: white;
+  }
 `;
 
 const InputWrapper = styled.div`
@@ -62,29 +68,17 @@ const Logo = styled.img`
   height: 50px;
 `;
 
-const Input = styled.input.attrs((props) => ({
+const Input = styled.input.attrs(() => ({
   placeholder: 'Search games...',
 }))`
   padding: 8px 16px;
   outline: none;
   border: none;
-  border-radius: 8px;
-`;
-
-const MagnifyGlass = styled(MagnifyLoop)`
-  height: 25px;
-  width: 25px;
-  fill: white;
+  border-radius: 10px;
 `;
 
 const CartWrapper = styled(InputWrapper)`
   cursor: pointer;
-`;
-
-const Bag = styled(ShoppingBag)`
-  height: 25px;
-  width: 25px;
-  fill: white;
 `;
 
 export default Header;
