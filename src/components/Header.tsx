@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
 import Cart from './Cart';
 import logo from '../assets/logo.png';
@@ -7,7 +8,13 @@ import { ReactComponent as Bag } from '../assets/shopping-bag.svg';
 import { ReactComponent as MagnifyGlass } from '../assets/magnify.svg';
 
 function Header() {
+  const formControls = useAnimation();
   const [isOpenCart, setIsOpenCart] = useState(false);
+
+  const setFormMaxWidth = (width: number) => {
+    console.log('hi');
+    formControls.start({ maxWidth: width });
+  };
 
   const openAndHideCart = () => {
     setIsOpenCart(!isOpenCart);
@@ -20,8 +27,11 @@ function Header() {
           <Logo src={logo} alt="Logo" />
           <div>Game Harbor</div>
         </LogoWrapper>
-        <InputWrapper>
-          <Input />
+        <InputWrapper initial={{ maxWidth: 240 }} animate={formControls}>
+          <Input
+            onFocus={() => setFormMaxWidth(400)}
+            onBlur={() => setFormMaxWidth(240)}
+          />
           <MagnifyGlass />
         </InputWrapper>
         <CartWrapper onClick={openAndHideCart}>
@@ -29,7 +39,11 @@ function Header() {
           <div>Cart: 10</div>
         </CartWrapper>
       </HeaderWrapper>
-      {isOpenCart && <Cart />}
+      <AnimatePresence>
+        {isOpenCart && (
+          <Cart isOpenCart={isOpenCart} openAndHideCart={openAndHideCart} />
+        )}
+      </AnimatePresence>
     </>
   );
 }
@@ -38,9 +52,8 @@ const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  margin: 20px 0;
-  padding: 0 40px;
+  gap: 20px;
+  padding: 20px 40px;
   background-color: transparent;
   color: white;
 
@@ -56,18 +69,26 @@ const HeaderWrapper = styled.header`
   }
 `;
 
-const InputWrapper = styled.div`
+const InputWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 10px;
+  width: 100%;
 `;
 
 const LogoWrapper = styled(InputWrapper)`
+  flex-shrink: 0;
+  width: fit-content;
   font-size: 26px;
   font-weight: 500;
   color: white;
   text-decoration: none;
   cursor: pointer;
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Logo = styled.img`
@@ -77,6 +98,7 @@ const Logo = styled.img`
 const Input = styled.input.attrs(() => ({
   placeholder: 'Search games...',
 }))`
+  width: 100%;
   padding: 8px 16px;
   outline: none;
   border: none;
@@ -84,7 +106,15 @@ const Input = styled.input.attrs(() => ({
 `;
 
 const CartWrapper = styled(InputWrapper)`
+  flex-shrink: 0;
+  width: fit-content;
   cursor: pointer;
+
+  transition: 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 export default Header;
