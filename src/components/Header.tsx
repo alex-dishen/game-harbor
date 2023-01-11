@@ -36,6 +36,7 @@ function Header() {
 
 const HeaderWrapper = styled.header`
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 100%;
   margin: 20px 0;
@@ -47,6 +48,11 @@ const HeaderWrapper = styled.header`
     height: 25px;
     width: 25px;
     fill: white;
+  }
+
+  @media (max-width: 670px) {
+    flex-direction: column;
+    gap: 16px;
   }
 `;
 

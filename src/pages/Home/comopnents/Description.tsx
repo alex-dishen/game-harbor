@@ -34,7 +34,7 @@ const StyledDescription = styled.div`
 `;
 
 const Pitch = styled.div`
-  width: min(500px, 57vw);
+  width: clamp(350px, 57vw, 500px);
   padding: 20px 30px;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(3px);

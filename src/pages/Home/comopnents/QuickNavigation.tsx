@@ -44,7 +44,7 @@ const Navigation = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  width: min(240px, 40vw);
+  width: 234px;
   padding: 15px 25px;
   background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(3px);

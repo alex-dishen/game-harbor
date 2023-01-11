@@ -22,7 +22,13 @@ const Main = styled.main`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 40px 30px 40px;
+
+  @media (max-width: 815px) {
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+  }
 `;
 
 const Video = styled.video`
@@ -31,6 +37,10 @@ const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
+
+  @media (max-width: 815px) {
+    filter: brightness(60%);
+  }
 `;
 
 export default Home;
