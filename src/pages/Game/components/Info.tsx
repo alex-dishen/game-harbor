@@ -31,7 +31,9 @@ function Info() {
   );
 }
 
-const StyledInfo = styled.div``;
+const StyledInfo = styled.div`
+  grid-area: info;
+`;
 
 const About = styled.div`
   height: 300px;

@@ -28,7 +28,12 @@ const BackgroundImage = styled.div`
   justify-content: space-between;
   background-color: rgb(46, 46, 46);
   border-radius: 30px;
-  grid-row: 1 / 3;
+  grid-area: images;
+
+  svg {
+    height: 50px;
+    width: 50px;
+  }
 `;
 
 const LeftButton = styled.div`
@@ -37,11 +42,6 @@ const LeftButton = styled.div`
   height: 100%;
   width: 80px;
   cursor: pointer;
-
-  svg {
-    height: 50px;
-    width: 50px;
-  }
 
   &:hover {
     svg {

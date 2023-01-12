@@ -12,7 +12,6 @@ function Header() {
   const [isOpenCart, setIsOpenCart] = useState(false);
 
   const setFormMaxWidth = (width: number) => {
-    console.log('hi');
     formControls.start({ maxWidth: width });
   };
 
@@ -64,7 +63,6 @@ const HeaderWrapper = styled.header`
   }
 
   @media (max-width: 670px) {
-    flex-direction: column;
     gap: 16px;
   }
 `;
@@ -74,6 +72,12 @@ const InputWrapper = styled(motion.div)`
   align-items: center;
   gap: 10px;
   width: 100%;
+
+  @media (max-width: 670px) {
+    svg {
+      display: none;
+    }
+  }
 `;
 
 const LogoWrapper = styled(InputWrapper)`
@@ -88,6 +92,12 @@ const LogoWrapper = styled(InputWrapper)`
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 670px) {
+    div {
+      display: none;
+    }
   }
 `;
 
@@ -114,6 +124,16 @@ const CartWrapper = styled(InputWrapper)`
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  @media (max-width: 670px) {
+    svg {
+      display: block;
+    }
+
+    div {
+      display: none;
+    }
   }
 `;
 
