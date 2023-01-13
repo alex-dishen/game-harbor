@@ -22,6 +22,10 @@ const StyledTop = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
+
+  @media (max-width: 700px) {
+    align-items: center;
+  }
 `;
 
 const FilterName = styled.div`

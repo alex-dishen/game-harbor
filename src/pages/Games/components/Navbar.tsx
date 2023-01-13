@@ -1,10 +1,30 @@
 import uniqid from 'uniqid';
-import styled from 'styled-components';
+import styled, { CSSObject } from 'styled-components';
 import { releases, tops, platforms, genres } from '../../../utils/categories';
+import { ReactComponent as Close } from '../../../assets/close.svg';
 
-function Sidebar() {
+interface Props {
+  isChangeNavbar: boolean;
+  setIsHideNavbar: (a: boolean) => void;
+}
+
+interface NavProps {
+  isChangeNavbar: boolean;
+}
+
+function Navbar({ isChangeNavbar, setIsHideNavbar }: Props) {
   return (
-    <Aside>
+    <Nav isChangeNavbar={isChangeNavbar}>
+      {isChangeNavbar && (
+        <CloseHolder
+          onClick={() => {
+            setIsHideNavbar(true);
+          }}
+        >
+          <Close />
+        </CloseHolder>
+      )}
+
       <CategoryHolder>
         <div>New Releases</div>
         {releases.map((release) => (
@@ -44,17 +64,54 @@ function Sidebar() {
           </Filter>
         ))}
       </CategoryHolder>
-    </Aside>
+    </Nav>
   );
 }
 
-const Aside = styled.aside`
+const aside = {
+  position: 'sticky',
+  top: '0px',
+  display: 'flex',
+  flexDirection: 'column',
+  height: '100vh',
+  gap: '30px',
+  padding: '30px 0 20px 0',
+  overflow: 'scroll',
+};
+
+const fullScreen = {
+  position: 'fixed',
+  top: '0',
+  left: '0',
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fit, minmax(190px, auto))',
+  gap: '40px',
+  height: '100%',
+  width: '100%',
+  padding: '30px',
+  backgroundColor: 'rgb(15, 16, 17);',
+  overflow: 'scroll',
+};
+
+const Nav = styled.nav<NavProps>`
+  ${(props) =>
+    props.isChangeNavbar ? (fullScreen as CSSObject) : (aside as CSSObject)}
+`;
+
+const CloseHolder = styled.div`
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
   display: flex;
-  flex-direction: column;
-  height: 81vh;
-  gap: 30px;
-  margin-top: 30px;
-  overflow: scroll;
+  padding: 5px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+
+  svg {
+    height: 25px;
+    width: 25px;
+  }
 `;
 
 const CategoryHolder = styled.div`
@@ -100,4 +157,4 @@ const Filter = styled.div`
   }
 `;
 
-export default Sidebar;
+export default Navbar;

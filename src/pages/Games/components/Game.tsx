@@ -36,7 +36,6 @@ const GameWrapper = styled(Link)`
 
 const BackgroundImage = styled.div`
   aspect-ratio: 1.7 / 1;
-  width: 100%;
   background-size: cover;
   background-position: center;
   border-top-left-radius: 18px;
