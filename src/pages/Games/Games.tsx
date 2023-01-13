@@ -5,13 +5,17 @@ import Top from './components/Top';
 import GameList from './components/GameList';
 import { ReactComponent as Menu } from '../../assets/menu.svg';
 
-function Games() {
+interface Props {
+  isChangeNavbar: boolean;
+  setIsChangeNavbar: (a: boolean) => void;
+}
+
+function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
   const [isHideNavbar, setIsHideNavbar] = useState(false);
-  const [isChangeNavbar, setIsChangeNavbar] = useState(false);
+  // const [isChangeNavbar, setIsChangeNavbar] = useState(false);
 
   const getWindowWidth = () => {
     const { innerWidth } = window;
-    console.log(isHideNavbar);
 
     if (innerWidth <= 700) {
       if (!isHideNavbar) {

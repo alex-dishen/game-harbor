@@ -1,14 +1,27 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
+import { useScrollDirection } from '../utils/customHooks';
 import Cart from './Cart';
 import logo from '../assets/logo.png';
 import { ReactComponent as Bag } from '../assets/shopping-bag.svg';
 import { ReactComponent as MagnifyGlass } from '../assets/magnify.svg';
 
-function Header() {
+interface Props {
+  isChangeNavbar: boolean;
+}
+
+interface HeaderProps {
+  scrollDirection: string;
+  location: string;
+  isChangeNavbar: boolean;
+}
+
+function Header({ isChangeNavbar }: Props) {
   const formControls = useAnimation();
+  const scrollDirection = useScrollDirection();
+  const location = useLocation();
   const [isOpenCart, setIsOpenCart] = useState(false);
 
   const setFormMaxWidth = (width: number) => {
@@ -21,7 +34,11 @@ function Header() {
 
   return (
     <>
-      <HeaderWrapper>
+      <HeaderWrapper
+        scrollDirection={scrollDirection}
+        location={location.pathname}
+        isChangeNavbar={isChangeNavbar}
+      >
         <LogoWrapper as={Link} to="/">
           <Logo src={logo} alt="Logo" />
           <div>Game Harbor</div>
@@ -47,14 +64,25 @@ function Header() {
   );
 }
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header<HeaderProps>`
+  position: ${(props) => (props.location === '/games' ? 'sticky' : 'block')};
+  /* z-index is getting changed to not appear
+  when menu is opened on smaller screens */
+  z-index: ${(props) => (props.isChangeNavbar ? '0' : '1')};
+  top: ${(props) =>
+    props.scrollDirection === 'down' && props.location === '/games'
+      ? '-90px'
+      : '0'};
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 90px;
   gap: 20px;
   padding: 20px 40px;
-  background-color: transparent;
+  background-color: ${(props) =>
+    props.location === '/games' ? 'rgb(15, 16, 17)' : 'transparent'};
   color: white;
+  transition: 0.5s;
 
   svg {
     height: 25px;
