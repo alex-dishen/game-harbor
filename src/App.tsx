@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Home from './pages/Home/Home';
 import Games from './pages/Games/Games';
 import Game from './pages/Game/Game';
+import GlobalStyle from './styles/GlobalStyle';
 import './styles/normalize.scss';
 import './font/stylesheet.css';
 
@@ -12,6 +13,7 @@ function App() {
   const [isChangeNavbar, setIsChangeNavbar] = useState(false);
   return (
     <BrowserRouter>
+      <GlobalStyle />
       <Header isChangeNavbar={isChangeNavbar} />
       <AnimatePresence>
         <Routes>

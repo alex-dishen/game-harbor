@@ -1,12 +1,20 @@
+import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Description from './comopnents/Description';
-import QuickNavigation from './comopnents/QuickNavigation';
+import Description from './components/Description';
+import QuickNavigation from './components/QuickNavigation';
+import { changeParentHeight } from '../../utils/helpers';
 import video from '../../assets/pyke.mp4';
 
 function Home() {
+  const mainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    changeParentHeight(mainRef, '100vh');
+  }, []);
+
   return (
     <>
-      <Main>
+      <Main ref={mainRef}>
         <Description />
         <QuickNavigation />
       </Main>

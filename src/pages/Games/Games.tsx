@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Navbar from './components/Navbar';
 import Top from './components/Top';
 import GameList from './components/GameList';
+import { changeParentHeight } from '../../utils/helpers';
 import { ReactComponent as Menu } from '../../assets/menu.svg';
 
 interface Props {
@@ -11,8 +12,8 @@ interface Props {
 }
 
 function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
+  const gamesRef = useRef<HTMLDivElement>(null);
   const [isHideNavbar, setIsHideNavbar] = useState(false);
-  // const [isChangeNavbar, setIsChangeNavbar] = useState(false);
 
   const getWindowWidth = () => {
     const { innerWidth } = window;
@@ -29,6 +30,10 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
   };
 
   useEffect(() => {
+    changeParentHeight(gamesRef, '100%');
+  }, []);
+
+  useEffect(() => {
     getWindowWidth();
 
     window.addEventListener('resize', getWindowWidth);
@@ -40,7 +45,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
   }, [isChangeNavbar]);
 
   return (
-    <StyledGamePage>
+    <StyledGamePage ref={gamesRef}>
       {isHideNavbar ? (
         <MenuHolder onClick={() => setIsHideNavbar(false)}>
           <Menu />
@@ -64,6 +69,10 @@ const StyledGamePage = styled.main`
   gap: 45px;
   padding: 0px 30px;
   color: white;
+
+  /* & {
+    height: 100%;
+  } */
 
   @media (max-width: 700px) {
     padding: 25px 0px;
