@@ -57,7 +57,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
         />
       )}
       <Content>
-        <Top />
+        <Top isChangeNavbar={isChangeNavbar} />
         <GameList />
       </Content>
     </StyledGamePage>
@@ -69,10 +69,6 @@ const StyledGamePage = styled.main`
   gap: 45px;
   padding: 0px 30px;
   color: white;
-
-  /* & {
-    height: 100%;
-  } */
 
   @media (max-width: 700px) {
     padding: 25px 0px;
@@ -99,7 +95,6 @@ const MenuHolder = styled.div`
 const Content = styled.div`
   flex: 1;
   padding: 0 15px 10px 15px;
-  /* height: 84.5vh; */
   padding-bottom: 30px;
   height: 100%;
   overflow: scroll;
