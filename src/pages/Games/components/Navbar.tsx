@@ -141,10 +141,12 @@ const Filter = styled.div`
     padding: 8px;
     background-color: rgb(45, 45, 45);
     border-radius: 8px;
+    transition: 0.5s;
   }
 
   svg {
     fill: white;
+    transition: 0.5s;
   }
 
   &:hover {

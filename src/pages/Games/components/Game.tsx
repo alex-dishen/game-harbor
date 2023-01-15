@@ -26,6 +26,7 @@ const GameWrapper = styled(Link)`
   text-decoration: none;
   color: white;
   border-radius: 18px;
+  cursor: default;
   transition: 0.3s;
 
   &:hover {
@@ -52,6 +53,7 @@ const Info = styled.div`
 const Price = styled.div`
   display: flex;
   justify-content: space-between;
+  cursor: auto;
 
   span {
     color: rgb(153, 153, 153);

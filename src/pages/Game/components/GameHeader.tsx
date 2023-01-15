@@ -45,6 +45,11 @@ const BackButton = styled(Link)`
   cursor: pointer;
   transition: 0.3s;
 
+  svg {
+    height: 25px;
+    width: 25px;
+  }
+
   &:hover {
     color: rgb(24, 176, 171);
 

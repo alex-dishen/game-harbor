@@ -82,7 +82,8 @@ const HeaderWrapper = styled.header<HeaderProps>`
   background-color: ${(props) =>
     props.location === '/games' ? 'rgb(15, 16, 17)' : 'transparent'};
   color: white;
-  transition: 0.5s;
+  transition: top 0.5s;
+  transition: background 1s;
 
   svg {
     height: 25px;

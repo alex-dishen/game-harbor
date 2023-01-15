@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import GameHeader from './components/GameHeader';
 import Images from './components/Images';
 import Info from './components/Info';
@@ -6,7 +7,12 @@ import Price from './components/Price';
 
 function Game() {
   return (
-    <GameWrapper>
+    <GameWrapper
+      initial={{ opacity: 0, x: -25 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4 }}
+      exit={{ opacity: 0, x: -25 }}
+    >
       <GameHeader />
       <Main>
         <Images />
@@ -17,7 +23,7 @@ function Game() {
   );
 }
 
-const GameWrapper = styled.main`
+const GameWrapper = styled(motion.main)`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -26,8 +32,6 @@ const GameWrapper = styled.main`
   padding: 20px 40px 30px 40px;
 
   svg {
-    height: 30px;
-    width: 30px;
     fill: rgb(204, 204, 204);
     transition: 0.3s;
   }

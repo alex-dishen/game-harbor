@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Top from './components/Top';
 import GameList from './components/GameList';
@@ -39,7 +40,12 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
   }, [isChangeNavbar]);
 
   return (
-    <StyledGamePage>
+    <StyledGamePage
+      initial={{ opacity: 0, x: 25 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4 }}
+      exit={{ opacity: 0, x: 25 }}
+    >
       {isHideNavbar ? (
         <MenuHolder onClick={() => setIsHideNavbar(false)}>
           <Menu />
@@ -58,7 +64,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
   );
 }
 
-const StyledGamePage = styled.main`
+const StyledGamePage = styled(motion.main)`
   display: flex;
   gap: 45px;
   padding: 0px 30px;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Description from './components/Description';
 import QuickNavigation from './components/QuickNavigation';
 import video from '../../assets/pyke.mp4';
@@ -6,18 +7,31 @@ import video from '../../assets/pyke.mp4';
 function Home() {
   return (
     <>
-      <Main>
+      <Main
+        initial={{ opacity: 0, x: -25 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+        exit={{ opacity: 0, x: -25 }}
+      >
         <Description />
         <QuickNavigation />
       </Main>
-      <Video autoPlay muted loop>
+      <Video
+        autoPlay
+        muted
+        loop
+        initial={{ opacity: 0, x: -25 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+        exit={{ opacity: 0, x: -25 }}
+      >
         <source src={video} type="video/mp4" />
       </Video>
     </>
   );
 }
 
-const Main = styled.main`
+const Main = styled(motion.main)`
   flex: 1;
   display: flex;
   align-items: center;
@@ -31,7 +45,7 @@ const Main = styled.main`
   }
 `;
 
-const Video = styled.video`
+const Video = styled(motion.video)`
   position: fixed;
   z-index: -1;
   width: 100%;

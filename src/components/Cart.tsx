@@ -30,7 +30,7 @@ function Cart({ isOpenCart, openAndHideCart }: Props) {
         ref={cartRef}
         initial={{ x: 360 }}
         animate={{ x: 0 }}
-        transition={{ type: 'spring', bounce: 0.2, duration: 0.5 }}
+        transition={{ type: 'spring', bounce: 0.3, duration: 0.7 }}
         exit={{ x: 360 }}
       >
         <Header>
