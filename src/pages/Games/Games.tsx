@@ -99,10 +99,6 @@ const Content = styled.div`
   height: 100%;
   overflow: scroll;
 
-  svg {
-    fill: white;
-  }
-
   @media (max-width: 700px) {
     padding: 0 35px 10px 35px;
   }

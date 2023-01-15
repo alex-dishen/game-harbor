@@ -8,13 +8,18 @@ interface Props {
   isChangeNavbar: boolean;
 }
 
+interface OrderProps {
+  platformTitle?: string;
+  orderByTitle?: string;
+}
+
 function Top({ isChangeNavbar }: Props) {
   const platformOrderRef = useRef<HTMLDivElement>(null);
   const orderByRef = useRef<HTMLDivElement>(null);
   const [isOpenPlatformOrder, setIsOpenPlatformOrder] = useState(false);
   const [isOpenOrderBy, setIsOpenOrderBy] = useState(false);
   const [platformTitle, setPlatformTitle] = useState('Platforms');
-  const [orderByTitle, setOrderByTitle] = useState('Release date');
+  const [orderByTitle, setOrderByTitle] = useState('...');
 
   const orderBy = [
     'Relevance',
@@ -38,6 +43,11 @@ function Top({ isChangeNavbar }: Props) {
     const { textContent } = target;
 
     if (textContent !== null) setOrderByTitle(textContent);
+  };
+
+  const handleOptionClick = (e: MouseEvent<HTMLElement>) => {
+    changeTitle(e);
+    openAndHideOrderBy();
   };
 
   useEffect(() => {
@@ -70,14 +80,14 @@ function Top({ isChangeNavbar }: Props) {
 
       <OrderSection>
         <OrderWrapper>
-          <Order onClick={openAndHideOrderBy}>
+          <Order orderByTitle={orderByTitle} onClick={openAndHideOrderBy}>
             Order by: {orderByTitle}
             <Chevron />
           </Order>
           {isOpenOrderBy && (
             <OptionWrapper ref={orderByRef}>
               {orderBy.map((item) => (
-                <Option onClick={changeTitle} key={uniqid()}>
+                <Option onClick={handleOptionClick} key={uniqid()}>
                   {item}
                 </Option>
               ))}
@@ -86,7 +96,10 @@ function Top({ isChangeNavbar }: Props) {
         </OrderWrapper>
 
         <OrderWrapper>
-          <Order onClick={openAndHidePlatformOrder}>
+          <Order
+            platformTitle={platformTitle}
+            onClick={openAndHidePlatformOrder}
+          >
             {platformTitle} <Chevron />
           </Order>
           {isOpenPlatformOrder && (
@@ -94,6 +107,7 @@ function Top({ isChangeNavbar }: Props) {
               <PlatformsOrder
                 isChangeNavbar={isChangeNavbar}
                 setTitle={setPlatformTitle}
+                openAndHidePlatformOrder={openAndHidePlatformOrder}
               />
             </OptionWrapper>
           )}
@@ -142,14 +156,40 @@ const OrderWrapper = styled.div`
   cursor: pointer;
 `;
 
-const Order = styled.div`
+const Order = styled.div<OrderProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   padding: 8px 15px;
-  background-color: rgb(38, 38, 38);
+  ${(props) => {
+    if (props.orderByTitle) {
+      return {
+        backgroundColor:
+          props.orderByTitle === '...' ? 'rgb(38, 38, 38)' : 'white',
+        color: props.orderByTitle === '...' ? 'white' : 'black',
+      };
+    }
+    if (props.platformTitle) {
+      return {
+        backgroundColor:
+          props.platformTitle === 'Platforms' ? 'rgb(38, 38, 38)' : 'white',
+        color: props.platformTitle === 'Platforms' ? 'white' : 'black',
+      };
+    }
+  }}
   border-radius: 10px;
+
+  svg {
+    fill: ${(props) => {
+      if (props.orderByTitle) {
+        return props.orderByTitle === '...' ? 'white' : 'black';
+      }
+      if (props.platformTitle) {
+        return props.platformTitle === 'Platforms' ? 'white' : 'black';
+      }
+    }};
+  }
 `;
 
 const OptionWrapper = styled.div`

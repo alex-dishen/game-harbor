@@ -6,13 +6,18 @@ import { ReactComponent as ChevronRight } from '../../../assets/chevron-right.sv
 interface Props {
   setTitle: (a: string) => void;
   isChangeNavbar: boolean;
+  openAndHidePlatformOrder: () => void;
 }
 
 interface OptionsHolderProps {
   isChangeNavbar?: boolean;
 }
 
-function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
+function PlatformsOrder({
+  setTitle,
+  isChangeNavbar,
+  openAndHidePlatformOrder,
+}: Props) {
   const [isPlayStationHovered, setIsPlayStationHovered] = useState(false);
   const [isXboxHovered, setIsXboxHovered] = useState(false);
   const [isAppleHovered, setIsAppleHovered] = useState(false);
@@ -51,6 +56,11 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
     if (textContent !== null) setTitle(textContent);
   };
 
+  const handleOptionClick = (e: MouseEvent<HTMLElement>) => {
+    changeTitle(e);
+    openAndHidePlatformOrder();
+  };
+
   const handleMouseOver = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
     const textContent = target.textContent?.replace(/\s/g, '');
@@ -69,7 +79,7 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
   return (
     <>
       <p>Platforms</p>
-      <Option onClick={changeTitle}>PC</Option>
+      <Option onClick={handleOptionClick}>PC</Option>
 
       <MoreOptions
         onMouseEnter={handleMouseOver}
@@ -79,7 +89,9 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
         {isPlayStationHovered && (
           <OptionsHolder isChangeNavbar={isChangeNavbar}>
             {playStation.map((option) => (
-              <div key={uniqid()}>{option}</div>
+              <AdditionalOption onClick={handleOptionClick} key={uniqid()}>
+                {option}
+              </AdditionalOption>
             ))}
             <hr />
             <span>Select all</span>
@@ -95,7 +107,9 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
         {isXboxHovered && (
           <OptionsHolder isChangeNavbar={isChangeNavbar}>
             {xbox.map((option) => (
-              <div key={uniqid()}>{option}</div>
+              <AdditionalOption onClick={handleOptionClick} key={uniqid()}>
+                {option}
+              </AdditionalOption>
             ))}
             <hr />
             <span>Select all</span>
@@ -103,8 +117,8 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
         )}
       </MoreOptions>
 
-      <Option onClick={changeTitle}>iOS</Option>
-      <Option onClick={changeTitle}>Android</Option>
+      <Option onClick={handleOptionClick}>iOS</Option>
+      <Option onClick={handleOptionClick}>Android</Option>
 
       <MoreOptions
         onMouseEnter={handleMouseOver}
@@ -114,7 +128,9 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
         {isAppleHovered && (
           <OptionsHolder isChangeNavbar={isChangeNavbar}>
             {apple.map((option) => (
-              <div key={uniqid()}>{option}</div>
+              <AdditionalOption onClick={handleOptionClick} key={uniqid()}>
+                {option}
+              </AdditionalOption>
             ))}
             <hr />
             <span>Select all</span>
@@ -122,7 +138,7 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
         )}
       </MoreOptions>
 
-      <Option onClick={changeTitle}>Linux</Option>
+      <Option onClick={handleOptionClick}>Linux</Option>
 
       <MoreOptions
         onMouseEnter={handleMouseOver}
@@ -132,7 +148,9 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
         {isNintendoHovered && (
           <OptionsHolder isChangeNavbar={isChangeNavbar}>
             {nintendo.map((option) => (
-              <div key={uniqid()}>{option}</div>
+              <AdditionalOption onClick={handleOptionClick} key={uniqid()}>
+                {option}
+              </AdditionalOption>
             ))}
             <hr />
             <span>Select all</span>
@@ -140,7 +158,7 @@ function PlatformsOrder({ setTitle, isChangeNavbar }: Props) {
         )}
       </MoreOptions>
 
-      <Option onClick={changeTitle}>Web</Option>
+      <Option onClick={handleOptionClick}>Web</Option>
     </>
   );
 }
@@ -167,18 +185,6 @@ const OptionsHolder = styled.div<OptionsHolderProps>`
   border-radius: 10px;
   box-shadow: 0px 5px 15px rgb(111, 110, 110), 0px 0px 5px rgb(111, 110, 110);
 
-  div {
-    display: flex;
-    font-size: 15px;
-    padding: 3px 8px;
-    border-radius: 7px;
-    transition: 0.2s;
-
-    &:hover {
-      background-color: rgb(229, 229, 229);
-    }
-  }
-
   hr {
     margin: 0;
     width: 100%;
@@ -188,6 +194,18 @@ const OptionsHolder = styled.div<OptionsHolderProps>`
     text-align: center;
     padding: 3px 8px;
     color: rgb(23, 179, 12);
+  }
+`;
+
+const AdditionalOption = styled.div`
+  display: flex;
+  font-size: 15px;
+  padding: 3px 8px;
+  border-radius: 7px;
+  transition: 0.2s;
+
+  &:hover {
+    background-color: rgb(229, 229, 229);
   }
 `;
 
