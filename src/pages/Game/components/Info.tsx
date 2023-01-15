@@ -56,7 +56,7 @@ const MoreInfo = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  height: 63px;
+  max-height: 245px;
   padding: 20px;
   background-color: rgb(38, 38, 38);
   border-bottom-left-radius: 12px;

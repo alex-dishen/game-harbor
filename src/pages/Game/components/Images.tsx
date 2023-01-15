@@ -26,6 +26,7 @@ const BackgroundImage = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
+  min-height: 445px;
   background-color: rgb(46, 46, 46);
   border-radius: 30px;
   grid-area: images;

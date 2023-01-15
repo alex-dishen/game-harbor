@@ -1,19 +1,12 @@
-import { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import GameHeader from './components/GameHeader';
 import Images from './components/Images';
 import Info from './components/Info';
 import Price from './components/Price';
-import { changeParentHeight } from '../../utils/helpers';
 
 function Game() {
-  const gameRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    changeParentHeight(gameRef, '100vh');
-  }, []);
   return (
-    <GameWrapper ref={gameRef}>
+    <GameWrapper>
       <GameHeader />
       <Main>
         <Images />
@@ -25,6 +18,7 @@ function Game() {
 }
 
 const GameWrapper = styled.main`
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
