@@ -1,6 +1,7 @@
 import { useState, MouseEvent } from 'react';
 import styled from 'styled-components';
 import uniqid from 'uniqid';
+import { xbox, apple, playStation, nintendo } from '../../../utils/options';
 import { ReactComponent as ChevronRight } from '../../../assets/chevron-right.svg';
 
 interface Props {
@@ -22,32 +23,6 @@ function PlatformsOrder({
   const [isXboxHovered, setIsXboxHovered] = useState(false);
   const [isAppleHovered, setIsAppleHovered] = useState(false);
   const [isNintendoHovered, setIsNintendoHovered] = useState(false);
-  const xbox = ['Xbox One', 'Xbox Series S/X', 'Xbox 360', 'Xbox'];
-  const apple = ['macOs', 'Classic Macintosh', 'Apple II'];
-  const playStation = [
-    'PlayStation 5',
-    'PlayStation 4',
-    'PlayStation 3',
-    'PlayStation 2',
-    'PlayStation',
-    'PS Vita',
-    'PSP',
-  ];
-  const nintendo = [
-    'Nintendo Switch',
-    'Nintendo 3DS',
-    'Nintendo DS',
-    'Nintendo DSi',
-    'Wii U',
-    'Wii',
-    'GameCube',
-    'Nintendo 64',
-    'Game Boy Advance',
-    'Game Boy Color',
-    'Game Boy',
-    'SNES',
-    'NES',
-  ];
 
   const changeTitle = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;

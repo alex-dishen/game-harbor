@@ -4,16 +4,16 @@ import uniqid from 'uniqid';
 import styled from 'styled-components';
 import places from '../../../utils/places';
 
-type Props = {
+interface Props {
   name: string;
   icon: JSX.Element;
-};
+}
 
 function Place({ name, icon }: Props) {
   const [goTo, setGoTo] = useState('');
 
-  const openPages = (nam: string) =>
-    nam === 'Play Dice' ? 'games/game' : 'games';
+  const openPages = (placeName: string) =>
+    placeName === 'Play Dice' ? 'games/game' : 'games';
 
   useEffect(() => {
     setGoTo(openPages(name));

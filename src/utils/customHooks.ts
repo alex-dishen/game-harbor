@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, RefObject } from 'react';
 
 export function useScrollDirection() {
   const [scrollDirection, setScrollDirection] = useState('');
@@ -25,4 +25,24 @@ export function useScrollDirection() {
   }, [scrollDirection]);
 
   return scrollDirection;
+}
+
+export function useClickOutside(
+  condition: boolean,
+  ref: RefObject<HTMLElement>,
+  todo: () => void
+) {
+  useEffect(() => {
+    const handleClickOutside = (e: Event) => {
+      if (condition && !ref.current?.contains(e.target as HTMLElement)) {
+        todo();
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  });
 }

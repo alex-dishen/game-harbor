@@ -1,6 +1,8 @@
-import { useEffect, useRef, useState, MouseEvent } from 'react';
+import { useRef, useState, MouseEvent } from 'react';
 import styled from 'styled-components';
 import uniqid from 'uniqid';
+import { orderBy } from '../../../utils/options';
+import { useClickOutside } from '../../../utils/customHooks';
 import PlatformsOrder from './PlatformsOrder';
 import { ReactComponent as Chevron } from '../../../assets/chevron-down.svg';
 
@@ -20,15 +22,6 @@ function Top({ isChangeNavbar }: Props) {
   const [isOpenOrderBy, setIsOpenOrderBy] = useState(false);
   const [platformTitle, setPlatformTitle] = useState('Platforms');
   const [orderByTitle, setOrderByTitle] = useState('...');
-
-  const orderBy = [
-    'Relevance',
-    'Date added',
-    'Name',
-    'Release date',
-    'Popularity',
-    'Average rating',
-  ];
 
   const openAndHidePlatformOrder = () => {
     setIsOpenPlatformOrder(!isOpenPlatformOrder);
@@ -50,29 +43,12 @@ function Top({ isChangeNavbar }: Props) {
     openAndHideOrderBy();
   };
 
-  useEffect(() => {
-    const handleClickOutside = (e: Event) => {
-      if (
-        isOpenPlatformOrder &&
-        !platformOrderRef.current?.contains(e.target as HTMLElement)
-      ) {
-        openAndHidePlatformOrder();
-      }
-
-      if (
-        isOpenOrderBy &&
-        !orderByRef.current?.contains(e.target as HTMLElement)
-      ) {
-        openAndHideOrderBy();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
+  useClickOutside(
+    isOpenPlatformOrder,
+    platformOrderRef,
+    openAndHidePlatformOrder
+  );
+  useClickOutside(isOpenOrderBy, orderByRef, openAndHideOrderBy);
 
   return (
     <StyledTop>

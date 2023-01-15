@@ -14,7 +14,7 @@ interface NavProps {
 
 function Navbar({ isChangeNavbar, setIsHideNavbar }: Props) {
   return (
-    <Nav isChangeNavbar={isChangeNavbar}>
+    <StyledNavbar isChangeNavbar={isChangeNavbar}>
       {isChangeNavbar && (
         <CloseHolder
           onClick={() => {
@@ -64,7 +64,7 @@ function Navbar({ isChangeNavbar, setIsHideNavbar }: Props) {
           </Filter>
         ))}
       </CategoryHolder>
-    </Nav>
+    </StyledNavbar>
   );
 }
 
@@ -94,7 +94,7 @@ const fullScreen = {
   overflow: 'scroll',
 };
 
-const Nav = styled.nav<NavProps>`
+const StyledNavbar = styled.nav<NavProps>`
   ${(props) =>
     props.isChangeNavbar ? (fullScreen as CSSObject) : (aside as CSSObject)}
 `;

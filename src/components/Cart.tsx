@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
+import { useClickOutside } from '../utils/customHooks';
 
 interface Props {
   isOpenCart: boolean;
@@ -10,19 +11,7 @@ interface Props {
 function Cart({ isOpenCart, openAndHideCart }: Props) {
   const cartRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const handleClickOutside = (e: Event) => {
-      if (isOpenCart && !cartRef.current?.contains(e.target as HTMLElement)) {
-        openAndHideCart();
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
+  useClickOutside(isOpenCart, cartRef, openAndHideCart);
 
   return (
     <>

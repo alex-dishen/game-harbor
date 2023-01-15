@@ -66,8 +66,6 @@ function Header({ isChangeNavbar }: Props) {
 
 const HeaderWrapper = styled.header<HeaderProps>`
   position: ${(props) => (props.location === '/games' ? 'sticky' : 'block')};
-  /* z-index is getting changed to not appear
-  when menu is opened on smaller screens */
   z-index: 2;
   top: ${(props) =>
     props.scrollDirection === 'down' && props.location === '/games'

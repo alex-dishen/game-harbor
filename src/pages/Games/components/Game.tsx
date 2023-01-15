@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-type Props = {
+interface Props {
   name: string;
   price: string;
   image: string;
-};
+}
 
 function Game({ name, price, image }: Props) {
   return (
