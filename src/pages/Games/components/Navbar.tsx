@@ -81,6 +81,7 @@ const aside = {
 
 const fullScreen = {
   position: 'fixed',
+  zIndex: '4',
   top: '0',
   left: '0',
   display: 'grid',

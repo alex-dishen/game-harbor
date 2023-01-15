@@ -61,7 +61,7 @@ function Cart({ isOpenCart, openAndHideCart }: Props) {
 }
 
 const CartWrapper = styled(motion.div)`
-  z-index: 2;
+  z-index: 3;
   position: fixed;
   right: 0;
   display: flex;
@@ -138,7 +138,7 @@ const TotalPrice = styled.footer`
 `;
 
 const Overlay = styled(motion.div)`
-  z-index: 1;
+  z-index: 2;
   position: fixed;
   width: 100%;
   height: 100%;

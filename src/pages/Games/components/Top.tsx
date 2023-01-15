@@ -154,6 +154,7 @@ const Order = styled.div`
 
 const OptionWrapper = styled.div`
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
   display: flex;
