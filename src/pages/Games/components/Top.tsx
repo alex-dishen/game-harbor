@@ -67,36 +67,41 @@ function Top({ isChangeNavbar }: Props) {
   return (
     <StyledTop>
       <FilterName>Filter Name</FilterName>
+
       <OrderSection>
-        <Order onClick={openAndHideOrderBy}>
-          Order by: {orderByTitle}
-          <Chevron />
+        <OrderWrapper>
+          <Order onClick={openAndHideOrderBy}>
+            Order by: {orderByTitle}
+            <Chevron />
+          </Order>
           {isOpenOrderBy && (
-            <OrderHolder ref={orderByRef}>
+            <OptionWrapper ref={orderByRef}>
               {orderBy.map((item) => (
                 <Option onClick={changeTitle} key={uniqid()}>
                   {item}
                 </Option>
               ))}
-            </OrderHolder>
+            </OptionWrapper>
           )}
-        </Order>
-        <Order onClick={openAndHidePlatformOrder}>
-          {platformTitle} <Chevron />
+        </OrderWrapper>
+
+        <OrderWrapper>
+          <Order onClick={openAndHidePlatformOrder}>
+            {platformTitle} <Chevron />
+          </Order>
           {isOpenPlatformOrder && (
-            <OrderHolder ref={platformOrderRef}>
+            <OptionWrapper ref={platformOrderRef}>
               <PlatformsOrder
                 isChangeNavbar={isChangeNavbar}
                 setTitle={setPlatformTitle}
               />
-            </OrderHolder>
+            </OptionWrapper>
           )}
-        </Order>
+        </OrderWrapper>
       </OrderSection>
     </StyledTop>
   );
 }
-
 const StyledTop = styled.div`
   display: flex;
   flex-direction: column;
@@ -116,8 +121,6 @@ const FilterName = styled.div`
   }
 `;
 
-const Option = styled.div``;
-
 const OrderSection = styled.div`
   display: flex;
   gap: 20px;
@@ -127,28 +130,30 @@ const OrderSection = styled.div`
     width: 20px;
   }
 
-  @media (max-width: 460px) {
+  @media (max-width: 470px) {
     flex-direction: column;
   }
 `;
 
-const Order = styled.div`
+const OrderWrapper = styled.div`
   position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
   flex-shrink: 0;
-  gap: 8px;
   min-width: 150px;
-  padding: 8px 15px;
-  background-color: rgb(38, 38, 38);
-  border-radius: 10px;
   cursor: pointer;
 `;
 
-const OrderHolder = styled.div`
+const Order = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 15px;
+  background-color: rgb(38, 38, 38);
+  border-radius: 10px;
+`;
+
+const OptionWrapper = styled.div`
   position: absolute;
-  z-index: 2;
   top: 0;
   left: 0;
   display: flex;
@@ -184,5 +189,7 @@ const OrderHolder = styled.div`
     }
   }
 `;
+
+const Option = styled.div``;
 
 export default Top;
