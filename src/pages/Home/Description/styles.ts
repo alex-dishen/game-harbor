@@ -1,31 +1,4 @@
 import styled from 'styled-components';
-import rawg from '../../../assets/RAWG.png';
-import { ReactComponent as Github } from '../../../assets/github.svg';
-
-function Description() {
-  return (
-    <StyledDescription>
-      <Pitch>
-        <h1>Game Harbor</h1>
-        <p>
-          The best destination to buy new games to competitive prices. 24 hour
-          support, "best price" guarantee and a flawless UX. Wish for more? Tell
-          us below — or check out our <span>careers</span>.
-        </p>
-      </Pitch>
-      <Links>
-        <GitHubLink href="https://github.com/alex-dishen" target="_blank">
-          <Github />
-          alex-dishen
-        </GitHubLink>
-        <RAWGLink href="https://rawg.io/apidocs" target="_blank">
-          <RAWGLogo src={rawg} alt="RAWG logo" />
-          RAWG API
-        </RAWGLink>
-      </Links>
-    </StyledDescription>
-  );
-}
 
 const StyledDescription = styled.div`
   display: flex;
@@ -98,4 +71,4 @@ const RAWGLogo = styled.img`
   height: 20px;
 `;
 
-export default Description;
+export { StyledDescription, Pitch, Links, GitHubLink, RAWGLink, RAWGLogo };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Description from './components/Description';
-import QuickNavigation from './components/QuickNavigation';
+import Description from './Description/Description';
+import QuickNavigation from './QuickNavigation/QuickNavigation';
 import video from '../../assets/pyke.mp4';
 
 function Home() {

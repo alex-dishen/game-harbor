@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Navbar from './components/Navbar';
-import Top from './components/Top';
-import GameList from './components/GameList';
+import Sidebar from './Sidebar/Sidebar';
+import Top from './Top/Top';
+import GameList from './GameList/GameList';
 import { ReactComponent as Menu } from '../../assets/menu.svg';
 
 interface Props {
@@ -51,7 +51,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
           <Menu />
         </MenuHolder>
       ) : (
-        <Navbar
+        <Sidebar
           isChangeNavbar={isChangeNavbar}
           setIsHideNavbar={setIsHideNavbar}
         />

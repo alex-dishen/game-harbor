@@ -1,67 +1,10 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion, useAnimation, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
-import { useScrollDirection } from '../utils/customHooks';
-import Cart from './Cart';
-import logo from '../assets/logo.png';
-import { ReactComponent as Bag } from '../assets/shopping-bag.svg';
-import { ReactComponent as MagnifyGlass } from '../assets/magnify.svg';
-
-interface Props {
-  isChangeNavbar: boolean;
-}
+import { motion } from 'framer-motion';
 
 interface HeaderProps {
   scrollDirection: string;
   location: string;
   isChangeNavbar: boolean;
-}
-
-function Header({ isChangeNavbar }: Props) {
-  const formControls = useAnimation();
-  const scrollDirection = useScrollDirection();
-  const location = useLocation();
-  const [isOpenCart, setIsOpenCart] = useState(false);
-
-  const setFormMaxWidth = (width: number) => {
-    formControls.start({ maxWidth: width });
-  };
-
-  const openAndHideCart = () => {
-    setIsOpenCart(!isOpenCart);
-  };
-
-  return (
-    <>
-      <HeaderWrapper
-        scrollDirection={scrollDirection}
-        location={location.pathname}
-        isChangeNavbar={isChangeNavbar}
-      >
-        <LogoWrapper as={Link} to="/">
-          <Logo src={logo} alt="Logo" />
-          <div>Game Harbor</div>
-        </LogoWrapper>
-        <InputWrapper initial={{ maxWidth: 240 }} animate={formControls}>
-          <Input
-            onFocus={() => setFormMaxWidth(400)}
-            onBlur={() => setFormMaxWidth(240)}
-          />
-          <MagnifyGlass />
-        </InputWrapper>
-        <CartWrapper onClick={openAndHideCart}>
-          <Bag />
-          <div>Cart: 10</div>
-        </CartWrapper>
-      </HeaderWrapper>
-      <AnimatePresence>
-        {isOpenCart && (
-          <Cart isOpenCart={isOpenCart} openAndHideCart={openAndHideCart} />
-        )}
-      </AnimatePresence>
-    </>
-  );
 }
 
 const HeaderWrapper = styled.header<HeaderProps>`
@@ -164,4 +107,4 @@ const CartWrapper = styled(InputWrapper)`
   }
 `;
 
-export default Header;
+export { HeaderWrapper, InputWrapper, LogoWrapper, Logo, Input, CartWrapper };

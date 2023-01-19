@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import Games from './pages/Games/Games';
 import Game from './pages/Game/Game';
 import './styles/normalize.scss';
-import './font/stylesheet.css';
+import './font/fonts.scss';
 
 function App() {
   const [isChangeNavbar, setIsChangeNavbar] = useState(false);

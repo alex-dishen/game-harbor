@@ -1,25 +1,12 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-interface Props {
-  name: string;
-  price: string;
-  image: string;
-}
-
-function Game({ name, price, image }: Props) {
-  return (
-    <GameWrapper to="game">
-      <BackgroundImage style={{ backgroundImage: `url(${image})` }} />
-      <Info>
-        <Price>
-          <span>Add to cart +</span> $ {price}
-        </Price>
-        <GameName>{name}</GameName>
-      </Info>
-    </GameWrapper>
-  );
-}
+const GameListWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  gap: 30px;
+  margin-top: 30px;
+`;
 
 const GameWrapper = styled(Link)`
   background-color: rgb(32, 32, 32);
@@ -67,4 +54,4 @@ const GameName = styled.div`
   cursor: pointer;
 `;
 
-export default Game;
+export { GameListWrapper, GameWrapper, BackgroundImage, Info, Price, GameName };
