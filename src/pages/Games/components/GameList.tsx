@@ -1,19 +1,38 @@
+import { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
 import styled from 'styled-components';
-import games from '../../../utils/games';
 import Game from './Game';
+import getData, { ResponseSchema } from '../../../api/api';
+import { GameTypes } from '../../../utils/Game.types';
 
 function GameList() {
+  const [games, setGames] = useState<GameTypes[]>();
+
+  useEffect(() => {
+    (async () => {
+      const newGames = await getData<ResponseSchema<GameTypes>>();
+      const { results } = newGames;
+      console.log(results);
+      setGames(results);
+    })();
+  }, []);
+
   return (
     <GameListWrapper>
-      {games.map((game) => (
-        <Game
-          key={uniqid()}
-          name={game.name}
-          price={game.price}
-          image={game.cover}
-        />
-      ))}
+      {games !== undefined ? (
+        <>
+          {games.map((game) => (
+            <Game
+              key={uniqid()}
+              name={game.name}
+              price={game.price}
+              image={game.background_image}
+            />
+          ))}
+        </>
+      ) : (
+        <div>Hi world</div>
+      )}
     </GameListWrapper>
   );
 }

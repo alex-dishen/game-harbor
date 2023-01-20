@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 interface Props {
   name: string;
-  price: string;
+  price: number;
   image: string;
 }
 
 function Game({ name, price, image }: Props) {
+  console.log(price);
   return (
     <GameWrapper to="game">
       <BackgroundImage style={{ backgroundImage: `url(${image})` }} />

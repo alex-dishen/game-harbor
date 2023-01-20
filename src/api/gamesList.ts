@@ -1,5 +1,8 @@
 import getData from './api';
 
-const getGamesList = () => getData();
+const getGamesList = () => {
+  const hi = 'hi';
+  return hi;
+};
 
 export default getGamesList;

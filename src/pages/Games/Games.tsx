@@ -36,7 +36,6 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
     return () => {
       window.removeEventListener('resize', getWindowWidth);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isChangeNavbar]);
 
   return (
