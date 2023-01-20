@@ -7,10 +7,14 @@ import Games from './pages/Games/Games';
 import Game from './pages/Game/Game';
 import './styles/normalize.scss';
 import './font/stylesheet.css';
+import getData from './api/api';
 
 function App() {
   const [isChangeNavbar, setIsChangeNavbar] = useState(false);
   const location = useLocation();
+
+  getData();
+
   return (
     <>
       <Header isChangeNavbar={isChangeNavbar} />
