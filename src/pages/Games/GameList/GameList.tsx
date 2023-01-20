@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import uniqid from 'uniqid';
-// import games from '../../../utils/games';
+import games from '../../../utils/games';
 import getData, { ResponseSchema } from '../../../api/api';
 import { GameTypes } from '../../../utils/Game.types';
 import {
@@ -13,16 +13,17 @@ import {
 } from './styles';
 
 function GameList() {
-  const [games, setGames] = useState<GameTypes[]>();
+  // const [games, setGames] = useState<GameTypes[]>();
 
-  useEffect(() => {
-    (async () => {
-      const newGames = await getData<ResponseSchema<GameTypes>>();
-      const { results } = newGames;
-      console.log(results);
-      setGames(results);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async () => {
+  //     const newGames = await getData<ResponseSchema<GameTypes>>();
+  //     const { results } = newGames;
+  //     console.log(results);
+  //     setGames(results);
+  //   })();
+  // }, []);
+
   return (
     <GameListWrapper>
       {games !== undefined ? (

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAnimation, AnimatePresence } from 'framer-motion';
 import { useScrollDirection } from '../../utils/customHooks';
@@ -24,6 +24,18 @@ function Header({ isChangeNavbar }: Props) {
   const scrollDirection = useScrollDirection();
   const location = useLocation();
   const [isOpenCart, setIsOpenCart] = useState(false);
+  const [isModifyHeader, setIsModifyHeader] = useState(false);
+
+  // It is needed to hide header color change when switching between pages
+  useEffect(() => {
+    if (location.pathname === '/games') {
+      setTimeout(() => {
+        setIsModifyHeader(true);
+      }, 400);
+    } else {
+      setIsModifyHeader(false);
+    }
+  }, [location]);
 
   const setFormMaxWidth = (width: number) => {
     formControls.start({ maxWidth: width });
@@ -37,7 +49,7 @@ function Header({ isChangeNavbar }: Props) {
     <>
       <HeaderWrapper
         scrollDirection={scrollDirection}
-        location={location.pathname}
+        isModifyHeader={isModifyHeader}
         isChangeNavbar={isChangeNavbar}
       >
         <LogoWrapper as={Link} to="/">

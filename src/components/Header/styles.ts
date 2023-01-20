@@ -3,17 +3,15 @@ import { motion } from 'framer-motion';
 
 interface HeaderProps {
   scrollDirection: string;
-  location: string;
+  isModifyHeader: boolean;
   isChangeNavbar: boolean;
 }
 
 const HeaderWrapper = styled.header<HeaderProps>`
-  position: ${(props) => (props.location === '/games' ? 'sticky' : 'block')};
+  position: ${(props) => (props.isModifyHeader ? 'sticky' : 'block')};
   z-index: 2;
   top: ${(props) =>
-    props.scrollDirection === 'down' && props.location === '/games'
-      ? '-90px'
-      : '0'};
+    props.scrollDirection === 'down' && props.isModifyHeader ? '-90px' : '0'};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,10 +19,9 @@ const HeaderWrapper = styled.header<HeaderProps>`
   gap: 20px;
   padding: 20px 40px;
   background-color: ${(props) =>
-    props.location === '/games' ? 'rgb(15, 16, 17)' : 'transparent'};
+    props.isModifyHeader ? 'rgb(15, 16, 17)' : 'transparent'};
   color: white;
   transition: top 0.5s;
-  transition: background 1s;
 
   svg {
     height: 25px;

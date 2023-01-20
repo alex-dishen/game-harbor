@@ -16,7 +16,7 @@ const games = [
     isLiked: false,
     rating: 78,
     id: 0,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188604/cyberpunk_n6jitl.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188604/cyberpunk_n6jitl.jpg',
@@ -42,7 +42,7 @@ const games = [
     isLiked: false,
     rating: 71,
     id: 1,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188621/battlefield_n0gd5a.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188621/battlefield_n0gd5a.jpg',
@@ -55,7 +55,7 @@ const games = [
     name: 'Life is Strange',
     surname: 'lis',
     price: '14.99',
-    desc: 'Life Is Strange is a five-part episodic game that sets out to revolutionize story-based choice and consequence games by allowing the player to rewind time and affect the past, present, and future. You are Max, a photography senior who saves her old friend Chloe by discovering she can rewind time. The pair soon find themselves exposed to the darker side of Arcadia Bay as they uncover the disturbing truth behind the sudden disappearance of a fellow student. Meanwhile, Max begins to have premonitions as she struggles to understand the implications of her power. She must quickly learn that changing the past can sometimes lead to a devastating future.',
+    desc: 'Life Is Strange is a five-part episodic game that sets out to revolutionize story-based choice and consequence games by allowing the player to rewind time and affect the past, present, and future. You are Max, a photography senior who saves her old friend Chloe by disbackground_imageing she can rewind time. The pair soon find themselves exposed to the darker side of Arcadia Bay as they unbackground_image the disturbing truth behind the sudden disappearance of a fellow student. Meanwhile, Max begins to have premonitions as she struggles to understand the implications of her power. She must quickly learn that changing the past can sometimes lead to a devastating future.',
     link: 'https://lifeisstrange.square-enix-games.com/',
     release: '30th of January, 2015',
     platforms: 'Playstation 4, PC, Xbox One, Xbox 360, Playstation 3',
@@ -68,7 +68,7 @@ const games = [
     isLiked: false,
     rating: 83,
     id: 2,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/lis_ft0puo.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188606/lis_ft0puo.jpg',
@@ -94,7 +94,7 @@ const games = [
     isLiked: false,
     rating: 84,
     id: 3,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658232678/mariokart_0_mhgbeg.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658232678/mariokart_0_mhgbeg.jpg',
@@ -121,7 +121,7 @@ const games = [
     isLiked: false,
     rating: 86,
     id: 4,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188602/bioshockinfinite_qyo3pi.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188602/bioshockinfinite_qyo3pi.jpg',
@@ -147,7 +147,7 @@ const games = [
     isLiked: false,
     rating: 81,
     id: 5,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188622/anno_cbmzye.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188622/anno_cbmzye.jpg',
@@ -173,7 +173,7 @@ const games = [
     isLiked: false,
     rating: 92,
     id: 6,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188613/rdr_fhqs3d.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,w_1920/v1658188613/rdr_fhqs3d.jpg',
@@ -199,7 +199,7 @@ const games = [
     isLiked: false,
     rating: 90,
     id: 7,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/horizon_jzlhsd.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188606/horizon_jzlhsd.jpg',
@@ -226,7 +226,7 @@ const games = [
     isLiked: false,
     rating: 90,
     id: 8,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188604/gtav_x1ccio.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188604/gtav_x1ccio.jpg',
@@ -252,7 +252,7 @@ const games = [
     isLiked: false,
     rating: 88,
     id: 9,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658584215/skyrim_js5pmg.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658584215/skyrim_js5pmg.jpg',
@@ -279,7 +279,7 @@ const games = [
     isLiked: false,
     rating: 76,
     id: 10,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188601/warframe_kghu8g.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188601/warframe_kghu8g.jpg',
@@ -305,7 +305,7 @@ const games = [
     isLiked: false,
     rating: 84,
     id: 11,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/minecraft_iuejtm.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188606/minecraft_iuejtm.jpg',
@@ -318,7 +318,7 @@ const games = [
     name: 'Rise of the Tomb Raider',
     surname: 'riseofthetombraider',
     price: '12.99',
-    desc: 'Rise of the Tomb Raider is a third-person action-adventure game in which players control Lara Croft, who is on a quest to discover the legendary city of Kitezh. Combat is a major gameplay mechanic; Lara has a large variety of weapons at her disposal (including assault rifles, shotguns, and pistols), some of which have an alternate firing mode. Players may also utilize stealth to progress through portions of the game, using bows and arrows to take out enemies, creating distractions to draw enemy attention away from Lara, or hiding in bushes to evade enemies. Lara can use the environment to fight enemies, shooting explosive barrels, tearing down rope-wrapped structures with rope arrows, or ambushing enemies from high ground. She can also use her ice axe and combat knife to engage in melee combat with enemies.',
+    desc: 'Rise of the Tomb Raider is a third-person action-adventure game in which players control Lara Croft, who is on a quest to disbackground_image the legendary city of Kitezh. Combat is a major gameplay mechanic; Lara has a large variety of weapons at her disposal (including assault rifles, shotguns, and pistols), some of which have an alternate firing mode. Players may also utilize stealth to progress through portions of the game, using bows and arrows to take out enemies, creating distractions to draw enemy attention away from Lara, or hiding in bushes to evade enemies. Lara can use the environment to fight enemies, shooting explosive barrels, tearing down rope-wrapped structures with rope arrows, or ambushing enemies from high ground. She can also use her ice axe and combat knife to engage in melee combat with enemies.',
     link: 'https://tombraider.square-enix-games.com/en-us',
     release: '10th of November, 2015',
     platforms:
@@ -332,7 +332,7 @@ const games = [
     isLiked: false,
     rating: 82,
     id: 12,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188610/riseofthetombraider_uq2q6t.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188610/riseofthetombraider_uq2q6t.jpg',
@@ -359,7 +359,7 @@ const games = [
     isLiked: false,
     rating: 83,
     id: 13,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188608/metro_o45ytf.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188608/metro_o45ytf.jpg',
@@ -385,7 +385,7 @@ const games = [
     isLiked: false,
     rating: 81,
     id: 14,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188609/terraria_yb3iuc.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188609/terraria_yb3iuc.jpg',
@@ -412,7 +412,7 @@ const games = [
     isLiked: false,
     rating: 83,
     id: 15,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188608/rocketleague_on6yqd.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,w_1920/v1658188608/rocketleague_on6yqd.jpg',
@@ -438,7 +438,7 @@ const games = [
     isLiked: false,
     rating: 95,
     id: 16,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188610/thewitcher_tllr60.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188610/thewitcher_tllr60.jpg',
@@ -464,7 +464,7 @@ const games = [
     isLiked: false,
     rating: 81,
     id: 17,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188605/hitman_pqhnm6.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188605/hitman_pqhnm6.jpg',
@@ -477,7 +477,7 @@ const games = [
     name: 'Fallout 4',
     surname: 'fallout',
     price: '26.99',
-    desc: 'The story of Fallout 4 focuses on a spouse, the Sole Survivor of Vault 111, as they search for their missing child, Shaun. Fallout 4 is set in and around the Boston area in 2287, 10 years after Fallout 3. Along the way, the Sole Survivor discovers a world in fear of a mysterious organization known as the Institute, consumed by paranoia of a race of robotic yet also biological human-like beings known as synths. As a result of the synth-focused narrative, the Sole Survivor, as well as the player, are faced with ethical questions such as how far people should experiment with science, the morality of creating sentient living machines that express emotions and suffering, and what it means to be human.',
+    desc: 'The story of Fallout 4 focuses on a spouse, the Sole Survivor of Vault 111, as they search for their missing child, Shaun. Fallout 4 is set in and around the Boston area in 2287, 10 years after Fallout 3. Along the way, the Sole Survivor disbackground_images a world in fear of a mysterious organization known as the Institute, consumed by paranoia of a race of robotic yet also biological human-like beings known as synths. As a result of the synth-focused narrative, the Sole Survivor, as well as the player, are faced with ethical questions such as how far people should experiment with science, the morality of creating sentient living machines that express emotions and suffering, and what it means to be human.',
     link: 'https://fallout.bethesda.net/en/games/fallout-4',
     release: '10th of November, 2015',
     platforms: 'Xbox One, PlayStation 4, PC',
@@ -490,7 +490,7 @@ const games = [
     isLiked: false,
     rating: 80,
     id: 18,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/fallout_kuxjw3.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188603/fallout_kuxjw3.jpg',
@@ -517,7 +517,7 @@ const games = [
     isLiked: false,
     rating: 90,
     id: 19,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/gtasanandreas_xkkyyp.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,w_1920/v1658188606/gtasanandreas_xkkyyp.jpg',
@@ -544,7 +544,7 @@ const games = [
     isLiked: false,
     rating: 70,
     id: 20,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188609/golfwithyourfriends_rxrsbv.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188609/golfwithyourfriends_rxrsbv.jpg',
@@ -570,7 +570,7 @@ const games = [
     isLiked: false,
     rating: 82,
     id: 21,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188605/heavyrain_bljnwv.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188605/heavyrain_bljnwv.jpg',
@@ -596,7 +596,7 @@ const games = [
     isLiked: false,
     rating: 79,
     id: 22,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/dota_gdjxqx.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188603/dota_gdjxqx.jpg',
@@ -622,7 +622,7 @@ const games = [
     isLiked: false,
     rating: 92,
     id: 23,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188606/portal2_eugfiq.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188606/portal2_eugfiq.jpg',
@@ -648,7 +648,7 @@ const games = [
     isLiked: false,
     rating: 82,
     id: 24,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/civilization_jcuqap.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188603/civilization_jcuqap.jpg',
@@ -674,7 +674,7 @@ const games = [
     isLiked: false,
     rating: 94,
     id: 25,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188602/godofwar_cbqzk1.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188602/godofwar_cbqzk1.jpg',
@@ -701,7 +701,7 @@ const games = [
     isLiked: false,
     rating: 80,
     id: 26,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188603/fifa_zb6ook.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188603/fifa_zb6ook.jpg',
@@ -727,7 +727,7 @@ const games = [
     isLiked: false,
     rating: 91,
     id: 27,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188604/halflife_fiorjc.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188604/halflife_fiorjc.jpg',
@@ -754,7 +754,7 @@ const games = [
     isLiked: false,
     rating: 86,
     id: 28,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188600/twd_dmycxx.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188600/twd_dmycxx.jpg',
@@ -780,7 +780,7 @@ const games = [
     isLiked: false,
     rating: 85,
     id: 29,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188601/crusaderkings_fpz1te.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188601/crusaderkings_fpz1te.jpg',
@@ -790,7 +790,7 @@ const games = [
     ],
   },
   {
-    name: 'Counter Strike: GO',
+    name: 'Counter-Strike: Global Gffensive',
     surname: 'csgo',
     price: '4.99',
     desc: 'Counter-Strike: Global Offensive (CS:GO) is a first-person shooter video game which is a part of the Counter-Strike series. It was announced to the public on August 12, 2011, and is developed by Valve Corporation and their partner, Hidden Path Entertainment. The game was later released on August 21, 2012 for the Playstation 3, Xbox 360, Microsoft Windows, macOS and later Linux as a downloadable title.',
@@ -806,7 +806,7 @@ const games = [
     isLiked: false,
     rating: 82,
     id: 30,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188600/csgo_o9whdd.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188600/csgo_o9whdd.jpg',
@@ -832,7 +832,7 @@ const games = [
     isLiked: false,
     rating: 89,
     id: 31,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188602/detroit_a4kqkx.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/v1658188602/detroit_a4kqkx.jpg',
@@ -858,7 +858,7 @@ const games = [
     isLiked: false,
     rating: 85,
     id: 32,
-    cover:
+    background_image:
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_500/v1658188613/tombraider_qx2xiy.jpg',
     footage: [
       'https://res.cloudinary.com/gianlucajahn/image/upload/c_scale,q_100,w_1920/v1658188613/tombraider_qx2xiy.jpg',

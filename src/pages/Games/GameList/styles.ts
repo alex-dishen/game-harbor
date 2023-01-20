@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const GameListWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, auto));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
   margin-top: 30px;
 `;
