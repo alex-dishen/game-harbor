@@ -1,0 +1,54 @@
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { GameTypes } from '../../utils/Game.types';
+
+interface IStyledPage {
+  games: GameTypes[] | undefined;
+}
+
+const StyledGamePage = styled(motion.main)<IStyledPage>`
+  ${({ games }) =>
+    games === undefined && {
+      flex: '1',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  display: flex;
+  gap: 45px;
+  padding: 0px 30px;
+  color: white;
+
+  @media (max-width: 700px) {
+    padding: 25px 0px;
+  }
+`;
+
+const MenuHolder = styled.div`
+  position: fixed;
+  z-index: 1;
+  bottom: 30px;
+  right: 20px;
+  display: flex;
+  padding: 5px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+
+  svg {
+    height: 22px;
+    width: 22px;
+  }
+`;
+
+const Content = styled.div`
+  flex: 1;
+  padding: 0 15px 10px 15px;
+  padding-bottom: 30px;
+  overflow: scroll;
+
+  @media (max-width: 700px) {
+    padding: 0 35px 10px 35px;
+  }
+`;
+
+export { StyledGamePage, MenuHolder, Content };

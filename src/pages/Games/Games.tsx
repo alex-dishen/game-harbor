@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { CircularProgress } from 'react-cssfx-loading';
+import getData, { ResponseSchema } from '../../api/api';
+// import games from '../../../utils/games';
+import { GameTypes } from '../../utils/Game.types';
 import Sidebar from './Sidebar/Sidebar';
 import Top from './Top/Top';
 import GameList from './GameList/GameList';
 import { ReactComponent as Menu } from '../../assets/menu.svg';
+import { StyledGamePage, MenuHolder, Content } from './styles';
 
 interface Props {
   isChangeNavbar: boolean;
@@ -12,6 +15,7 @@ interface Props {
 }
 
 function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
+  const [games, setGames] = useState<GameTypes[]>();
   const [isHideNavbar, setIsHideNavbar] = useState(false);
 
   const getWindowWidth = () => {
@@ -38,69 +42,49 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
     };
   }, [isChangeNavbar]);
 
+  useEffect(() => {
+    (async () => {
+      const newGames = await getData<ResponseSchema<GameTypes>>();
+      const { results } = newGames;
+      setGames(results);
+    })();
+  }, []);
+
   return (
     <StyledGamePage
+      games={games}
       initial={{ opacity: 0, x: 25 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4 }}
       exit={{ opacity: 0, x: 25 }}
     >
-      {isHideNavbar ? (
-        <MenuHolder onClick={() => setIsHideNavbar(false)}>
-          <Menu />
-        </MenuHolder>
-      ) : (
-        <Sidebar
-          isChangeNavbar={isChangeNavbar}
-          setIsHideNavbar={setIsHideNavbar}
+      {games === undefined ? (
+        <CircularProgress
+          color="rgb(24, 176, 171)"
+          height="100px"
+          width="100px"
+          duration="2.5s"
         />
+      ) : (
+        <>
+          {isHideNavbar ? (
+            <MenuHolder onClick={() => setIsHideNavbar(false)}>
+              <Menu />
+            </MenuHolder>
+          ) : (
+            <Sidebar
+              isChangeNavbar={isChangeNavbar}
+              setIsHideNavbar={setIsHideNavbar}
+            />
+          )}
+          <Content>
+            <Top isChangeNavbar={isChangeNavbar} />
+            <GameList games={games} />
+          </Content>
+        </>
       )}
-      <Content>
-        <Top isChangeNavbar={isChangeNavbar} />
-        <GameList />
-      </Content>
     </StyledGamePage>
   );
 }
-
-const StyledGamePage = styled(motion.main)`
-  display: flex;
-  gap: 45px;
-  padding: 0px 30px;
-  color: white;
-
-  @media (max-width: 700px) {
-    padding: 25px 0px;
-  }
-`;
-
-const MenuHolder = styled.div`
-  position: fixed;
-  z-index: 1;
-  bottom: 30px;
-  right: 20px;
-  display: flex;
-  padding: 5px;
-  background-color: white;
-  border-radius: 50%;
-  cursor: pointer;
-
-  svg {
-    height: 22px;
-    width: 22px;
-  }
-`;
-
-const Content = styled.div`
-  flex: 1;
-  padding: 0 15px 10px 15px;
-  padding-bottom: 30px;
-  height: 100%;
-  overflow: scroll;
-
-  @media (max-width: 700px) {
-    padding: 0 35px 10px 35px;
-  }
-`;
 
 export default Games;
