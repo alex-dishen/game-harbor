@@ -1,6 +1,6 @@
 import { useRef, useState, MouseEvent } from 'react';
 import uniqid from 'uniqid';
-import { orderBy } from './PlatformsOrder/options';
+import { orderBy } from './options';
 import { useClickOutside } from '../../../utils/customHooks';
 import PlatformsOrder from './PlatformsOrder/PlatformsOrder';
 import { ReactComponent as Chevron } from '../../../assets/chevron-down.svg';
@@ -16,9 +16,10 @@ import {
 
 interface Props {
   isChangeNavbar: boolean;
+  currentFilter: string;
 }
 
-function Top({ isChangeNavbar }: Props) {
+function Top({ isChangeNavbar, currentFilter }: Props) {
   const platformOrderRef = useRef<HTMLDivElement>(null);
   const orderByRef = useRef<HTMLDivElement>(null);
   const [isOpenPlatformOrder, setIsOpenPlatformOrder] = useState(false);
@@ -55,7 +56,7 @@ function Top({ isChangeNavbar }: Props) {
 
   return (
     <StyledTop>
-      <FilterName>Filter Name</FilterName>
+      <FilterName>{currentFilter}</FilterName>
 
       <OrderSection>
         <OrderWrapper>

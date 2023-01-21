@@ -6,9 +6,12 @@ interface ResponseSchema<T> {
   results: T[];
 }
 
-async function getData<T>(): Promise<T> {
+async function getData<T>(endpoint: string, params?: Record<string, string>) {
   if (otherKey !== undefined) {
-    const response = await fetch(`${URL}/games?key=${otherKey}`);
+    const searchParams = new URLSearchParams(params).toString();
+    const response = await fetch(
+      `${URL}/${endpoint}?${searchParams}&ordering=-added&key=${otherKey}`
+    );
     if (!response.ok) throw new Error(response.statusText);
     const data = (await response.json()) as Promise<T>;
     return data;

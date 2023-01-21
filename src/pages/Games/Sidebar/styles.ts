@@ -4,6 +4,11 @@ interface NavProps {
   isChangeNavbar: boolean;
 }
 
+interface IFilter {
+  filterName?: string;
+  currentFilter?: string;
+}
+
 const aside = {
   position: 'sticky',
   top: '0px',
@@ -62,7 +67,7 @@ const CategoryHolder = styled.div`
   }
 `;
 
-const Filter = styled.div`
+const Filter = styled.div<IFilter>`
   display: flex;
   align-items: center;
   gap: 14px;
@@ -75,13 +80,15 @@ const Filter = styled.div`
     height: 38px;
     width: 38px;
     padding: 8px;
-    background-color: rgb(45, 45, 45);
+    background-color: ${({ filterName, currentFilter }) =>
+      filterName === currentFilter ? 'rgb(255, 255, 255)' : 'rgb(45, 45, 45)'};
     border-radius: 8px;
     transition: 0.5s;
   }
 
   svg {
-    fill: white;
+    fill: ${({ filterName, currentFilter }) =>
+      filterName === currentFilter ? 'black' : 'white'};
     transition: 0.5s;
   }
 

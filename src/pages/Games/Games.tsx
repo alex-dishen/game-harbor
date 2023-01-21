@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { CircularProgress } from 'react-cssfx-loading';
-import getData, { ResponseSchema } from '../../api/api';
-// import games from '../../../utils/games';
+// import games from '../../utils/games';
 import { GameTypes } from '../../utils/Game.types';
 import Sidebar from './Sidebar/Sidebar';
 import Top from './Top/Top';
 import GameList from './GameList/GameList';
 import { ReactComponent as Menu } from '../../assets/menu.svg';
 import { StyledGamePage, MenuHolder, Content } from './styles';
+import getGamesList from '../../api/gamesList';
 
 interface Props {
   isChangeNavbar: boolean;
@@ -17,6 +17,55 @@ interface Props {
 function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
   const [games, setGames] = useState<GameTypes[]>();
   const [isHideNavbar, setIsHideNavbar] = useState(false);
+  const [currentFilter, setCurrentFilter] = useState('');
+
+  const currentDate = new Date();
+
+  const formatDate = (date: Date) => date.toISOString().replace(/T.*/, '');
+
+  const getLast30Days = () => {
+    const dateCpy = new Date(currentDate.getTime());
+
+    const pastDay = new Date(
+      dateCpy.getFullYear(),
+      dateCpy.getMonth(),
+      dateCpy.getDate() - 30
+    );
+
+    return `${formatDate(pastDay)},${formatDate(currentDate)}`;
+  };
+
+  const getThisWeek = () => {
+    const previousMonday = new Date();
+
+    previousMonday.setDate(
+      currentDate.getDate() - ((currentDate.getDay() + 6) % 7)
+    );
+
+    const thisSunday = new Date(
+      previousMonday.getFullYear(),
+      previousMonday.getMonth(),
+      previousMonday.getDate() + 7
+    );
+
+    return `${formatDate(previousMonday)},${formatDate(thisSunday)}`;
+  };
+
+  const getNextWeek = () => {
+    const dateCpy = new Date(currentDate.getTime());
+
+    const nextMonday = new Date(
+      dateCpy.setDate(dateCpy.getDate() + ((7 - dateCpy.getDay() + 1) % 7 || 7))
+    );
+
+    const nextSunday = new Date(
+      nextMonday.getFullYear(),
+      nextMonday.getMonth(),
+      nextMonday.getDate() + 7
+    );
+
+    return `${formatDate(nextMonday)},${formatDate(nextSunday)}`;
+  };
 
   const getWindowWidth = () => {
     const { innerWidth } = window;
@@ -44,8 +93,10 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
 
   useEffect(() => {
     (async () => {
-      const newGames = await getData<ResponseSchema<GameTypes>>();
-      const { results } = newGames;
+      console.log(getNextWeek());
+      const response = await getGamesList({ dates: getNextWeek() });
+      const { results } = response;
+      console.log(response);
       setGames(results);
     })();
   }, []);
@@ -75,10 +126,15 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
             <Sidebar
               isChangeNavbar={isChangeNavbar}
               setIsHideNavbar={setIsHideNavbar}
+              currentFilter={currentFilter}
+              setCurrentFilter={setCurrentFilter}
             />
           )}
           <Content>
-            <Top isChangeNavbar={isChangeNavbar} />
+            <Top
+              isChangeNavbar={isChangeNavbar}
+              currentFilter={currentFilter}
+            />
             <GameList games={games} />
           </Content>
         </>

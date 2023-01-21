@@ -1,6 +1,6 @@
 import { useState, MouseEvent } from 'react';
 import uniqid from 'uniqid';
-import { xbox, apple, playStation, nintendo } from './options';
+import { xbox, apple, playStation, nintendo } from '../options';
 import { ReactComponent as ChevronRight } from '../../../../assets/chevron-right.svg';
 import { Option, MoreOptions, OptionsHolder, AdditionalOption } from './styles';
 

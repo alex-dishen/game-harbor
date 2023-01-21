@@ -1,11 +1,4 @@
-const orderBy = [
-  'Relevance',
-  'Date added',
-  'Name',
-  'Release date',
-  'Popularity',
-  'Average rating',
-];
+const orderBy = ['Name', 'Release date', 'Popularity', 'Rating'];
 
 const xbox = ['Xbox One', 'Xbox Series S/X', 'Xbox 360', 'Xbox'];
 
