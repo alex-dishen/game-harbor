@@ -8,10 +8,10 @@ interface HeaderProps {
 }
 
 const HeaderWrapper = styled.header<HeaderProps>`
-  position: ${(props) => (props.isModifyHeader ? 'sticky' : 'block')};
+  position: ${({ isModifyHeader }) => (isModifyHeader ? 'sticky' : 'block')};
   z-index: 2;
-  top: ${(props) =>
-    props.scrollDirection === 'down' && props.isModifyHeader ? '-90px' : '0'};
+  top: ${({ scrollDirection, isModifyHeader }) =>
+    scrollDirection === 'down' && isModifyHeader ? '-90px' : '0'};
   display: flex;
   align-items: center;
   justify-content: space-between;

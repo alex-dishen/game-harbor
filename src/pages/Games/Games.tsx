@@ -81,6 +81,13 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
     }
   };
 
+  const loadGames = async () => {
+    const response = await getGamesList({ dates: getNextWeek() });
+    const { results } = response;
+    console.log(response);
+    setGames(results);
+  };
+
   useEffect(() => {
     getWindowWidth();
 
@@ -92,13 +99,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
   }, [isChangeNavbar]);
 
   useEffect(() => {
-    (async () => {
-      console.log(getNextWeek());
-      const response = await getGamesList({ dates: getNextWeek() });
-      const { results } = response;
-      console.log(response);
-      setGames(results);
-    })();
+    loadGames();
   }, []);
 
   return (

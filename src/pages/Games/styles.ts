@@ -27,7 +27,7 @@ const MenuHolder = styled.div`
   position: fixed;
   z-index: 1;
   bottom: 30px;
-  right: 20px;
+  right: 30px;
   display: flex;
   padding: 5px;
   background-color: white;
@@ -35,8 +35,8 @@ const MenuHolder = styled.div`
   cursor: pointer;
 
   svg {
-    height: 22px;
-    width: 22px;
+    height: 25px;
+    width: 25px;
   }
 `;
 
