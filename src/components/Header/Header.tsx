@@ -20,7 +20,7 @@ interface Props {
 }
 
 function Header({ isChangeNavbar }: Props) {
-  const formControls = useAnimation();
+  const inputControls = useAnimation();
   const scrollDirection = useScrollDirection();
   const location = useLocation();
   const [isOpenCart, setIsOpenCart] = useState(false);
@@ -37,8 +37,8 @@ function Header({ isChangeNavbar }: Props) {
     }
   }, [location]);
 
-  const setFormMaxWidth = (width: number) => {
-    formControls.start({ maxWidth: width });
+  const setInputMacWidth = (width: number) => {
+    inputControls.start({ maxWidth: width });
   };
 
   const openAndHideCart = () => {
@@ -56,10 +56,10 @@ function Header({ isChangeNavbar }: Props) {
           <Logo src={logo} alt="Logo" />
           <div>Game Harbor</div>
         </LogoWrapper>
-        <InputWrapper initial={{ maxWidth: 240 }} animate={formControls}>
+        <InputWrapper initial={{ maxWidth: 300 }} animate={inputControls}>
           <Input
-            onFocus={() => setFormMaxWidth(400)}
-            onBlur={() => setFormMaxWidth(240)}
+            onFocus={() => setInputMacWidth(480)}
+            onBlur={() => setInputMacWidth(310)}
           />
           <MagnifyGlass />
         </InputWrapper>
