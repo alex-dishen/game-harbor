@@ -5,7 +5,7 @@ import { ReactComponent as Cup } from '../../../assets/cup.svg';
 import { ReactComponent as Crown } from '../../../assets/crown.svg';
 
 const places = [
-  { name: 'Games', icon: <Controller /> },
+  { name: 'All games', icon: <Controller /> },
   { name: 'Play Dice', icon: <Dice /> },
   { name: 'Wish List', icon: <Gift /> },
   { name: 'Best of the year', icon: <Cup /> },

@@ -10,7 +10,6 @@ const Pitch = styled.div`
   width: clamp(350px, 57vw, 500px);
   padding: 20px 30px;
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(3px);
   border-radius: 30px;
   color: white;
 

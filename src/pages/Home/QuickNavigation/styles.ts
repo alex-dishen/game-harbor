@@ -8,7 +8,6 @@ const Navigation = styled.div`
   width: 234px;
   padding: 15px 25px;
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(3px);
   border-radius: 30px;
 
   h3 {
