@@ -1,9 +1,15 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { GameTypes } from '../../../utils/Game.types';
 
-const GameListWrapper = styled.div`
-  display: grid;
+interface IGames {
+  games: GameTypes[];
+}
+
+const GameListWrapper = styled.div<IGames>`
+  display: ${({ games }) => (games.length === 0 ? 'flex' : 'grid')};
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: center;
   gap: 30px;
   margin-top: 30px;
 `;

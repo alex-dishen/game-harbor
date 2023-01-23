@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { CircularProgress } from 'react-cssfx-loading';
-// import games from '../../utils/games';
 import { GameTypes } from '../../utils/Game.types';
 import Sidebar from './Sidebar/Sidebar';
 import Top from './Top/Top';
@@ -81,12 +80,30 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
     }
   };
 
+  const loadGamesForNewReleases = async () => {
+    let response;
+    if (currentFilter === 'Last 30 days') {
+      response = await getGamesList({ dates: getLast30Days() });
+    } else if (currentFilter === 'This week') {
+      response = await getGamesList({ dates: getThisWeek() });
+    } else if (currentFilter === 'Next week') {
+      response = await getGamesList({ dates: getNextWeek() });
+    }
+    if (response !== undefined) {
+      const { results } = response;
+      setGames(results);
+    }
+  };
+
   const loadGames = async () => {
     const response = await getGamesList({ dates: getNextWeek() });
     const { results } = response;
-    console.log(response);
     setGames(results);
   };
+
+  useEffect(() => {
+    loadGamesForNewReleases();
+  }, [currentFilter]);
 
   useEffect(() => {
     getWindowWidth();
@@ -125,6 +142,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
             </MenuHolder>
           ) : (
             <Sidebar
+              setGames={setGames}
               isChangeNavbar={isChangeNavbar}
               setIsHideNavbar={setIsHideNavbar}
               currentFilter={currentFilter}

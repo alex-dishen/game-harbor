@@ -2,6 +2,7 @@ import { useState, MouseEvent, useRef, RefObject } from 'react';
 import uniqid from 'uniqid';
 import { releases, tops, platforms, genres } from './categories';
 import { ReactComponent as Close } from '../../../assets/close.svg';
+import { GameTypes } from '../../../utils/Game.types';
 import { StyledNavbar, CloseHolder, CategoryHolder, Filter } from './styles';
 
 interface Props {
@@ -9,6 +10,7 @@ interface Props {
   currentFilter: string;
   setIsHideNavbar: (a: boolean) => void;
   setCurrentFilter: (a: string) => void;
+  setGames: (a: []) => void;
 }
 
 function Sidebar({
@@ -16,11 +18,15 @@ function Sidebar({
   currentFilter,
   setCurrentFilter,
   setIsHideNavbar,
+  setGames,
 }: Props) {
-  const getCurrentFilter = (e: MouseEvent<HTMLElement>) => {
+  const handleFilterClick = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
     const { textContent } = target;
 
+    // games are set to an empty array in order to display a spinner when
+    // refetching data instead of just unexpected screen update
+    if (textContent !== currentFilter) setGames([]);
     if (textContent !== null) setCurrentFilter(textContent);
   };
 
@@ -41,7 +47,7 @@ function Sidebar({
         {releases.map((release) => (
           <Filter
             key={uniqid()}
-            onClick={getCurrentFilter}
+            onClick={handleFilterClick}
             filterName={release.name}
             currentFilter={currentFilter}
           >
@@ -56,7 +62,7 @@ function Sidebar({
         {tops.map((top) => (
           <Filter
             key={uniqid()}
-            onClick={getCurrentFilter}
+            onClick={handleFilterClick}
             filterName={top.name}
             currentFilter={currentFilter}
           >
@@ -71,7 +77,7 @@ function Sidebar({
         {platforms.map((platform) => (
           <Filter
             key={uniqid()}
-            onClick={getCurrentFilter}
+            onClick={handleFilterClick}
             filterName={platform.name}
             currentFilter={currentFilter}
           >
@@ -86,7 +92,7 @@ function Sidebar({
         {genres.map((genre) => (
           <Filter
             key={uniqid()}
-            onClick={getCurrentFilter}
+            onClick={handleFilterClick}
             filterName={genre.name}
             currentFilter={currentFilter}
           >
