@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 interface OrderProps {
-  platformTitle?: string;
-  orderByTitle?: string;
+  orderTitle: string;
 }
 
 const StyledTop = styled.div`
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
   gap: 15px;
 
@@ -24,25 +24,14 @@ const FilterName = styled.div`
   }
 `;
 
-const OrderSection = styled.div`
-  display: flex;
-  gap: 20px;
+const OrderWrapper = styled.div`
+  position: relative;
+  cursor: pointer;
 
   svg {
     height: 20px;
     width: 20px;
   }
-
-  @media (max-width: 470px) {
-    flex-direction: column;
-  }
-`;
-
-const OrderWrapper = styled.div`
-  position: relative;
-  flex-shrink: 0;
-  min-width: 150px;
-  cursor: pointer;
 `;
 
 const Order = styled.div<OrderProps>`
@@ -51,37 +40,17 @@ const Order = styled.div<OrderProps>`
   justify-content: space-between;
   gap: 8px;
   padding: 8px 15px;
-  ${(props) => {
-    if (props.orderByTitle) {
-      return {
-        backgroundColor:
-          props.orderByTitle === '...' ? 'rgb(38, 38, 38)' : 'white',
-        color: props.orderByTitle === '...' ? 'white' : 'black',
-      };
-    }
-    if (props.platformTitle) {
-      return {
-        backgroundColor:
-          props.platformTitle === 'Platforms' ? 'rgb(38, 38, 38)' : 'white',
-        color: props.platformTitle === 'Platforms' ? 'white' : 'black',
-      };
-    }
-  }}
+  background-color: rgb(38, 38, 38);
+  background-color: white;
+  color: black;
   border-radius: 10px;
 
-  svg {
-    fill: ${(props) => {
-      if (props.orderByTitle) {
-        return props.orderByTitle === '...' ? 'white' : 'black';
-      }
-      if (props.platformTitle) {
-        return props.platformTitle === 'Platforms' ? 'white' : 'black';
-      }
-    }};
+  span {
+    font-weight: 700;
   }
 `;
 
-const OptionWrapper = styled.div`
+const OptionWrapper = styled.ul`
   position: absolute;
   z-index: 1;
   top: 0;
@@ -89,30 +58,18 @@ const OptionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5px;
+  margin: 0;
   padding: 10px;
   width: 100%;
   background-color: white;
   color: black;
   border-radius: 10px;
 
-  p {
-    margin: 0;
-    padding-left: 5px;
-    color: rgb(139, 139, 139);
-  }
-
-  & > div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  li {
     font-size: 15px;
     padding: 3px 8px;
     border-radius: 7px;
     transition: 0.2s;
-
-    svg {
-      fill: black;
-    }
 
     &:hover {
       background-color: rgb(229, 229, 229);
@@ -120,14 +77,8 @@ const OptionWrapper = styled.div`
   }
 `;
 
-const Option = styled.div``;
+const Option = styled.li`
+  list-style: none;
+`;
 
-export {
-  StyledTop,
-  FilterName,
-  OrderSection,
-  OrderWrapper,
-  Order,
-  OptionWrapper,
-  Option,
-};
+export { StyledTop, FilterName, OrderWrapper, Order, OptionWrapper, Option };

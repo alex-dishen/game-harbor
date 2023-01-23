@@ -150,10 +150,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
             />
           )}
           <Content>
-            <Top
-              isChangeNavbar={isChangeNavbar}
-              currentFilter={currentFilter}
-            />
+            <Top currentFilter={currentFilter} />
             <GameList games={games} />
           </Content>
         </>

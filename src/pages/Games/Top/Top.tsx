@@ -1,13 +1,10 @@
 import { useRef, useState, MouseEvent } from 'react';
 import uniqid from 'uniqid';
-import { orderBy } from './options';
 import { useClickOutside } from '../../../utils/customHooks';
-import PlatformsOrder from './PlatformsOrder/PlatformsOrder';
 import { ReactComponent as Chevron } from '../../../assets/chevron-down.svg';
 import {
   StyledTop,
   FilterName,
-  OrderSection,
   OrderWrapper,
   Order,
   OptionWrapper,
@@ -15,84 +12,52 @@ import {
 } from './styles';
 
 interface Props {
-  isChangeNavbar: boolean;
   currentFilter: string;
 }
 
-function Top({ isChangeNavbar, currentFilter }: Props) {
-  const platformOrderRef = useRef<HTMLDivElement>(null);
-  const orderByRef = useRef<HTMLDivElement>(null);
-  const [isOpenPlatformOrder, setIsOpenPlatformOrder] = useState(false);
-  const [isOpenOrderBy, setIsOpenOrderBy] = useState(false);
-  const [platformTitle, setPlatformTitle] = useState('Platforms');
-  const [orderByTitle, setOrderByTitle] = useState('...');
+function Top({ currentFilter }: Props) {
+  const orderRef = useRef<HTMLUListElement>(null);
+  const [isOrderOpen, setIsOrderOpen] = useState(false);
+  const [orderTitle, setOrderTitle] = useState('...');
+  const orderOptions = ['Name', 'Release date', 'Popularity', 'Rating'];
 
-  const openAndHidePlatformOrder = () => {
-    setIsOpenPlatformOrder(!isOpenPlatformOrder);
-  };
-
-  const openAndHideOrderBy = () => {
-    setIsOpenOrderBy(!isOpenOrderBy);
+  const openAndHideOrder = () => {
+    setIsOrderOpen(!isOrderOpen);
   };
 
   const changeTitle = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
     const { textContent } = target;
 
-    if (textContent !== null) setOrderByTitle(textContent);
+    if (textContent !== null) setOrderTitle(textContent);
   };
 
   const handleOptionClick = (e: MouseEvent<HTMLElement>) => {
     changeTitle(e);
-    openAndHideOrderBy();
+    openAndHideOrder();
   };
 
-  useClickOutside(
-    isOpenPlatformOrder,
-    platformOrderRef,
-    openAndHidePlatformOrder
-  );
-  useClickOutside(isOpenOrderBy, orderByRef, openAndHideOrderBy);
+  useClickOutside(isOrderOpen, orderRef, openAndHideOrder);
 
   return (
     <StyledTop>
       <FilterName>{currentFilter}</FilterName>
 
-      <OrderSection>
-        <OrderWrapper>
-          <Order orderByTitle={orderByTitle} onClick={openAndHideOrderBy}>
-            Order by: {orderByTitle}
-            <Chevron />
-          </Order>
-          {isOpenOrderBy && (
-            <OptionWrapper ref={orderByRef}>
-              {orderBy.map((item) => (
-                <Option onClick={handleOptionClick} key={uniqid()}>
-                  {item}
-                </Option>
-              ))}
-            </OptionWrapper>
-          )}
-        </OrderWrapper>
-
-        <OrderWrapper>
-          <Order
-            platformTitle={platformTitle}
-            onClick={openAndHidePlatformOrder}
-          >
-            {platformTitle} <Chevron />
-          </Order>
-          {isOpenPlatformOrder && (
-            <OptionWrapper ref={platformOrderRef}>
-              <PlatformsOrder
-                isChangeNavbar={isChangeNavbar}
-                setTitle={setPlatformTitle}
-                openAndHidePlatformOrder={openAndHidePlatformOrder}
-              />
-            </OptionWrapper>
-          )}
-        </OrderWrapper>
-      </OrderSection>
+      <OrderWrapper>
+        <Order orderTitle={orderTitle} onClick={openAndHideOrder}>
+          Order by: <span>{orderTitle}</span>
+          <Chevron />
+        </Order>
+        {isOrderOpen && (
+          <OptionWrapper ref={orderRef}>
+            {orderOptions.map((item) => (
+              <Option onClick={handleOptionClick} key={uniqid()}>
+                {item}
+              </Option>
+            ))}
+          </OptionWrapper>
+        )}
+      </OrderWrapper>
     </StyledTop>
   );
 }
