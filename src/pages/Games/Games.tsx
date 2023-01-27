@@ -7,6 +7,7 @@ import GameList from './GameList/GameList';
 import { ReactComponent as Menu } from '../../assets/menu.svg';
 import { StyledGamePage, MenuHolder, Content } from './styles';
 import getGamesList from '../../api/gamesList';
+import getPrice from '../../utils/helpers';
 
 interface Props {
   isChangeNavbar: boolean;
@@ -99,6 +100,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
     const response = await getGamesList({ dates: getNextWeek() });
     const { results } = response;
     setGames(results);
+    results.forEach((game) => (game.price = getPrice(game)));
   };
 
   useEffect(() => {
