@@ -5,11 +5,13 @@ const getPrice = (game: GameTypes) => {
   const releaseYear = new Date(released).getFullYear();
   const currentYear = new Date().getFullYear();
   const yearsDifference = currentYear - releaseYear;
+  let randomNumber = Math.floor(Math.random() * 21);
   const minPrice = 1;
   let discountPerYear = 0.35;
-  let newPrice = 70;
+  let newPrice = randomNumber <= 10 ? 20 : 45;
   // eslint-disable-next-line no-plusplus
   for (let i = 0; i < yearsDifference; i++) {
+    randomNumber = Math.floor(Math.random() * 21);
     newPrice *= 1 - discountPerYear;
     if (discountPerYear > 0.1) {
       discountPerYear -= 0.08;

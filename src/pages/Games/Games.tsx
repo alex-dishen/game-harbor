@@ -96,6 +96,39 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
     }
   };
 
+  const getThisYear = () => {
+    const thisYear = new Date().getFullYear();
+    return `${thisYear}-01-01,${thisYear}-12-31`;
+  };
+
+  const getPreviousYear = () => {
+    const thisYear = new Date().getFullYear();
+    return `${thisYear - 1}-01-01,${thisYear - 1}-12-31`;
+  };
+
+  const loadGamesForTop = async () => {
+    let response;
+    if (currentFilter === 'Best of the year') {
+      response = await getGamesList({
+        page_size: 40,
+        dates: getThisYear(),
+        ordering: '-added',
+      });
+    } else if (currentFilter === 'Popular in 2022') {
+      response = await getGamesList({
+        page_size: 40,
+        dates: getPreviousYear(),
+        ordering: '-added',
+      });
+    } else if (currentFilter === 'All time top 250') {
+      response = await getGamesList({ page_size: 40, ordering: '-added' });
+    }
+    if (response !== undefined) {
+      const { results } = response;
+      setGames(results);
+    }
+  };
+
   const loadGames = async () => {
     const response = await getGamesList({ dates: getNextWeek() });
     const { results } = response;
@@ -105,6 +138,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
 
   useEffect(() => {
     loadGamesForNewReleases();
+    loadGamesForTop();
   }, [currentFilter]);
 
   useEffect(() => {
@@ -119,6 +153,7 @@ function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
 
   useEffect(() => {
     loadGames();
+    setCurrentFilter('This week');
   }, []);
 
   return (

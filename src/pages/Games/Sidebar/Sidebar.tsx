@@ -1,8 +1,7 @@
-import { useState, MouseEvent, useRef, RefObject } from 'react';
+import { MouseEvent } from 'react';
 import uniqid from 'uniqid';
 import { releases, tops, platforms, genres } from './categories';
 import { ReactComponent as Close } from '../../../assets/close.svg';
-import { GameTypes } from '../../../utils/Game.types';
 import { StyledNavbar, CloseHolder, CategoryHolder, Filter } from './styles';
 
 interface Props {
