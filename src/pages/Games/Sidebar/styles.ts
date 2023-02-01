@@ -1,4 +1,4 @@
-import styled, { CSSObject } from 'styled-components';
+import styled, { CSSObject, css } from 'styled-components';
 
 interface NavProps {
   isChangeNavbar: boolean;
@@ -36,8 +36,8 @@ const fullScreen = {
 };
 
 const StyledNavbar = styled.aside<NavProps>`
-  ${(props) =>
-    props.isChangeNavbar ? (fullScreen as CSSObject) : (aside as CSSObject)}
+  ${({ isChangeNavbar }) =>
+    isChangeNavbar ? (fullScreen as CSSObject) : (aside as CSSObject)}
 `;
 
 const CloseHolder = styled.div`
@@ -67,40 +67,42 @@ const CategoryHolder = styled.div`
   }
 `;
 
-const Filter = styled.div<IFilter>`
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  cursor: pointer;
-
-  div {
+const Filter = styled.div<IFilter>(
+  ({ filterName, currentFilter }) => css`
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 38px;
-    width: 38px;
-    padding: 8px;
-    background-color: ${({ filterName, currentFilter }) =>
-      filterName === currentFilter ? 'rgb(255, 255, 255)' : 'rgb(45, 45, 45)'};
-    border-radius: 8px;
-    transition: 0.5s;
-  }
+    gap: 14px;
+    cursor: pointer;
 
-  svg {
-    fill: ${({ filterName, currentFilter }) =>
-      filterName === currentFilter ? 'black' : 'white'};
-    transition: 0.5s;
-  }
-
-  &:hover {
     div {
-      background-color: rgb(255, 255, 255);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 38px;
+      width: 38px;
+      padding: 8px;
+      background-color: ${filterName === currentFilter
+        ? 'rgb(255, 255, 255)'
+        : 'rgb(45, 45, 45)'};
+      border-radius: 8px;
+      transition: 0.5s;
     }
 
     svg {
-      fill: black;
+      fill: ${filterName === currentFilter ? 'black' : 'white'};
+      transition: 0.5s;
     }
-  }
-`;
+
+    &:hover {
+      div {
+        background-color: rgb(255, 255, 255);
+      }
+
+      svg {
+        fill: black;
+      }
+    }
+  `
+);
 
 export { StyledNavbar, CloseHolder, CategoryHolder, Filter };

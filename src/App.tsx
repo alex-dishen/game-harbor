@@ -10,11 +10,12 @@ import './font/fonts.scss';
 
 function App() {
   const [isChangeNavbar, setIsChangeNavbar] = useState(false);
+  const [isHideNavbar, setIsHideNavbar] = useState(false);
   const location = useLocation();
 
   return (
     <>
-      <Header isChangeNavbar={isChangeNavbar} />
+      <Header isChangeNavbar={isChangeNavbar} isHideNavbar={isHideNavbar} />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
@@ -24,6 +25,8 @@ function App() {
               <Games
                 isChangeNavbar={isChangeNavbar}
                 setIsChangeNavbar={setIsChangeNavbar}
+                isHideNavbar={isHideNavbar}
+                setIsHideNavbar={setIsHideNavbar}
               />
             }
           />

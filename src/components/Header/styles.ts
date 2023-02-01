@@ -1,38 +1,39 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
 interface HeaderProps {
   scrollDirection: string;
   isModifyHeader: boolean;
   isChangeNavbar: boolean;
+  isHideNavbar: boolean;
 }
 
-const HeaderWrapper = styled.header<HeaderProps>`
-  position: ${({ isModifyHeader }) => (isModifyHeader ? 'sticky' : 'block')};
-  z-index: 2;
-  top: ${({ scrollDirection, isModifyHeader }) =>
-    scrollDirection === 'down' && isModifyHeader ? '-90px' : '0'};
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 90px;
-  gap: 20px;
-  padding: 20px 40px;
-  background-color: ${(props) =>
-    props.isModifyHeader ? 'rgb(15, 16, 17)' : 'transparent'};
-  color: white;
-  transition: top 0.5s;
+const HeaderWrapper = styled.header<HeaderProps>(
+  ({ isModifyHeader, scrollDirection, isHideNavbar, isChangeNavbar }) => css`
+    position: ${isModifyHeader ? 'sticky' : 'block'};
+    z-index: ${!isHideNavbar && isChangeNavbar ? -1 : 2};
+    top: ${scrollDirection === 'down' && isModifyHeader ? '-90px' : '0'};
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    gap: 20px;
+    padding: 20px 40px;
+    background-color: ${isModifyHeader ? 'rgb(15, 16, 17)' : 'transparent'};
+    color: white;
+    transition: top 0.5s;
 
-  svg {
-    height: 25px;
-    width: 25px;
-    fill: white;
-  }
+    svg {
+      height: 25px;
+      width: 25px;
+      fill: white;
+    }
 
-  @media (max-width: 670px) {
-    gap: 16px;
-  }
-`;
+    @media (max-width: 670px) {
+      gap: 16px;
+    }
+  `
+);
 
 const InputWrapper = styled(motion.div)`
   display: flex;

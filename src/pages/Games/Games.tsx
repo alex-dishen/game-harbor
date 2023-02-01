@@ -9,14 +9,20 @@ import { StyledGamePage, MenuHolder, Content } from './styles';
 import getGamesList from '../../api/gamesList';
 import getPrice from '../../utils/helpers';
 
-interface Props {
+interface GamesProps {
   isChangeNavbar: boolean;
+  isHideNavbar: boolean;
   setIsChangeNavbar: (a: boolean) => void;
+  setIsHideNavbar: (a: boolean) => void;
 }
 
-function Games({ isChangeNavbar, setIsChangeNavbar }: Props) {
+function Games({
+  isChangeNavbar,
+  isHideNavbar,
+  setIsChangeNavbar,
+  setIsHideNavbar,
+}: GamesProps) {
   const [games, setGames] = useState<GameTypes[]>();
-  const [isHideNavbar, setIsHideNavbar] = useState(false);
   const [currentFilter, setCurrentFilter] = useState('');
 
   const currentDate = new Date();

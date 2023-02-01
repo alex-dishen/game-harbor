@@ -15,11 +15,12 @@ import {
   CartWrapper,
 } from './styles';
 
-interface Props {
+interface HeaderProps {
   isChangeNavbar: boolean;
+  isHideNavbar: boolean;
 }
 
-function Header({ isChangeNavbar }: Props) {
+function Header({ isChangeNavbar, isHideNavbar }: HeaderProps) {
   const inputControls = useAnimation();
   const scrollDirection = useScrollDirection();
   const location = useLocation();
@@ -51,6 +52,7 @@ function Header({ isChangeNavbar }: Props) {
         scrollDirection={scrollDirection}
         isModifyHeader={isModifyHeader}
         isChangeNavbar={isChangeNavbar}
+        isHideNavbar={isHideNavbar}
       >
         <LogoWrapper as={Link} to="/">
           <Logo src={logo} alt="Logo" />
