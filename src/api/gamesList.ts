@@ -7,6 +7,7 @@ interface Params {
   search?: string;
   dates?: string;
   ordering?: string;
+  platforms?: number;
 }
 
 const getGamesList = (params?: Params) =>

@@ -14,12 +14,10 @@ const GameListWrapper = styled.div<IGames>`
   margin-top: 30px;
 `;
 
-const GameWrapper = styled(Link)`
+const GameWrapper = styled.div`
   background-color: rgb(32, 32, 32);
-  text-decoration: none;
   color: white;
   border-radius: 18px;
-  cursor: default;
   transition: 0.3s;
 
   &:hover {
@@ -54,10 +52,11 @@ const Price = styled.div`
   }
 `;
 
-const GameName = styled.div`
+const GameName = styled(Link)`
   font-size: 22px;
   font-weight: 600;
-  cursor: pointer;
+  text-decoration: none;
+  color: white;
 `;
 
 export { GameListWrapper, GameWrapper, BackgroundImage, Info, Price, GameName };

@@ -27,7 +27,7 @@ function GameList({ games }: IGameList) {
       ) : (
         <>
           {games.map((game) => (
-            <GameWrapper key={uniqid()} to="game">
+            <GameWrapper key={uniqid()}>
               <BackgroundImage
                 style={{ backgroundImage: `url(${game.background_image})` }}
               />
@@ -35,7 +35,7 @@ function GameList({ games }: IGameList) {
                 <Price>
                   <span>Add to cart +</span> $ {game.price}
                 </Price>
-                <GameName>{game.name}</GameName>
+                <GameName to="game">{game.name}</GameName>
               </Info>
             </GameWrapper>
           ))}
