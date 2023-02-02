@@ -1,5 +1,5 @@
-import { GameTypes } from '../utils/Game.types';
-import getData, { ResponseSchema } from './api';
+import { GameTypes } from 'utils/Game.types';
+import getData, { ResponseSchema } from 'api/api';
 
 interface Params {
   page?: number;

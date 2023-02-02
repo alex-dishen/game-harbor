@@ -1,8 +1,18 @@
 import { MouseEvent } from 'react';
 import uniqid from 'uniqid';
-import { releases, tops, platforms, genres } from './categories';
-import { ReactComponent as Close } from '../../../assets/close.svg';
-import { StyledNavbar, CloseHolder, CategoryHolder, Filter } from './styles';
+import {
+  releases,
+  tops,
+  platforms,
+  genres,
+} from 'pages/Games/Sidebar/categories';
+import { ReactComponent as Close } from 'assets/close.svg';
+import {
+  StyledNavbar,
+  CloseHolder,
+  CategoryHolder,
+  Filter,
+} from 'pages/Games/Sidebar/styles';
 
 interface Props {
   isChangeNavbar: boolean;

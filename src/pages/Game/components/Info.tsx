@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ReactComponent as ChevronDown } from '../../../assets/chevron-down.svg';
+import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
 
 function Info() {
   return (

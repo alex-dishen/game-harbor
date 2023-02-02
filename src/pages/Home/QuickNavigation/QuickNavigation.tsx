@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
-import places from './places';
-import Navigation from './styles';
+import places from 'pages/Home/QuickNavigation/places';
+import Navigation from 'pages/Home/QuickNavigation/styles';
 
 interface Props {
   name: string;
@@ -17,7 +17,6 @@ function Place({ name, icon }: Props) {
 
   useEffect(() => {
     setGoTo(openPages(name));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

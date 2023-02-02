@@ -1,8 +1,8 @@
-import { ReactComponent as Controller } from '../../../assets/controller.svg';
-import { ReactComponent as Dice } from '../../../assets/dice.svg';
-import { ReactComponent as Gift } from '../../../assets/gift.svg';
-import { ReactComponent as Cup } from '../../../assets/cup.svg';
-import { ReactComponent as Crown } from '../../../assets/crown.svg';
+import { ReactComponent as Controller } from 'assets/controller.svg';
+import { ReactComponent as Dice } from 'assets/dice.svg';
+import { ReactComponent as Gift } from 'assets/gift.svg';
+import { ReactComponent as Cup } from 'assets/cup.svg';
+import { ReactComponent as Crown } from 'assets/crown.svg';
 
 const places = [
   { name: 'All games', icon: <Controller /> },

@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { useClickOutside } from '../../utils/customHooks';
+import { useClickOutside } from 'utils/customHooks';
 import {
   CartWrapper,
   Header,

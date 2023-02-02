@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { GameTypes } from '../../../utils/Game.types';
+import { GameTypes } from 'utils/Game.types';
 
 interface IGames {
   games: GameTypes[];

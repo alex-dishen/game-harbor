@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { GameTypes } from '../../utils/Game.types';
+import { GameTypes } from 'utils/Game.types';
 
 interface IStyledPage {
   games: GameTypes[] | undefined;

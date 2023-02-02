@@ -1,8 +1,8 @@
 import { useRef, useState, MouseEvent } from 'react';
 import uniqid from 'uniqid';
-import { useClickOutside } from '../../../utils/customHooks';
-import { ReactComponent as Chevron } from '../../../assets/chevron-down.svg';
-import { ReactComponent as Check } from '../../../assets/check.svg';
+import { ReactComponent as Check } from 'assets/check.svg';
+import { useClickOutside } from 'utils/customHooks';
+import { ReactComponent as Chevron } from 'assets/chevron-down.svg';
 import {
   StyledTop,
   FilterName,

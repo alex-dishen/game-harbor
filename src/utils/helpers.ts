@@ -1,4 +1,4 @@
-import { GameTypes } from './Game.types';
+import { GameTypes } from 'utils/Game.types';
 
 const getPrice = (game: GameTypes) => {
   const { released } = game;

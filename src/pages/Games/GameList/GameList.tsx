@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
-import { GameTypes } from '../../../utils/Game.types';
+import { GameTypes } from 'utils/Game.types';
 import {
   GameListWrapper,
   GameWrapper,

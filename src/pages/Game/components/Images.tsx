@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as ChevronLeft } from '../../../assets/chevron-left.svg';
-import { ReactComponent as ChevronRight } from '../../../assets/chevron-right.svg';
+import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
+import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
 
 function Images() {
   return (

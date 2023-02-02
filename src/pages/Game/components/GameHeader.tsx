@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as ArrowLeft } from '../../../assets/arrow-left.svg';
+import { ReactComponent as ArrowLeft } from 'assets/arrow-left.svg';
 
 function GameHeader() {
   return (
