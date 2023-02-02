@@ -2,6 +2,7 @@ import { useRef, useState, MouseEvent } from 'react';
 import uniqid from 'uniqid';
 import { useClickOutside } from '../../../utils/customHooks';
 import { ReactComponent as Chevron } from '../../../assets/chevron-down.svg';
+import { ReactComponent as Check } from '../../../assets/check.svg';
 import {
   StyledTop,
   FilterName,
@@ -29,7 +30,7 @@ function Top({ currentFilter }: Props) {
     const target = e.target as HTMLElement;
     const { textContent } = target;
 
-    if (textContent !== null) setOrderTitle(textContent);
+    if (textContent !== null) setOrderTitle(textContent.trim());
   };
 
   const handleOptionClick = (e: MouseEvent<HTMLElement>) => {
@@ -53,6 +54,7 @@ function Top({ currentFilter }: Props) {
             {orderOptions.map((item) => (
               <Option onClick={handleOptionClick} key={uniqid()}>
                 {item}
+                {orderTitle === item ? <Check /> : <div />}
               </Option>
             ))}
           </OptionWrapper>

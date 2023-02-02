@@ -17,16 +17,17 @@
 
 ## **Getting Started**
 ```
-HTTPS - git clone https://github.com/alex-dishen/shop.git
+HTTPS - $ git clone https://github.com/alex-dishen/shop.git
+or
+SSH - $ git clone git@github.com:alex-dishen/shop.git
 
-SSH - git clone git@github.com:alex-dishen/shop.git
+$ cd shop
 
-cd shop
+$ npm install
 
-npm install
-
-npm start
+$ npm start
 ```
 
 ## **Navigation**
 * See my previous project [Currency Converter](https://github.com/alex-dishen/currency-converter)
+* See my next project [Infinite Slider](https://github.com/MaKs-Tkachyk/infinite-image-slider)

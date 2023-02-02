@@ -78,7 +78,14 @@ const OptionWrapper = styled.ul`
 `;
 
 const Option = styled.li`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   list-style: none;
+
+  svg {
+    fill: green;
+  }
 `;
 
 export { StyledTop, FilterName, OrderWrapper, Order, OptionWrapper, Option };
