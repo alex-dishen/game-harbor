@@ -1,9 +1,8 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import GameHeader from 'pages/Game/GameHeader/GameHeader';
 import Images from 'pages/Game/Images/Images';
 import Info from 'pages/Game/Info/Info';
 import Price from 'pages/Game/Price/Price';
+import { GameWrapper, Main } from 'pages/Game/styles';
 
 function Game() {
   return (
@@ -22,41 +21,5 @@ function Game() {
     </GameWrapper>
   );
 }
-
-const GameWrapper = styled(motion.main)`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 100%;
-  padding: 20px 40px 30px 40px;
-
-  svg {
-    fill: rgb(204, 204, 204);
-    transition: 0.3s;
-  }
-
-  @media (max-width: 860px) {
-    height: fit-content;
-  }
-`;
-
-const Main = styled.div`
-  flex: 1;
-  display: grid;
-  grid-template: 1fr min-content / auto max(26vw, 300px);
-  grid-template-areas:
-    'images info'
-    'images price';
-  gap: 30px;
-
-  @media (max-width: 860px) {
-    grid-template: 1.2fr min-content 1fr / 1fr;
-    grid-template-areas:
-      'images'
-      'price'
-      'info';
-  }
-`;
 
 export default Game;
