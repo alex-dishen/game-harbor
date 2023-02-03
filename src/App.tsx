@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
-import Header from 'components/Header/Header';
-import Home from 'pages/Home/Home';
-import Games from 'pages/Games/Games';
-import Game from 'pages/Game/Game';
+import Header from 'components/Header';
+import Home from 'pages/Home';
+import Games from 'pages/Games';
+import Game from 'pages/Game';
 import 'styles/normalize.scss';
 import 'font/fonts.scss';
 

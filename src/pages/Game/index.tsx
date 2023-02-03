@@ -1,7 +1,7 @@
-import GameHeader from 'pages/Game/GameHeader/GameHeader';
-import Images from 'pages/Game/Images/Images';
-import Info from 'pages/Game/Info/Info';
-import Price from 'pages/Game/Price/Price';
+import GameHeader from 'pages/Game/GameHeader';
+import Images from 'pages/Game/Images';
+import Info from 'pages/Game/Info';
+import Price from 'pages/Game/Price';
 import { GameWrapper, Main } from 'pages/Game/styles';
 
 function Game() {

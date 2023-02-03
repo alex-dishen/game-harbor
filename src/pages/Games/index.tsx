@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { CircularProgress } from 'react-cssfx-loading';
 import { IGame } from 'api/interfaces';
-import Sidebar from 'pages/Games/Sidebar/Sidebar';
-import Top from 'pages/Games/Top/Top';
-import GameList from 'pages/Games/GameList/GameList';
+import Sidebar from 'pages/Games/Sidebar';
+import Top from 'pages/Games/Top';
+import GameList from 'pages/Games/GameList';
 import { ReactComponent as Menu } from 'assets/menu.svg';
 import { StyledGamePage, MenuHolder, Content } from 'pages/Games/styles';
 import getGamesList from 'api/gamesList';

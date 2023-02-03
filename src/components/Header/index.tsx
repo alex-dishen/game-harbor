@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAnimation, AnimatePresence } from 'framer-motion';
 import { useScrollDirection } from 'utils/customHooks';
-import Cart from 'components/Cart/Cart';
+import Cart from 'components/Cart';
 import logo from 'assets/logo.png';
 import { ReactComponent as Bag } from 'assets/shopping-bag.svg';
 import { ReactComponent as MagnifyGlass } from 'assets/magnify.svg';
