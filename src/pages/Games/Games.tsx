@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { CircularProgress } from 'react-cssfx-loading';
-import { GameTypes } from 'utils/Game.types';
+import { IGame } from 'api/interfaces';
 import Sidebar from 'pages/Games/Sidebar/Sidebar';
 import Top from 'pages/Games/Top/Top';
 import GameList from 'pages/Games/GameList/GameList';
@@ -22,7 +22,7 @@ function Games({
   setIsChangeNavbar,
   setIsHideNavbar,
 }: GamesProps) {
-  const [games, setGames] = useState<GameTypes[]>();
+  const [games, setGames] = useState<IGame[]>();
   const [currentFilter, setCurrentFilter] = useState('');
 
   const currentDate = new Date();

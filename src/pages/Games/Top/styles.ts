@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-
-interface OrderProps {
-  orderTitle: string;
-}
+import { IOrder } from 'pages/Games/Top/interfaces';
 
 const StyledTop = styled.div`
   display: flex;
@@ -34,7 +31,7 @@ const OrderWrapper = styled.div`
   }
 `;
 
-const Order = styled.div<OrderProps>`
+const Order = styled.div<IOrder>`
   display: flex;
   align-items: center;
   justify-content: space-between;

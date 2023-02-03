@@ -4,12 +4,12 @@ import uniqid from 'uniqid';
 import places from 'pages/Home/QuickNavigation/places';
 import Navigation from 'pages/Home/QuickNavigation/styles';
 
-interface Props {
+interface PlaceProps {
   name: string;
   icon: JSX.Element;
 }
 
-function Place({ name, icon }: Props) {
+function Place({ name, icon }: PlaceProps) {
   const [goTo, setGoTo] = useState('');
 
   const openPages = (placeName: string) =>

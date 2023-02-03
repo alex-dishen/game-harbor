@@ -1,18 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as Check } from 'assets/check.svg';
 
-function Price() {
-  return (
-    <StyledPrice>
-      <span>$13</span>
-      <Status>
-        Added <Check />
-      </Status>
-    </StyledPrice>
-  );
-}
-
-const StyledPrice = styled.div`
+export const StyledPrice = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -28,7 +16,7 @@ const StyledPrice = styled.div`
   }
 `;
 
-const Status = styled.span`
+export const Status = styled.span`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -40,5 +28,3 @@ const Status = styled.span`
     fill: white;
   }
 `;
-
-export default Price;

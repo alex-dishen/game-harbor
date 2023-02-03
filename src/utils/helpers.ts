@@ -1,6 +1,6 @@
-import { GameTypes } from 'utils/Game.types';
+import { IGame } from 'api/interfaces';
 
-const getPrice = (game: GameTypes) => {
+const getPrice = (game: IGame) => {
   const { released } = game;
   const releaseYear = new Date(released).getFullYear();
   const currentYear = new Date().getFullYear();

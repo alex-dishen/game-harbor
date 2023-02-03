@@ -1,6 +1,6 @@
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
-import { GameTypes } from 'utils/Game.types';
+import { IGame } from 'api/interfaces';
 import {
   GameListWrapper,
   GameWrapper,
@@ -10,11 +10,11 @@ import {
   GameName,
 } from './styles';
 
-interface IGameList {
-  games: GameTypes[];
+interface GameListProps {
+  games: IGame[];
 }
 
-function GameList({ games }: IGameList) {
+function GameList({ games }: GameListProps) {
   return (
     <GameListWrapper games={games}>
       {games.length === 0 ? (

@@ -1,19 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { ReactComponent as ArrowLeft } from 'assets/arrow-left.svg';
 
-function GameHeader() {
-  return (
-    <Header>
-      <BackButton to="/games" relative="path">
-        <ArrowLeft /> Store
-      </BackButton>
-      <GameName>Game Name</GameName>
-    </Header>
-  );
-}
-
-const Header = styled.div`
+export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,7 +22,7 @@ const Header = styled.div`
   }
 `;
 
-const BackButton = styled(Link)`
+export const BackButton = styled(Link)`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -59,9 +47,7 @@ const BackButton = styled(Link)`
   }
 `;
 
-const GameName = styled.span`
+export const GameName = styled.span`
   font-size: 46px;
   font-weight: 800;
 `;
-
-export default GameHeader;

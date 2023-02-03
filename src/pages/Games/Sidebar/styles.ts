@@ -1,13 +1,5 @@
 import styled, { CSSObject, css } from 'styled-components';
-
-interface NavProps {
-  isChangeNavbar: boolean;
-}
-
-interface IFilter {
-  filterName?: string;
-  currentFilter?: string;
-}
+import { IStyledSidebar, IFilter } from './interfaces';
 
 const aside = {
   position: 'sticky',
@@ -35,7 +27,7 @@ const fullScreen = {
   overflow: 'scroll',
 };
 
-const StyledNavbar = styled.aside<NavProps>`
+const StyledSidebar = styled.aside<IStyledSidebar>`
   ${({ isChangeNavbar }) =>
     isChangeNavbar ? (fullScreen as CSSObject) : (aside as CSSObject)}
 `;
@@ -105,4 +97,4 @@ const Filter = styled.div<IFilter>(
   `
 );
 
-export { StyledNavbar, CloseHolder, CategoryHolder, Filter };
+export { StyledSidebar, CloseHolder, CategoryHolder, Filter };

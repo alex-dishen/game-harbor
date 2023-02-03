@@ -1,28 +1,6 @@
 import styled from 'styled-components';
-import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
-import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
 
-function Images() {
-  return (
-    <BackgroundImage>
-      <LeftButton>
-        <ChevronLeft />
-      </LeftButton>
-      <RightButton>
-        <ChevronRight />
-      </RightButton>
-      <Dots>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-      </Dots>
-    </BackgroundImage>
-  );
-}
-
-const BackgroundImage = styled.div`
+export const BackgroundImage = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -37,7 +15,7 @@ const BackgroundImage = styled.div`
   }
 `;
 
-const LeftButton = styled.div`
+export const LeftButton = styled.div`
   display: flex;
   align-items: center;
   height: 100%;
@@ -51,11 +29,11 @@ const LeftButton = styled.div`
   }
 `;
 
-const RightButton = styled(LeftButton)`
+export const RightButton = styled(LeftButton)`
   justify-content: flex-end;
 `;
 
-const Dots = styled.div`
+export const Dots = styled.div`
   position: absolute;
   top: 90%;
   left: 50%;
@@ -78,5 +56,3 @@ const Dots = styled.div`
     cursor: pointer;
   }
 `;
-
-export default Images;

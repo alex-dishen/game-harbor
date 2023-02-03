@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { GameTypes } from 'utils/Game.types';
+import { IStyledGamePage } from 'pages/Games/interfaces';
 
-interface IStyledPage {
-  games: GameTypes[] | undefined;
-}
-
-const StyledGamePage = styled(motion.main)<IStyledPage>`
+const StyledGamePage = styled(motion.main)<IStyledGamePage>`
   ${({ games }) =>
     games === undefined && {
       flex: '1',

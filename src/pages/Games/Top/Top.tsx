@@ -12,11 +12,11 @@ import {
   Option,
 } from './styles';
 
-interface Props {
+interface TopProps {
   currentFilter: string;
 }
 
-function Top({ currentFilter }: Props) {
+function Top({ currentFilter }: TopProps) {
   const orderRef = useRef<HTMLUListElement>(null);
   const [isOrderOpen, setIsOrderOpen] = useState(false);
   const [orderTitle, setOrderTitle] = useState('...');

@@ -8,13 +8,13 @@ import {
 } from 'pages/Games/Sidebar/categories';
 import { ReactComponent as Close } from 'assets/close.svg';
 import {
-  StyledNavbar,
+  StyledSidebar,
   CloseHolder,
   CategoryHolder,
   Filter,
 } from 'pages/Games/Sidebar/styles';
 
-interface Props {
+interface SidebarProps {
   isChangeNavbar: boolean;
   currentFilter: string;
   setIsHideNavbar: (a: boolean) => void;
@@ -28,7 +28,7 @@ function Sidebar({
   setCurrentFilter,
   setIsHideNavbar,
   setGames,
-}: Props) {
+}: SidebarProps) {
   const handleFilterClick = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
     const { textContent } = target;
@@ -40,7 +40,7 @@ function Sidebar({
   };
 
   return (
-    <StyledNavbar isChangeNavbar={isChangeNavbar}>
+    <StyledSidebar isChangeNavbar={isChangeNavbar}>
       {isChangeNavbar && (
         <CloseHolder
           onClick={() => {
@@ -110,7 +110,7 @@ function Sidebar({
           </Filter>
         ))}
       </CategoryHolder>
-    </StyledNavbar>
+    </StyledSidebar>
   );
 }
 

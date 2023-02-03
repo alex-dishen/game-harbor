@@ -1,4 +1,17 @@
-interface GameTypes {
+export interface ResponseSchema<T> {
+  results: T[];
+}
+
+export interface IGetGamesList {
+  page?: number;
+  page_size?: number;
+  search?: string;
+  dates?: string;
+  ordering?: string;
+  platforms?: number;
+}
+
+export interface IGame {
   id: number;
   slug: string;
   name: string;
@@ -36,5 +49,3 @@ interface GameTypes {
     image: string;
   }[];
 }
-
-export type { GameTypes };

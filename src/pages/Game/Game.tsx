@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import GameHeader from 'pages/Game/components/GameHeader';
-import Images from 'pages/Game/components/Images';
-import Info from 'pages/Game/components/Info';
-import Price from 'pages/Game/components/Price';
+import GameHeader from 'pages/Game/GameHeader/GameHeader';
+import Images from 'pages/Game/Images/Images';
+import Info from 'pages/Game/Info/Info';
+import Price from 'pages/Game/Price/Price';
 
 function Game() {
   return (

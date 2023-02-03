@@ -8,12 +8,12 @@ import {
   Overlay,
 } from './styles';
 
-interface Props {
+interface CartProps {
   isOpenCart: boolean;
   openAndHideCart: () => void;
 }
 
-function Cart({ isOpenCart, openAndHideCart }: Props) {
+function Cart({ isOpenCart, openAndHideCart }: CartProps) {
   const cartRef = useRef<HTMLDivElement>(null);
 
   useClickOutside(isOpenCart, cartRef, openAndHideCart);

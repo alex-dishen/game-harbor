@@ -1,14 +1,8 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
+import { IHeaderWrapper } from 'components/Header/interfaces';
 
-interface HeaderProps {
-  scrollDirection: string;
-  isModifyHeader: boolean;
-  isChangeNavbar: boolean;
-  isHideNavbar: boolean;
-}
-
-const HeaderWrapper = styled.header<HeaderProps>(
+const HeaderWrapper = styled.header<IHeaderWrapper>(
   ({ isModifyHeader, scrollDirection, isHideNavbar, isChangeNavbar }) => css`
     position: ${isModifyHeader ? 'sticky' : 'block'};
     z-index: ${!isHideNavbar && isChangeNavbar ? -1 : 2};
