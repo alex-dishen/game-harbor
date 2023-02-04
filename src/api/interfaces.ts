@@ -11,6 +11,11 @@ export interface IGetGamesList {
   platforms?: number;
 }
 
+export interface IScreenshots {
+  id: number;
+  image: string;
+}
+
 export interface IGame {
   id: number;
   slug: string;

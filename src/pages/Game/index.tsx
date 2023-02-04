@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import GameHeader from 'pages/Game/GameHeader';
-import Images from 'pages/Game/Images';
+import Carousel from 'pages/Game/Carousel';
 import Info from 'pages/Game/Info';
 import Price from 'pages/Game/Price';
 import getGameDetails from 'api/gameDetails';
-import { IGame } from 'api/interfaces';
+import { IGame, ResponseSchema, IScreenshots } from 'api/interfaces';
 import { GameWrapper, Main } from 'pages/Game/styles';
+import getGameScreenshots from 'api/gameScreenshots';
 
 interface GameProps {
   gameID: number;
@@ -13,10 +14,14 @@ interface GameProps {
 
 function Game({ gameID }: GameProps) {
   const [gameSpecification, setGameSpecification] = useState<IGame>();
+  const [gameScreenshots, setGameScreenshots] =
+    useState<ResponseSchema<IScreenshots>>();
 
   const setGameDetails = async () => {
-    const response = await getGameDetails(gameID);
-    setGameSpecification(response);
+    const details = await getGameDetails(gameID);
+    const screenshots = await getGameScreenshots(gameID);
+    setGameSpecification(details);
+    setGameScreenshots(screenshots);
   };
 
   useEffect(() => {
@@ -32,7 +37,7 @@ function Game({ gameID }: GameProps) {
     >
       <GameHeader />
       <Main>
-        <Images />
+        <Carousel screenshots={gameScreenshots?.results} />
         <Info description={gameSpecification?.description_raw} />
         <Price />
       </Main>
