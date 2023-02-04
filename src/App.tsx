@@ -11,6 +11,7 @@ import 'font/fonts.scss';
 function App() {
   const [isChangeNavbar, setIsChangeNavbar] = useState(false);
   const [isHideNavbar, setIsHideNavbar] = useState(false);
+  const [gameID, setGameID] = useState(0);
   const location = useLocation();
 
   return (
@@ -27,10 +28,11 @@ function App() {
                 setIsChangeNavbar={setIsChangeNavbar}
                 isHideNavbar={isHideNavbar}
                 setIsHideNavbar={setIsHideNavbar}
+                setGameID={setGameID}
               />
             }
           />
-          <Route path="/games/game" element={<Game />} />
+          <Route path="/games/game" element={<Game gameID={gameID} />} />
         </Routes>
       </AnimatePresence>
     </>

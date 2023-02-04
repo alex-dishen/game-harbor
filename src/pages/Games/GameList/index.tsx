@@ -12,9 +12,10 @@ import {
 
 interface GameListProps {
   games: IGame[];
+  setGameID: (a: number) => void;
 }
 
-function GameList({ games }: GameListProps) {
+function GameList({ games, setGameID }: GameListProps) {
   return (
     <GameListWrapper games={games}>
       {games.length === 0 ? (
@@ -35,7 +36,14 @@ function GameList({ games }: GameListProps) {
                 <Price>
                   <span>Add to cart +</span> $ {game.price}
                 </Price>
-                <GameName to="game">{game.name}</GameName>
+                <GameName
+                  to="game"
+                  onClick={() => {
+                    setGameID(game.id);
+                  }}
+                >
+                  {game.name}
+                </GameName>
               </Info>
             </GameWrapper>
           ))}

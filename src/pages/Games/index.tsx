@@ -14,6 +14,7 @@ interface GamesProps {
   isHideNavbar: boolean;
   setIsChangeNavbar: (a: boolean) => void;
   setIsHideNavbar: (a: boolean) => void;
+  setGameID: (a: number) => void;
 }
 
 function Games({
@@ -21,6 +22,7 @@ function Games({
   isHideNavbar,
   setIsChangeNavbar,
   setIsHideNavbar,
+  setGameID,
 }: GamesProps) {
   const [games, setGames] = useState<IGame[]>();
   const [currentFilter, setCurrentFilter] = useState('');
@@ -194,7 +196,7 @@ function Games({
           )}
           <Content>
             <Top currentFilter={currentFilter} />
-            <GameList games={games} />
+            <GameList games={games} setGameID={setGameID} />
           </Content>
         </>
       )}

@@ -1,10 +1,28 @@
+import { useEffect, useState } from 'react';
 import GameHeader from 'pages/Game/GameHeader';
 import Images from 'pages/Game/Images';
 import Info from 'pages/Game/Info';
 import Price from 'pages/Game/Price';
+import getGameDetails from 'api/gameDetails';
+import { IGame } from 'api/interfaces';
 import { GameWrapper, Main } from 'pages/Game/styles';
 
-function Game() {
+interface GameProps {
+  gameID: number;
+}
+
+function Game({ gameID }: GameProps) {
+  const [gameSpecification, setGameSpecification] = useState<IGame>();
+
+  const setGameDetails = async () => {
+    const response = await getGameDetails(gameID);
+    setGameSpecification(response);
+  };
+
+  useEffect(() => {
+    setGameDetails();
+  }, []);
+
   return (
     <GameWrapper
       initial={{ opacity: 0, x: -25 }}
@@ -15,7 +33,7 @@ function Game() {
       <GameHeader />
       <Main>
         <Images />
-        <Info />
+        <Info description={gameSpecification?.description_raw} />
         <Price />
       </Main>
     </GameWrapper>
