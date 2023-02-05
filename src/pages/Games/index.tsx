@@ -101,6 +101,7 @@ function Games({
     if (response !== undefined) {
       const { results } = response;
       setGames(results);
+      results.forEach((game) => (game.price = getPrice(game)));
     }
   };
 
@@ -134,6 +135,7 @@ function Games({
     if (response !== undefined) {
       const { results } = response;
       setGames(results);
+      results.forEach((game) => (game.price = getPrice(game)));
     }
   };
 
@@ -160,8 +162,7 @@ function Games({
   }, [isChangeNavbar]);
 
   useEffect(() => {
-    loadGames();
-    setCurrentFilter('This week');
+    setCurrentFilter('Next week');
   }, []);
 
   return (

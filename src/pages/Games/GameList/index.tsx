@@ -18,7 +18,6 @@ interface GameListProps {
 }
 
 function GameList({ games, setGameID }: GameListProps) {
-  console.log(games);
   return (
     <GameListWrapper games={games}>
       {games.length === 0 ? (
@@ -41,7 +40,9 @@ function GameList({ games, setGameID }: GameListProps) {
                 </Price>
                 <PlatformIcons>
                   {game.parent_platforms.map((platform) => (
-                    <span>{platformIcons[platform.platform.slug]}</span>
+                    <span key={uniqid()}>
+                      {platformIcons[platform.platform.slug]}
+                    </span>
                   ))}
                 </PlatformIcons>
                 <GameName
