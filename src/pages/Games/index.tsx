@@ -6,8 +6,7 @@ import Top from 'pages/Games/Top';
 import GameList from 'pages/Games/GameList';
 import { ReactComponent as Menu } from 'assets/menu.svg';
 import { StyledGamePage, MenuHolder, Content } from 'pages/Games/styles';
-import getGamesList from 'api/gamesList';
-import getPrice from 'utils/helpers';
+import useGames from './useGames';
 
 interface GamesProps {
   isChangeNavbar: boolean;
@@ -27,54 +26,6 @@ function Games({
   const [games, setGames] = useState<IGame[]>();
   const [currentFilter, setCurrentFilter] = useState('');
 
-  const currentDate = new Date();
-
-  const formatDate = (date: Date) => date.toISOString().replace(/T.*/, '');
-
-  const getLast30Days = () => {
-    const dateCpy = new Date(currentDate.getTime());
-
-    const pastDay = new Date(
-      dateCpy.getFullYear(),
-      dateCpy.getMonth(),
-      dateCpy.getDate() - 30
-    );
-
-    return `${formatDate(pastDay)},${formatDate(currentDate)}`;
-  };
-
-  const getThisWeek = () => {
-    const previousMonday = new Date();
-
-    previousMonday.setDate(
-      currentDate.getDate() - ((currentDate.getDay() + 6) % 7)
-    );
-
-    const thisSunday = new Date(
-      previousMonday.getFullYear(),
-      previousMonday.getMonth(),
-      previousMonday.getDate() + 7
-    );
-
-    return `${formatDate(previousMonday)},${formatDate(thisSunday)}`;
-  };
-
-  const getNextWeek = () => {
-    const dateCpy = new Date(currentDate.getTime());
-
-    const nextMonday = new Date(
-      dateCpy.setDate(dateCpy.getDate() + ((7 - dateCpy.getDay() + 1) % 7 || 7))
-    );
-
-    const nextSunday = new Date(
-      nextMonday.getFullYear(),
-      nextMonday.getMonth(),
-      nextMonday.getDate() + 7
-    );
-
-    return `${formatDate(nextMonday)},${formatDate(nextSunday)}`;
-  };
-
   const getWindowWidth = () => {
     const { innerWidth } = window;
 
@@ -89,114 +40,6 @@ function Games({
     }
   };
 
-  const loadGamesForGenres = async () => {
-    let response;
-
-    if (currentFilter === 'RPG') {
-      response = await getGamesList({ genres: 'role-playing-games-rpg' });
-    } else {
-      response = await getGamesList({
-        genres: currentFilter.toLocaleLowerCase(),
-      });
-    }
-
-    if (response !== undefined) {
-      const { results } = response;
-      setGames(results);
-    }
-  };
-
-  const loadGamesForNewReleases = async () => {
-    let response;
-    if (currentFilter === 'Last 30 days') {
-      response = await getGamesList({
-        dates: getLast30Days(),
-        genres: 'shooter',
-      });
-    } else if (currentFilter === 'This week') {
-      response = await getGamesList({ dates: getThisWeek() });
-    } else if (currentFilter === 'Next week') {
-      response = await getGamesList({
-        dates: getNextWeek(),
-      });
-    }
-    if (response !== undefined) {
-      const { results } = response;
-      setGames(results);
-      results.forEach((game) => (game.price = getPrice(game)));
-    }
-  };
-
-  const loadGamesForPlatforms = async () => {
-    let response;
-
-    if (currentFilter === 'PC') {
-      response = await getGamesList({ parent_platforms: 1 });
-    } else if (currentFilter === 'PlayStation 4') {
-      response = await getGamesList({ parent_platforms: 2 });
-    } else if (currentFilter === 'Xbox One') {
-      response = await getGamesList({ parent_platforms: 3 });
-    } else if (currentFilter === 'Nintendo Switch') {
-      response = await getGamesList({ parent_platforms: 7 });
-    } else if (currentFilter === 'iOS') {
-      response = await getGamesList({ parent_platforms: 5 });
-    } else if (currentFilter === 'Android') {
-      response = await getGamesList({ parent_platforms: 8 });
-    }
-    if (response !== undefined) {
-      const { results } = response;
-      setGames(results);
-    }
-  };
-
-  const getThisYear = () => {
-    const thisYear = new Date().getFullYear();
-    return `${thisYear}-01-01,${thisYear}-12-31`;
-  };
-
-  const getPreviousYear = () => {
-    const thisYear = new Date().getFullYear();
-    return `${thisYear - 1}-01-01,${thisYear - 1}-12-31`;
-  };
-
-  const loadGamesForTop = async () => {
-    let response;
-    if (currentFilter === 'Best of the year') {
-      response = await getGamesList({
-        page_size: 40,
-        dates: getThisYear(),
-        ordering: '-added',
-      });
-    } else if (currentFilter === 'Popular in 2022') {
-      response = await getGamesList({
-        page_size: 40,
-        dates: getPreviousYear(),
-        ordering: '-added',
-      });
-    } else if (currentFilter === 'All time top 250') {
-      response = await getGamesList({ page_size: 40, ordering: '-added' });
-    }
-    if (response !== undefined) {
-      const { results } = response;
-      setGames(results);
-      results.forEach((game) => (game.price = getPrice(game)));
-    }
-  };
-
-  const loadGames = async () => {
-    const response = await getGamesList({ dates: getNextWeek() });
-    const { results } = response;
-    setGames(results);
-    results.forEach((game) => (game.price = getPrice(game)));
-  };
-
-  useEffect(() => {
-    loadGamesForNewReleases();
-    loadGamesForTop();
-    loadGamesForGenres();
-    loadGamesForPlatforms();
-  }, [currentFilter]);
-
   useEffect(() => {
     getWindowWidth();
 
@@ -207,9 +50,7 @@ function Games({
     };
   }, [isChangeNavbar]);
 
-  useEffect(() => {
-    setCurrentFilter('Next week');
-  }, []);
+  useGames({ currentFilter, setCurrentFilter, setGames });
 
   return (
     <StyledGamePage
