@@ -7,7 +7,7 @@ export const GameWrapper = styled(motion.main)`
   flex-direction: column;
   gap: 20px;
   height: 100%;
-  padding: 20px 40px 30px 40px;
+  padding: 10px 40px 30px 40px;
 
   svg {
     fill: rgb(204, 204, 204);

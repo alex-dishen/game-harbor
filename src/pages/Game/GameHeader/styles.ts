@@ -5,6 +5,7 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
   color: white;
 
   @media (max-width: 700px) {
@@ -50,4 +51,5 @@ export const BackButton = styled(Link)`
 export const GameName = styled.span`
   font-size: 46px;
   font-weight: 800;
+  word-break: keep-all;
 `;

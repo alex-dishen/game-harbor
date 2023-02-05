@@ -35,7 +35,7 @@ function Game({ gameID }: GameProps) {
       transition={{ duration: 0.4 }}
       exit={{ opacity: 0, x: -25 }}
     >
-      <GameHeader />
+      <GameHeader gameName={gameSpecification?.name} />
       <Main>
         <Carousel screenshots={gameScreenshots?.results} />
         <Info gameSpecification={gameSpecification} />

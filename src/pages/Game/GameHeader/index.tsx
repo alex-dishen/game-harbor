@@ -1,13 +1,17 @@
 import { Header, BackButton, GameName } from 'pages/Game/GameHeader/styles';
 import { ReactComponent as ArrowLeft } from 'assets/arrow-left.svg';
 
-function GameHeader() {
+interface GameHeaderProps {
+  gameName: string | undefined;
+}
+
+function GameHeader({ gameName }: GameHeaderProps) {
   return (
     <Header>
       <BackButton to="/games" relative="path">
         <ArrowLeft /> Store
       </BackButton>
-      <GameName>Game Name</GameName>
+      <GameName>{gameName}</GameName>
     </Header>
   );
 }
