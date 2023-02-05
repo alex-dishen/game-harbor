@@ -8,7 +8,7 @@ export interface IGetGamesList {
   search?: string;
   dates?: string;
   ordering?: string;
-  platforms?: number;
+  parent_platforms?: number;
   genres?: string;
 }
 

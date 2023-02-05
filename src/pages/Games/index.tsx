@@ -127,6 +127,28 @@ function Games({
     }
   };
 
+  const loadGamesForPlatforms = async () => {
+    let response;
+
+    if (currentFilter === 'PC') {
+      response = await getGamesList({ parent_platforms: 1 });
+    } else if (currentFilter === 'PlayStation 4') {
+      response = await getGamesList({ parent_platforms: 2 });
+    } else if (currentFilter === 'Xbox One') {
+      response = await getGamesList({ parent_platforms: 3 });
+    } else if (currentFilter === 'Nintendo Switch') {
+      response = await getGamesList({ parent_platforms: 7 });
+    } else if (currentFilter === 'iOS') {
+      response = await getGamesList({ parent_platforms: 5 });
+    } else if (currentFilter === 'Android') {
+      response = await getGamesList({ parent_platforms: 8 });
+    }
+    if (response !== undefined) {
+      const { results } = response;
+      setGames(results);
+    }
+  };
+
   const getThisYear = () => {
     const thisYear = new Date().getFullYear();
     return `${thisYear}-01-01,${thisYear}-12-31`;
@@ -172,6 +194,7 @@ function Games({
     loadGamesForNewReleases();
     loadGamesForTop();
     loadGamesForGenres();
+    loadGamesForPlatforms();
   }, [currentFilter]);
 
   useEffect(() => {
