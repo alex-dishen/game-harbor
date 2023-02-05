@@ -89,14 +89,36 @@ function Games({
     }
   };
 
+  const loadGamesForGenres = async () => {
+    let response;
+
+    if (currentFilter === 'RPG') {
+      response = await getGamesList({ genres: 'role-playing-games-rpg' });
+    } else {
+      response = await getGamesList({
+        genres: currentFilter.toLocaleLowerCase(),
+      });
+    }
+
+    if (response !== undefined) {
+      const { results } = response;
+      setGames(results);
+    }
+  };
+
   const loadGamesForNewReleases = async () => {
     let response;
     if (currentFilter === 'Last 30 days') {
-      response = await getGamesList({ dates: getLast30Days() });
+      response = await getGamesList({
+        dates: getLast30Days(),
+        genres: 'shooter',
+      });
     } else if (currentFilter === 'This week') {
       response = await getGamesList({ dates: getThisWeek() });
     } else if (currentFilter === 'Next week') {
-      response = await getGamesList({ dates: getNextWeek() });
+      response = await getGamesList({
+        dates: getNextWeek(),
+      });
     }
     if (response !== undefined) {
       const { results } = response;
@@ -149,6 +171,7 @@ function Games({
   useEffect(() => {
     loadGamesForNewReleases();
     loadGamesForTop();
+    loadGamesForGenres();
   }, [currentFilter]);
 
   useEffect(() => {

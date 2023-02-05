@@ -9,6 +9,7 @@ export interface IGetGamesList {
   dates?: string;
   ordering?: string;
   platforms?: number;
+  genres?: string;
 }
 
 export interface IScreenshots {
