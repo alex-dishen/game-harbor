@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { IMoreButton } from 'pages/Game/Info/interfaces';
 
 export const StyledInfo = styled.div`
   grid-area: info;
@@ -23,8 +24,7 @@ export const About = styled.div`
 
 export const MoreInfo = styled.div`
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
   max-height: 245px;
   padding: 20px;
   background-color: rgb(38, 38, 38);
@@ -32,10 +32,33 @@ export const MoreInfo = styled.div`
   border-bottom-right-radius: 12px;
 `;
 
-export const MoreButton = styled.div`
+export const Details = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  color: rgb(153, 153, 153);
+  list-style: none;
+  overflow: scroll;
+
+  li {
+    display: flex;
+    gap: 4px;
+
+    a {
+      text-decoration: none;
+      color: rgb(153, 153, 153);
+    }
+  }
+`;
+
+export const MoreButton = styled.div<IMoreButton>`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: 5px;
+  padding-top: ${({ showMoreInfo }) => (showMoreInfo ? '5px' : '0')};
   color: rgb(204, 204, 204);
   cursor: pointer;
   transition: 0.3s;

@@ -38,7 +38,7 @@ function Game({ gameID }: GameProps) {
       <GameHeader />
       <Main>
         <Carousel screenshots={gameScreenshots?.results} />
-        <Info description={gameSpecification?.description_raw} />
+        <Info gameSpecification={gameSpecification} />
         <Price />
       </Main>
     </GameWrapper>
