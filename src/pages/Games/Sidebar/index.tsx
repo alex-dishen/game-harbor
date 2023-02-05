@@ -5,7 +5,7 @@ import {
   tops,
   platforms,
   genres,
-} from 'pages/Games/Sidebar/categories';
+} from 'pages/Games/Sidebar/constants';
 import { ReactComponent as Close } from 'assets/close.svg';
 import {
   StyledSidebar,

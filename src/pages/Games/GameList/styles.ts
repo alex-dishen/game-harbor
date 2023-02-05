@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { IGameListWrapper } from 'pages/Games/GameList/interfaces';
 
-const GameListWrapper = styled.div<IGameListWrapper>`
+export const GameListWrapper = styled.div<IGameListWrapper>`
   display: ${({ games }) => (games.length === 0 ? 'flex' : 'grid')};
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   justify-content: center;
@@ -10,7 +10,7 @@ const GameListWrapper = styled.div<IGameListWrapper>`
   margin-top: 30px;
 `;
 
-const GameWrapper = styled.div`
+export const GameWrapper = styled.div`
   background-color: rgb(32, 32, 32);
   color: white;
   border-radius: 18px;
@@ -22,7 +22,7 @@ const GameWrapper = styled.div`
   }
 `;
 
-const BackgroundImage = styled.div`
+export const BackgroundImage = styled.div`
   aspect-ratio: 1.7 / 1;
   background-size: cover;
   background-position: center;
@@ -30,14 +30,14 @@ const BackgroundImage = styled.div`
   border-top-right-radius: 18px;
 `;
 
-const Info = styled.div`
+export const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin: 15px 20px;
 `;
 
-const Price = styled.div`
+export const Price = styled.div`
   display: flex;
   justify-content: space-between;
   cursor: auto;
@@ -48,11 +48,19 @@ const Price = styled.div`
   }
 `;
 
-const GameName = styled(Link)`
+export const PlatformIcons = styled.div`
+  display: flex;
+  gap: 7px;
+
+  svg {
+    height: 13px;
+    fill: white;
+  }
+`;
+
+export const GameName = styled(Link)`
   font-size: 22px;
   font-weight: 600;
   text-decoration: none;
   color: white;
 `;
-
-export { GameListWrapper, GameWrapper, BackgroundImage, Info, Price, GameName };

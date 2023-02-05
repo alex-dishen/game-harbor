@@ -1,12 +1,14 @@
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
 import { IGame } from 'api/interfaces';
+import { platformIcons } from './constants';
 import {
   GameListWrapper,
   GameWrapper,
   BackgroundImage,
   Info,
   Price,
+  PlatformIcons,
   GameName,
 } from './styles';
 
@@ -16,6 +18,7 @@ interface GameListProps {
 }
 
 function GameList({ games, setGameID }: GameListProps) {
+  console.log(games);
   return (
     <GameListWrapper games={games}>
       {games.length === 0 ? (
@@ -36,6 +39,11 @@ function GameList({ games, setGameID }: GameListProps) {
                 <Price>
                   <span>Add to cart +</span> $ {game.price}
                 </Price>
+                <PlatformIcons>
+                  {game.parent_platforms.map((platform) => (
+                    <span>{platformIcons[platform.platform.slug]}</span>
+                  ))}
+                </PlatformIcons>
                 <GameName
                   to="game"
                   onClick={() => {
