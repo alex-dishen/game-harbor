@@ -11,7 +11,7 @@ import {
   getPrice,
 } from 'pages/Games/helpers';
 
-const useGames = ({ currentFilter, setCurrentFilter, setGames }: IUseGames) => {
+const useGames = ({ currentFilter, setGames }: IUseGames) => {
   const getGames = async () => {
     if (currentFilter === 'Last 30 days')
       return getGamesList({ dates: getLast30Days() });
@@ -64,10 +64,6 @@ const useGames = ({ currentFilter, setCurrentFilter, setGames }: IUseGames) => {
   useEffect(() => {
     loadGames();
   }, [currentFilter]);
-
-  useEffect(() => {
-    setCurrentFilter('Next week');
-  }, []);
 };
 
 export default useGames;

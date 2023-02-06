@@ -11,6 +11,7 @@ import 'font/fonts.scss';
 function App() {
   const [isChangeNavbar, setIsChangeNavbar] = useState(false);
   const [isHideNavbar, setIsHideNavbar] = useState(false);
+  const [currentFilter, setCurrentFilter] = useState('');
   const [gameID, setGameID] = useState(0);
   const location = useLocation();
 
@@ -19,16 +20,21 @@ function App() {
       <Header isChangeNavbar={isChangeNavbar} isHideNavbar={isHideNavbar} />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={<Home setCurrentFilter={setCurrentFilter} />}
+          />
           <Route
             path="/games"
             element={
               <Games
                 isChangeNavbar={isChangeNavbar}
-                setIsChangeNavbar={setIsChangeNavbar}
                 isHideNavbar={isHideNavbar}
+                currentFilter={currentFilter}
+                setIsChangeNavbar={setIsChangeNavbar}
                 setIsHideNavbar={setIsHideNavbar}
                 setGameID={setGameID}
+                setCurrentFilter={setCurrentFilter}
               />
             }
           />

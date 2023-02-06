@@ -11,20 +11,23 @@ import { StyledGamePage, MenuHolder, Content } from 'pages/Games/styles';
 interface GamesProps {
   isChangeNavbar: boolean;
   isHideNavbar: boolean;
+  currentFilter: string;
   setIsChangeNavbar: (a: boolean) => void;
   setIsHideNavbar: (a: boolean) => void;
   setGameID: (a: number) => void;
+  setCurrentFilter: (a: string) => void;
 }
 
 function Games({
   isChangeNavbar,
   isHideNavbar,
+  currentFilter,
   setIsChangeNavbar,
   setIsHideNavbar,
   setGameID,
+  setCurrentFilter,
 }: GamesProps) {
   const [games, setGames] = useState<IGame[]>();
-  const [currentFilter, setCurrentFilter] = useState('');
 
   const getWindowWidth = () => {
     const { innerWidth } = window;
