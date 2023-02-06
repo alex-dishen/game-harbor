@@ -79,5 +79,5 @@ export const getPrice = (game: IGame) => {
   }
   newPrice = Math.ceil(newPrice);
   newPrice = newPrice < minPrice ? minPrice : newPrice;
-  return newPrice - 0.01;
+  return newPrice - 0.02;
 };

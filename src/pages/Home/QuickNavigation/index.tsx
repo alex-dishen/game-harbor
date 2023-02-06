@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
-import places from 'pages/Home/QuickNavigation/places';
+import places from 'pages/Home/QuickNavigation/constants';
 import Navigation from 'pages/Home/QuickNavigation/styles';
 
 interface PlaceProps {

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import getGamesList from 'api/gamesList';
+import { IUseGames } from 'pages/Games/interfaces';
 import {
   getLast30Days,
   getThisWeek,
@@ -8,13 +9,6 @@ import {
   getPreviousYear,
   getPrice,
 } from 'pages/Games/helpers';
-import { IGame } from 'api/interfaces';
-
-interface IUseGames {
-  currentFilter: string;
-  setCurrentFilter: (a: string) => void;
-  setGames: (a: IGame[]) => void;
-}
 
 const useGames = ({ currentFilter, setCurrentFilter, setGames }: IUseGames) => {
   const getGames = async () => {

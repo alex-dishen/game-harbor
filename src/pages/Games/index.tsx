@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { CircularProgress } from 'react-cssfx-loading';
+import useGames from 'pages/Games/useGames';
 import { IGame } from 'api/interfaces';
 import Sidebar from 'pages/Games/Sidebar';
 import Top from 'pages/Games/Top';
 import GameList from 'pages/Games/GameList';
 import { ReactComponent as Menu } from 'assets/menu.svg';
 import { StyledGamePage, MenuHolder, Content } from 'pages/Games/styles';
-import useGames from './useGames';
 
 interface GamesProps {
   isChangeNavbar: boolean;

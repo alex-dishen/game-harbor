@@ -1,7 +1,7 @@
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
 import { IGame } from 'api/interfaces';
-import { platformIcons } from './constants';
+import { platformIcons } from 'pages/Games/GameList/constants';
 import {
   GameListWrapper,
   GameWrapper,
@@ -10,7 +10,7 @@ import {
   Price,
   PlatformIcons,
   GameName,
-} from './styles';
+} from 'pages/Games/GameList/styles';
 
 interface GameListProps {
   games: IGame[];

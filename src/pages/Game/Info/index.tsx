@@ -1,4 +1,11 @@
 import { useState } from 'react';
+import { IGame } from 'api/interfaces';
+import Developers from 'pages/Game/Info/components/Developers';
+import Genres from 'pages/Game/Info/components/Genres';
+import Publishers from 'pages/Game/Info/components/Publishers';
+import Platforms from 'pages/Game/Info/components/Platforms';
+import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
+import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
 import {
   StyledInfo,
   About,
@@ -6,13 +13,6 @@ import {
   Details,
   MoreButton,
 } from 'pages/Game/Info/styles';
-import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
-import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
-import { IGame } from 'api/interfaces';
-import Developers from 'pages/Game/Info/Developers';
-import Genres from 'pages/Game/Info/Genres';
-import Publishers from 'pages/Game/Info/Publishers';
-import Platforms from 'pages/Game/Info/Platforms';
 
 interface InfoProps {
   gameSpecification: IGame | undefined;

@@ -1,5 +1,5 @@
 import styled, { CSSObject, css } from 'styled-components';
-import { IStyledSidebar, IFilter } from './interfaces';
+import { IStyledSidebar, IFilter } from 'pages/Games/Sidebar/interfaces';
 
 const aside = {
   position: 'sticky',

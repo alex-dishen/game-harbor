@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react';
 import { PanInfo, useAnimation } from 'framer-motion';
+import { IScreenshots } from 'api/interfaces';
 import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
-import { IScreenshots } from 'api/interfaces';
 import {
   CarouselWrapper,
   LeftButton,

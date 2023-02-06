@@ -1,5 +1,3 @@
-import { ResponseSchema } from 'api/interfaces';
-
 const URL = 'https://api.rawg.io/api';
 const API_KEY = process.env.REACT_APP_RAWG_API;
 
@@ -17,4 +15,3 @@ async function getData<T>(endpoint: string, params?: Record<string, string>) {
 }
 
 export default getData;
-export type { ResponseSchema };
