@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import getGamesList from 'api/gamesList';
 import { IUseGames } from 'pages/Games/interfaces';
 import {
+  previousYear,
   getLast30Days,
   getThisWeek,
   getNextWeek,
@@ -24,15 +25,15 @@ const useGames = ({ currentFilter, setCurrentFilter, setGames }: IUseGames) => {
     if (currentFilter === 'Best of the year')
       return getGamesList({ dates: getThisYear() });
 
-    if (currentFilter === 'Popular in 2022')
+    if (currentFilter === `Popular in ${previousYear}`)
       return getGamesList({ dates: getPreviousYear() });
 
-    if (currentFilter === 'All time top 250')
+    if (currentFilter === 'All time top')
       return getGamesList({ page_size: 40, ordering: '-added' });
 
     if (currentFilter === 'PC') return getGamesList({ parent_platforms: 1 });
 
-    if (currentFilter === 'PlayStation 4')
+    if (currentFilter === 'PlayStation')
       return getGamesList({ parent_platforms: 2 });
 
     if (currentFilter === 'Xbox One')

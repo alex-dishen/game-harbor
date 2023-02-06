@@ -4,6 +4,8 @@ const currentDate = new Date();
 
 const formatDate = (date: Date) => date.toISOString().replace(/T.*/, '');
 
+export const previousYear = currentDate.getFullYear() - 1;
+
 export const getLast30Days = () => {
   const dateCpy = new Date(currentDate.getTime());
 

@@ -19,6 +19,8 @@ import { ReactComponent as Puzzle } from 'assets/puzzle.svg';
 import { ReactComponent as Racing } from 'assets/racing.svg';
 import { ReactComponent as Sports } from 'assets/sports.svg';
 
+const previousYear = new Date().getFullYear() - 1;
+
 const releases = [
   { name: 'Last 30 days', icon: <Star /> },
   { name: 'This week', icon: <Fire /> },
@@ -27,13 +29,13 @@ const releases = [
 
 const tops = [
   { name: 'Best of the year', icon: <Cup /> },
-  { name: 'Popular in 2022', icon: <Rating /> },
-  { name: 'All time top 250', icon: <Crown /> },
+  { name: `Popular in ${previousYear}`, icon: <Rating /> },
+  { name: 'All time top', icon: <Crown /> },
 ];
 
 const platforms = [
   { name: 'PC', icon: <Windows /> },
-  { name: 'PlayStation 4', icon: <PlayStation /> },
+  { name: 'PlayStation', icon: <PlayStation /> },
   { name: 'Xbox One', icon: <Xbox /> },
   { name: 'Nintendo Switch', icon: <Nintendo /> },
   { name: 'iOS', icon: <Apple /> },
