@@ -6,6 +6,7 @@ export interface IStyledGamePage {
 
 export interface IUseGames {
   currentFilter: string;
+  orderTitle: string;
   setCurrentFilter: (a: string) => void;
   setGames: (a: IGame[]) => void;
 }

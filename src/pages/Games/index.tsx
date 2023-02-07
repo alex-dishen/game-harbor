@@ -28,6 +28,7 @@ function Games({
   setCurrentFilter,
 }: GamesProps) {
   const [games, setGames] = useState<IGame[]>();
+  const [orderTitle, setOrderTitle] = useState('Popularity');
 
   const getWindowWidth = () => {
     const { innerWidth } = window;
@@ -53,7 +54,7 @@ function Games({
     };
   }, [isChangeNavbar]);
 
-  useGames({ currentFilter, setCurrentFilter, setGames });
+  useGames({ currentFilter, orderTitle, setCurrentFilter, setGames });
 
   return (
     <StyledGamePage
@@ -86,7 +87,11 @@ function Games({
             />
           )}
           <Content>
-            <Top currentFilter={currentFilter} />
+            <Top
+              currentFilter={currentFilter}
+              orderTitle={orderTitle}
+              setOrderTitle={setOrderTitle}
+            />
             <GameList games={games} setGameID={setGameID} />
           </Content>
         </>

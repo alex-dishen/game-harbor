@@ -1,4 +1,4 @@
-import { useRef, useState, MouseEvent } from 'react';
+import { useRef, useState, MouseEvent, useEffect } from 'react';
 import uniqid from 'uniqid';
 import { useClickOutside } from 'utils/customHooks';
 import { ReactComponent as Check } from 'assets/check.svg';
@@ -14,12 +14,14 @@ import {
 
 interface TopProps {
   currentFilter: string;
+  orderTitle: string;
+  setOrderTitle: (a: string) => void;
 }
 
-function Top({ currentFilter }: TopProps) {
+function Top({ currentFilter, orderTitle, setOrderTitle }: TopProps) {
   const orderRef = useRef<HTMLUListElement>(null);
+  const [showOrder, setShowOrder] = useState(true);
   const [isOrderOpen, setIsOrderOpen] = useState(false);
-  const [orderTitle, setOrderTitle] = useState('...');
   const orderOptions = ['Name', 'Release date', 'Popularity', 'Rating'];
 
   const openAndHideOrder = () => {
@@ -40,26 +42,41 @@ function Top({ currentFilter }: TopProps) {
 
   useClickOutside(isOrderOpen, orderRef, openAndHideOrder);
 
+  useEffect(() => {
+    if (
+      currentFilter === 'All time top' ||
+      currentFilter === 'Popular in 2022' ||
+      currentFilter === 'Best of the year'
+    ) {
+      setShowOrder(false);
+      return;
+    }
+
+    return setShowOrder(true);
+  }, [currentFilter]);
+
   return (
     <StyledTop>
       <FilterName>{currentFilter}</FilterName>
 
-      <OrderWrapper>
-        <Order orderTitle={orderTitle} onClick={openAndHideOrder}>
-          Order by: <span>{orderTitle}</span>
-          <Chevron />
-        </Order>
-        {isOrderOpen && (
-          <OptionWrapper ref={orderRef}>
-            {orderOptions.map((item) => (
-              <Option onClick={handleOptionClick} key={uniqid()}>
-                {item}
-                {orderTitle === item ? <Check /> : <div />}
-              </Option>
-            ))}
-          </OptionWrapper>
-        )}
-      </OrderWrapper>
+      {showOrder && (
+        <OrderWrapper>
+          <Order orderTitle={orderTitle} onClick={openAndHideOrder}>
+            Order by: <span>{orderTitle}</span>
+            <Chevron />
+          </Order>
+          {isOrderOpen && (
+            <OptionWrapper ref={orderRef}>
+              {orderOptions.map((item) => (
+                <Option onClick={handleOptionClick} key={uniqid()}>
+                  {item}
+                  {orderTitle === item ? <Check /> : <div />}
+                </Option>
+              ))}
+            </OptionWrapper>
+          )}
+        </OrderWrapper>
+      )}
     </StyledTop>
   );
 }
