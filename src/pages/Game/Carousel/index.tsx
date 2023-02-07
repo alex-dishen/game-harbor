@@ -69,6 +69,7 @@ function Carousel({ screenshots }: CarouselProps) {
       <ImageHolder
         drag="x"
         dragMomentum={false}
+        onMouseDown={(e) => e.preventDefault()}
         onDragStart={() => clearTimeout(timeout.current)}
         onDragEnd={setIndexByPosition}
         initial={{ x: 0 }}
