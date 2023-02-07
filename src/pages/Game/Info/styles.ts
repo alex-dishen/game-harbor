@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { IMoreButton } from 'pages/Game/Info/interfaces';
 
 export const StyledInfo = styled.div`
@@ -13,18 +14,18 @@ export const Description = styled.div`
   border-top-right-radius: 12px;
   overflow: scroll;
   color: rgb(204, 204, 204);
-  box-shadow: 0 0 15px rgb(10, 10, 10);
-  clip-path: inset(0px 0px -20px 0px);
+  box-shadow: 0 0 20px rgb(10, 10, 10);
+  clip-path: inset(0px 0px -30px 0px);
 
   &::after {
     content: '';
-    height: 50px;
-    margin-top: -20px;
+    height: 45px;
+    margin-top: -25px;
     width: 100%;
     display: block;
     position: sticky;
     bottom: 0;
-    background-image: linear-gradient(to bottom, transparent, rgb(26, 26, 26));
+    background-image: linear-gradient(to bottom, transparent, rgb(28, 28, 28));
     pointer-events: none;
   }
 
@@ -36,17 +37,16 @@ export const Description = styled.div`
   }
 `;
 
-export const MoreInfo = styled.div`
+export const MoreInfo = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  max-height: 245px;
   padding: 20px;
   background-color: rgb(38, 38, 38);
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 `;
 
-export const Details = styled.ul`
+export const Details = styled(motion.ul)`
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -75,7 +75,7 @@ export const MoreButton = styled.div<IMoreButton>`
   padding-top: ${({ showMoreInfo }) => (showMoreInfo ? '5px' : '0')};
   color: rgb(204, 204, 204);
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.45s;
 
   svg {
     height: 20px;

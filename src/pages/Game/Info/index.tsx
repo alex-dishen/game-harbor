@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { IGame } from 'api/interfaces';
 import Developers from 'pages/Game/Info/components/Developers';
 import Genres from 'pages/Game/Info/components/Genres';
@@ -21,7 +22,9 @@ interface InfoProps {
 function Info({ gameSpecification }: InfoProps) {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
-  const openAndHideMoreInfo = () => setShowMoreInfo(!showMoreInfo);
+  const openAndHideMoreInfo = () => {
+    setShowMoreInfo(!showMoreInfo);
+  };
 
   const setEmptyOrComa = (index: number, array: []) =>
     index + 1 === array.length ? '' : ', ';
@@ -32,52 +35,62 @@ function Info({ gameSpecification }: InfoProps) {
         <div>Description</div>
         {gameSpecification?.description_raw}
       </Description>
-      <MoreInfo>
-        {showMoreInfo && (
-          <Details>
-            <li>
-              Website:
-              <a
-                href={gameSpecification?.website}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {gameSpecification?.website}
-              </a>
-            </li>
-            <li>
-              Released: {gameSpecification?.released.replaceAll('-', '/')}
-            </li>
-            <li>
-              Genres:
-              <Genres
-                gameSpecification={gameSpecification}
-                setEmptyOrComa={setEmptyOrComa}
-              />
-            </li>
-            <li>
-              Platforms:
-              <Platforms
-                gameSpecification={gameSpecification}
-                setEmptyOrComa={setEmptyOrComa}
-              />
-            </li>
-            <li>
-              Developers:
-              <Developers
-                gameSpecification={gameSpecification}
-                setEmptyOrComa={setEmptyOrComa}
-              />
-            </li>
-            <li>
-              Publishers:
-              <Publishers
-                gameSpecification={gameSpecification}
-                setEmptyOrComa={setEmptyOrComa}
-              />
-            </li>
-          </Details>
-        )}
+      <MoreInfo
+        animate={{ maxHeight: showMoreInfo ? 245 : 60 }}
+        transition={{ duration: 0.45 }}
+      >
+        <AnimatePresence>
+          {showMoreInfo && (
+            <Details
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.45 }}
+              exit={{ opacity: 0 }}
+            >
+              <li>
+                Website:
+                <a
+                  href={gameSpecification?.website}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {gameSpecification?.website}
+                </a>
+              </li>
+              <li>
+                Released: {gameSpecification?.released.replaceAll('-', '/')}
+              </li>
+              <li>
+                Genres:
+                <Genres
+                  gameSpecification={gameSpecification}
+                  setEmptyOrComa={setEmptyOrComa}
+                />
+              </li>
+              <li>
+                Platforms:
+                <Platforms
+                  gameSpecification={gameSpecification}
+                  setEmptyOrComa={setEmptyOrComa}
+                />
+              </li>
+              <li>
+                Developers:
+                <Developers
+                  gameSpecification={gameSpecification}
+                  setEmptyOrComa={setEmptyOrComa}
+                />
+              </li>
+              <li>
+                Publishers:
+                <Publishers
+                  gameSpecification={gameSpecification}
+                  setEmptyOrComa={setEmptyOrComa}
+                />
+              </li>
+            </Details>
+          )}
+        </AnimatePresence>
         <MoreButton showMoreInfo={showMoreInfo} onClick={openAndHideMoreInfo}>
           More {showMoreInfo ? <ChevronUp /> : <ChevronDown />}
         </MoreButton>
