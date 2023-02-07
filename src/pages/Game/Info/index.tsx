@@ -8,7 +8,7 @@ import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
 import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
 import {
   StyledInfo,
-  About,
+  Description,
   MoreInfo,
   Details,
   MoreButton,
@@ -28,10 +28,10 @@ function Info({ gameSpecification }: InfoProps) {
 
   return (
     <StyledInfo>
-      <About>
+      <Description>
         <div>Description</div>
         {gameSpecification?.description_raw}
-      </About>
+      </Description>
       <MoreInfo>
         {showMoreInfo && (
           <Details>

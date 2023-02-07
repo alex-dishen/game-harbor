@@ -5,14 +5,28 @@ export const StyledInfo = styled.div`
   grid-area: info;
 `;
 
-export const About = styled.div`
-  height: 300px;
-  padding: 20px;
+export const Description = styled.div`
+  max-height: 300px;
+  padding: 20px 20px 0px 20px;
   background-color: rgb(26, 26, 26);
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   overflow: scroll;
   color: rgb(204, 204, 204);
+  box-shadow: 0 0 15px rgb(10, 10, 10);
+  clip-path: inset(0px 0px -20px 0px);
+
+  &::after {
+    content: '';
+    height: 50px;
+    margin-top: -20px;
+    width: 100%;
+    display: block;
+    position: sticky;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, transparent, rgb(26, 26, 26));
+    pointer-events: none;
+  }
 
   div {
     margin: 15px 0;
@@ -35,7 +49,7 @@ export const MoreInfo = styled.div`
 export const Details = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   margin: 0;
   padding: 0;
   color: rgb(153, 153, 153);
@@ -44,7 +58,7 @@ export const Details = styled.ul`
 
   li {
     display: flex;
-    gap: 4px;
+    gap: 7px;
 
     a {
       text-decoration: none;
