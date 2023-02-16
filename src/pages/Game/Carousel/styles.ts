@@ -1,12 +1,29 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { motion } from 'framer-motion';
+
+const leftToRightBackground = keyframes`
+  from {
+    background-position: -240% 0;
+  } to {
+    background-position: 340% 0;
+  }
+`;
 
 export const CarouselWrapper = styled.div`
   position: relative;
   min-height: 445px;
+  background: linear-gradient(
+    90deg,
+    rgba(46, 46, 46, 1) 0%,
+    rgba(73, 73, 73, 0.6) 50%,
+    rgba(46, 46, 46, 1) 100%
+  );
   background-color: rgb(46, 46, 46);
   border-radius: 30px;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
   overflow: hidden;
+  animation: ${leftToRightBackground} 3.4s linear infinite;
   grid-area: images;
 
   svg {
