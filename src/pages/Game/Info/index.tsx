@@ -37,14 +37,14 @@ function Info({ gameSpecification }: InfoProps) {
       </Description>
       <MoreInfo
         animate={{ maxHeight: showMoreInfo ? 245 : 60 }}
-        transition={{ duration: 0.45 }}
+        transition={{ duration: 0.3 }}
       >
         <AnimatePresence>
           {showMoreInfo && (
             <Details
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.45 }}
+              transition={{ duration: 0.3 }}
               exit={{ opacity: 0 }}
             >
               <li>

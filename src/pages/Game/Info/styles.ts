@@ -75,7 +75,7 @@ export const MoreButton = styled.div<IMoreButton>`
   padding-top: ${({ showMoreInfo }) => (showMoreInfo ? '5px' : '0')};
   color: rgb(204, 204, 204);
   cursor: pointer;
-  transition: 0.45s;
+  transition: 0.3s;
 
   svg {
     height: 20px;

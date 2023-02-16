@@ -1,3 +1,4 @@
+import { previousYear } from 'pages/Games/helpers';
 import { ReactComponent as Star } from 'assets/star.svg';
 import { ReactComponent as Fire } from 'assets/fire.svg';
 import { ReactComponent as Skip } from 'assets/skip.svg';
@@ -18,8 +19,6 @@ import { ReactComponent as Adventure } from 'assets/adventure.svg';
 import { ReactComponent as Puzzle } from 'assets/puzzle.svg';
 import { ReactComponent as Racing } from 'assets/racing.svg';
 import { ReactComponent as Sports } from 'assets/sports.svg';
-
-const previousYear = new Date().getFullYear() - 1;
 
 const releases = [
   { name: 'Last 30 days', icon: <Star /> },
