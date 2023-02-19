@@ -94,8 +94,8 @@ const useGames = () => {
     const response = await getGames();
     if (!response) return;
     const { results } = response;
-    dispatch(setGames(results));
     results.forEach((game) => (game.price = getPrice(game)));
+    dispatch(setGames(results));
   };
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import { RootState } from 'redux/store';
@@ -26,6 +26,14 @@ function Info() {
     setShowMoreInfo(!showMoreInfo);
   };
 
+  const getReleaseDate = () => {
+    const release = gameSpecification.released;
+
+    if (!release) return 'Release date is not provided';
+
+    return release?.replaceAll('-', '/');
+  };
+
   const setEmptyOrComa = (index: number, array: []) =>
     index + 1 === array.length ? '' : ', ';
 
@@ -36,6 +44,7 @@ function Info() {
         {gameSpecification?.description_raw}
       </Description>
       <MoreInfo
+        initial={{ maxHeight: 60 }}
         animate={{ maxHeight: showMoreInfo ? 245 : 60 }}
         transition={{ duration: 0.3 }}
       >
@@ -57,9 +66,7 @@ function Info() {
                   {gameSpecification?.website}
                 </a>
               </li>
-              <li>
-                Released: {gameSpecification?.released.replaceAll('-', '/')}
-              </li>
+              <li>Released: {getReleaseDate()}</li>
               <li>
                 Genres:
                 <Genres
