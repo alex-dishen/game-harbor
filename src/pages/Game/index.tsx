@@ -1,32 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
+import { setGameSpecification, setGameScreenshots } from 'redux/counterSlice';
 import GameHeader from 'pages/Game/GameHeader';
 import Carousel from 'pages/Game/Carousel';
 import Info from 'pages/Game/Info';
 import Price from 'pages/Game/Price';
-import getGameDetails from 'api/gameDetails';
-import { IGame, ResponseSchema, IScreenshots } from 'api/interfaces';
+import { getGameDetails, getGameScreenshots } from 'api/gameData';
 import { GameWrapper, Main } from 'pages/Game/styles';
-import getGameScreenshots from 'api/gameScreenshots';
 
-interface GameProps {
-  gameID: number;
-}
-
-function Game({ gameID }: GameProps) {
-  const [gameSpecification, setGameSpecification] = useState<IGame>();
-  const [gameScreenshots, setGameScreenshots] =
-    useState<ResponseSchema<IScreenshots>>();
+function Game() {
+  const dispatch = useDispatch();
+  const gameID = useSelector((state: RootState) => state.harbor.gameID);
 
   const setGameDetails = async () => {
     const details = await getGameDetails(gameID);
     const screenshots = await getGameScreenshots(gameID);
-    setGameSpecification(details);
-    setGameScreenshots(screenshots);
+    dispatch(setGameSpecification(details));
+    dispatch(setGameScreenshots(screenshots));
   };
 
-  useEffect(() => {
-    setGameDetails();
-  }, []);
+  setGameDetails();
 
   return (
     <GameWrapper
@@ -35,10 +28,10 @@ function Game({ gameID }: GameProps) {
       transition={{ duration: 0.4 }}
       exit={{ opacity: 0, x: -25 }}
     >
-      <GameHeader gameName={gameSpecification?.name} />
+      <GameHeader />
       <Main>
-        <Carousel screenshots={gameScreenshots?.results} />
-        <Info gameSpecification={gameSpecification} />
+        <Carousel />
+        <Info />
         <Price />
       </Main>
     </GameWrapper>

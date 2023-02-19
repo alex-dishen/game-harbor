@@ -3,10 +3,7 @@ import QuickNavigation from 'pages/Home/QuickNavigation';
 import video from 'assets/pyke.mp4';
 import { Main, Video } from 'pages/Home/styles';
 
-interface HomeProps {
-  setCurrentFilter: (a: string) => void;
-}
-function Home({ setCurrentFilter }: HomeProps) {
+function Home() {
   return (
     <>
       <Main
@@ -16,7 +13,7 @@ function Home({ setCurrentFilter }: HomeProps) {
         exit={{ opacity: 0, x: -25 }}
       >
         <Description />
-        <QuickNavigation setCurrentFilter={setCurrentFilter} />
+        <QuickNavigation />
       </Main>
       <Video
         autoPlay

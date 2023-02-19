@@ -4,7 +4,7 @@ import { IStyledGamePage } from 'pages/Games/interfaces';
 
 const StyledGamePage = styled(motion.main)<IStyledGamePage>`
   ${({ games }) =>
-    games === undefined && {
+    games?.length === 0 && {
       flex: '1',
       justifyContent: 'center',
       alignItems: 'center',

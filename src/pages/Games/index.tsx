@@ -1,46 +1,33 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from 'react-cssfx-loading';
+import { RootState } from 'redux/store';
+import { setIsChangeNavbar, setIsHideNavbar } from 'redux/counterSlice';
 import useGames from 'pages/Games/useGames';
-import { IGame } from 'api/interfaces';
 import Sidebar from 'pages/Games/Sidebar';
 import Top from 'pages/Games/Top';
 import GameList from 'pages/Games/GameList';
 import { ReactComponent as Menu } from 'assets/menu.svg';
 import { StyledGamePage, MenuHolder, Content } from 'pages/Games/styles';
 
-interface GamesProps {
-  isChangeNavbar: boolean;
-  isHideNavbar: boolean;
-  currentFilter: string;
-  setIsChangeNavbar: (a: boolean) => void;
-  setIsHideNavbar: (a: boolean) => void;
-  setGameID: (a: number) => void;
-  setCurrentFilter: (a: string) => void;
-}
-
-function Games({
-  isChangeNavbar,
-  isHideNavbar,
-  currentFilter,
-  setIsChangeNavbar,
-  setIsHideNavbar,
-  setGameID,
-  setCurrentFilter,
-}: GamesProps) {
-  const [games, setGames] = useState<IGame[]>();
-  const [orderTitle, setOrderTitle] = useState('Popularity');
+function Games() {
+  const dispatch = useDispatch();
+  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const { isChangeNavbar } = reduxStore;
+  const { isHideNavbar } = reduxStore;
+  const { games } = reduxStore;
 
   const getWindowWidth = () => {
     const { innerWidth } = window;
 
     if (innerWidth <= 700) {
       if (!isHideNavbar) {
-        setIsHideNavbar(true);
-        setIsChangeNavbar(true);
+        dispatch(setIsHideNavbar(true));
+        dispatch(setIsChangeNavbar(true));
       }
     } else {
-      setIsHideNavbar(false);
-      setIsChangeNavbar(false);
+      dispatch(setIsHideNavbar(false));
+      dispatch(setIsChangeNavbar(false));
     }
   };
 
@@ -54,7 +41,7 @@ function Games({
     };
   }, [isChangeNavbar]);
 
-  useGames({ currentFilter, orderTitle, setCurrentFilter, setGames });
+  useGames();
 
   return (
     <StyledGamePage
@@ -64,7 +51,7 @@ function Games({
       transition={{ duration: 0.4 }}
       exit={{ opacity: 0, x: 25 }}
     >
-      {games === undefined ? (
+      {games.length === 0 ? (
         <CircularProgress
           color="rgb(24, 176, 171)"
           height="100px"
@@ -74,25 +61,15 @@ function Games({
       ) : (
         <>
           {isHideNavbar ? (
-            <MenuHolder onClick={() => setIsHideNavbar(false)}>
+            <MenuHolder onClick={() => dispatch(setIsHideNavbar(false))}>
               <Menu />
             </MenuHolder>
           ) : (
-            <Sidebar
-              setGames={setGames}
-              isChangeNavbar={isChangeNavbar}
-              setIsHideNavbar={setIsHideNavbar}
-              currentFilter={currentFilter}
-              setCurrentFilter={setCurrentFilter}
-            />
+            <Sidebar setIsHideNavbar={setIsHideNavbar} />
           )}
           <Content>
-            <Top
-              currentFilter={currentFilter}
-              orderTitle={orderTitle}
-              setOrderTitle={setOrderTitle}
-            />
-            <GameList games={games} setGameID={setGameID} />
+            <Top />
+            <GameList />
           </Content>
         </>
       )}

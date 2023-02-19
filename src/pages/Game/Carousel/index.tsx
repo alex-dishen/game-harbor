@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { PanInfo, useAnimation } from 'framer-motion';
-import { IScreenshots } from 'api/interfaces';
+import { RootState } from 'redux/store';
 import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
 import {
@@ -14,11 +15,10 @@ import {
   ActiveDot,
 } from 'pages/Game/Carousel/styles';
 
-interface CarouselProps {
-  screenshots?: IScreenshots[];
-}
-
-function Carousel({ screenshots }: CarouselProps) {
+function Carousel() {
+  const screenshots = useSelector(
+    (state: RootState) => state.harbor.gameScreenshots.results
+  );
   const [index, setIndex] = useState(0);
   const carousel = useRef<HTMLDivElement>(null);
   const carouselControls = useAnimation();

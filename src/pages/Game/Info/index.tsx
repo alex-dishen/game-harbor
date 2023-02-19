@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { IGame } from 'api/interfaces';
+import { RootState } from 'redux/store';
 import Developers from 'pages/Game/Info/components/Developers';
 import Genres from 'pages/Game/Info/components/Genres';
 import Publishers from 'pages/Game/Info/components/Publishers';
@@ -15,11 +16,10 @@ import {
   MoreButton,
 } from 'pages/Game/Info/styles';
 
-interface InfoProps {
-  gameSpecification: IGame | undefined;
-}
-
-function Info({ gameSpecification }: InfoProps) {
+function Info() {
+  const gameSpecification = useSelector(
+    (state: RootState) => state.harbor.gameSpecification
+  );
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   const openAndHideMoreInfo = () => {

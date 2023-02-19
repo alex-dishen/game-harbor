@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import Header from 'components/Header';
@@ -9,36 +8,16 @@ import 'styles/normalize.scss';
 import 'font/fonts.scss';
 
 function App() {
-  const [isChangeNavbar, setIsChangeNavbar] = useState(false);
-  const [isHideNavbar, setIsHideNavbar] = useState(false);
-  const [currentFilter, setCurrentFilter] = useState('');
-  const [gameID, setGameID] = useState(0);
   const location = useLocation();
 
   return (
     <>
-      <Header isChangeNavbar={isChangeNavbar} isHideNavbar={isHideNavbar} />
+      <Header />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
-          <Route
-            path="/"
-            element={<Home setCurrentFilter={setCurrentFilter} />}
-          />
-          <Route
-            path="/games"
-            element={
-              <Games
-                isChangeNavbar={isChangeNavbar}
-                isHideNavbar={isHideNavbar}
-                currentFilter={currentFilter}
-                setIsChangeNavbar={setIsChangeNavbar}
-                setIsHideNavbar={setIsHideNavbar}
-                setGameID={setGameID}
-                setCurrentFilter={setCurrentFilter}
-              />
-            }
-          />
-          <Route path="/games/game" element={<Game gameID={gameID} />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/games" element={<Games />} />
+          <Route path="/games/game" element={<Game />} />
         </Routes>
       </AnimatePresence>
     </>

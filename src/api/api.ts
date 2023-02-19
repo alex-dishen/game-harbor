@@ -7,7 +7,6 @@ async function getData<T>(endpoint: string, params?: Record<string, string>) {
     const response = await fetch(
       `${URL}/${endpoint}?${searchParams}&key=${API_KEY}`
     );
-    // `${URL}/${endpoint}?${searchParams}&ordering=-added&key=${API_KEY}`
     if (!response.ok) throw new Error(response.statusText);
     const data = (await response.json()) as Promise<T>;
     return data;

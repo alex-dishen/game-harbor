@@ -1,5 +1,8 @@
 import { MouseEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
+import { RootState } from 'redux/store';
+import { setCurrentFilter, setGames } from 'redux/counterSlice';
 import {
   releases,
   tops,
@@ -15,28 +18,23 @@ import {
 } from 'pages/Games/Sidebar/styles';
 
 interface SidebarProps {
-  isChangeNavbar: boolean;
-  currentFilter: string;
   setIsHideNavbar: (a: boolean) => void;
-  setCurrentFilter: (a: string) => void;
-  setGames: (a: []) => void;
 }
 
-function Sidebar({
-  isChangeNavbar,
-  currentFilter,
-  setCurrentFilter,
-  setIsHideNavbar,
-  setGames,
-}: SidebarProps) {
+function Sidebar({ setIsHideNavbar }: SidebarProps) {
+  const dispatch = useDispatch();
+  const reduxState = useSelector((state: RootState) => state.harbor);
+  const { currentFilter } = reduxState;
+  const { isChangeNavbar } = reduxState;
+
   const handleFilterClick = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
     const { textContent } = target;
 
     // games are set to an empty array in order to display a spinner when
     // refetching data instead of just unexpected screen update
-    if (textContent !== currentFilter) setGames([]);
-    if (textContent !== null) setCurrentFilter(textContent);
+    if (textContent !== currentFilter) dispatch(setGames([]));
+    if (textContent !== null) dispatch(setCurrentFilter(textContent));
   };
 
   return (

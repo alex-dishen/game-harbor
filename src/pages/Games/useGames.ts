@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import getGamesList from 'api/gamesList';
-import { IUseGames } from 'pages/Games/interfaces';
+import { useDispatch, useSelector } from 'react-redux';
+import { setGames } from 'redux/counterSlice';
+import { getGamesList } from 'api/gameData';
+import { RootState } from 'redux/store';
 import {
   previousYear,
   getLast30Days,
@@ -11,25 +13,30 @@ import {
   getPrice,
 } from 'pages/Games/helpers';
 
-const useGames = ({ currentFilter, orderTitle, setGames }: IUseGames) => {
+const useGames = () => {
+  const dispatch = useDispatch();
+  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const { currentFilter } = reduxStore;
+  const { orderTitle } = reduxStore;
+
   const getOrder = () => {
     if (orderTitle === 'Release date') {
-      setGames([]);
+      dispatch(setGames([]));
       return '-released';
     }
 
     if (orderTitle === 'Popularity') {
-      setGames([]);
+      dispatch(setGames([]));
       return '-added';
     }
 
     if (orderTitle === 'Name') {
-      setGames([]);
-      return '-name';
+      dispatch(setGames([]));
+      return 'name';
     }
 
     if (orderTitle === 'Rating') {
-      setGames([]);
+      dispatch(setGames([]));
       return '-rating';
     }
   };
@@ -87,7 +94,7 @@ const useGames = ({ currentFilter, orderTitle, setGames }: IUseGames) => {
     const response = await getGames();
     if (!response) return;
     const { results } = response;
-    setGames(results);
+    dispatch(setGames(results));
     results.forEach((game) => (game.price = getPrice(game)));
   };
 

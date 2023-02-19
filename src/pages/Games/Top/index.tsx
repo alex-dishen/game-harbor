@@ -1,4 +1,7 @@
 import { useRef, useState, MouseEvent, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
+import { setOrderTitle } from 'redux/counterSlice';
 import uniqid from 'uniqid';
 import { useClickOutside } from 'utils/customHooks';
 import { ReactComponent as Check } from 'assets/check.svg';
@@ -12,13 +15,12 @@ import {
   Option,
 } from 'pages/Games/Top/styles';
 
-interface TopProps {
-  currentFilter: string;
-  orderTitle: string;
-  setOrderTitle: (a: string) => void;
-}
+function Top() {
+  const dispatch = useDispatch();
+  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const { currentFilter } = reduxStore;
+  const { orderTitle } = reduxStore;
 
-function Top({ currentFilter, orderTitle, setOrderTitle }: TopProps) {
   const orderRef = useRef<HTMLUListElement>(null);
   const [showOrder, setShowOrder] = useState(true);
   const [isOrderOpen, setIsOrderOpen] = useState(false);
@@ -32,7 +34,7 @@ function Top({ currentFilter, orderTitle, setOrderTitle }: TopProps) {
     const target = e.target as HTMLElement;
     const { textContent } = target;
 
-    if (textContent !== null) setOrderTitle(textContent.trim());
+    if (textContent !== null) dispatch(setOrderTitle(textContent.trim()));
   };
 
   const handleOptionClick = (e: MouseEvent<HTMLElement>) => {

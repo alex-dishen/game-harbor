@@ -1,6 +1,8 @@
+import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
-import { IGame } from 'api/interfaces';
+import { RootState } from 'redux/store';
+import { setGameID } from 'redux/counterSlice';
 import { platformIcons } from 'pages/Games/GameList/constants';
 import {
   GameListWrapper,
@@ -12,12 +14,10 @@ import {
   GameName,
 } from 'pages/Games/GameList/styles';
 
-interface GameListProps {
-  games: IGame[];
-  setGameID: (a: number) => void;
-}
+function GameList() {
+  const dispatch = useDispatch();
+  const games = useSelector((state: RootState) => state.harbor.games);
 
-function GameList({ games, setGameID }: GameListProps) {
   return (
     <GameListWrapper games={games}>
       {games.length === 0 ? (
@@ -48,7 +48,7 @@ function GameList({ games, setGameID }: GameListProps) {
                 <GameName
                   to="game"
                   onClick={() => {
-                    setGameID(game.id);
+                    dispatch(setGameID(game.id));
                   }}
                 >
                   {game.name}

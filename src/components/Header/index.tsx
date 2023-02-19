@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { useAnimation, AnimatePresence } from 'framer-motion';
+import { RootState } from 'redux/store';
 import { useScrollDirection } from 'utils/customHooks';
 import Cart from 'components/Cart';
 import logo from 'assets/logo.png';
@@ -15,19 +17,17 @@ import {
   CartWrapper,
 } from './styles';
 
-interface HeaderProps {
-  isChangeNavbar: boolean;
-  isHideNavbar: boolean;
-}
-
-function Header({ isChangeNavbar, isHideNavbar }: HeaderProps) {
+function Header() {
+  const reduxState = useSelector((state: RootState) => state.harbor);
+  const { isChangeNavbar } = reduxState;
+  const { isHideNavbar } = reduxState;
   const inputControls = useAnimation();
   const scrollDirection = useScrollDirection();
   const location = useLocation();
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isModifyHeader, setIsModifyHeader] = useState(false);
 
-  // It is needed to hide header color change when switching between pages
+  // It is needed to make color change seamless when switching between pages
   useEffect(() => {
     if (location.pathname === '/games') {
       setTimeout(() => {
