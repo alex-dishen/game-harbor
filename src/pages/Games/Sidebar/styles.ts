@@ -27,28 +27,12 @@ const fullScreen = {
   overflow: 'scroll',
 };
 
-const StyledSidebar = styled.aside<IStyledSidebar>`
+export const StyledSidebar = styled.aside<IStyledSidebar>`
   ${({ isChangeNavbar }) =>
     isChangeNavbar ? (fullScreen as CSSObject) : (aside as CSSObject)}
 `;
 
-const CloseHolder = styled.div`
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  padding: 5px;
-  background-color: white;
-  border-radius: 50%;
-  cursor: pointer;
-
-  svg {
-    height: 25px;
-    width: 25px;
-  }
-`;
-
-const CategoryHolder = styled.div`
+export const CategoryHolder = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -59,7 +43,7 @@ const CategoryHolder = styled.div`
   }
 `;
 
-const Filter = styled.div<IFilter>(
+export const Filter = styled.div<IFilter>(
   ({ filterName, currentFilter }) => css`
     display: flex;
     align-items: center;
@@ -96,5 +80,3 @@ const Filter = styled.div<IFilter>(
     }
   `
 );
-
-export { StyledSidebar, CloseHolder, CategoryHolder, Filter };

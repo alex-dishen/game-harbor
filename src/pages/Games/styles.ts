@@ -21,7 +21,7 @@ const StyledGamePage = styled(motion.main)<IStyledGamePage>`
 
 const MenuHolder = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 5;
   bottom: 30px;
   right: 30px;
   display: flex;

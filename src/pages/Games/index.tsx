@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from 'react-cssfx-loading';
 import { RootState } from 'redux/store';
@@ -8,6 +8,7 @@ import Sidebar from 'pages/Games/Sidebar';
 import Top from 'pages/Games/Top';
 import GameList from 'pages/Games/GameList';
 import { ReactComponent as Menu } from 'assets/menu.svg';
+import { ReactComponent as Close } from 'assets/close.svg';
 import { StyledGamePage, MenuHolder, Content } from 'pages/Games/styles';
 
 function Games() {
@@ -16,28 +17,33 @@ function Games() {
   const { isChangeNavbar } = reduxStore;
   const { isHideNavbar } = reduxStore;
   const { games } = reduxStore;
+  const [isShowMenu, setIsShowMenu] = useState(false);
 
-  const getWindowWidth = () => {
+  const manipulateSideBar = () => {
     const { innerWidth } = window;
 
     if (innerWidth <= 700) {
-      if (!isHideNavbar) {
-        dispatch(setIsHideNavbar(true));
-        dispatch(setIsChangeNavbar(true));
-      }
-    } else {
-      dispatch(setIsHideNavbar(false));
-      dispatch(setIsChangeNavbar(false));
+      setIsShowMenu(true);
+      // This check prevents sidebar from hiding when
+      // it is opened and user resizes the screen
+      if (isHideNavbar) return;
+      dispatch(setIsHideNavbar(true));
+      dispatch(setIsChangeNavbar(true));
+      return;
     }
+
+    setIsShowMenu(false);
+    dispatch(setIsHideNavbar(false));
+    dispatch(setIsChangeNavbar(false));
   };
 
   useEffect(() => {
-    getWindowWidth();
+    manipulateSideBar();
 
-    window.addEventListener('resize', getWindowWidth);
+    window.addEventListener('resize', manipulateSideBar);
 
     return () => {
-      window.removeEventListener('resize', getWindowWidth);
+      window.removeEventListener('resize', manipulateSideBar);
     };
   }, [isChangeNavbar]);
 
@@ -60,13 +66,14 @@ function Games() {
         />
       ) : (
         <>
-          {isHideNavbar ? (
-            <MenuHolder onClick={() => dispatch(setIsHideNavbar(false))}>
-              <Menu />
+          {isShowMenu && (
+            <MenuHolder
+              onClick={() => dispatch(setIsHideNavbar(!isHideNavbar))}
+            >
+              {isHideNavbar ? <Menu /> : <Close />}
             </MenuHolder>
-          ) : (
-            <Sidebar setIsHideNavbar={setIsHideNavbar} />
           )}
+          {!isHideNavbar && <Sidebar />}
           <Content>
             <Top />
             <GameList />

@@ -9,19 +9,13 @@ import {
   platforms,
   genres,
 } from 'pages/Games/Sidebar/constants';
-import { ReactComponent as Close } from 'assets/close.svg';
 import {
   StyledSidebar,
-  CloseHolder,
   CategoryHolder,
   Filter,
 } from 'pages/Games/Sidebar/styles';
 
-interface SidebarProps {
-  setIsHideNavbar: (a: boolean) => void;
-}
-
-function Sidebar({ setIsHideNavbar }: SidebarProps) {
+function Sidebar() {
   const dispatch = useDispatch();
   const reduxState = useSelector((state: RootState) => state.harbor);
   const { currentFilter } = reduxState;
@@ -39,16 +33,6 @@ function Sidebar({ setIsHideNavbar }: SidebarProps) {
 
   return (
     <StyledSidebar isChangeNavbar={isChangeNavbar}>
-      {isChangeNavbar && (
-        <CloseHolder
-          onClick={() => {
-            setIsHideNavbar(true);
-          }}
-        >
-          <Close />
-        </CloseHolder>
-      )}
-
       <CategoryHolder>
         <div>New Releases</div>
         {releases.map((release) => (
