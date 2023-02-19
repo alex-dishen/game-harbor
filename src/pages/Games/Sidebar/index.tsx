@@ -15,11 +15,16 @@ import {
   Filter,
 } from 'pages/Games/Sidebar/styles';
 
+const variants = {
+  show: { opacity: 1, transition: { duration: 1, delay: 0.5 } },
+  hidden: { opacity: 0, transition: { duration: 0.3 } },
+};
+
 function Sidebar() {
   const dispatch = useDispatch();
   const reduxState = useSelector((state: RootState) => state.harbor);
   const { currentFilter } = reduxState;
-  const { isChangeNavbar } = reduxState;
+  const { isChangeSidebar } = reduxState;
 
   const handleFilterClick = (e: MouseEvent<HTMLElement>) => {
     const target = e.target as HTMLElement;
@@ -32,7 +37,13 @@ function Sidebar() {
   };
 
   return (
-    <StyledSidebar isChangeNavbar={isChangeNavbar}>
+    <StyledSidebar
+      variants={window.innerWidth < 700 ? variants : {}}
+      initial="hidden"
+      animate="show"
+      exit={window.innerWidth < 690 ? 'hidden' : ''}
+      isChangeSidebar={isChangeSidebar}
+    >
       <CategoryHolder>
         <div>New Releases</div>
         {releases.map((release) => (

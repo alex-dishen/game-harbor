@@ -1,5 +1,6 @@
 import styled, { CSSObject, css } from 'styled-components';
 import { IStyledSidebar, IFilter } from 'pages/Games/Sidebar/interfaces';
+import { motion } from 'framer-motion';
 
 const aside = {
   position: 'sticky',
@@ -14,7 +15,7 @@ const aside = {
 
 const fullScreen = {
   position: 'fixed',
-  zIndex: '4',
+  zIndex: '5',
   top: '0',
   left: '0',
   display: 'grid',
@@ -23,13 +24,13 @@ const fullScreen = {
   height: '100%',
   width: '100%',
   padding: '30px',
-  backgroundColor: 'rgb(15, 16, 17);',
+  color: 'black',
   overflow: 'scroll',
 };
 
-export const StyledSidebar = styled.aside<IStyledSidebar>`
-  ${({ isChangeNavbar }) =>
-    isChangeNavbar ? (fullScreen as CSSObject) : (aside as CSSObject)}
+export const StyledSidebar = styled(motion.aside)<IStyledSidebar>`
+  ${({ isChangeSidebar }) =>
+    isChangeSidebar ? (fullScreen as CSSObject) : (aside as CSSObject)}
 `;
 
 export const CategoryHolder = styled.div`
@@ -58,7 +59,7 @@ export const Filter = styled.div<IFilter>(
       width: 38px;
       padding: 8px;
       background-color: ${filterName === currentFilter
-        ? 'rgb(255, 255, 255)'
+        ? 'white'
         : 'rgb(45, 45, 45)'};
       border-radius: 8px;
       transition: 0.5s;
@@ -71,7 +72,7 @@ export const Filter = styled.div<IFilter>(
 
     &:hover {
       div {
-        background-color: rgb(255, 255, 255);
+        background-color: white;
       }
 
       svg {

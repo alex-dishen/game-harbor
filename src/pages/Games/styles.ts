@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { IStyledGamePage } from 'pages/Games/interfaces';
+import { IStyledGamePage, IOverflow } from 'pages/Games/interfaces';
 
 const StyledGamePage = styled(motion.main)<IStyledGamePage>`
   ${({ games }) =>
@@ -21,10 +21,12 @@ const StyledGamePage = styled(motion.main)<IStyledGamePage>`
 
 const MenuHolder = styled.div`
   position: fixed;
-  z-index: 5;
+  z-index: 6;
   bottom: 30px;
-  right: 30px;
+  right: 20px;
   display: flex;
+  height: 35px;
+  width: 35px;
   padding: 5px;
   background-color: white;
   border-radius: 50%;
@@ -34,6 +36,16 @@ const MenuHolder = styled.div`
     height: 25px;
     width: 25px;
   }
+`;
+
+export const Overflow = styled(MenuHolder)<IOverflow>`
+  z-index: 5;
+  bottom: 30px;
+  right: 20px;
+  height: 35px;
+  width: 35px;
+  transform: scale(${({ isHideSidebar }) => (isHideSidebar ? '1' : '72')});
+  transition: 1.5s;
 `;
 
 const Content = styled.div`

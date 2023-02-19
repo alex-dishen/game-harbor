@@ -1,5 +1,5 @@
 export interface IStyledSidebar {
-  isChangeNavbar: boolean;
+  isChangeSidebar: boolean;
 }
 
 export interface IFilter {

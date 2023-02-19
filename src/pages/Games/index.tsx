@@ -1,21 +1,27 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { AnimatePresence } from 'framer-motion';
 import { CircularProgress } from 'react-cssfx-loading';
 import { RootState } from 'redux/store';
-import { setIsChangeNavbar, setIsHideNavbar } from 'redux/counterSlice';
+import { setIsChangeSidebar, setIsHideSidebar } from 'redux/counterSlice';
 import useGames from 'pages/Games/useGames';
 import Sidebar from 'pages/Games/Sidebar';
 import Top from 'pages/Games/Top';
 import GameList from 'pages/Games/GameList';
 import { ReactComponent as Menu } from 'assets/menu.svg';
 import { ReactComponent as Close } from 'assets/close.svg';
-import { StyledGamePage, MenuHolder, Content } from 'pages/Games/styles';
+import {
+  StyledGamePage,
+  MenuHolder,
+  Content,
+  Overflow,
+} from 'pages/Games/styles';
 
 function Games() {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
-  const { isChangeNavbar } = reduxStore;
-  const { isHideNavbar } = reduxStore;
+  const { isChangeSidebar } = reduxStore;
+  const { isHideSidebar } = reduxStore;
   const { games } = reduxStore;
   const [isShowMenu, setIsShowMenu] = useState(false);
 
@@ -26,15 +32,15 @@ function Games() {
       setIsShowMenu(true);
       // This check prevents sidebar from hiding when
       // it is opened and user resizes the screen
-      if (isHideNavbar) return;
-      dispatch(setIsHideNavbar(true));
-      dispatch(setIsChangeNavbar(true));
+      if (isHideSidebar) return;
+      dispatch(setIsHideSidebar(true));
+      dispatch(setIsChangeSidebar(true));
       return;
     }
 
     setIsShowMenu(false);
-    dispatch(setIsHideNavbar(false));
-    dispatch(setIsChangeNavbar(false));
+    dispatch(setIsHideSidebar(false));
+    dispatch(setIsChangeSidebar(false));
   };
 
   useEffect(() => {
@@ -45,7 +51,7 @@ function Games() {
     return () => {
       window.removeEventListener('resize', manipulateSideBar);
     };
-  }, [isChangeNavbar]);
+  }, [isChangeSidebar]);
 
   useGames();
 
@@ -67,13 +73,18 @@ function Games() {
       ) : (
         <>
           {isShowMenu && (
-            <MenuHolder
-              onClick={() => dispatch(setIsHideNavbar(!isHideNavbar))}
-            >
-              {isHideNavbar ? <Menu /> : <Close />}
-            </MenuHolder>
+            <>
+              <Overflow isHideSidebar={isHideSidebar} />
+              <MenuHolder
+                onClick={() => dispatch(setIsHideSidebar(!isHideSidebar))}
+              >
+                {isHideSidebar ? <Menu /> : <Close />}
+              </MenuHolder>
+            </>
           )}
-          {!isHideNavbar && <Sidebar />}
+          <AnimatePresence initial={false}>
+            {!isHideSidebar && <Sidebar />}
+          </AnimatePresence>
           <Content>
             <Top />
             <GameList />

@@ -19,8 +19,8 @@ import {
 
 function Header() {
   const reduxState = useSelector((state: RootState) => state.harbor);
-  const { isChangeNavbar } = reduxState;
-  const { isHideNavbar } = reduxState;
+  const { isChangeSidebar } = reduxState;
+  const { isHideSidebar } = reduxState;
   const inputControls = useAnimation();
   const scrollDirection = useScrollDirection();
   const location = useLocation();
@@ -51,8 +51,8 @@ function Header() {
       <HeaderWrapper
         scrollDirection={scrollDirection}
         isModifyHeader={isModifyHeader}
-        isChangeNavbar={isChangeNavbar}
-        isHideNavbar={isHideNavbar}
+        isChangeSidebar={isChangeSidebar}
+        isHideSidebar={isHideSidebar}
       >
         <LogoWrapper as={Link} to="/">
           <Logo src={logo} alt="Logo" />

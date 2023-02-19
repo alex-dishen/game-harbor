@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { IHeaderWrapper } from 'components/Header/interfaces';
 
 const HeaderWrapper = styled.header<IHeaderWrapper>(
-  ({ isModifyHeader, scrollDirection, isHideNavbar, isChangeNavbar }) => css`
+  ({ isModifyHeader, scrollDirection, isHideSidebar, isChangeSidebar }) => css`
     position: ${isModifyHeader ? 'sticky' : 'block'};
-    z-index: ${!isHideNavbar && isChangeNavbar ? -1 : 2};
+    z-index: ${!isHideSidebar && isChangeSidebar ? -1 : 2};
     top: ${scrollDirection === 'down' && isModifyHeader ? '-90px' : '0'};
     display: flex;
     align-items: center;

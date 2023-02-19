@@ -4,8 +4,8 @@ import { IGame, IScreenshots, ResponseSchema } from 'api/interfaces';
 
 export interface CounterState {
   currentFilter: string;
-  isChangeNavbar: boolean;
-  isHideNavbar: boolean;
+  isChangeSidebar: boolean;
+  isHideSidebar: boolean;
   orderTitle: string;
   games: IGame[];
   gameID: number;
@@ -33,8 +33,8 @@ const gameSpecification = {
 
 const initialState: CounterState = {
   currentFilter: '',
-  isChangeNavbar: false,
-  isHideNavbar: false,
+  isChangeSidebar: false,
+  isHideSidebar: false,
   orderTitle: 'Popularity',
   games: [],
   gameID: 0,
@@ -49,11 +49,11 @@ export const counterSlice = createSlice({
     setCurrentFilter: (state, action: PayloadAction<string>) => {
       state.currentFilter = action.payload;
     },
-    setIsChangeNavbar: (state, action: PayloadAction<boolean>) => {
-      state.isChangeNavbar = action.payload;
+    setIsChangeSidebar: (state, action: PayloadAction<boolean>) => {
+      state.isChangeSidebar = action.payload;
     },
-    setIsHideNavbar: (state, action: PayloadAction<boolean>) => {
-      state.isHideNavbar = action.payload;
+    setIsHideSidebar: (state, action: PayloadAction<boolean>) => {
+      state.isHideSidebar = action.payload;
     },
     setOrderTitle: (state, action: PayloadAction<string>) => {
       state.orderTitle = action.payload;
@@ -78,8 +78,8 @@ export const counterSlice = createSlice({
 
 export const {
   setCurrentFilter,
-  setIsChangeNavbar,
-  setIsHideNavbar,
+  setIsChangeSidebar,
+  setIsHideSidebar,
   setOrderTitle,
   setGames,
   setGameID,

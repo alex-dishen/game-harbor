@@ -1,6 +1,6 @@
 export interface IHeaderWrapper {
   scrollDirection: string;
   isModifyHeader: boolean;
-  isChangeNavbar: boolean;
-  isHideNavbar: boolean;
+  isChangeSidebar: boolean;
+  isHideSidebar: boolean;
 }
