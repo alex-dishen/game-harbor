@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import { setGameID } from 'redux/counterSlice';
 import { platformIcons } from 'pages/Games/GameList/constants';
 import {
@@ -20,7 +20,7 @@ function GameList() {
 
   return (
     <GameListWrapper games={games}>
-      {games.length === 0 ? (
+      {games[0].id === -1 ? (
         <CircularProgress
           color="rgb(24, 176, 171)"
           height="80px"

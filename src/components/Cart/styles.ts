@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-const CartWrapper = styled(motion.div)`
+export const CartWrapper = styled(motion.div)`
   z-index: 3;
   position: fixed;
   right: 0;
@@ -18,7 +18,7 @@ const CartWrapper = styled(motion.div)`
   }
 `;
 
-const Header = styled.header`
+export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -37,7 +37,7 @@ const Header = styled.header`
   }
 `;
 
-const ChosenGames = styled.main`
+export const ChosenGames = styled.main`
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -74,16 +74,14 @@ const ChosenGames = styled.main`
 //   cursor: pointer;
 // `;
 
-const TotalPrice = styled.footer`
+export const TotalPrice = styled.footer`
   color: inherit;
 `;
 
-const Overlay = styled(motion.div)`
+export const Overlay = styled(motion.div)`
   z-index: 2;
   position: fixed;
   width: 100%;
   height: 100%;
   background-color: black;
 `;
-
-export { CartWrapper, Header, ChosenGames, TotalPrice, Overlay };

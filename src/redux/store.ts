@@ -6,6 +6,3 @@ export const store = configureStore({
     harbor: counterReducer,
   },
 });
-
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;

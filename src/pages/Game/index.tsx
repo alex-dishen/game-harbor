@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import { setGameSpecification, setGameScreenshots } from 'redux/counterSlice';
 import GameHeader from 'pages/Game/GameHeader';
 import Carousel from 'pages/Game/Carousel';

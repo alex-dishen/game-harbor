@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import { setCurrentFilter } from 'redux/counterSlice';
 import places from 'pages/Home/QuickNavigation/constants';
-import Navigation from 'pages/Home/QuickNavigation/styles';
+import { Navigation } from 'pages/Home/QuickNavigation/styles';
 
 function QuickNavigation() {
   const dispatch = useDispatch();

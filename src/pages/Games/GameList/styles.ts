@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { IGameListWrapper } from 'pages/Games/GameList/interfaces';
 
 export const GameListWrapper = styled.div<IGameListWrapper>`
-  display: ${({ games }) => (games.length === 0 ? 'flex' : 'grid')};
+  display: ${({ games }) => (games[0].id === -1 ? 'flex' : 'grid')};
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   justify-content: center;
   gap: 30px;

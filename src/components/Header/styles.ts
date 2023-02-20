@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { IHeaderWrapper } from 'components/Header/interfaces';
 
-const HeaderWrapper = styled.header<IHeaderWrapper>(
+export const HeaderWrapper = styled.header<IHeaderWrapper>(
   ({ isModifyHeader, scrollDirection, isHideSidebar, isChangeSidebar }) => css`
     position: ${isModifyHeader ? 'sticky' : 'block'};
     z-index: ${!isHideSidebar && isChangeSidebar ? -1 : 2};
@@ -29,7 +29,7 @@ const HeaderWrapper = styled.header<IHeaderWrapper>(
   `
 );
 
-const InputWrapper = styled(motion.div)`
+export const InputWrapper = styled(motion.div)`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -42,7 +42,7 @@ const InputWrapper = styled(motion.div)`
   }
 `;
 
-const LogoWrapper = styled(InputWrapper)`
+export const LogoWrapper = styled(InputWrapper)`
   flex-shrink: 0;
   width: fit-content;
   font-size: 26px;
@@ -63,11 +63,11 @@ const LogoWrapper = styled(InputWrapper)`
   }
 `;
 
-const Logo = styled.img`
+export const Logo = styled.img`
   height: 50px;
 `;
 
-const Input = styled.input.attrs(() => ({
+export const Input = styled.input.attrs(() => ({
   placeholder: 'Search games...',
 }))`
   width: 100%;
@@ -77,7 +77,7 @@ const Input = styled.input.attrs(() => ({
   border-radius: 10px;
 `;
 
-const CartWrapper = styled(InputWrapper)`
+export const CartWrapper = styled(InputWrapper)`
   flex-shrink: 0;
   width: fit-content;
   cursor: pointer;
@@ -98,5 +98,3 @@ const CartWrapper = styled(InputWrapper)`
     }
   }
 `;
-
-export { HeaderWrapper, InputWrapper, LogoWrapper, Logo, Input, CartWrapper };

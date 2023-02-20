@@ -1,35 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
+import { CounterState } from 'redux/types';
 import { IGame, IScreenshots, ResponseSchema } from 'api/interfaces';
-
-export interface CounterState {
-  currentFilter: string;
-  isChangeSidebar: boolean;
-  isHideSidebar: boolean;
-  orderTitle: string;
-  games: IGame[];
-  gameID: number;
-  gameSpecification: IGame;
-  gameScreenshots: ResponseSchema<IScreenshots>;
-}
-
-const gameSpecification = {
-  id: 0,
-  slug: '',
-  name: '',
-  price: 0,
-  ratings_count: 0,
-  description_raw: '',
-  website: '',
-  released: '',
-  background_image: '',
-  developers: [{ name: '' }],
-  publishers: [{ name: '' }],
-  parent_platforms: [{ platform: { id: 0, slug: '', name: '' } }],
-  platforms: [{ platform: { id: 0, slug: '', name: '' } }],
-  genres: [{ name: '' }],
-  short_screenshots: [{ id: 0, image: '' }],
-};
+import { gameSpecification } from 'redux/constants';
 
 const initialState: CounterState = {
   currentFilter: '',

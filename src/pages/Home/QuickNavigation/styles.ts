@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Navigation = styled.div`
+export const Navigation = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,5 +45,3 @@ const Navigation = styled.div`
     width: 20px;
   }
 `;
-
-export default Navigation;

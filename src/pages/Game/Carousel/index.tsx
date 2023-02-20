@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { PanInfo, useAnimation } from 'framer-motion';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
 import {

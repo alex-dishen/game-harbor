@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import Developers from 'pages/Game/Info/components/Developers';
 import Genres from 'pages/Game/Info/components/Genres';
 import Publishers from 'pages/Game/Info/components/Publishers';

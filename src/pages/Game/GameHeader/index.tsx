@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import { Header, BackButton, GameName } from 'pages/Game/GameHeader/styles';
 import { ReactComponent as ArrowLeft } from 'assets/arrow-left.svg';
 

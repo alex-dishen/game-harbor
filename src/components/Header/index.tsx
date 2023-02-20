@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import { useAnimation, AnimatePresence } from 'framer-motion';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import { useScrollDirection } from 'utils/customHooks';
 import Cart from 'components/Cart';
 import logo from 'assets/logo.png';

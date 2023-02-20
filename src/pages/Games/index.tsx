@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import { CircularProgress } from 'react-cssfx-loading';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import { setIsChangeSidebar, setIsHideSidebar } from 'redux/counterSlice';
 import useGames from 'pages/Games/useGames';
 import Sidebar from 'pages/Games/Sidebar';

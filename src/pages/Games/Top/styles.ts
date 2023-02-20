@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { IOrder } from 'pages/Games/Top/interfaces';
 
-const StyledTop = styled.div`
+export const StyledTop = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -12,7 +12,7 @@ const StyledTop = styled.div`
   }
 `;
 
-const FilterName = styled.div`
+export const FilterName = styled.div`
   font-size: 60px;
   font-weight: 800;
 
@@ -21,7 +21,7 @@ const FilterName = styled.div`
   }
 `;
 
-const OrderWrapper = styled.div`
+export const OrderWrapper = styled.div`
   position: relative;
   cursor: pointer;
 
@@ -31,7 +31,7 @@ const OrderWrapper = styled.div`
   }
 `;
 
-const Order = styled.div<IOrder>`
+export const Order = styled.div<IOrder>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -47,7 +47,7 @@ const Order = styled.div<IOrder>`
   }
 `;
 
-const OptionWrapper = styled.ul`
+export const OptionWrapper = styled.ul`
   position: absolute;
   z-index: 1;
   top: 0;
@@ -74,7 +74,7 @@ const OptionWrapper = styled.ul`
   }
 `;
 
-const Option = styled.li`
+export const Option = styled.li`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -84,5 +84,3 @@ const Option = styled.li`
     fill: green;
   }
 `;
-
-export { StyledTop, FilterName, OrderWrapper, Order, OptionWrapper, Option };

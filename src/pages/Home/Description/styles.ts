@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
-const StyledDescription = styled.div`
+export const StyledDescription = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
 `;
 
-const Pitch = styled.div`
+export const Pitch = styled.div`
   width: clamp(350px, 57vw, 500px);
   padding: 20px 30px;
   background-color: rgba(255, 255, 255, 0.3);
@@ -30,7 +30,7 @@ const Pitch = styled.div`
   }
 `;
 
-const Links = styled(Pitch)`
+export const Links = styled(Pitch)`
   display: flex;
   justify-content: center;
   gap: 30px;
@@ -43,7 +43,7 @@ const Links = styled(Pitch)`
   }
 `;
 
-const GitHubLink = styled.a`
+export const GitHubLink = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -64,10 +64,8 @@ const GitHubLink = styled.a`
   }
 `;
 
-const RAWGLink = styled(GitHubLink)``;
+export const RAWGLink = styled(GitHubLink)``;
 
-const RAWGLogo = styled.img`
+export const RAWGLogo = styled.img`
   height: 20px;
 `;
-
-export { StyledDescription, Pitch, Links, GitHubLink, RAWGLink, RAWGLogo };

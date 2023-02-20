@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setGames } from 'redux/counterSlice';
 import { getGamesList } from 'api/gameData';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import {
   previousYear,
   getLast30Days,

@@ -1,6 +1,6 @@
 import { useRef, useState, MouseEvent, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
+import { RootState } from 'redux/types';
 import { setOrderTitle } from 'redux/counterSlice';
 import uniqid from 'uniqid';
 import { useClickOutside } from 'utils/customHooks';
