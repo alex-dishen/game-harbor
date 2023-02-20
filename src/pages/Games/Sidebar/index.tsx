@@ -1,14 +1,13 @@
-import { MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { RootState } from 'redux/types';
-import { setCurrentFilter, setGames } from 'redux/counterSlice';
-import { gameSpecification } from 'redux/constants';
+import { handleFilterClick } from 'utils/helpers';
 import {
   releases,
   tops,
   platforms,
   genres,
+  variants,
 } from 'pages/Games/Sidebar/constants';
 import {
   StyledSidebar,
@@ -16,26 +15,11 @@ import {
   Filter,
 } from 'pages/Games/Sidebar/styles';
 
-const variants = {
-  show: { opacity: 1, transition: { duration: 1, delay: 0.5 } },
-  hidden: { opacity: 0, transition: { duration: 0.3 } },
-};
-
 function Sidebar() {
   const dispatch = useDispatch();
   const reduxState = useSelector((state: RootState) => state.harbor);
   const { currentFilter } = reduxState;
   const { isChangeSidebar } = reduxState;
-
-  const handleFilterClick = (e: MouseEvent<HTMLElement>) => {
-    const target = e.target as HTMLElement;
-    const { textContent } = target;
-
-    // games are set to a predefined array in order to display a spinner when
-    // refetching data instead of just unexpected screen update
-    if (textContent !== currentFilter) dispatch(setGames([gameSpecification]));
-    if (textContent !== null) dispatch(setCurrentFilter(textContent));
-  };
 
   return (
     <StyledSidebar
@@ -50,7 +34,9 @@ function Sidebar() {
         {releases.map((release) => (
           <Filter
             key={uniqid()}
-            onClick={handleFilterClick}
+            onClick={(e) => {
+              handleFilterClick(e, dispatch, currentFilter);
+            }}
             filterName={release.name}
             currentFilter={currentFilter}
           >
@@ -65,7 +51,9 @@ function Sidebar() {
         {tops.map((top) => (
           <Filter
             key={uniqid()}
-            onClick={handleFilterClick}
+            onClick={(e) => {
+              handleFilterClick(e, dispatch, currentFilter);
+            }}
             filterName={top.name}
             currentFilter={currentFilter}
           >
@@ -80,7 +68,9 @@ function Sidebar() {
         {platforms.map((platform) => (
           <Filter
             key={uniqid()}
-            onClick={handleFilterClick}
+            onClick={(e) => {
+              handleFilterClick(e, dispatch, currentFilter);
+            }}
             filterName={platform.name}
             currentFilter={currentFilter}
           >
@@ -95,7 +85,9 @@ function Sidebar() {
         {genres.map((genre) => (
           <Filter
             key={uniqid()}
-            onClick={handleFilterClick}
+            onClick={(e) => {
+              handleFilterClick(e, dispatch, currentFilter);
+            }}
             filterName={genre.name}
             currentFilter={currentFilter}
           >

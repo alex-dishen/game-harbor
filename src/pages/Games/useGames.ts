@@ -41,7 +41,7 @@ const useGames = () => {
     }
   };
 
-  const getGames = async () => {
+  const getGames = () => {
     if (currentFilter === 'Last 30 days')
       return getGamesList({ dates: getLast30Days(), ordering: getOrder() });
 

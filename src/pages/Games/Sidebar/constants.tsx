@@ -20,19 +20,19 @@ import { ReactComponent as Puzzle } from 'assets/puzzle.svg';
 import { ReactComponent as Racing } from 'assets/racing.svg';
 import { ReactComponent as Sports } from 'assets/sports.svg';
 
-const releases = [
+export const releases = [
   { name: 'Last 30 days', icon: <Star /> },
   { name: 'This week', icon: <Fire /> },
   { name: 'Next week', icon: <Skip /> },
 ];
 
-const tops = [
+export const tops = [
   { name: 'Best of the year', icon: <Cup /> },
   { name: `Popular in ${previousYear}`, icon: <Rating /> },
   { name: 'All time top', icon: <Crown /> },
 ];
 
-const platforms = [
+export const platforms = [
   { name: 'PC', icon: <Windows /> },
   { name: 'PlayStation', icon: <PlayStation /> },
   { name: 'Xbox One', icon: <Xbox /> },
@@ -41,7 +41,7 @@ const platforms = [
   { name: 'Android', icon: <Android /> },
 ];
 
-const genres = [
+export const genres = [
   { name: 'Action', icon: <Action /> },
   { name: 'Strategy', icon: <Strategy /> },
   { name: 'RPG', icon: <RPG /> },
@@ -52,4 +52,7 @@ const genres = [
   { name: 'Sports', icon: <Sports /> },
 ];
 
-export { releases, tops, platforms, genres };
+export const variants = {
+  show: { opacity: 1, transition: { duration: 1, delay: 0.5 } },
+  hidden: { opacity: 0, transition: { duration: 0.3 } },
+};
