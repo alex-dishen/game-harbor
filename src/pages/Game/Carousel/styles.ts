@@ -49,7 +49,7 @@ export const LeftButton = styled.div`
 `;
 
 export const ImageHolder = styled(motion.div)`
-  position: relative;
+  position: absolute;
   display: flex;
   height: 100%;
   width: 100%;

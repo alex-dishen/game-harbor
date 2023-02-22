@@ -52,6 +52,9 @@ export const Filter = styled.div<IFilter>(
     cursor: pointer;
 
     div {
+      /* z-index is needed here to make the function
+      get text content of its parent  */
+      z-index: -1;
       display: flex;
       justify-content: center;
       align-items: center;
