@@ -7,7 +7,7 @@ import { ReactComponent as Cup } from 'assets/cup.svg';
 import { ReactComponent as Crown } from 'assets/crown.svg';
 
 const places = [
-  // { name: 'Wish List', icon: <Gift /> },
+  // { name: 'Wish List', icon: <Gift />, place: 'games' },
   { name: 'Play Dice', icon: <Dice />, place: 'games/game' },
   { name: 'Last 30 days', icon: <Star />, place: 'games' },
   { name: `Popular in ${previousYear}`, icon: <Rating />, place: 'games' },

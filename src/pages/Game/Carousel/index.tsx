@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { PanInfo, useAnimation } from 'framer-motion';
+import uniqid from 'uniqid';
 import { RootState } from 'redux/types';
 import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
@@ -16,9 +17,12 @@ import {
 } from 'pages/Game/Carousel/styles';
 
 function Carousel() {
-  const screenshots = useSelector(
-    (state: RootState) => state.harbor.gameScreenshots.results
-  );
+  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const gameBackground = {
+    id: uniqid(),
+    image: reduxStore.gameSpecification.background_image,
+  };
+  const screenshots = [gameBackground, ...reduxStore.gameScreenshots.results];
   const [index, setIndex] = useState(0);
   const carousel = useRef<HTMLDivElement>(null);
   const carouselControls = useAnimation();
