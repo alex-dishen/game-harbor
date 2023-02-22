@@ -16,29 +16,16 @@ import {
 const useGames = () => {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
-  const { currentFilter } = reduxStore;
-  const { orderTitle } = reduxStore;
+  const { currentFilter, orderTitle } = reduxStore;
 
   const getOrder = () => {
-    if (orderTitle === 'Release date') {
-      dispatch(setGames([]));
-      return '-released';
-    }
+    if (orderTitle === 'Release date') return '-released';
 
-    if (orderTitle === 'Popularity') {
-      dispatch(setGames([]));
-      return '-added';
-    }
+    if (orderTitle === 'Popularity') return '-added';
 
-    if (orderTitle === 'Name') {
-      dispatch(setGames([]));
-      return 'name';
-    }
+    if (orderTitle === 'Name') return 'name';
 
-    if (orderTitle === 'Rating') {
-      dispatch(setGames([]));
-      return '-rating';
-    }
+    if (orderTitle === 'Rating') return '-rating';
   };
 
   const getGames = () => {

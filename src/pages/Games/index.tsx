@@ -20,9 +20,7 @@ import {
 function Games() {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
-  const { isChangeSidebar } = reduxStore;
-  const { isHideSidebar } = reduxStore;
-  const { games } = reduxStore;
+  const { isChangeSidebar, isHideSidebar, games } = reduxStore;
   const [isShowMenu, setIsShowMenu] = useState(false);
 
   const manipulateSideBar = () => {

@@ -18,8 +18,7 @@ import {
 function Top() {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
-  const { currentFilter } = reduxStore;
-  const { orderTitle } = reduxStore;
+  const { currentFilter, orderTitle } = reduxStore;
 
   const orderRef = useRef<HTMLUListElement>(null);
   const [showOrder, setShowOrder] = useState(true);

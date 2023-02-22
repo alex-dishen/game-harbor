@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { RootState } from 'redux/types';
+import { setIsHideSidebar } from 'redux/counterSlice';
 import { handleFilterClick } from 'utils/helpers';
 import {
   releases,
@@ -18,8 +19,11 @@ import {
 function Sidebar() {
   const dispatch = useDispatch();
   const reduxState = useSelector((state: RootState) => state.harbor);
-  const { currentFilter } = reduxState;
-  const { isChangeSidebar } = reduxState;
+  const { currentFilter, isChangeSidebar } = reduxState;
+
+  const hideSidebar = () => {
+    if (isChangeSidebar) dispatch(setIsHideSidebar(true));
+  };
 
   return (
     <StyledSidebar
@@ -36,6 +40,7 @@ function Sidebar() {
             key={uniqid()}
             onClick={(e) => {
               handleFilterClick(e, dispatch, currentFilter);
+              hideSidebar();
             }}
             filterName={release.name}
             currentFilter={currentFilter}
@@ -53,6 +58,7 @@ function Sidebar() {
             key={uniqid()}
             onClick={(e) => {
               handleFilterClick(e, dispatch, currentFilter);
+              hideSidebar();
             }}
             filterName={top.name}
             currentFilter={currentFilter}
@@ -70,6 +76,7 @@ function Sidebar() {
             key={uniqid()}
             onClick={(e) => {
               handleFilterClick(e, dispatch, currentFilter);
+              hideSidebar();
             }}
             filterName={platform.name}
             currentFilter={currentFilter}
@@ -87,6 +94,7 @@ function Sidebar() {
             key={uniqid()}
             onClick={(e) => {
               handleFilterClick(e, dispatch, currentFilter);
+              hideSidebar();
             }}
             filterName={genre.name}
             currentFilter={currentFilter}
