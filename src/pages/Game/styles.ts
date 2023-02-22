@@ -29,7 +29,7 @@ export const Main = styled.div`
   gap: 30px;
 
   @media (max-width: 860px) {
-    grid-template: 1.2fr min-content 1fr / 1fr;
+    grid-template: min-content min-content 1fr / 1fr;
     grid-template-areas:
       'images'
       'price'

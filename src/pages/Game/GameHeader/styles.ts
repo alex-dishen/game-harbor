@@ -16,10 +16,6 @@ export const Header = styled.div`
     svg {
       height: 25px;
     }
-
-    span {
-      font-size: 28px;
-    }
   }
 `;
 
@@ -52,4 +48,12 @@ export const GameName = styled.span`
   font-size: 46px;
   font-weight: 800;
   word-break: keep-all;
+
+  @media (max-width: 700px) {
+    font-size: 28px;
+  }
+
+  @media (max-width: 460px) {
+    font-size: 22px;
+  }
 `;

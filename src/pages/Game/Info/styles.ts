@@ -61,6 +61,7 @@ export const Details = styled(motion.ul)`
     gap: 7px;
 
     a {
+      word-break: break-all;
       text-decoration: none;
       color: rgb(153, 153, 153);
     }
