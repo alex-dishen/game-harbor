@@ -3,13 +3,7 @@ import uniqid from 'uniqid';
 import { RootState } from 'redux/types';
 import { setIsHideSidebar } from 'redux/counterSlice';
 import { handleFilterClick } from 'utils/helpers';
-import {
-  releases,
-  tops,
-  platforms,
-  genres,
-  variants,
-} from 'pages/Games/Sidebar/constants';
+import { filters, variants } from 'pages/Games/Sidebar/constants';
 import {
   StyledSidebar,
   CategoryHolder,
@@ -33,77 +27,25 @@ function Sidebar() {
       exit={window.innerWidth < 690 ? 'hidden' : ''}
       isChangeSidebar={isChangeSidebar}
     >
-      <CategoryHolder>
-        <div>New Releases</div>
-        {releases.map((release) => (
-          <Filter
-            key={uniqid()}
-            onClick={(e) => {
-              handleFilterClick(e, dispatch, currentFilter);
-              hideSidebar();
-            }}
-            filterName={release.name}
-            currentFilter={currentFilter}
-          >
-            <div>{release.icon}</div>
-            {release.name}
-          </Filter>
-        ))}
-      </CategoryHolder>
-
-      <CategoryHolder>
-        <div>Top</div>
-        {tops.map((top) => (
-          <Filter
-            key={uniqid()}
-            onClick={(e) => {
-              handleFilterClick(e, dispatch, currentFilter);
-              hideSidebar();
-            }}
-            filterName={top.name}
-            currentFilter={currentFilter}
-          >
-            <div>{top.icon}</div>
-            {top.name}
-          </Filter>
-        ))}
-      </CategoryHolder>
-
-      <CategoryHolder>
-        <div>Platforms</div>
-        {platforms.map((platform) => (
-          <Filter
-            key={uniqid()}
-            onClick={(e) => {
-              handleFilterClick(e, dispatch, currentFilter);
-              hideSidebar();
-            }}
-            filterName={platform.name}
-            currentFilter={currentFilter}
-          >
-            <div>{platform.icon}</div>
-            {platform.name}
-          </Filter>
-        ))}
-      </CategoryHolder>
-
-      <CategoryHolder>
-        <div>Genres</div>
-        {genres.map((genre) => (
-          <Filter
-            key={uniqid()}
-            onClick={(e) => {
-              handleFilterClick(e, dispatch, currentFilter);
-              hideSidebar();
-            }}
-            filterName={genre.name}
-            currentFilter={currentFilter}
-          >
-            <div>{genre.icon}</div>
-            {genre.name}
-          </Filter>
-        ))}
-      </CategoryHolder>
+      {filters.map((filter) => (
+        <CategoryHolder key={uniqid()}>
+          <div>{filter.header}</div>
+          {filter.options?.map((option) => (
+            <Filter
+              key={uniqid()}
+              onClick={(e) => {
+                handleFilterClick(e, dispatch, currentFilter);
+                hideSidebar();
+              }}
+              filterName={option.name}
+              currentFilter={currentFilter}
+            >
+              <div>{option.icon}</div>
+              {option.name}
+            </Filter>
+          ))}
+        </CategoryHolder>
+      ))}
     </StyledSidebar>
   );
 }

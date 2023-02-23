@@ -20,36 +20,47 @@ import { ReactComponent as Puzzle } from 'assets/puzzle.svg';
 import { ReactComponent as Racing } from 'assets/racing.svg';
 import { ReactComponent as Sports } from 'assets/sports.svg';
 
-export const releases = [
-  { name: 'Last 30 days', icon: <Star /> },
-  { name: 'This week', icon: <Fire /> },
-  { name: 'Next week', icon: <Skip /> },
-];
-
-export const tops = [
-  { name: 'Best of the year', icon: <Cup /> },
-  { name: `Popular in ${previousYear}`, icon: <Rating /> },
-  { name: 'All time top', icon: <Crown /> },
-];
-
-export const platforms = [
-  { name: 'PC', icon: <Windows /> },
-  { name: 'PlayStation', icon: <PlayStation /> },
-  { name: 'Xbox One', icon: <Xbox /> },
-  { name: 'Nintendo Switch', icon: <Nintendo /> },
-  { name: 'iOS', icon: <Apple /> },
-  { name: 'Android', icon: <Android /> },
-];
-
-export const genres = [
-  { name: 'Action', icon: <Action /> },
-  { name: 'Strategy', icon: <Strategy /> },
-  { name: 'RPG', icon: <RPG /> },
-  { name: 'Shooter', icon: <Shooter /> },
-  { name: 'Adventure', icon: <Adventure /> },
-  { name: 'Puzzle', icon: <Puzzle /> },
-  { name: 'Racing', icon: <Racing /> },
-  { name: 'Sports', icon: <Sports /> },
+export const filters = [
+  {
+    header: 'NewReleases',
+    options: [
+      { name: 'Last 30 days', icon: <Star /> },
+      { name: 'This week', icon: <Fire /> },
+      { name: 'Next week', icon: <Skip /> },
+    ],
+  },
+  {
+    header: 'Top',
+    options: [
+      { name: 'Best of the year', icon: <Cup /> },
+      { name: `Popular in ${previousYear}`, icon: <Rating /> },
+      { name: 'All time top', icon: <Crown /> },
+    ],
+  },
+  {
+    header: 'Platforms',
+    options: [
+      { name: 'PC', icon: <Windows /> },
+      { name: 'PlayStation', icon: <PlayStation /> },
+      { name: 'Xbox One', icon: <Xbox /> },
+      { name: 'Nintendo Switch', icon: <Nintendo /> },
+      { name: 'iOS', icon: <Apple /> },
+      { name: 'Android', icon: <Android /> },
+    ],
+  },
+  {
+    header: 'Genres',
+    options: [
+      { name: 'Action', icon: <Action /> },
+      { name: 'Strategy', icon: <Strategy /> },
+      { name: 'RPG', icon: <RPG /> },
+      { name: 'Shooter', icon: <Shooter /> },
+      { name: 'Adventure', icon: <Adventure /> },
+      { name: 'Puzzle', icon: <Puzzle /> },
+      { name: 'Racing', icon: <Racing /> },
+      { name: 'Sports', icon: <Sports /> },
+    ],
+  },
 ];
 
 export const variants = {
