@@ -1,8 +1,10 @@
-export interface IStyledSidebar {
+import { MotionProps } from 'framer-motion';
+
+export interface StyledSidebarProps extends MotionProps {
   isChangeSidebar: boolean;
 }
 
-export interface IFilter {
-  filterName?: string;
-  currentFilter?: string;
+export interface FilterProps {
+  filterName: string;
+  currentFilter: string;
 }

@@ -1,5 +1,8 @@
 import styled, { CSSObject, css } from 'styled-components';
-import { IStyledSidebar, IFilter } from 'pages/Games/Sidebar/interfaces';
+import {
+  FilterProps,
+  StyledSidebarProps,
+} from 'pages/Games/Sidebar/interfaces';
 import { motion } from 'framer-motion';
 
 const aside = {
@@ -28,10 +31,20 @@ const fullScreen = {
   overflow: 'scroll',
 };
 
-export const StyledSidebar = styled(motion.aside)<IStyledSidebar>`
+const CustomMotionAside = ({
+  isChangeSidebar,
+  ...rest
+}: StyledSidebarProps) => <motion.aside {...rest} />;
+
+export const StyledSidebar = styled(CustomMotionAside)<StyledSidebarProps>`
   ${({ isChangeSidebar }) =>
     isChangeSidebar ? (fullScreen as CSSObject) : (aside as CSSObject)}
 `;
+
+// export const StyledSidebar = styled(motion.aside)<StyledSidebarProps>`
+//   ${({ isChangeSidebar }) =>
+//     isChangeSidebar ? (fullScreen as CSSObject) : (aside as CSSObject)}
+// `;
 
 export const CategoryHolder = styled.div`
   display: flex;
@@ -44,7 +57,7 @@ export const CategoryHolder = styled.div`
   }
 `;
 
-export const Filter = styled.div<IFilter>(
+export const Filter = styled.div<FilterProps>(
   ({ filterName, currentFilter }) => css`
     display: flex;
     align-items: center;

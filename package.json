@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
-    "framer-motion": "^8.0.2",
+    "framer-motion": "^8.5.5",
     "react": "^18.2.0",
     "react-cssfx-loading": "^2.1.0",
     "react-dom": "^18.2.0",

@@ -27,7 +27,6 @@ function QuickNavigation() {
   const setRandomGame = async (name: string) => {
     if (name !== 'Play Dice') return;
     const randomID = await getRandomID();
-    console.log(randomID);
     if (randomID) dispatch(setGameID(randomID));
   };
 
