@@ -1,3 +1,4 @@
+import { MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { RootState } from 'redux/types';
@@ -15,7 +16,8 @@ function Sidebar() {
   const reduxState = useSelector((state: RootState) => state.harbor);
   const { currentFilter, isChangeSidebar } = reduxState;
 
-  const hideSidebar = () => {
+  const onClick = (e: MouseEvent<HTMLElement>) => {
+    handleFilterClick(e, dispatch, currentFilter);
     if (isChangeSidebar) dispatch(setIsHideSidebar(true));
   };
 
@@ -33,10 +35,7 @@ function Sidebar() {
           {filter.options?.map((option) => (
             <Filter
               key={uniqid()}
-              onClick={(e) => {
-                handleFilterClick(e, dispatch, currentFilter);
-                hideSidebar();
-              }}
+              onClick={onClick}
               filterName={option.name}
               currentFilter={currentFilter}
             >

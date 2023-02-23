@@ -2,9 +2,13 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { IStyledGamePage, IOverflow } from 'pages/Games/interfaces';
 
-const StyledGamePage = styled(motion.main)<IStyledGamePage>`
-  ${({ games }) =>
-    games?.length === 0 && {
+const CustomGamePage = ({ GAMES, ...rest }: IStyledGamePage) => (
+  <motion.main {...rest} />
+);
+
+const StyledGamePage = styled(CustomGamePage)<IStyledGamePage>`
+  ${({ GAMES }) =>
+    GAMES?.length === 0 && {
       flex: '1',
       justifyContent: 'center',
       alignItems: 'center',

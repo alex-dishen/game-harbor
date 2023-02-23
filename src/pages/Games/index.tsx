@@ -55,7 +55,8 @@ function Games() {
 
   return (
     <StyledGamePage
-      games={games}
+      // The upper case is used to prevent games from bing shown in DOM
+      GAMES={games}
       initial={{ opacity: 0, x: 25 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4 }}
