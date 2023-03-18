@@ -58,7 +58,7 @@ function Header() {
           <Logo src={logo} alt="Logo" />
           <div>Game Harbor</div>
         </LogoWrapper>
-        <InputWrapper initial={{ maxWidth: 300 }} animate={inputControls}>
+        {/* <InputWrapper initial={{ maxWidth: 300 }} animate={inputControls}>
           <Input
             onFocus={() => setInputMacWidth(480)}
             onBlur={() => setInputMacWidth(310)}
@@ -68,7 +68,7 @@ function Header() {
         <CartWrapper onClick={openAndHideCart}>
           <Bag />
           <div>Cart: 10</div>
-        </CartWrapper>
+        </CartWrapper> */}
       </HeaderWrapper>
       <AnimatePresence>
         {isOpenCart && (

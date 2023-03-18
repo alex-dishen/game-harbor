@@ -35,9 +35,9 @@ function GameList() {
                 style={{ backgroundImage: `url(${game.background_image})` }}
               />
               <Info>
-                <Price>
+                {/* <Price>
                   <span>Add to cart +</span> $ {game.price}
-                </Price>
+                </Price> */}
                 <PlatformIcons>
                   {game.parent_platforms.map((platform) => (
                     <span key={uniqid()}>

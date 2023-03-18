@@ -5,9 +5,9 @@ function Price() {
   return (
     <StyledPrice>
       <span>$13</span>
-      <Status>
+      {/* <Status>
         Added <Check />
-      </Status>
+      </Status> */}
     </StyledPrice>
   );
 }
