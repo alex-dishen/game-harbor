@@ -23,6 +23,7 @@
   },
   "include": [
     "src",
-    "src/custom.d.ts"
+    "src/modules/extension.d.ts",
+    "vite.config.ts"
   ],
 }

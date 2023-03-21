@@ -1,5 +1,5 @@
 const URL = 'https://api.rawg.io/api';
-const API_KEY = process.env.REACT_APP_RAWG_API;
+const API_KEY = import.meta.env.VITE_RAWG_API;
 
 async function getData<T>(endpoint: string, params?: Record<string, string>) {
   if (API_KEY !== undefined) {
