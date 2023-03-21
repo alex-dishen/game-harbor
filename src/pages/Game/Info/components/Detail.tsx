@@ -1,0 +1,26 @@
+import uniqid from 'uniqid';
+import { setEmptyOrComa } from '../helpers';
+
+interface DevelopersProps {
+  specifications: { name: string; platform?: { name: string } }[];
+}
+
+function Details({ specifications }: DevelopersProps) {
+  return (
+    <span>
+      {specifications.map((specification, index) => (
+        <span key={uniqid()}>
+          {specification.name ? (
+            <>
+              {specification.name + setEmptyOrComa(index, specifications as [])}
+            </>
+          ) : (
+            <>{specification.platform?.name}</>
+          )}
+        </span>
+      ))}
+    </span>
+  );
+}
+
+export default Details;

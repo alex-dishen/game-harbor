@@ -1,11 +1,9 @@
-import { useState } from 'react';
-import { useSelector } from 'react-redux';
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { AnimatePresence } from 'framer-motion';
-import { RootState } from 'redux/types';
-import Developers from 'pages/Game/Info/components/Developers';
-import Genres from 'pages/Game/Info/components/Genres';
-import Publishers from 'pages/Game/Info/components/Publishers';
-import Platforms from 'pages/Game/Info/components/Platforms';
+import uniqid from 'uniqid';
+import useInfo from 'pages/Game/Info/useInfo';
+import Detail from './components/Detail';
+import { specifications } from './constants';
 import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
 import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
 import {
@@ -17,25 +15,12 @@ import {
 } from 'pages/Game/Info/styles';
 
 function Info() {
-  const gameSpecification = useSelector(
-    (state: RootState) => state.harbor.gameSpecification
-  );
-  const [showMoreInfo, setShowMoreInfo] = useState(false);
-
-  const openAndHideMoreInfo = () => {
-    setShowMoreInfo(!showMoreInfo);
-  };
-
-  const getReleaseDate = () => {
-    const release = gameSpecification.released;
-
-    if (!release) return 'Release date is not provided';
-
-    return release?.replaceAll('-', '/');
-  };
-
-  const setEmptyOrComa = (index: number, array: []) =>
-    index + 1 === array.length ? '' : ', ';
+  const {
+    gameSpecification,
+    showMoreInfo,
+    openAndHideMoreInfo,
+    getReleaseDate,
+  } = useInfo();
 
   return (
     <StyledInfo>
@@ -67,34 +52,19 @@ function Info() {
                 </a>
               </li>
               <li>Released: {getReleaseDate()}</li>
-              <li>
-                Genres:
-                <Genres
-                  gameSpecification={gameSpecification}
-                  setEmptyOrComa={setEmptyOrComa}
-                />
-              </li>
-              <li>
-                Platforms:
-                <Platforms
-                  gameSpecification={gameSpecification}
-                  setEmptyOrComa={setEmptyOrComa}
-                />
-              </li>
-              <li>
-                Developers:
-                <Developers
-                  gameSpecification={gameSpecification}
-                  setEmptyOrComa={setEmptyOrComa}
-                />
-              </li>
-              <li>
-                Publishers:
-                <Publishers
-                  gameSpecification={gameSpecification}
-                  setEmptyOrComa={setEmptyOrComa}
-                />
-              </li>
+              {specifications.map((specification) => (
+                <li key={uniqid()}>
+                  {specification.name}
+                  <Detail
+                    specifications={
+                      gameSpecification[specification.category] as {
+                        name: string;
+                        platform?: { name: string };
+                      }[]
+                    }
+                  />
+                </li>
+              ))}
             </Details>
           )}
         </AnimatePresence>

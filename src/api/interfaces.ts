@@ -54,4 +54,20 @@ export interface IGame {
     id: number;
     image: string;
   }[];
+  [key: string]:
+    | number
+    | string
+    | { name: string }[]
+    | { name: string; platform?: { name: string } | undefined }[]
+    | {
+        id: number;
+        image: string;
+      }[]
+    | {
+        platform: {
+          id: number;
+          slug: string;
+          name: string;
+        };
+      }[];
 }
