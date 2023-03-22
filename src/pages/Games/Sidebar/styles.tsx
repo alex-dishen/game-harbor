@@ -69,8 +69,6 @@ export const Filter = styled.div<FilterProps>(
       get text content of its parent  */
       z-index: -1;
       display: flex;
-      justify-content: center;
-      align-items: center;
       height: 38px;
       width: 38px;
       padding: 8px;
