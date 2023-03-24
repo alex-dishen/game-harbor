@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { IHeaderWrapper } from 'components/Header/interfaces';
+import { ReactComponent as ShoppingBag } from 'assets/shopping-bag.svg';
+import { ReactComponent as MagnifyingGlass } from 'assets/magnify.svg';
 
 export const HeaderWrapper = styled.header<IHeaderWrapper>(
   ({ isModifyHeader, scrollDirection, isHideSidebar, isChangeSidebar }) => css`
@@ -17,12 +19,6 @@ export const HeaderWrapper = styled.header<IHeaderWrapper>(
     color: white;
     transition: top 0.5s;
 
-    svg {
-      height: 25px;
-      width: 25px;
-      fill: white;
-    }
-
     @media (max-width: 670px) {
       gap: 16px;
     }
@@ -30,16 +26,13 @@ export const HeaderWrapper = styled.header<IHeaderWrapper>(
 );
 
 export const InputWrapper = styled(motion.div)`
+  position: relative;
   display: flex;
   align-items: center;
   gap: 10px;
   width: 100%;
-
-  @media (max-width: 670px) {
-    svg {
-      display: none;
-    }
-  }
+  background-color: white;
+  border-radius: 10px;
 `;
 
 export const LogoWrapper = styled(InputWrapper)`
@@ -47,6 +40,7 @@ export const LogoWrapper = styled(InputWrapper)`
   width: fit-content;
   font-size: 26px;
   font-weight: 500;
+  background-color: transparent;
   color: white;
   text-decoration: none;
   cursor: pointer;
@@ -71,15 +65,27 @@ export const Input = styled.input.attrs(() => ({
   placeholder: 'Search games...',
 }))`
   width: 100%;
-  padding: 8px 16px;
+  padding: 8px 0px 8px 16px;
   outline: none;
   border: none;
   border-radius: 10px;
 `;
 
+export const MagnifyGlass = styled(MagnifyingGlass)`
+  height: 25px;
+  width: 25px;
+  margin-right: 10px;
+  cursor: pointer;
+
+  @media (max-width: 670px) {
+    display: none;
+  }
+`;
+
 export const CartWrapper = styled(InputWrapper)`
   flex-shrink: 0;
   width: fit-content;
+  background-color: transparent;
   cursor: pointer;
 
   transition: 0.3s;
@@ -89,12 +95,14 @@ export const CartWrapper = styled(InputWrapper)`
   }
 
   @media (max-width: 670px) {
-    svg {
-      display: block;
-    }
-
     div {
       display: none;
     }
   }
+`;
+
+export const Bag = styled(ShoppingBag)`
+  height: 25px;
+  width: 25px;
+  fill: white;
 `;

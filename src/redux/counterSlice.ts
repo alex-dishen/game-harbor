@@ -10,9 +10,12 @@ const initialState: CounterState = {
   isHideSidebar: false,
   orderTitle: 'Popularity',
   games: [],
+  searchedGames: [],
   gameID: 0,
   gameSpecification,
   gameScreenshots: { results: [{ id: 0, image: '' }] },
+  isOpenSearchGames: false,
+  isSearching: false,
 };
 
 export const counterSlice = createSlice({
@@ -34,6 +37,9 @@ export const counterSlice = createSlice({
     setGames: (state, action: PayloadAction<IGame[]>) => {
       state.games = action.payload;
     },
+    setSearchedGames: (state, action: PayloadAction<IGame[]>) => {
+      state.searchedGames = action.payload;
+    },
     setGameID: (state, action: PayloadAction<number>) => {
       state.gameID = action.payload;
     },
@@ -46,6 +52,12 @@ export const counterSlice = createSlice({
     ) => {
       state.gameScreenshots = action.payload;
     },
+    setIsOpenSearchGames: (state, action: PayloadAction<boolean>) => {
+      state.isOpenSearchGames = action.payload;
+    },
+    setIsSearching: (state, action: PayloadAction<boolean>) => {
+      state.isSearching = action.payload;
+    },
   },
 });
 
@@ -55,9 +67,12 @@ export const {
   setIsHideSidebar,
   setOrderTitle,
   setGames,
+  setSearchedGames,
   setGameID,
   setGameSpecification,
   setGameScreenshots,
+  setIsOpenSearchGames,
+  setIsSearching,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -18,10 +18,10 @@ import {
 function Top() {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
-  const { currentFilter, orderTitle } = reduxStore;
+  const { currentFilter, orderTitle, isSearching } = reduxStore;
 
   const orderRef = useRef<HTMLUListElement>(null);
-  const [showOrder, setShowOrder] = useState(true);
+  const [isShowOrder, setIsShowOrder] = useState(true);
   const [isOrderOpen, setIsOrderOpen] = useState(false);
   const orderOptions = ['Name', 'Release date', 'Popularity', 'Rating'];
 
@@ -47,20 +47,21 @@ function Top() {
     if (
       currentFilter === 'All time top' ||
       currentFilter === 'Popular in 2022' ||
-      currentFilter === 'Best of the year'
+      currentFilter === 'Best of the year' ||
+      isSearching
     ) {
-      setShowOrder(false);
+      setIsShowOrder(false);
       return;
     }
 
-    return setShowOrder(true);
+    setIsShowOrder(true);
   }, [currentFilter]);
 
   return (
     <StyledTop>
       <FilterName>{currentFilter}</FilterName>
 
-      {showOrder && (
+      {isShowOrder && (
         <OrderWrapper>
           <Order orderTitle={orderTitle} onClick={openAndHideOrder}>
             Order by: <span>{orderTitle}</span>

@@ -9,7 +9,7 @@ import {
   GameWrapper,
   BackgroundImage,
   Info,
-  Price,
+  // Price,
   PlatformIcons,
   GameName,
 } from 'pages/Games/GameList/styles';
@@ -20,6 +20,10 @@ function GameList() {
 
   return (
     <GameListWrapper games={games}>
+      {/* games[0].id === -1 appears after user changes filter.
+          To prevent the spinner from being displayed on the entire
+          page when refetching data the games are set to a predefined
+          array to show the spinner only on gamesList section */}
       {games[0].id === -1 ? (
         <CircularProgress
           color="rgb(24, 176, 171)"

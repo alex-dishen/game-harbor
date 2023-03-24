@@ -1,9 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { AnimatePresence } from 'framer-motion';
 import uniqid from 'uniqid';
+import { IInfoGameSpecification } from 'api/interfaces';
 import useInfo from 'pages/Game/Info/useInfo';
-import Detail from './components/Detail';
-import { specifications } from './constants';
+import Detail from 'pages/Game/Info/components/Detail';
+import { specifications } from 'pages/Game/Info/constants';
 import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
 import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
 import {
@@ -57,10 +57,9 @@ function Info() {
                   {specification.name}
                   <Detail
                     specifications={
-                      gameSpecification[specification.category] as {
-                        name: string;
-                        platform?: { name: string };
-                      }[]
+                      gameSpecification[
+                        specification.category
+                      ] as IInfoGameSpecification[]
                     }
                   />
                 </li>

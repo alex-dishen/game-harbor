@@ -1,5 +1,5 @@
 import uniqid from 'uniqid';
-import { setEmptyOrComa } from '../helpers';
+import { setEmptyOrComa } from 'pages/Game/Info/helpers';
 
 interface DevelopersProps {
   specifications: { name: string; platform?: { name: string } }[];

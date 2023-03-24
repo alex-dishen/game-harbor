@@ -11,7 +11,10 @@ export interface CounterState {
   isHideSidebar: boolean;
   orderTitle: string;
   games: IGame[];
+  searchedGames: IGame[];
   gameID: number;
   gameSpecification: IGame;
   gameScreenshots: ResponseSchema<IScreenshots>;
+  isOpenSearchGames: boolean;
+  isSearching: boolean;
 }

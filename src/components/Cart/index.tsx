@@ -6,7 +6,7 @@ import {
   ChosenGames,
   TotalPrice,
   Overlay,
-} from './styles';
+} from 'components/Cart/styles';
 
 interface CartProps {
   isOpenCart: boolean;

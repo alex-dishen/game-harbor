@@ -7,7 +7,7 @@ import {
   GitHubLink,
   RAWGLink,
   RAWGLogo,
-} from './styles';
+} from 'pages/Home/Description/styles';
 
 function Description() {
   return (

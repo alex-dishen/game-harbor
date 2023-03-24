@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setGames } from 'redux/counterSlice';
 import { getGamesList } from 'api/gameData';
 import { RootState } from 'redux/types';
+import { returnGames } from 'utils/helpers';
 import {
   previousYear,
   getLast30Days,
@@ -78,11 +79,9 @@ const useGames = () => {
   };
 
   const loadGames = async () => {
-    const response = await getGames();
-    if (!response) return;
-    const { results } = response;
-    results.forEach((game) => (game.price = getPrice(game)));
-    dispatch(setGames(results));
+    const results = await returnGames({ getGames });
+    if (results?.length === 0) return;
+    if (results) dispatch(setGames(results));
   };
 
   useEffect(() => {

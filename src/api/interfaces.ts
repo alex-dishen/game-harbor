@@ -6,6 +6,7 @@ export interface IGetGamesList {
   page?: number;
   page_size?: number;
   search?: string;
+  search_precise?: boolean;
   dates?: string;
   ordering?: string;
   parent_platforms?: number;
@@ -15,6 +16,23 @@ export interface IGetGamesList {
 export interface IScreenshots {
   id: number;
   image: string;
+}
+
+export interface IInfoGameSpecification {
+  name: string;
+  platform?: { name: string } | undefined;
+}
+
+interface IName {
+  name: string;
+}
+
+interface IPlatform {
+  platform: {
+    id: number;
+    slug: string;
+    name: string;
+  };
 }
 
 export interface IGame {
@@ -27,47 +45,18 @@ export interface IGame {
   website: string;
   released: string;
   background_image: string;
-  developers: {
-    name: string;
-  }[];
-  publishers: {
-    name: string;
-  }[];
-  parent_platforms: {
-    platform: {
-      id: number;
-      slug: string;
-      name: string;
-    };
-  }[];
-  platforms: {
-    platform: {
-      id: number;
-      slug: string;
-      name: string;
-    };
-  }[];
-  genres: {
-    name: string;
-  }[];
-  short_screenshots: {
-    id: number;
-    image: string;
-  }[];
+  developers: IName[];
+  publishers: IName[];
+  parent_platforms: IPlatform[];
+  platforms: IPlatform[];
+  genres: IName[];
+  short_screenshots: IScreenshots[];
+
   [key: string]:
     | number
     | string
-    | { name: string }[]
-    | { name: string; platform?: { name: string } | undefined }[]
-    | {
-        id: number;
-        image: string;
-      }[]
-    | {
-        platform: {
-          id: number;
-          slug: string;
-          name: string;
-        };
-      }[];
+    | IName[]
+    | IInfoGameSpecification[]
+    | IScreenshots[]
+    | IPlatform[];
 }
