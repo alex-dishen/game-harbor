@@ -42,6 +42,10 @@ export const GameWrapper = styled(Link)`
   &:hover {
     background-color: rgb(218, 218, 218);
   }
+
+  @media (max-width: 760px) {
+    flex-direction: column;
+  }
 `;
 
 export const BackgroundImage = styled.div`
@@ -51,4 +55,16 @@ export const BackgroundImage = styled.div`
   background-size: cover;
   background-position: center;
   border-radius: 8px;
+
+  @media (max-width: 760px) {
+    width: 100%;
+  }
+`;
+
+export const GameName = styled.p`
+  margin: 0;
+
+  @media (max-width: 760px) {
+    text-align: center;
+  }
 `;

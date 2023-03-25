@@ -58,10 +58,10 @@ function Header() {
 
           {isOpenSearchGames && <SearchGames />}
         </InputWrapper>
-        {/* <CartWrapper onClick={openAndHideCart}>
+        <CartWrapper onClick={openAndHideCart}>
           <Bag />
           <div>Cart: 10</div>
-        </CartWrapper> */}
+        </CartWrapper>
       </HeaderWrapper>
       <AnimatePresence>
         {isOpenCart && (

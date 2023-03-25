@@ -19,7 +19,7 @@ export const HeaderWrapper = styled.header<IHeaderWrapper>(
     color: white;
     transition: top 0.5s;
 
-    @media (max-width: 670px) {
+    @media (max-width: 760px) {
       gap: 16px;
     }
   `
@@ -50,7 +50,7 @@ export const LogoWrapper = styled(InputWrapper)`
     transform: scale(1.05);
   }
 
-  @media (max-width: 670px) {
+  @media (max-width: 760px) {
     div {
       display: none;
     }
@@ -77,7 +77,7 @@ export const MagnifyGlass = styled(MagnifyingGlass)`
   margin-right: 10px;
   cursor: pointer;
 
-  @media (max-width: 670px) {
+  @media (max-width: 760px) {
     display: none;
   }
 `;
@@ -94,7 +94,7 @@ export const CartWrapper = styled(InputWrapper)`
     transform: scale(1.05);
   }
 
-  @media (max-width: 670px) {
+  @media (max-width: 760px) {
     div {
       display: none;
     }

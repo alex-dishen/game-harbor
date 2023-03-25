@@ -7,6 +7,7 @@ import {
   SearchGamesWrapper,
   GameWrapper,
   BackgroundImage,
+  GameName,
 } from 'components/SearchGames/styles';
 
 function SearchGames() {
@@ -38,7 +39,7 @@ function SearchGames() {
               <BackgroundImage
                 style={{ backgroundImage: `url(${game.background_image})` }}
               />
-              <div>{game.name}</div>
+              <GameName>{game.name}</GameName>
             </GameWrapper>
           ))}
         </>
