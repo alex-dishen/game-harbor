@@ -1,6 +1,8 @@
+import { MouseEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { getGamesList } from 'api/gameData';
 import { setGameID } from 'redux/counterSlice';
+import { handleFilterClick } from 'utils/helpers';
 
 const useQuickNavigation = () => {
   const dispatch = useDispatch();
@@ -19,13 +21,18 @@ const useQuickNavigation = () => {
     return IDs[randomIndex];
   };
 
-  const setRandomGame = async (name: string) => {
-    if (name !== 'Play Dice') return;
+  const setRandomGame = async () => {
     const randomID = await getRandomID();
     if (randomID) dispatch(setGameID(randomID));
   };
 
-  return { dispatch, setRandomGame };
+  const handleOnClick = (e: MouseEvent<HTMLElement>, name: string) => {
+    handleFilterClick(e, dispatch);
+    if (name !== 'Play Dice') return;
+    setRandomGame();
+  };
+
+  return { handleOnClick };
 };
 
 export default useQuickNavigation;

@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import useQuickNavigation from 'pages/Home/QuickNavigation/useQuickNavigation';
-import { handleFilterClick } from 'utils/helpers';
 import places from 'pages/Home/QuickNavigation/constants';
 import { Navigation } from 'pages/Home/QuickNavigation/styles';
 
 function QuickNavigation() {
-  const { dispatch, setRandomGame } = useQuickNavigation();
+  const { handleOnClick } = useQuickNavigation();
 
   return (
     <Navigation>
@@ -15,10 +14,7 @@ function QuickNavigation() {
         <Link
           key={uniqid()}
           to={place.place}
-          onClick={(e) => {
-            handleFilterClick(e, dispatch);
-            setRandomGame(place.name);
-          }}
+          onClick={(e) => handleOnClick(e, place.name)}
         >
           {place.icon}
           {place.name}
