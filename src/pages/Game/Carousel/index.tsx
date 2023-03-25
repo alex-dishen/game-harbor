@@ -1,8 +1,4 @@
-import { useRef, useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { PanInfo, useAnimation } from 'framer-motion';
-import uniqid from 'uniqid';
-import { RootState } from 'redux/types';
+import useCarousel from 'pages/Game/Carousel/useCarousel';
 import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
 import {
@@ -17,52 +13,18 @@ import {
 } from 'pages/Game/Carousel/styles';
 
 function Carousel() {
-  const reduxStore = useSelector((state: RootState) => state.harbor);
-  const gameBackground = {
-    id: uniqid(),
-    image: reduxStore.gameSpecification.background_image,
-  };
-  const screenshots = [gameBackground, ...reduxStore.gameScreenshots.results];
-  const [index, setIndex] = useState(0);
-  const carousel = useRef<HTMLDivElement>(null);
-  const carouselControls = useAnimation();
-  const animateCarousel = () => {
-    carouselControls.start({ x: `${-index * 100}%` });
-  };
-  const timeout = useRef<NodeJS.Timer>();
-  const setIndexByTimeout = () => {
-    timeout.current = setTimeout(() => {
-      setIndex(index + 1);
-    }, 5000);
-  };
-  const setIndexByPosition = (_event: never, info: PanInfo) => {
-    const { x } = info.offset;
-    const carouselWidth = carousel.current?.clientWidth || 1;
-    const initialOffset = index * carouselWidth;
-    const newIndex = Math.round((initialOffset + x * -2) / carouselWidth);
-    if (newIndex !== index) {
-      setIndex(newIndex);
-    } else {
-      animateCarousel();
-      setIndexByTimeout();
-    }
-  };
-
-  useEffect(() => {
-    if (!screenshots) return;
-
-    animateCarousel();
-    if (index >= screenshots.length) return setIndex(0);
-
-    if (index < 0) return setIndex(screenshots.length - 1);
-
-    setIndexByTimeout();
-
-    return () => clearTimeout(timeout.current);
-  }, [index]);
+  const {
+    carouselRef,
+    index,
+    timeout,
+    carouselControls,
+    screenshots,
+    setIndex,
+    setIndexByPosition,
+  } = useCarousel();
 
   return (
-    <CarouselWrapper ref={carousel}>
+    <CarouselWrapper ref={carouselRef}>
       <LeftButton
         onClick={() => {
           setIndex(index - 1);

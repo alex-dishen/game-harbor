@@ -1,9 +1,5 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { AnimatePresence } from 'framer-motion';
 import { CircularProgress } from 'react-cssfx-loading';
-import { RootState } from 'redux/types';
-import { setIsChangeSidebar, setIsHideSidebar } from 'redux/counterSlice';
 import useGames from 'pages/Games/useGames';
 import Sidebar from 'pages/Games/Sidebar';
 import Top from 'pages/Games/Top';
@@ -18,40 +14,7 @@ import {
 } from 'pages/Games/styles';
 
 function Games() {
-  const dispatch = useDispatch();
-  const reduxStore = useSelector((state: RootState) => state.harbor);
-  const { isChangeSidebar, isHideSidebar, games } = reduxStore;
-  const [isShowMenu, setIsShowMenu] = useState(false);
-
-  const manipulateSideBar = () => {
-    const { innerWidth } = window;
-
-    if (innerWidth <= 700) {
-      setIsShowMenu(true);
-      // This check prevents sidebar from hiding when
-      // it is opened and user resizes the screen
-      if (isHideSidebar) return;
-      dispatch(setIsHideSidebar(true));
-      dispatch(setIsChangeSidebar(true));
-      return;
-    }
-
-    setIsShowMenu(false);
-    dispatch(setIsHideSidebar(false));
-    dispatch(setIsChangeSidebar(false));
-  };
-
-  useEffect(() => {
-    manipulateSideBar();
-
-    window.addEventListener('resize', manipulateSideBar);
-
-    return () => {
-      window.removeEventListener('resize', manipulateSideBar);
-    };
-  }, [isChangeSidebar]);
-
-  useGames();
+  const { games, isShowMenu, isHideSidebar, handleOnClick } = useGames();
 
   return (
     <StyledGamePage
@@ -74,9 +37,7 @@ function Games() {
           {isShowMenu && (
             <>
               <Overflow isHideSidebar={isHideSidebar} />
-              <MenuHolder
-                onClick={() => dispatch(setIsHideSidebar(!isHideSidebar))}
-              >
+              <MenuHolder onClick={handleOnClick}>
                 {isHideSidebar ? <Menu /> : <Close />}
               </MenuHolder>
             </>

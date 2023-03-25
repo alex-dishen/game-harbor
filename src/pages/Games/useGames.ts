@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGames } from 'redux/counterSlice';
+import {
+  setGames,
+  setIsChangeSidebar,
+  setIsHideSidebar,
+} from 'redux/counterSlice';
 import { getGamesList } from 'api/gameData';
 import { RootState } from 'redux/types';
 import { returnGames } from 'utils/helpers';
@@ -17,7 +21,28 @@ import {
 const useGames = () => {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
-  const { currentFilter, orderTitle } = reduxStore;
+  const [isShowMenu, setIsShowMenu] = useState(false);
+
+  const { currentFilter, orderTitle, isChangeSidebar, isHideSidebar, games } =
+    reduxStore;
+
+  const manipulateSideBar = () => {
+    const { innerWidth } = window;
+
+    if (innerWidth <= 700) {
+      setIsShowMenu(true);
+      // This check prevents sidebar from hiding when
+      // it is opened and user resizes the screen
+      if (isHideSidebar) return;
+      dispatch(setIsHideSidebar(true));
+      dispatch(setIsChangeSidebar(true));
+      return;
+    }
+
+    setIsShowMenu(false);
+    dispatch(setIsHideSidebar(false));
+    dispatch(setIsChangeSidebar(false));
+  };
 
   const getOrder = () => {
     if (orderTitle === 'Release date') return '-released';
@@ -80,13 +105,32 @@ const useGames = () => {
 
   const loadGames = async () => {
     const results = await returnGames({ getGames });
+    // When user opens Games page from search bar the currentFilter === ''
+    // and results are set to empty array. To prevent games from getting
+    // reset to empty array the condition below is used
     if (results?.length === 0) return;
     if (results) dispatch(setGames(results));
   };
 
+  const handleOnClick = () => {
+    dispatch(setIsHideSidebar(!isHideSidebar));
+  };
+
+  useEffect(() => {
+    manipulateSideBar();
+
+    window.addEventListener('resize', manipulateSideBar);
+
+    return () => {
+      window.removeEventListener('resize', manipulateSideBar);
+    };
+  }, [isChangeSidebar]);
+
   useEffect(() => {
     loadGames();
   }, [currentFilter, orderTitle]);
+
+  return { games, isShowMenu, isHideSidebar, handleOnClick };
 };
 
 export default useGames;

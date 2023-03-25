@@ -1,9 +1,5 @@
-import { MouseEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
-import { RootState } from 'redux/types';
-import { setIsHideSidebar } from 'redux/counterSlice';
-import { handleFilterClick } from 'utils/helpers';
+import useSidebar from 'pages/Games/Sidebar/useSidebar';
 import { filters, variants } from 'pages/Games/Sidebar/constants';
 import {
   StyledSidebar,
@@ -12,14 +8,7 @@ import {
 } from 'pages/Games/Sidebar/styles';
 
 function Sidebar() {
-  const dispatch = useDispatch();
-  const reduxState = useSelector((state: RootState) => state.harbor);
-  const { currentFilter, isChangeSidebar } = reduxState;
-
-  const onClick = (e: MouseEvent<HTMLElement>) => {
-    handleFilterClick(e, dispatch, currentFilter);
-    if (isChangeSidebar) dispatch(setIsHideSidebar(true));
-  };
+  const { isChangeSidebar, currentFilter, onClick } = useSidebar();
 
   return (
     <StyledSidebar
