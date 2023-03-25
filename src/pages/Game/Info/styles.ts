@@ -24,7 +24,7 @@ export const Description = styled.div`
     width: 100%;
     display: block;
     position: sticky;
-    bottom: 0;
+    bottom: -1px;
     background-image: linear-gradient(to bottom, transparent, rgb(28, 28, 28));
     pointer-events: none;
   }
