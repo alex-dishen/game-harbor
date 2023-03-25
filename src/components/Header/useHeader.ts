@@ -26,13 +26,8 @@ const useHeader = () => {
   const [isOpenCart, setIsOpenCart] = useState(false);
   const [isModifyHeader, setIsModifyHeader] = useState(false);
   const [typingTimer, setTypingTimer] = useState<NodeJS.Timeout>();
-  const {
-    isChangeSidebar,
-    games,
-    isOpenSearchGames,
-    isHideSidebar,
-    searchedGames,
-  } = reduxState;
+  const { isChangeSidebar, isOpenSearchGames, isHideSidebar, searchedGames } =
+    reduxState;
 
   const setInputMaxWidth = (width: number) => {
     inputControls.start({ maxWidth: width });
@@ -68,7 +63,7 @@ const useHeader = () => {
   const handleOnFocus = () => {
     setIsInputFocused(true);
     setInputMaxWidth(480);
-    if (games.length !== 0) dispatch(setIsOpenSearchGames(true));
+    if (searchedGames.length !== 0) dispatch(setIsOpenSearchGames(true));
   };
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
