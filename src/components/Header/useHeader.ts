@@ -54,8 +54,8 @@ const useHeader = () => {
     navigate('games');
   };
 
-  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.keyCode === 13) {
       handleSearchedGames();
     }
   };
@@ -115,7 +115,7 @@ const useHeader = () => {
     inputWrapperRef,
     isOpenSearchGames,
     handleOnChange,
-    handleKeyPress,
+    handleKeyDown,
     openAndHideCart,
     handleOnFocus,
     handleSearchedGames,

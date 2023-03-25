@@ -26,7 +26,7 @@ function Header() {
     inputWrapperRef,
     isOpenSearchGames,
     handleOnChange,
-    handleKeyPress,
+    handleKeyDown,
     openAndHideCart,
     handleOnFocus,
     handleSearchedGames,
@@ -52,7 +52,7 @@ function Header() {
           <Input
             onFocus={handleOnFocus}
             onChange={handleOnChange}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyDown}
           />
           <MagnifyGlass onClick={handleSearchedGames} />
 
