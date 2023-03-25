@@ -26,28 +26,29 @@ const StyledGamePage = styled(CustomGamePage)<IStyledGamePage>`
 const MenuHolder = styled.div`
   position: fixed;
   z-index: 6;
-  bottom: 30px;
+  bottom: 20px;
   right: 20px;
   display: flex;
-  height: 35px;
-  width: 35px;
-  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
   background-color: white;
   border-radius: 50%;
   cursor: pointer;
 
   svg {
-    height: 25px;
-    width: 25px;
+    height: 28px;
+    width: 28px;
   }
 `;
 
 export const Overflow = styled(MenuHolder)<IOverflow>`
   z-index: 5;
-  bottom: 30px;
+  bottom: 20px;
   right: 20px;
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   transform: scale(${({ isHideSidebar }) => (isHideSidebar ? '1' : '72')});
   transition: 1.5s;
 `;
