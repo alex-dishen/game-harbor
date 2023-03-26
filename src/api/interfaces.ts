@@ -40,6 +40,7 @@ export interface IGame {
   slug: string;
   name: string;
   price: number;
+  isInCart: boolean;
   ratings_count: number;
   description_raw: string;
   website: string;
@@ -55,6 +56,7 @@ export interface IGame {
   [key: string]:
     | number
     | string
+    | boolean
     | IName[]
     | IInfoGameSpecification[]
     | IScreenshots[]

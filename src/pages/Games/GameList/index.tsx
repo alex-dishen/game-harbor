@@ -1,22 +1,20 @@
-import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
-import { RootState } from 'redux/types';
-import { setGameID } from 'redux/counterSlice';
+import useGameList from 'pages/Games/GameList/useGameList';
 import { platformIcons } from 'pages/Games/GameList/constants';
 import {
   GameListWrapper,
   GameWrapper,
   BackgroundImage,
   Info,
-  // Price,
+  Price,
+  AddToCart,
   PlatformIcons,
   GameName,
 } from 'pages/Games/GameList/styles';
 
 function GameList() {
-  const dispatch = useDispatch();
-  const games = useSelector((state: RootState) => state.harbor.games);
+  const { games, handleAddToCart, handleNavigation } = useGameList();
 
   return (
     <GameListWrapper games={games}>
@@ -39,9 +37,17 @@ function GameList() {
                 style={{ backgroundImage: `url(${game.background_image})` }}
               />
               <Info>
-                {/* <Price>
-                  <span>Add to cart +</span> $ {game.price}
-                </Price> */}
+                <Price>
+                  <AddToCart
+                    isInCart={game.isInCart}
+                    onClick={() => {
+                      handleAddToCart(game.id);
+                    }}
+                  >
+                    Add to cart +
+                  </AddToCart>
+                  ${game.price}
+                </Price>
                 <PlatformIcons>
                   {game.parent_platforms.map((platform) => (
                     <span key={uniqid()}>
@@ -49,12 +55,7 @@ function GameList() {
                     </span>
                   ))}
                 </PlatformIcons>
-                <GameName
-                  to="game"
-                  onClick={() => {
-                    dispatch(setGameID(game.id));
-                  }}
-                >
+                <GameName to="game" onClick={() => handleNavigation(game.id)}>
                   {game.name}
                 </GameName>
               </Info>

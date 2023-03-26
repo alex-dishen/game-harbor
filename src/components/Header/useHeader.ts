@@ -10,6 +10,7 @@ import {
   setIsOpenSearchGames,
   setCurrentFilter,
   setIsSearching,
+  setIsOpenCart,
 } from 'redux/counterSlice';
 import { useClickOutside, useScrollDirection } from 'utils/customHooks';
 import { returnGames } from 'utils/helpers';
@@ -23,18 +24,23 @@ const useHeader = () => {
   const location = useLocation();
   const inputWrapperRef = useRef<HTMLDivElement>(null);
   const [isInputFocused, setIsInputFocused] = useState(false);
-  const [isOpenCart, setIsOpenCart] = useState(false);
   const [isModifyHeader, setIsModifyHeader] = useState(false);
   const [typingTimer, setTypingTimer] = useState<NodeJS.Timeout>();
-  const { isChangeSidebar, isOpenSearchGames, isHideSidebar, searchedGames } =
-    reduxState;
+  const {
+    isChangeSidebar,
+    isOpenSearchGames,
+    isHideSidebar,
+    searchedGames,
+    isOpenCart,
+    inCartGames,
+  } = reduxState;
 
   const setInputMaxWidth = (width: number) => {
     inputControls.start({ maxWidth: width });
   };
 
   const openAndHideCart = () => {
-    setIsOpenCart(!isOpenCart);
+    dispatch(setIsOpenCart(!isOpenCart));
   };
 
   const minimizeInput = () => {
@@ -114,6 +120,7 @@ const useHeader = () => {
     isOpenCart,
     inputWrapperRef,
     isOpenSearchGames,
+    inCartGames,
     handleOnChange,
     handleKeyDown,
     openAndHideCart,

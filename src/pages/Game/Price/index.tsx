@@ -1,13 +1,16 @@
+import usePrice from 'pages/Game/Price/usePrice';
 import { StyledPrice, Status } from 'pages/Game/Price/styles';
 import { ReactComponent as Check } from 'assets/check.svg';
 
 function Price() {
+  const { returnGamePrice } = usePrice();
+
   return (
     <StyledPrice>
-      <span>$13</span>
-      {/* <Status>
+      <span>{returnGamePrice()}</span>
+      <Status>
         Added <Check />
-      </Status> */}
+      </Status>
     </StyledPrice>
   );
 }

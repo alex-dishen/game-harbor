@@ -6,7 +6,9 @@ import { useEffect } from 'react';
 
 const useGame = () => {
   const dispatch = useDispatch();
-  const gameID = useSelector((state: RootState) => state.harbor.gameID);
+  const reduxStore = useSelector((state: RootState) => state.harbor);
+
+  const { gameID } = reduxStore;
 
   const setGameDetails = async () => {
     const details = await getGameDetails(gameID);

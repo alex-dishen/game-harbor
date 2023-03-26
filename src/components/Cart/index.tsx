@@ -1,22 +1,23 @@
-import { useRef } from 'react';
-import { useClickOutside } from 'utils/customHooks';
+import uniqid from 'uniqid';
+import useCart from 'components/Cart/useCart';
 import {
   CartWrapper,
   Header,
   ChosenGames,
   TotalPrice,
   Overlay,
+  GameHolder,
+  Cross,
 } from 'components/Cart/styles';
 
-interface CartProps {
-  isOpenCart: boolean;
-  openAndHideCart: () => void;
-}
-
-function Cart({ isOpenCart, openAndHideCart }: CartProps) {
-  const cartRef = useRef<HTMLDivElement>(null);
-
-  useClickOutside(isOpenCart, cartRef, openAndHideCart);
+function Cart() {
+  const {
+    cartRef,
+    inCartGames,
+    clearInCartGames,
+    deleteGame,
+    returnGamesPriceSum,
+  } = useCart();
 
   return (
     <>
@@ -28,21 +29,23 @@ function Cart({ isOpenCart, openAndHideCart }: CartProps) {
         exit={{ x: 360 }}
       >
         <Header>
-          <div>10 Games</div>
-          <button type="button">Clear</button>
+          <div>{inCartGames.length} Games</div>
+          <button type="button" onClick={clearInCartGames}>
+            Clear
+          </button>
         </Header>
         <ChosenGames>
-          {/* {chosenGames.map((game) => (
-            <GameHolder>
+          {inCartGames.map((game) => (
+            <GameHolder key={uniqid()}>
               <div>{game.name}</div>
               <div>
                 <div>{game.price}</div>
-                <Cross>x</Cross>
+                <Cross onClick={() => deleteGame(game.id)}>x</Cross>
               </div>
             </GameHolder>
-          ))} */}
+          ))}
         </ChosenGames>
-        <TotalPrice>Total: $243.32</TotalPrice>
+        <TotalPrice>Total: ${returnGamesPriceSum()}</TotalPrice>
       </CartWrapper>
       <Overlay
         initial={{ opacity: 0 }}

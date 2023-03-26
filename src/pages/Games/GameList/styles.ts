@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { IGameListWrapper } from 'pages/Games/GameList/interfaces';
+import { IGameListWrapper, IAddToCart } from 'pages/Games/GameList/interfaces';
 
 export const GameListWrapper = styled.div<IGameListWrapper>`
   display: ${({ games }) => (games[0].id === -1 ? 'flex' : 'grid')};
@@ -41,11 +41,11 @@ export const Price = styled.div`
   display: flex;
   justify-content: space-between;
   cursor: auto;
+`;
 
-  span {
-    color: rgb(153, 153, 153);
-    cursor: pointer;
-  }
+export const AddToCart = styled.span<IAddToCart>`
+  color: ${({ isInCart }) => (isInCart ? '#00b900' : 'rgb(153, 153, 153)')};
+  cursor: pointer;
 `;
 
 export const PlatformIcons = styled.div`

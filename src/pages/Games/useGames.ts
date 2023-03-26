@@ -15,7 +15,6 @@ import {
   getNextWeek,
   getThisYear,
   getPreviousYear,
-  getPrice,
 } from 'pages/Games/helpers';
 
 const useGames = () => {

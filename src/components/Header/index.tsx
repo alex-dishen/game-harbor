@@ -6,9 +6,9 @@ import SearchGames from 'components/SearchGames';
 import logo from 'assets/logo.png';
 import {
   HeaderWrapper,
-  InputWrapper,
   LogoWrapper,
   Logo,
+  InputWrapper,
   Input,
   MagnifyGlass,
   CartWrapper,
@@ -25,6 +25,7 @@ function Header() {
     isOpenCart,
     inputWrapperRef,
     isOpenSearchGames,
+    inCartGames,
     handleOnChange,
     handleKeyDown,
     openAndHideCart,
@@ -60,14 +61,10 @@ function Header() {
         </InputWrapper>
         <CartWrapper onClick={openAndHideCart}>
           <Bag />
-          <div>Cart: 10</div>
+          <div>Cart: {inCartGames.length}</div>
         </CartWrapper>
       </HeaderWrapper>
-      <AnimatePresence>
-        {isOpenCart && (
-          <Cart isOpenCart={isOpenCart} openAndHideCart={openAndHideCart} />
-        )}
-      </AnimatePresence>
+      <AnimatePresence>{isOpenCart && <Cart />}</AnimatePresence>
     </>
   );
 }

@@ -46,33 +46,33 @@ export const ChosenGames = styled.main`
   overflow: scroll;
 `;
 
-// const GameHolder = styled.div`
-//   display: flex;
-//   justify-content: space-between;
-//   padding: 13px;
-//   background-color: rgb(38, 38, 38);
-//   border-radius: 10px;
+export const GameHolder = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 13px;
+  background-color: rgb(38, 38, 38);
+  border-radius: 10px;
 
-//   & > div:first-child {
-//     color: white;
-//   }
+  & > div:first-child {
+    color: white;
+  }
 
-//   & > div:last-child {
-//     display: flex;
-//     align-items: center;
-//     gap: 12px;
-//   }
-// `;
+  & > div:last-child {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+`;
 
-// const Cross = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   height: 22px;
-//   width: 22px;
-//   background-color: rgb(64, 64, 64);
-//   border-radius: 50%;
-//   cursor: pointer;
-// `;
+export const Cross = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 22px;
+  width: 22px;
+  background-color: rgb(64, 64, 64);
+  border-radius: 50%;
+  cursor: pointer;
+`;
 
 export const TotalPrice = styled.footer`
   color: inherit;

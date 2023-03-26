@@ -12,6 +12,8 @@ export interface CounterState {
   orderTitle: string;
   games: IGame[];
   searchedGames: IGame[];
+  inCartGames: IGame[];
+  isOpenCart: boolean;
   gameID: number;
   gameSpecification: IGame;
   gameScreenshots: ResponseSchema<IScreenshots>;

@@ -9,8 +9,8 @@ const useSidebar = () => {
   const dispatch = useDispatch();
   const location = useLocation();
   const reduxState = useSelector((state: RootState) => state.harbor);
+
   const { currentFilter, isChangeSidebar } = reduxState;
-  console.log(location);
 
   const onClick = (e: MouseEvent<HTMLElement>) => {
     handleFilterClick(e, dispatch, currentFilter, location.pathname);

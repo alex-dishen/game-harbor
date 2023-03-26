@@ -1,8 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { CircularProgress } from 'react-cssfx-loading';
 import uniqid from 'uniqid';
-import { setGameID, setIsOpenSearchGames } from 'redux/counterSlice';
-import { RootState } from 'redux/types';
+import useSearchGames from 'components/SearchGames/useSearchGames';
 import {
   SearchGamesWrapper,
   GameWrapper,
@@ -11,10 +9,7 @@ import {
 } from 'components/SearchGames/styles';
 
 function SearchGames() {
-  const dispatch = useDispatch();
-  const reduxState = useSelector((state: RootState) => state.harbor);
-  const { searchedGames } = reduxState;
-  const games = searchedGames.slice(0, 8);
+  const { games, handleOnClick } = useSearchGames();
 
   return (
     <SearchGamesWrapper games={games}>
@@ -31,10 +26,7 @@ function SearchGames() {
             <GameWrapper
               key={uniqid()}
               to="games/game"
-              onClick={() => {
-                dispatch(setGameID(game.id));
-                dispatch(setIsOpenSearchGames(false));
-              }}
+              onClick={() => handleOnClick(game.id)}
             >
               <BackgroundImage
                 style={{ backgroundImage: `url(${game.background_image})` }}

@@ -3,6 +3,7 @@ export const gameSpecification = {
   slug: '',
   name: '',
   price: 0,
+  isInCart: false,
   ratings_count: 0,
   description_raw: '',
   website: '',

@@ -30,6 +30,10 @@ export const returnGames = async ({ getGames, games }: ILoadGames) => {
   const response = getGames ? await getGames() : games;
   if (!response) return;
   const { results } = response;
-  results.forEach((game) => (game.price = getPrice(game)));
-  return results;
+  const modifiedResults = results.map((game) => ({
+    ...game,
+    price: getPrice(game),
+    isInCart: false,
+  }));
+  return modifiedResults;
 };

@@ -9,8 +9,10 @@ const initialState: CounterState = {
   isChangeSidebar: false,
   isHideSidebar: false,
   orderTitle: 'Popularity',
+  isOpenCart: false,
   games: [],
   searchedGames: [],
+  inCartGames: [],
   gameID: 0,
   gameSpecification,
   gameScreenshots: { results: [{ id: 0, image: '' }] },
@@ -40,6 +42,12 @@ export const counterSlice = createSlice({
     setSearchedGames: (state, action: PayloadAction<IGame[]>) => {
       state.searchedGames = action.payload;
     },
+    setInCartGames: (state, action: PayloadAction<IGame[]>) => {
+      state.inCartGames = action.payload;
+    },
+    setIsOpenCart: (state, action: PayloadAction<boolean>) => {
+      state.isOpenCart = action.payload;
+    },
     setGameID: (state, action: PayloadAction<number>) => {
       state.gameID = action.payload;
     },
@@ -68,6 +76,8 @@ export const {
   setOrderTitle,
   setGames,
   setSearchedGames,
+  setInCartGames,
+  setIsOpenCart,
   setGameID,
   setGameSpecification,
   setGameScreenshots,
