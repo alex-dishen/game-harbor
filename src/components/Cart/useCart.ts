@@ -24,6 +24,7 @@ const useCart = () => {
 
   const hideCart = () => {
     dispatch(setIsOpenCart(false));
+    document.body.style.overflow = '';
   };
 
   const clearInCartGames = () => {

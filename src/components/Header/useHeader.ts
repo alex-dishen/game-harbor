@@ -39,8 +39,9 @@ const useHeader = () => {
     inputControls.start({ maxWidth: width });
   };
 
-  const openAndHideCart = () => {
-    dispatch(setIsOpenCart(!isOpenCart));
+  const openCart = () => {
+    dispatch(setIsOpenCart(true));
+    document.body.style.overflow = 'hidden';
   };
 
   const minimizeInput = () => {
@@ -122,7 +123,7 @@ const useHeader = () => {
     inCartGames,
     handleOnChange,
     handleKeyDown,
-    openAndHideCart,
+    openCart,
     handleOnFocus,
     handleSearchedGames,
   };

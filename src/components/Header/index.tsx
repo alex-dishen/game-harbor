@@ -28,7 +28,7 @@ function Header() {
     inCartGames,
     handleOnChange,
     handleKeyDown,
-    openAndHideCart,
+    openCart,
     handleOnFocus,
     handleSearchedGames,
   } = useHeader();
@@ -59,7 +59,7 @@ function Header() {
 
           {isOpenSearchGames && <SearchGames />}
         </InputWrapper>
-        <CartWrapper onClick={openAndHideCart}>
+        <CartWrapper onClick={openCart}>
           <Bag />
           <div>Cart: {inCartGames.length}</div>
         </CartWrapper>
