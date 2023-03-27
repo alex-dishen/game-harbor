@@ -78,15 +78,14 @@ const useHeader = () => {
         dispatch(setIsOpenSearchGames(true));
       }, 600);
 
-    const searchParams = createSearchParams({
-      search: e.target.value,
-    });
-
     if (typingTimer) clearTimeout(typingTimer);
 
     const timer = setTimeout(async () => {
       // games are set to an empty array in order to display a spinner when
       // refetching data instead of just unexpected games update
+      const searchParams = createSearchParams({
+        search: e.target.value,
+      });
       dispatch(setSearchedGames([]));
       const gameList = await getGamesList({
         search: searchParams.toString(),
