@@ -2,6 +2,7 @@ import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
 import useGameList from 'pages/Games/GameList/useGameList';
 import { platformIcons } from 'pages/Games/GameList/constants';
+import { handleAddToCart } from 'utils/helpers';
 import {
   GameListWrapper,
   GameWrapper,
@@ -15,7 +16,7 @@ import {
 import { ReactComponent as Check } from 'assets/check.svg';
 
 function GameList() {
-  const { games, handleAddToCart, handleNavigation } = useGameList();
+  const { games, dispatch, handleNavigation } = useGameList();
 
   return (
     <GameListWrapper games={games}>
@@ -41,9 +42,7 @@ function GameList() {
                 <Price>
                   <AddToCart
                     isInCart={game.isInCart}
-                    onClick={() => {
-                      handleAddToCart(game.id);
-                    }}
+                    onClick={() => handleAddToCart(game.id, games, dispatch)}
                   >
                     {game.isInCart ? (
                       <>

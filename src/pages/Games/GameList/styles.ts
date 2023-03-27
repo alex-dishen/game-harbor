@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { IGameListWrapper, IAddToCart } from 'pages/Games/GameList/interfaces';
 
 export const GameListWrapper = styled.div<IGameListWrapper>`
@@ -43,20 +43,20 @@ export const Price = styled.div`
   cursor: auto;
 `;
 
-export const AddToCart = styled.span<IAddToCart>`
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  /* justify-content: flex-start; */
-  color: ${({ isInCart }) => (isInCart ? '#00b900' : 'rgb(153, 153, 153)')};
-  cursor: pointer;
-
-  svg {
-    height: 20px;
-    width: 20px;
-    fill: #00b900;
-  }
-`;
+export const AddToCart = styled.span<IAddToCart>(
+  ({ isInCart }) => css`
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    color: ${isInCart ? 'rgb(24, 176, 171)' : 'rgb(153, 153, 153)'};
+    cursor: ${isInCart ? '' : 'pointer'};
+    svg {
+      height: 20px;
+      width: 20px;
+      fill: rgb(24, 176, 171);
+    }
+  `
+);
 
 export const PlatformIcons = styled.div`
   display: flex;

@@ -1,15 +1,25 @@
 import usePrice from 'pages/Game/Price/usePrice';
 import { StyledPrice, Status } from 'pages/Game/Price/styles';
 import { ReactComponent as Check } from 'assets/check.svg';
+import { handleAddToCart } from 'utils/helpers';
 
 function Price() {
-  const { returnGamePrice } = usePrice();
+  const { games, gameID, isInCart, gamePrice, dispatch } = usePrice();
 
   return (
     <StyledPrice>
-      <span>{returnGamePrice()}</span>
-      <Status>
-        Added <Check />
+      <span>{gamePrice}</span>
+      <Status
+        isInCart={isInCart}
+        onClick={() => handleAddToCart(gameID, games, dispatch)}
+      >
+        {isInCart ? (
+          <>
+            Added <Check />
+          </>
+        ) : (
+          'Add to cart +'
+        )}
       </Status>
     </StyledPrice>
   );

@@ -1,6 +1,6 @@
 import { MouseEvent } from 'react';
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
-import { setCurrentFilter, setGames } from 'redux/counterSlice';
+import { setCurrentFilter, setGames, setInCartGames } from 'redux/counterSlice';
 import { gameSpecification } from 'redux/constants';
 import { IGame, ResponseSchema } from 'api/interfaces';
 import { getPrice } from 'pages/Games/helpers';
@@ -36,4 +36,22 @@ export const returnGames = async ({ getGames, games }: ILoadGames) => {
     isInCart: false,
   }));
   return modifiedResults;
+};
+
+export const handleAddToCart = (
+  gameId: number,
+  games: IGame[],
+  dispatch: Dispatch<AnyAction>
+) => {
+  const updatedGames = games.map((game) => {
+    if (game.id === gameId) {
+      return { ...game, isInCart: true };
+    }
+    return game;
+  });
+
+  dispatch(setGames(updatedGames));
+
+  const inCartGames = updatedGames.filter((game) => game.isInCart);
+  dispatch(setInCartGames(inCartGames));
 };

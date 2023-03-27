@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { IStatus } from 'pages/Game/Price/interfaces';
 
 export const StyledPrice = styled.div`
   display: flex;
@@ -16,15 +17,19 @@ export const StyledPrice = styled.div`
   }
 `;
 
-export const Status = styled.span`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 22px;
-  font-weight: 600;
+export const Status = styled.span<IStatus>(
+  ({ isInCart }) => css`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: ${isInCart ? 'rgb(24, 176, 171)' : 'white'};
+    font-size: 22px;
+    font-weight: 600;
+    cursor: ${isInCart ? '' : 'pointer'};
 
-  svg {
-    height: 25px;
-    fill: white;
-  }
-`;
+    svg {
+      height: 25px;
+      fill: rgb(24, 176, 171) !important;
+    }
+  `
+);
