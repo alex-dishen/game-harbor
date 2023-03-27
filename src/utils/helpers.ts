@@ -5,19 +5,28 @@ import { gameSpecification } from 'redux/constants';
 import { IGame, ResponseSchema } from 'api/interfaces';
 import { getPrice } from 'pages/Games/helpers';
 
-export const handleFilterClick = (
-  e: MouseEvent<HTMLElement>,
-  dispatch: Dispatch<AnyAction>,
-  currentFilter?: string,
-  location?: string
-) => {
+interface IHandleFilterClick {
+  e: MouseEvent<HTMLElement>;
+  dispatch: Dispatch<AnyAction>;
+  games: IGame[];
+  currentFilter?: string;
+  location?: string;
+}
+
+export const handleFilterClick = ({
+  e,
+  dispatch,
+  currentFilter,
+  games,
+}: IHandleFilterClick) => {
   const target = e.target as HTMLElement;
   const { textContent } = target;
 
   // games are set to a predefined array in order to display a spinner when
   // refetching data instead of just unexpected screen update
-  if (textContent !== currentFilter && location === '/games')
+  if (textContent !== currentFilter && games.length > 0)
     dispatch(setGames([gameSpecification]));
+
   if (textContent) dispatch(setCurrentFilter(textContent));
 };
 

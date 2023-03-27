@@ -1,11 +1,18 @@
 import { MouseEvent } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getGamesList } from 'api/gameData';
-import { setCurrentFilter, setGameID, setGames } from 'redux/counterSlice';
+import {
+  setCurrentFilter,
+  setGameID,
+  setGames,
+  setIsSearching,
+} from 'redux/counterSlice';
 import { handleFilterClick, returnGames } from 'utils/helpers';
+import { RootState } from 'redux/types';
 
 const useQuickNavigation = () => {
   const dispatch = useDispatch();
+  const games = useSelector((state: RootState) => state.harbor.games);
 
   const getRandomID = async () => {
     const randomPage = Math.floor(Math.random() * 10) + 1;
@@ -25,11 +32,12 @@ const useQuickNavigation = () => {
   const setRandomGame = async () => {
     const randomID = await getRandomID();
     if (randomID) dispatch(setGameID(randomID));
-    dispatch(setCurrentFilter('All time top'));
+    dispatch(setCurrentFilter(''));
+    dispatch(setIsSearching(true));
   };
 
   const handleOnClick = (e: MouseEvent<HTMLElement>, name: string) => {
-    handleFilterClick(e, dispatch);
+    handleFilterClick({ e, dispatch, games });
     if (name !== 'Play Dice') return;
     setRandomGame();
   };
