@@ -48,25 +48,61 @@ export const ChosenGames = styled.main`
 
 export const GameHolder = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 5px;
   padding: 13px;
   background-color: rgb(38, 38, 38);
   border-radius: 10px;
 
-  & > div:first-child {
-    color: white;
+  @media (max-width: 565px) {
+    gap: 10px;
   }
+`;
 
-  & > div:last-child {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+export const Details = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  @media (max-width: 565px) {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+`;
+
+export const Image = styled.img`
+  flex-shrink: 0;
+  height: 90px;
+  width: 130px;
+  object-fit: cover;
+  border-radius: 8px;
+
+  @media (max-width: 565px) {
+    height: 120px;
+    width: 100%;
+  }
+`;
+
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+`;
+
+export const Detail = styled.p`
+  margin: 0;
+  text-align: end;
+
+  &:first-child {
+    color: white;
   }
 `;
 
 export const Cross = styled.div`
   display: flex;
   justify-content: center;
+  align-self: flex-end;
   height: 22px;
   width: 22px;
   background-color: rgb(64, 64, 64);

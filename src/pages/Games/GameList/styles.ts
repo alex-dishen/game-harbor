@@ -22,9 +22,10 @@ export const GameWrapper = styled.div`
   }
 `;
 
-export const BackgroundImage = styled.div`
+export const BackgroundImage = styled.img`
   aspect-ratio: 1.7 / 1;
-  background-size: cover;
+  object-fit: cover;
+  width: 100%;
   background-position: center;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;

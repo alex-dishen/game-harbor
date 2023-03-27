@@ -28,9 +28,7 @@ function SearchGames() {
               to="games/game"
               onClick={() => handleOnClick(game.id)}
             >
-              <BackgroundImage
-                style={{ backgroundImage: `url(${game.background_image})` }}
-              />
+              <BackgroundImage src={game.background_image} />
               <GameName>{game.name}</GameName>
             </GameWrapper>
           ))}

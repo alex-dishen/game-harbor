@@ -48,11 +48,11 @@ export const GameWrapper = styled(Link)`
   }
 `;
 
-export const BackgroundImage = styled.div`
+export const BackgroundImage = styled.img`
   flex-shrink: 0;
   aspect-ratio: 1.4 / 1;
   width: 140px;
-  background-size: cover;
+  object-fit: cover;
   background-position: center;
   border-radius: 8px;
 

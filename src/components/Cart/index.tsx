@@ -8,6 +8,10 @@ import {
   Overlay,
   GameHolder,
   Cross,
+  Image,
+  Info,
+  Details,
+  Detail,
 } from 'components/Cart/styles';
 
 function Cart() {
@@ -37,15 +41,18 @@ function Cart() {
         <ChosenGames>
           {inCartGames.map((game) => (
             <GameHolder key={uniqid()}>
-              <div>{game.name}</div>
-              <div>
-                <div>{game.price}</div>
-                <Cross onClick={() => deleteGame(game.id)}>x</Cross>
-              </div>
+              <Cross onClick={() => deleteGame(game.id)}>x</Cross>
+              <Details>
+                <Image src={game.background_image} />
+                <Info>
+                  <Detail>{game.name}</Detail>
+                  <Detail>{game.price}</Detail>
+                </Info>
+              </Details>
             </GameHolder>
           ))}
         </ChosenGames>
-        <TotalPrice>Total: ${returnGamesPriceSum()}</TotalPrice>
+        <TotalPrice>Total: $ {returnGamesPriceSum()}</TotalPrice>
       </CartWrapper>
       <Overlay
         initial={{ opacity: 0 }}

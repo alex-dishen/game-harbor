@@ -35,9 +35,7 @@ function GameList() {
         <>
           {games.map((game) => (
             <GameWrapper key={uniqid()}>
-              <BackgroundImage
-                style={{ backgroundImage: `url(${game.background_image})` }}
-              />
+              <BackgroundImage src={game.background_image} />
               <Info>
                 <Price>
                   <AddToCart
