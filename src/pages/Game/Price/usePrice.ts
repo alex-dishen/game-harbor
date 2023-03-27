@@ -29,7 +29,7 @@ const usePrice = () => {
   useEffect(() => {
     getGamePrice();
     returnIsGameInCart();
-  }, []);
+  }, [games]);
 
   return {
     games,
