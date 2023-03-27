@@ -44,8 +44,18 @@ export const Price = styled.div`
 `;
 
 export const AddToCart = styled.span<IAddToCart>`
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  /* justify-content: flex-start; */
   color: ${({ isInCart }) => (isInCart ? '#00b900' : 'rgb(153, 153, 153)')};
   cursor: pointer;
+
+  svg {
+    height: 20px;
+    width: 20px;
+    fill: #00b900;
+  }
 `;
 
 export const PlatformIcons = styled.div`

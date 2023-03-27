@@ -12,6 +12,7 @@ import {
   PlatformIcons,
   GameName,
 } from 'pages/Games/GameList/styles';
+import { ReactComponent as Check } from 'assets/check.svg';
 
 function GameList() {
   const { games, handleAddToCart, handleNavigation } = useGameList();
@@ -44,7 +45,13 @@ function GameList() {
                       handleAddToCart(game.id);
                     }}
                   >
-                    Add to cart +
+                    {game.isInCart ? (
+                      <>
+                        Added <Check />
+                      </>
+                    ) : (
+                      'Add to cart +'
+                    )}
                   </AddToCart>
                   ${game.price}
                 </Price>
