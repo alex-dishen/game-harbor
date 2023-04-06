@@ -8,7 +8,7 @@ function Price() {
 
   return (
     <StyledPrice>
-      <span>{gamePrice}</span>
+      <span>${gamePrice}</span>
       <Status
         isInCart={isInCart}
         onClick={() => handleAddToCart(gameID, games, dispatch)}

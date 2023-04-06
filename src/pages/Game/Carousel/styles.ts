@@ -64,6 +64,8 @@ export const Image = styled.img`
   height: 100%;
   min-width: 100%;
   object-fit: cover;
+  /* removes white line while picture is not loaded (Safari) */
+  clip-path: inset(0.3px);
 `;
 
 export const DotsWrapper = styled.div`
