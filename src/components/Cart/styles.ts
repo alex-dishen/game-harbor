@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const CartWrapper = styled(motion.div)`
@@ -59,11 +60,12 @@ export const GameHolder = styled.div`
   }
 `;
 
-export const Details = styled.div`
+export const Details = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  text-decoration: none;
 
   @media (max-width: 565px) {
     flex-direction: column;
@@ -93,6 +95,7 @@ export const Info = styled.div`
 export const Detail = styled.p`
   margin: 0;
   text-align: end;
+  color: rgb(153, 153, 153);
 
   &:first-child {
     color: white;

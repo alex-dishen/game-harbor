@@ -1,6 +1,6 @@
 import useCarousel from 'pages/Game/Carousel/useCarousel';
-import { ReactComponent as ChevronLeft } from 'assets/chevron-left.svg';
-import { ReactComponent as ChevronRight } from 'assets/chevron-right.svg';
+import { ReactComponent as ChevronLeft } from 'assets/images/chevron-left.svg';
+import { ReactComponent as ChevronRight } from 'assets/images/chevron-right.svg';
 import {
   CarouselWrapper,
   LeftButton,

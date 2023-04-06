@@ -1,9 +1,9 @@
-import { ReactComponent as Windows } from 'assets/windows.svg';
-import { ReactComponent as PlayStation } from 'assets/playstation.svg';
-import { ReactComponent as Xbox } from 'assets/xbox.svg';
-import { ReactComponent as Nintendo } from 'assets/nintendo.svg';
-import { ReactComponent as Apple } from 'assets/apple.svg';
-import { ReactComponent as Android } from 'assets/android.svg';
+import { ReactComponent as Windows } from 'assets/images/windows.svg';
+import { ReactComponent as PlayStation } from 'assets/images/playstation.svg';
+import { ReactComponent as Xbox } from 'assets/images/xbox.svg';
+import { ReactComponent as Nintendo } from 'assets/images/nintendo.svg';
+import { ReactComponent as Apple } from 'assets/images/apple.svg';
+import { ReactComponent as Android } from 'assets/images/android.svg';
 import { ReactNode } from 'react';
 
 export const platformIcons: Record<string, ReactNode> = {

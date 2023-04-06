@@ -2,18 +2,19 @@ import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
 import useGameList from 'pages/Games/GameList/useGameList';
 import { platformIcons } from 'pages/Games/GameList/constants';
-import { handleAddToCart } from 'utils/helpers';
+import { handleAddToCart } from 'helpers';
 import {
   GameListWrapper,
   GameWrapper,
-  BackgroundImage,
+  Image,
   Info,
   Price,
   AddToCart,
   PlatformIcons,
   GameName,
 } from 'pages/Games/GameList/styles';
-import { ReactComponent as Check } from 'assets/check.svg';
+import { ReactComponent as Check } from 'assets/images/check.svg';
+import { Link } from 'react-router-dom';
 
 function GameList() {
   const { games, dispatch, handleNavigation } = useGameList();
@@ -35,7 +36,9 @@ function GameList() {
         <>
           {games.map((game) => (
             <GameWrapper key={uniqid()}>
-              <BackgroundImage src={game.background_image} />
+              <Link to="game" onClick={() => handleNavigation(game.id)}>
+                <Image src={game.background_image} />
+              </Link>
               <Info>
                 <Price>
                   <AddToCart

@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import useHeader from 'components/Header/useHeader';
 import Cart from 'components/Cart';
 import SearchGames from 'components/SearchGames';
-import logo from 'assets/logo.png';
+import logo from 'assets/images/logo.png';
 import {
   HeaderWrapper,
   LogoWrapper,

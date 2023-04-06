@@ -1,7 +1,7 @@
 import usePrice from 'pages/Game/Price/usePrice';
 import { StyledPrice, Status } from 'pages/Game/Price/styles';
-import { ReactComponent as Check } from 'assets/check.svg';
-import { handleAddToCart } from 'utils/helpers';
+import { ReactComponent as Check } from 'assets/images/check.svg';
+import { handleAddToCart } from 'helpers';
 
 function Price() {
   const { games, gameID, isInCart, gamePrice, dispatch } = usePrice();

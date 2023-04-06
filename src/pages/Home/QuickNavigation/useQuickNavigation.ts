@@ -7,7 +7,7 @@ import {
   setGames,
   setIsSearching,
 } from 'redux/counterSlice';
-import { handleFilterClick, returnGames } from 'utils/helpers';
+import { handleFilterClick, returnGames } from 'helpers';
 import { RootState } from 'redux/types';
 
 const useQuickNavigation = () => {

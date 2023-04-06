@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { IHeaderWrapper } from 'components/Header/interfaces';
-import { ReactComponent as ShoppingBag } from 'assets/shopping-bag.svg';
-import { ReactComponent as MagnifyingGlass } from 'assets/magnify.svg';
+import { ReactComponent as ShoppingBag } from 'assets/images/shopping-bag.svg';
+import { ReactComponent as MagnifyingGlass } from 'assets/images/magnify.svg';
 
 export const HeaderWrapper = styled.header<IHeaderWrapper>(
   ({ isModifyHeader, scrollDirection, isHideSidebar, isChangeSidebar }) => css`

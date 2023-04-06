@@ -21,6 +21,7 @@ function Cart() {
     clearInCartGames,
     deleteGame,
     returnGamesPriceSum,
+    handleNavigation,
   } = useCart();
 
   return (
@@ -42,7 +43,10 @@ function Cart() {
           {inCartGames.map((game) => (
             <GameHolder key={uniqid()}>
               <Cross onClick={() => deleteGame(game.id)}>x</Cross>
-              <Details>
+              <Details
+                to="games/game"
+                onClick={() => handleNavigation(game.id)}
+              >
                 <Image src={game.background_image} />
                 <Info>
                   <Detail>{game.name}</Detail>

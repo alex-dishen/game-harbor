@@ -1,6 +1,6 @@
 import Description from 'pages/Home/Description';
 import QuickNavigation from 'pages/Home/QuickNavigation';
-import video from 'assets/pyke.mp4';
+import video from 'assets/images/pyke.mp4';
 import { Main, Video } from 'pages/Home/styles';
 
 function Home() {

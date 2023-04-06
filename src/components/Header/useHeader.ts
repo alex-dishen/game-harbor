@@ -12,8 +12,9 @@ import {
   setIsSearching,
   setIsOpenCart,
 } from 'redux/counterSlice';
-import { useClickOutside, useScrollDirection } from 'utils/customHooks';
-import { returnGames } from 'utils/helpers';
+import useClickOutside from 'hooks/useClickOutside';
+import useScrollDirection from 'hooks/useScrollDirection';
+import { returnGames } from 'helpers';
 
 const useHeader = () => {
   const dispatch = useDispatch();

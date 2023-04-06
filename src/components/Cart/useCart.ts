@@ -1,8 +1,13 @@
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGames, setInCartGames, setIsOpenCart } from 'redux/counterSlice';
+import {
+  setGameID,
+  setGames,
+  setInCartGames,
+  setIsOpenCart,
+} from 'redux/counterSlice';
 import { RootState } from 'redux/types';
-import { useClickOutside } from 'utils/customHooks';
+import useClickOutside from 'hooks/useClickOutside';
 
 const useCart = () => {
   const dispatch = useDispatch();
@@ -63,6 +68,10 @@ const useCart = () => {
     dispatch(setGames(updatedGames));
   };
 
+  const handleNavigation = (gameID: number) => {
+    dispatch(setGameID(gameID));
+  };
+
   useClickOutside(isOpenCart, cartRef, hideCart);
 
   return {
@@ -71,6 +80,7 @@ const useCart = () => {
     clearInCartGames,
     deleteGame,
     returnGamesPriceSum,
+    handleNavigation,
   };
 };
 

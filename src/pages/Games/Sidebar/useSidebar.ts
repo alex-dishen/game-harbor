@@ -2,7 +2,7 @@ import { MouseEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsHideSidebar } from 'redux/counterSlice';
 import { RootState } from 'redux/types';
-import { handleFilterClick } from 'utils/helpers';
+import { handleFilterClick } from 'helpers';
 
 const useSidebar = () => {
   const dispatch = useDispatch();

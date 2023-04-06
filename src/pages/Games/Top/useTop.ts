@@ -2,7 +2,7 @@ import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOrderTitle } from 'redux/counterSlice';
 import { RootState } from 'redux/types';
-import { useClickOutside } from 'utils/customHooks';
+import useClickOutside from 'hooks/useClickOutside';
 
 const useTop = () => {
   const dispatch = useDispatch();

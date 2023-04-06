@@ -4,8 +4,8 @@ import { IInfoGameSpecification } from 'api/interfaces';
 import useInfo from 'pages/Game/Info/useInfo';
 import Detail from 'pages/Game/Info/components/Detail';
 import { specifications } from 'pages/Game/Info/constants';
-import { ReactComponent as ChevronDown } from 'assets/chevron-down.svg';
-import { ReactComponent as ChevronUp } from 'assets/chevron-up.svg';
+import { ReactComponent as ChevronDown } from 'assets/images/chevron-down.svg';
+import { ReactComponent as ChevronUp } from 'assets/images/chevron-up.svg';
 import {
   StyledInfo,
   Description,

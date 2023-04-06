@@ -7,7 +7,7 @@ import {
 } from 'redux/counterSlice';
 import { getGamesList } from 'api/gameData';
 import { RootState } from 'redux/types';
-import { returnGames } from 'utils/helpers';
+import { returnGames } from 'helpers';
 import {
   previousYear,
   getLast30Days,

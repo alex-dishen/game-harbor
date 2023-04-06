@@ -6,7 +6,7 @@ import Home from 'pages/Home';
 import Games from 'pages/Games';
 import Game from 'pages/Game';
 import 'styles/normalize.css';
-import 'font/fonts.css';
+import 'styles/fonts.css';
 
 function App() {
   const location = useLocation();

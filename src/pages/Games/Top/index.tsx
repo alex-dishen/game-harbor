@@ -1,7 +1,7 @@
 import uniqid from 'uniqid';
 import useTop from 'pages/Games/Top/useTop';
-import { ReactComponent as Check } from 'assets/check.svg';
-import { ReactComponent as Chevron } from 'assets/chevron-down.svg';
+import { ReactComponent as Check } from 'assets/images/check.svg';
+import { ReactComponent as Chevron } from 'assets/images/chevron-down.svg';
 import {
   StyledTop,
   FilterName,

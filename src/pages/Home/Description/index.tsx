@@ -1,5 +1,5 @@
-import rawg from 'assets/RAWG.png';
-import { ReactComponent as Github } from 'assets/github.svg';
+import rawg from 'assets/images/RAWG.png';
+import { ReactComponent as Github } from 'assets/images/github.svg';
 import {
   StyledDescription,
   Pitch,
