@@ -12,9 +12,9 @@ const useGame = () => {
   const { gameID } = reduxStore;
 
   const cleanGamePage = useCallback(() => {
-    dispatch(setGameSpecification(gameSpecification));
+    dispatch(setGameSpecification({ ...gameSpecification, id: gameID }));
     dispatch(setGameScreenshots({ results: [{ id: 0, image: '' }] }));
-  }, [dispatch]);
+  }, [dispatch, gameID]);
 
   const setGameDetails = useCallback(async () => {
     const details = await getGameDetails(gameID);
