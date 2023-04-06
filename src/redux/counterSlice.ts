@@ -4,8 +4,17 @@ import { CounterState } from 'redux/types';
 import { IGame, IScreenshots, ResponseSchema } from 'api/interfaces';
 import { gameSpecification } from 'redux/constants';
 
+const saveToLocalStorage = (name: string, item: string | number) =>
+  localStorage.setItem(name, JSON.stringify(item));
+
+const currentFilter =
+  (JSON.parse(localStorage.getItem('currentFilter') as string) as string) || '';
+
+const currentGameID =
+  (JSON.parse(localStorage.getItem('currentGameID') as string) as number) || 0;
+
 const initialState: CounterState = {
-  currentFilter: '',
+  currentFilter: currentFilter,
   isChangeSidebar: false,
   isHideSidebar: false,
   orderTitle: 'Popularity',
@@ -13,7 +22,7 @@ const initialState: CounterState = {
   games: [],
   searchedGames: [],
   inCartGames: [],
-  gameID: 0,
+  gameID: currentGameID,
   gameSpecification,
   gameScreenshots: { results: [{ id: 0, image: '' }] },
   isOpenSearchGames: false,
@@ -26,6 +35,7 @@ export const counterSlice = createSlice({
   reducers: {
     setCurrentFilter: (state, action: PayloadAction<string>) => {
       state.currentFilter = action.payload;
+      saveToLocalStorage('currentFilter', state.currentFilter);
     },
     setIsChangeSidebar: (state, action: PayloadAction<boolean>) => {
       state.isChangeSidebar = action.payload;
@@ -50,6 +60,7 @@ export const counterSlice = createSlice({
     },
     setGameID: (state, action: PayloadAction<number>) => {
       state.gameID = action.payload;
+      saveToLocalStorage('currentGameID', state.gameID);
     },
     setGameSpecification: (state, action: PayloadAction<IGame>) => {
       state.gameSpecification = action.payload;
