@@ -11,7 +11,7 @@ function GameHeader() {
   return (
     <Header>
       <BackButton to="/games" relative="path">
-        <ArrowLeft /> Store
+        <ArrowLeft /> Harbor
       </BackButton>
       <GameName>{gameName}</GameName>
     </Header>

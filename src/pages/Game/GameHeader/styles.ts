@@ -48,6 +48,7 @@ export const GameName = styled.span`
   font-size: 46px;
   font-weight: 800;
   word-break: keep-all;
+  text-align: end;
 
   @media (max-width: 700px) {
     font-size: 28px;

@@ -103,6 +103,9 @@ const useGames = () => {
   };
 
   const loadGames = async () => {
+    // Prevents Games page from loading and fetching data after
+    // getting back to it from Game page as data didn't change
+    if (games.length > 1) return;
     const results = await returnGames({ getGames });
     // When user opens Games page from search bar the currentFilter === ''
     // and results are set to empty array. To prevent games from getting

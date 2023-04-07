@@ -34,40 +34,47 @@ function GameList() {
         />
       ) : (
         <>
-          {games.map((game) => (
-            <GameWrapper key={uniqid()}>
-              <Link to="game" onClick={() => handleNavigation(game.id)}>
-                <Image src={game.background_image} />
-              </Link>
-              <Info>
-                <Price>
-                  <AddToCart
-                    isInCart={game.isInCart}
-                    onClick={() => handleAddToCart(game.id, games, dispatch)}
-                  >
-                    {game.isInCart ? (
-                      <>
-                        Added <Check />
-                      </>
-                    ) : (
-                      'Add to cart +'
-                    )}
-                  </AddToCart>
-                  ${game.price}
-                </Price>
-                <PlatformIcons>
-                  {game.parent_platforms.map((platform) => (
-                    <span key={uniqid()}>
-                      {platformIcons[platform.platform.slug]}
-                    </span>
-                  ))}
-                </PlatformIcons>
-                <GameName to="game" onClick={() => handleNavigation(game.id)}>
-                  {game.name}
-                </GameName>
-              </Info>
-            </GameWrapper>
-          ))}
+          {games.map(
+            ({
+              id,
+              background_image,
+              isInCart,
+              price,
+              parent_platforms,
+              name,
+            }) => (
+              <GameWrapper key={uniqid()}>
+                <Link to="game" onClick={() => handleNavigation(id)}>
+                  <Image src={background_image} />
+                </Link>
+                <Info>
+                  <Price>
+                    <AddToCart
+                      isInCart={isInCart}
+                      onClick={() => handleAddToCart(id, games, dispatch)}
+                    >
+                      {isInCart ? (
+                        <>
+                          Added <Check />
+                        </>
+                      ) : (
+                        'Add to cart +'
+                      )}
+                    </AddToCart>
+                    ${price}
+                  </Price>
+                  <PlatformIcons>
+                    {parent_platforms.map(({ platform }) => (
+                      <span key={uniqid()}>{platformIcons[platform.slug]}</span>
+                    ))}
+                  </PlatformIcons>
+                  <GameName to="game" onClick={() => handleNavigation(id)}>
+                    {name}
+                  </GameName>
+                </Info>
+              </GameWrapper>
+            )
+          )}
         </>
       )}
     </GameListWrapper>

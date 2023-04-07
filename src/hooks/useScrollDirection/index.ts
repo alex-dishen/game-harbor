@@ -1,19 +1,20 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 
 const useScrollDirection = () => {
   const [scrollDirection, setScrollDirection] = useState('');
+  const lastScrollYRef = useRef(window.pageYOffset);
 
   const updateScrollDirection = useCallback(() => {
-    let lastScrollY = window.pageYOffset;
     const scrollY = window.pageYOffset;
-    const direction = scrollY > lastScrollY ? 'down' : 'up';
+    const direction = scrollY > lastScrollYRef.current ? 'down' : 'up';
     if (
       direction !== scrollDirection &&
-      (scrollY - lastScrollY > 10 || scrollY - lastScrollY < -10)
+      (scrollY - lastScrollYRef.current > 10 ||
+        scrollY - lastScrollYRef.current < -10)
     ) {
       setScrollDirection(direction);
     }
-    lastScrollY = scrollY > 0 ? scrollY : 0;
+    lastScrollYRef.current = scrollY > 0 ? scrollY : 0;
   }, [scrollDirection]);
 
   useEffect(() => {
