@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "homepage": "https://alex-dishen.github.io/shop",
   "scripts": {
-    "start": "vite",
+    "start": "vite --host",
     "build": "vite build",
     "deploy": "vite build && gh-pages -d dist",
     "lint": "eslint .",

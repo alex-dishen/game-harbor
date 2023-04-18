@@ -16,6 +16,7 @@ export const GameWrapper = styled(motion.main)`
 
   @media (max-width: 860px) {
     height: fit-content;
+    padding: 0 20px 30px 20px;
   }
 `;
 

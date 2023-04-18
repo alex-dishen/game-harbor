@@ -15,7 +15,10 @@ function Details({ specifications }: DevelopersProps) {
               {specification.name + setEmptyOrComa(index, specifications as [])}
             </>
           ) : (
-            <>{specification.platform?.name}</>
+            <>
+              {(specification.platform?.name ?? '') +
+                setEmptyOrComa(index, specifications as [])}
+            </>
           )}
         </span>
       ))}
