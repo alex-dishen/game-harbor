@@ -4,8 +4,7 @@ import {
   StyledDescription,
   Pitch,
   Links,
-  GitHubLink,
-  RAWGLink,
+  Link,
   RAWGLogo,
 } from 'pages/Home/Description/styles';
 
@@ -21,14 +20,14 @@ function Description() {
         </p>
       </Pitch>
       <Links>
-        <GitHubLink href="https://github.com/alex-dishen" target="_blank">
+        <Link href="https://github.com/alex-dishen" target="_blank">
           <Github />
           alex-dishen
-        </GitHubLink>
-        <RAWGLink href="https://rawg.io/apidocs" target="_blank">
+        </Link>
+        <Link href="https://rawg.io/apidocs" target="_blank">
           <RAWGLogo src={rawg} alt="RAWG logo" />
           RAWG API
-        </RAWGLink>
+        </Link>
       </Links>
     </StyledDescription>
   );

@@ -43,7 +43,7 @@ export const Links = styled(Pitch)`
   }
 `;
 
-export const GitHubLink = styled.a`
+export const Link = styled.a`
   display: flex;
   align-items: center;
   gap: 8px;
@@ -63,8 +63,6 @@ export const GitHubLink = styled.a`
     transform: scale(1);
   }
 `;
-
-export const RAWGLink = styled(GitHubLink)``;
 
 export const RAWGLogo = styled.img`
   height: 20px;

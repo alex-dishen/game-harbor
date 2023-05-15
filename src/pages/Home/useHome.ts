@@ -9,7 +9,7 @@ const useHome = () => {
 
   useEffect(() => {
     dispatch(setGames([]));
-  }, []);
+  }, [dispatch]);
 };
 
 export default useHome;

@@ -23,6 +23,8 @@ const useQuickNavigation = () => {
     });
     const results = await returnGames({ games: response });
     if (!results) return;
+    // We set games here to be able to click Back To Harbor what opens a
+    // catalog of games and so we could see the list of games
     dispatch(setGames(results));
     const IDs = results.map((result) => result.id);
     const randomIndex = Math.floor(Math.random() * 40);
