@@ -4,6 +4,8 @@ node_modules
 # production
 /build
 /dist
+.firebase
+*.log
 
 # misc
 .env
