@@ -8,8 +8,8 @@ import {
 import { getGamesList } from 'api/gameData';
 import { RootState } from 'redux/types';
 import { returnGames } from 'helpers';
+import { ORDER_TITLE, FILTER_TITLE } from 'pages/Games/constants';
 import {
-  previousYear,
   getLast30Days,
   getThisWeek,
   getNextWeek,
@@ -44,62 +44,71 @@ const useGames = () => {
   };
 
   const getOrder = () => {
-    if (orderTitle === 'Release date') return '-released';
+    switch (orderTitle) {
+      case ORDER_TITLE.RELEASE:
+        return '-released';
 
-    if (orderTitle === 'Popularity') return '-added';
+      case ORDER_TITLE.POPULARITY:
+        return '-added';
 
-    if (orderTitle === 'Name') return 'name';
+      case ORDER_TITLE.NAME:
+        return 'name';
 
-    if (orderTitle === 'Rating') return '-rating';
+      case ORDER_TITLE.RATING:
+        return '-rating';
+    }
   };
 
   const getGames = () => {
-    if (currentFilter === 'Last 30 days')
-      return getGamesList({ dates: getLast30Days(), ordering: getOrder() });
+    switch (currentFilter) {
+      case FILTER_TITLE.LAST_30_DAYS:
+        return getGamesList({ dates: getLast30Days(), ordering: getOrder() });
 
-    if (currentFilter === 'This week')
-      return getGamesList({ dates: getThisWeek(), ordering: getOrder() });
+      case FILTER_TITLE.THIS_WEEK:
+        return getGamesList({ dates: getThisWeek(), ordering: getOrder() });
 
-    if (currentFilter === 'Next week')
-      return getGamesList({ dates: getNextWeek(), ordering: getOrder() });
+      case FILTER_TITLE.NEXT_WEEK:
+        return getGamesList({ dates: getNextWeek(), ordering: getOrder() });
 
-    if (currentFilter === 'Best of the year')
-      return getGamesList({ dates: getThisYear(), ordering: '-added' });
+      case FILTER_TITLE.BEST_OF_THE_YEAR:
+        return getGamesList({ dates: getThisYear(), ordering: '-added' });
 
-    if (currentFilter === `Popular in ${previousYear}`)
-      return getGamesList({ dates: getPreviousYear(), ordering: '-added' });
+      case FILTER_TITLE.POPULAR_PREV_YEAR:
+        return getGamesList({ dates: getPreviousYear(), ordering: '-added' });
 
-    if (currentFilter === 'All time top')
-      return getGamesList({ page_size: 40, ordering: '-added' });
+      case FILTER_TITLE.ALL_TIME_TOP:
+        return getGamesList({ page_size: 40, ordering: '-added' });
 
-    if (currentFilter === 'PC')
-      return getGamesList({ parent_platforms: 1, ordering: getOrder() });
+      case FILTER_TITLE.PC:
+        return getGamesList({ parent_platforms: 1, ordering: getOrder() });
 
-    if (currentFilter === 'PlayStation')
-      return getGamesList({ parent_platforms: 2, ordering: getOrder() });
+      case FILTER_TITLE.PS:
+        return getGamesList({ parent_platforms: 2, ordering: getOrder() });
 
-    if (currentFilter === 'Xbox One')
-      return getGamesList({ parent_platforms: 3, ordering: getOrder() });
+      case FILTER_TITLE.XBOX:
+        return getGamesList({ parent_platforms: 3, ordering: getOrder() });
 
-    if (currentFilter === 'Nintendo Switch')
-      return getGamesList({ parent_platforms: 7, ordering: getOrder() });
+      case FILTER_TITLE.NINTENDO:
+        return getGamesList({ parent_platforms: 7, ordering: getOrder() });
 
-    if (currentFilter === 'iOS')
-      return getGamesList({ parent_platforms: 5, ordering: getOrder() });
+      case FILTER_TITLE.IOS:
+        return getGamesList({ parent_platforms: 5, ordering: getOrder() });
 
-    if (currentFilter === 'Android')
-      return getGamesList({ parent_platforms: 8, ordering: getOrder() });
+      case FILTER_TITLE.ANDROID:
+        return getGamesList({ parent_platforms: 8, ordering: getOrder() });
 
-    if (currentFilter === 'RPG')
-      return getGamesList({
-        genres: 'role-playing-games-rpg',
-        ordering: getOrder(),
-      });
+      case FILTER_TITLE.RPG:
+        return getGamesList({
+          genres: 'role-playing-games-rpg',
+          ordering: getOrder(),
+        });
 
-    return getGamesList({
-      genres: currentFilter.toLocaleLowerCase(),
-      ordering: getOrder(),
-    });
+      default:
+        return getGamesList({
+          genres: currentFilter.toLocaleLowerCase(),
+          ordering: getOrder(),
+        });
+    }
   };
 
   const loadGames = async () => {

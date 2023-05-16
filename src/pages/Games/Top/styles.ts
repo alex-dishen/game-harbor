@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { IOrder } from 'pages/Games/Top/interfaces';
+import { OrderTypes } from 'pages/Games/Top/types';
 
 export const StyledTop = styled.div`
   display: flex;
@@ -31,7 +31,7 @@ export const OrderWrapper = styled.div`
   }
 `;
 
-export const Order = styled.div<IOrder>`
+export const Order = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

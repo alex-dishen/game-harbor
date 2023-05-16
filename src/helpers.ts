@@ -44,6 +44,7 @@ export const returnGames = async ({ getGames, games }: ILoadGames) => {
     price: getPrice(game),
     isInCart: false,
   }));
+
   return modifiedResults;
 };
 
@@ -56,6 +57,7 @@ export const handleAddToCart = (
     if (game.id === gameId) {
       return { ...game, isInCart: true };
     }
+
     return game;
   });
 

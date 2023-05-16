@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { IGameListWrapper, IAddToCart } from 'pages/Games/GameList/interfaces';
+import {
+  GameListWrapperTypes,
+  AddToCartTypes,
+} from 'pages/Games/GameList/types';
 
-export const GameListWrapper = styled.div<IGameListWrapper>`
+export const GameListWrapper = styled.div<GameListWrapperTypes>`
   display: ${({ games }) => (games[0].id === -1 ? 'flex' : 'grid')};
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   justify-content: center;
@@ -44,7 +47,7 @@ export const Price = styled.div`
   cursor: auto;
 `;
 
-export const AddToCart = styled.span<IAddToCart>(
+export const AddToCart = styled.span<AddToCartTypes>(
   ({ isInCart }) => css`
     display: flex;
     align-items: center;

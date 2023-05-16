@@ -1,35 +1,34 @@
-import uniqid from 'uniqid';
 import useSidebar from 'pages/Games/Sidebar/useSidebar';
-import { filters, variants } from 'pages/Games/Sidebar/constants';
+import { filters } from 'pages/Games/Sidebar/constants';
 import {
   StyledSidebar,
   CategoryHolder,
+  Header,
   Filter,
+  IconHolder,
 } from 'pages/Games/Sidebar/styles';
 
 function Sidebar() {
-  const { isChangeSidebar, currentFilter, onClick } = useSidebar();
+  const { isChangeSidebar, currentFilter, variant, exitOption, onClick } =
+    useSidebar();
 
   return (
     <StyledSidebar
-      variants={window.innerWidth < 700 ? variants : {}}
+      variants={variant}
       initial="hidden"
       animate="show"
-      exit={window.innerWidth < 690 ? 'hidden' : ''}
+      exit={exitOption}
       isChangeSidebar={isChangeSidebar}
     >
-      {filters.map((filter) => (
-        <CategoryHolder key={uniqid()}>
-          <div>{filter.header}</div>
-          {filter.options?.map((option) => (
-            <Filter
-              key={uniqid()}
-              onClick={onClick}
-              filterName={option.name}
-              currentFilter={currentFilter}
-            >
-              <div>{option.icon}</div>
-              {option.name}
+      {filters.map(({ id, header, options }) => (
+        <CategoryHolder key={id}>
+          <Header>{header}</Header>
+          {options.map(({ key, name, icon }) => (
+            <Filter key={key} onClick={onClick}>
+              <IconHolder isHighlight={name === currentFilter}>
+                {icon}
+              </IconHolder>
+              {name}
             </Filter>
           ))}
         </CategoryHolder>

@@ -1,9 +1,9 @@
 import { IGame } from 'api/interfaces';
 
-export interface IGameListWrapper {
+export type GameListWrapperTypes = {
   games: IGame[];
-}
+};
 
-export interface IAddToCart {
+export type AddToCartTypes = {
   isInCart: boolean;
-}
+};

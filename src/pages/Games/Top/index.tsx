@@ -1,7 +1,5 @@
-import uniqid from 'uniqid';
 import useTop from 'pages/Games/Top/useTop';
-import { ReactComponent as Check } from 'assets/images/check.svg';
-import { ReactComponent as Chevron } from 'assets/images/chevron-down.svg';
+import { orderOptions } from 'pages/Games/Top/constants';
 import {
   StyledTop,
   FilterName,
@@ -10,6 +8,8 @@ import {
   OptionWrapper,
   Option,
 } from 'pages/Games/Top/styles';
+import { ReactComponent as Check } from 'assets/images/check.svg';
+import { ReactComponent as Chevron } from 'assets/images/chevron-down.svg';
 
 function Top() {
   const {
@@ -18,7 +18,6 @@ function Top() {
     orderTitle,
     isOrderOpen,
     orderRef,
-    orderOptions,
     openAndHideOrder,
     handleOptionClick,
   } = useTop();
@@ -29,16 +28,16 @@ function Top() {
 
       {isShowOrder && (
         <OrderWrapper>
-          <Order orderTitle={orderTitle} onClick={openAndHideOrder}>
+          <Order onClick={openAndHideOrder}>
             Order by: <span>{orderTitle}</span>
             <Chevron />
           </Order>
           {isOrderOpen && (
             <OptionWrapper ref={orderRef}>
-              {orderOptions.map((item) => (
-                <Option onClick={handleOptionClick} key={uniqid()}>
-                  {item}
-                  {orderTitle === item ? <Check /> : <div />}
+              {orderOptions.map(({ id, title }) => (
+                <Option onClick={handleOptionClick} key={id}>
+                  {title}
+                  {orderTitle === title ? <Check /> : <div />}
                 </Option>
               ))}
             </OptionWrapper>

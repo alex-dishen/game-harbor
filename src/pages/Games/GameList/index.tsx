@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import { CircularProgress } from 'react-cssfx-loading';
 import useGameList from 'pages/Games/GameList/useGameList';
@@ -14,7 +15,6 @@ import {
   GameName,
 } from 'pages/Games/GameList/styles';
 import { ReactComponent as Check } from 'assets/images/check.svg';
-import { Link } from 'react-router-dom';
 
 function GameList() {
   const { games, dispatch, handleNavigation } = useGameList();
