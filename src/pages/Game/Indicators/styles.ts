@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { IStatus } from 'pages/Game/Price/interfaces';
+import { StatusTypes } from 'pages/Game/Indicators/types';
 
 export const StyledPrice = styled.div`
   display: flex;
@@ -17,7 +17,7 @@ export const StyledPrice = styled.div`
   }
 `;
 
-export const Status = styled.span<IStatus>(
+export const Status = styled.span<StatusTypes>(
   ({ isInCart }) => css`
     display: flex;
     align-items: center;

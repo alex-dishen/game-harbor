@@ -1,5 +1,5 @@
-import usePrice from 'pages/Game/Price/usePrice';
-import { StyledPrice, Status } from 'pages/Game/Price/styles';
+import usePrice from 'pages/Game/Indicators/useIndicators';
+import { StyledPrice, Status } from 'pages/Game/Indicators/styles';
 import { ReactComponent as Check } from 'assets/images/check.svg';
 import { handleAddToCart } from 'helpers';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { IMoreButton } from 'pages/Game/Info/interfaces';
+import { MoreButtonTypes } from 'pages/Game/Info/types';
 
 export const StyledInfo = styled.div`
   grid-area: info;
@@ -68,7 +68,7 @@ export const Details = styled(motion.ul)`
   }
 `;
 
-export const MoreButton = styled.div<IMoreButton>`
+export const MoreButton = styled.div<MoreButtonTypes>`
   display: flex;
   align-items: center;
   justify-content: flex-end;
