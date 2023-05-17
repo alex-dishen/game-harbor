@@ -7,6 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: npm ci && npm run build
+        env: 
+          VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
