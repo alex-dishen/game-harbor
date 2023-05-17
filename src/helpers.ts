@@ -2,8 +2,9 @@ import { MouseEvent } from 'react';
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import { setCurrentFilter, setGames, setInCartGames } from 'redux/counterSlice';
 import { gameSpecification } from 'redux/constants';
-import { GameTypes, ResponseSchema } from 'api/types';
 import { getPrice } from 'pages/Games/helpers';
+import { GameTypes } from 'api/types';
+import { LoadGamesTypes } from 'types';
 
 interface IHandleFilterClick {
   e: MouseEvent<HTMLElement>;
@@ -30,19 +31,21 @@ export const handleFilterClick = ({
   if (textContent) dispatch(setCurrentFilter(textContent));
 };
 
-interface ILoadGames {
-  getGames?: () => Promise<ResponseSchema<GameTypes>>;
-  games?: ResponseSchema<GameTypes>;
-}
+const returnIsInCart = (id: number, inCartGames: GameTypes[]) =>
+  inCartGames.some((game) => game.id === id);
 
-export const returnGames = async ({ getGames, games }: ILoadGames) => {
+export const returnGames = async ({
+  getGames,
+  inCartGames,
+  games,
+}: LoadGamesTypes) => {
   const response = getGames ? await getGames() : games;
   if (!response) return;
   const { results } = response;
   const modifiedResults = results.map((game) => ({
     ...game,
     price: getPrice(game),
-    isInCart: false,
+    isInCart: returnIsInCart(game.id, inCartGames),
   }));
 
   return modifiedResults;

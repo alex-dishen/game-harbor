@@ -22,8 +22,14 @@ const useGames = () => {
   const reduxStore = useSelector((state: RootState) => state.harbor);
   const [isShowMenu, setIsShowMenu] = useState(false);
 
-  const { currentFilter, orderTitle, isChangeSidebar, isHideSidebar, games } =
-    reduxStore;
+  const {
+    currentFilter,
+    orderTitle,
+    isChangeSidebar,
+    isHideSidebar,
+    games,
+    inCartGames,
+  } = reduxStore;
 
   const manipulateSideBar = () => {
     const { innerWidth } = window;
@@ -115,11 +121,15 @@ const useGames = () => {
     // Prevents Games page from loading and fetching data after
     // getting back to it from Game page as data didn't change
     if (games.length > 1) return;
-    const results = await returnGames({ getGames });
+    const results = await returnGames({
+      getGames,
+      inCartGames,
+    });
     // When user opens Games page from search bar the currentFilter === ''
     // and results are set to empty array. To prevent games from getting
     // reset to empty array the condition below is used
     if (results?.length === 0) return;
+
     if (results) dispatch(setGames(results));
   };
 

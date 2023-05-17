@@ -93,7 +93,7 @@ const useHeader = () => {
         search: searchParams.toString(),
         search_precise: true,
       });
-      const results = await returnGames({ games: gameList });
+      const results = await returnGames({ games: gameList, inCartGames });
       if (results) dispatch(setSearchedGames(results));
     }, 1200);
 
