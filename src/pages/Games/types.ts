@@ -1,8 +1,8 @@
 import { MotionProps } from 'framer-motion';
-import { IGame } from 'api/interfaces';
+import { GameTypes } from 'api/types';
 
 export type StyledGamePageTypes = MotionProps & {
-  GAMES: IGame[] | undefined;
+  GAMES: GameTypes[] | undefined;
 };
 
 export type OverflowTypes = {

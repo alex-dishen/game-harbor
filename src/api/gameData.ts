@@ -1,15 +1,15 @@
 import getData from 'api/api';
 import {
-  IGame,
-  IGetGamesList,
+  GameTypes,
+  GetGameListTypes,
   ResponseSchema,
-  IScreenshots,
-} from 'api/interfaces';
+  ScreenshotsTypes,
+} from 'api/types';
 
-export const getGamesList = (params?: IGetGamesList) =>
-  getData<ResponseSchema<IGame>>('games', params as Record<string, string>);
+export const getGamesList = (params?: GetGameListTypes) =>
+  getData<ResponseSchema<GameTypes>>('games', params as Record<string, string>);
 
-export const getGameDetails = (id: number) => getData<IGame>(`games/${id}`);
+export const getGameDetails = (id: number) => getData<GameTypes>(`games/${id}`);
 
 export const getGameScreenshots = (id: number) =>
-  getData<ResponseSchema<IScreenshots>>(`games/${id}/screenshots`);
+  getData<ResponseSchema<ScreenshotsTypes>>(`games/${id}/screenshots`);

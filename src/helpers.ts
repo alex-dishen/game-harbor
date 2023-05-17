@@ -2,13 +2,13 @@ import { MouseEvent } from 'react';
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import { setCurrentFilter, setGames, setInCartGames } from 'redux/counterSlice';
 import { gameSpecification } from 'redux/constants';
-import { IGame, ResponseSchema } from 'api/interfaces';
+import { GameTypes, ResponseSchema } from 'api/types';
 import { getPrice } from 'pages/Games/helpers';
 
 interface IHandleFilterClick {
   e: MouseEvent<HTMLElement>;
   dispatch: Dispatch<AnyAction>;
-  games: IGame[];
+  games: GameTypes[];
   currentFilter?: string;
   location?: string;
 }
@@ -31,8 +31,8 @@ export const handleFilterClick = ({
 };
 
 interface ILoadGames {
-  getGames?: () => Promise<ResponseSchema<IGame>>;
-  games?: ResponseSchema<IGame>;
+  getGames?: () => Promise<ResponseSchema<GameTypes>>;
+  games?: ResponseSchema<GameTypes>;
 }
 
 export const returnGames = async ({ getGames, games }: ILoadGames) => {
@@ -50,7 +50,7 @@ export const returnGames = async ({ getGames, games }: ILoadGames) => {
 
 export const handleAddToCart = (
   gameId: number,
-  games: IGame[],
+  games: GameTypes[],
   dispatch: Dispatch<AnyAction>
 ) => {
   const updatedGames = games.map((game) => {

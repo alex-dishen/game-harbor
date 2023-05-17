@@ -1,12 +1,12 @@
 import { CircularProgress } from 'react-cssfx-loading';
 import uniqid from 'uniqid';
-import useSearchGames from 'components/SearchGames/useSearchGames';
+import useSearchGames from 'components/Search/useSearchGames';
 import {
   SearchGamesWrapper,
   GameWrapper,
   BackgroundImage,
   GameName,
-} from 'components/SearchGames/styles';
+} from 'components/Search/styles';
 
 function SearchGames() {
   const { games, handleOnClick } = useSearchGames();

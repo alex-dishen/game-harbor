@@ -1,4 +1,4 @@
-import { IGame, ResponseSchema, IScreenshots } from 'api/interfaces';
+import { GameTypes, ResponseSchema, ScreenshotsTypes } from 'api/types';
 import { store } from 'redux/store';
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -10,13 +10,13 @@ export interface CounterState {
   isChangeSidebar: boolean;
   isHideSidebar: boolean;
   orderTitle: string;
-  games: IGame[];
-  searchedGames: IGame[];
-  inCartGames: IGame[];
+  games: GameTypes[];
+  searchedGames: GameTypes[];
+  inCartGames: GameTypes[];
   isOpenCart: boolean;
   gameID: number;
-  gameSpecification: IGame;
-  gameScreenshots: ResponseSchema<IScreenshots>;
+  gameSpecification: GameTypes;
+  gameScreenshots: ResponseSchema<ScreenshotsTypes>;
   isOpenSearchGames: boolean;
   isSearching: boolean;
 }

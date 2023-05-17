@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import useHeader from 'components/Header/useHeader';
 import Cart from 'components/Cart';
-import SearchGames from 'components/SearchGames';
+import SearchGames from 'components/Search';
 import logo from 'assets/images/logo.png';
 import {
   HeaderWrapper,

@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
-import { IHeaderWrapper } from 'components/Header/interfaces';
+import { HeaderWrapperTypes } from 'components/Header/types';
 import { ReactComponent as ShoppingBag } from 'assets/images/shopping-bag.svg';
 import { ReactComponent as MagnifyingGlass } from 'assets/images/magnify.svg';
 
-export const HeaderWrapper = styled.header<IHeaderWrapper>(
+export const HeaderWrapper = styled.header<HeaderWrapperTypes>(
   ({ isModifyHeader, scrollDirection, isHideSidebar, isChangeSidebar }) => css`
     position: ${isModifyHeader ? 'sticky' : 'block'};
     z-index: ${!isHideSidebar && isChangeSidebar ? -1 : 2};

@@ -1,8 +1,9 @@
-import uniqid from 'uniqid';
 import useCart from 'components/Cart/useCart';
 import {
   CartWrapper,
   Header,
+  NumberOfGames,
+  ClearButton,
   ChosenGames,
   TotalPrice,
   Overlay,
@@ -34,23 +35,20 @@ function Cart() {
         exit={{ x: 360 }}
       >
         <Header>
-          <div>{inCartGames.length} Games</div>
-          <button type="button" onClick={clearInCartGames}>
+          <NumberOfGames>{inCartGames.length} Games</NumberOfGames>
+          <ClearButton type="button" onClick={clearInCartGames}>
             Clear
-          </button>
+          </ClearButton>
         </Header>
         <ChosenGames>
-          {inCartGames.map((game) => (
-            <GameHolder key={uniqid()}>
-              <Cross onClick={() => deleteGame(game.id)}>x</Cross>
-              <Details
-                to="games/game"
-                onClick={() => handleNavigation(game.id)}
-              >
-                <Image src={game.background_image} />
+          {inCartGames.map(({ id, background_image, name, price }) => (
+            <GameHolder key={id}>
+              <Cross onClick={() => deleteGame(id)}>x</Cross>
+              <Details to="games/game" onClick={() => handleNavigation(id)}>
+                <Image src={background_image} />
                 <Info>
-                  <Detail>{game.name}</Detail>
-                  <Detail>{game.price}</Detail>
+                  <Detail>{name}</Detail>
+                  <Detail>{price}</Detail>
                 </Info>
               </Details>
             </GameHolder>

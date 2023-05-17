@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
-import { IInfoGameSpecification } from 'api/interfaces';
+import { InfoGameSpecificationTypes } from 'api/types';
 import useInfo from 'pages/Game/Info/useInfo';
 import Detail from 'pages/Game/Info/components/Detail';
 import { specifications } from 'pages/Game/Info/constants';
@@ -56,7 +56,7 @@ function Info() {
                   {name}
                   <Detail
                     specifications={
-                      gameSpecification[category] as IInfoGameSpecification[]
+                      gameSpecification[category] as InfoGameSpecificationTypes[]
                     }
                   />
                 </li>

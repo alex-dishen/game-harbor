@@ -1,8 +1,8 @@
-export interface ResponseSchema<T> {
+export type ResponseSchema<T> = {
   results: T[];
-}
+};
 
-export interface IGetGamesList {
+export type GetGameListTypes = {
   page?: number;
   page_size?: number;
   search?: string;
@@ -11,31 +11,31 @@ export interface IGetGamesList {
   ordering?: string;
   parent_platforms?: number;
   genres?: string;
-}
+};
 
-export interface IScreenshots {
+export type ScreenshotsTypes = {
   id: number;
   image: string;
-}
+};
 
-export interface IInfoGameSpecification {
+export type InfoGameSpecificationTypes = {
   name: string;
   platform?: { name: string } | undefined;
-}
+};
 
-interface IName {
+type NameTypes = {
   name: string;
-}
+};
 
-interface IPlatform {
+type PlatformTypes = {
   platform: {
     id: number;
     slug: string;
     name: string;
   };
-}
+};
 
-export interface IGame {
+export type GameTypes = {
   id: number;
   slug: string;
   name: string;
@@ -46,19 +46,19 @@ export interface IGame {
   website: string;
   released: string;
   background_image: string;
-  developers: IName[];
-  publishers: IName[];
-  parent_platforms: IPlatform[];
-  platforms: IPlatform[];
-  genres: IName[];
-  short_screenshots: IScreenshots[];
+  developers: NameTypes[];
+  publishers: NameTypes[];
+  parent_platforms: PlatformTypes[];
+  platforms: PlatformTypes[];
+  genres: NameTypes[];
+  short_screenshots: ScreenshotsTypes[];
 
   [key: string]:
     | number
     | string
     | boolean
-    | IName[]
-    | IInfoGameSpecification[]
-    | IScreenshots[]
-    | IPlatform[];
-}
+    | NameTypes[]
+    | InfoGameSpecificationTypes[]
+    | ScreenshotsTypes[]
+    | PlatformTypes[];
+};

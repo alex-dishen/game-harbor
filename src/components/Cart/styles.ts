@@ -23,19 +23,20 @@ export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
 
-  div {
-    color: white;
-    font-size: 24px;
-    font-weight: 800;
-  }
+export const NumberOfGames = styled.h3`
+  margin: 0;
+  color: white;
+  font-size: 24px;
+  font-weight: 800;
+`;
 
-  button {
-    background-color: inherit;
-    color: inherit;
-    border: none;
-    cursor: pointer;
-  }
+export const ClearButton = styled.button`
+  background-color: inherit;
+  color: inherit;
+  border: none;
+  cursor: pointer;
 `;
 
 export const ChosenGames = styled.main`

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { CounterState } from 'redux/types';
-import { IGame, IScreenshots, ResponseSchema } from 'api/interfaces';
+import { GameTypes, ScreenshotsTypes, ResponseSchema } from 'api/types';
 import { gameSpecification } from 'redux/constants';
 
 const saveToLocalStorage = (name: string, item: string | number) =>
@@ -46,13 +46,13 @@ export const counterSlice = createSlice({
     setOrderTitle: (state, action: PayloadAction<string>) => {
       state.orderTitle = action.payload;
     },
-    setGames: (state, action: PayloadAction<IGame[]>) => {
+    setGames: (state, action: PayloadAction<GameTypes[]>) => {
       state.games = action.payload;
     },
-    setSearchedGames: (state, action: PayloadAction<IGame[]>) => {
+    setSearchedGames: (state, action: PayloadAction<GameTypes[]>) => {
       state.searchedGames = action.payload;
     },
-    setInCartGames: (state, action: PayloadAction<IGame[]>) => {
+    setInCartGames: (state, action: PayloadAction<GameTypes[]>) => {
       state.inCartGames = action.payload;
     },
     setIsOpenCart: (state, action: PayloadAction<boolean>) => {
@@ -62,12 +62,12 @@ export const counterSlice = createSlice({
       state.gameID = action.payload;
       saveToLocalStorage('currentGameID', state.gameID);
     },
-    setGameSpecification: (state, action: PayloadAction<IGame>) => {
+    setGameSpecification: (state, action: PayloadAction<GameTypes>) => {
       state.gameSpecification = action.payload;
     },
     setGameScreenshots: (
       state,
-      action: PayloadAction<ResponseSchema<IScreenshots>>
+      action: PayloadAction<ResponseSchema<ScreenshotsTypes>>
     ) => {
       state.gameScreenshots = action.payload;
     },

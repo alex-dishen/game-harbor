@@ -1,7 +1,7 @@
-import { IGame } from 'api/interfaces';
+import { GameTypes } from 'api/types';
 
 export type GameListWrapperTypes = {
-  games: IGame[];
+  games: GameTypes[];
 };
 
 export type AddToCartTypes = {

@@ -1,4 +1,4 @@
-import { IGame } from 'api/interfaces';
+import { GameTypes } from 'api/types';
 
 const currentDate = new Date();
 
@@ -60,7 +60,7 @@ export const getPreviousYear = () => {
   return `${thisYear - 1}-01-01,${thisYear - 1}-12-31`;
 };
 
-export const getPrice = (game: IGame) => {
+export const getPrice = (game: GameTypes) => {
   const { released } = game;
   const releaseYear = new Date(released).getFullYear();
   const currentYear = new Date().getFullYear();
