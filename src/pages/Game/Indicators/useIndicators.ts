@@ -8,7 +8,7 @@ const usePrice = () => {
   const [gamePrice, setGamePrice] = useState(0);
   const [isInCart, setIsInCart] = useState(false);
 
-  const { gameID, games } = reduxStore;
+  const { gameID, games, inCartGames } = reduxStore;
 
   const getGamePrice = () => {
     const currentGame = games.filter((game) => game.id === gameID);
@@ -36,6 +36,7 @@ const usePrice = () => {
     gameID,
     gamePrice,
     isInCart,
+    inCartGames,
     dispatch,
   };
 };

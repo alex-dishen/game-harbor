@@ -51,13 +51,21 @@ export const returnGames = async ({
   return modifiedResults;
 };
 
-export const handleAddToCart = (
-  gameId: number,
-  games: GameTypes[],
-  dispatch: Dispatch<AnyAction>
-) => {
+type HandleAddToCartTypes = {
+  gameID: number;
+  games: GameTypes[];
+  inCartGames: GameTypes[];
+  dispatch: Dispatch<AnyAction>;
+};
+
+export const handleAddToCart = ({
+  gameID,
+  games,
+  inCartGames,
+  dispatch,
+}: HandleAddToCartTypes) => {
   const updatedGames = games.map((game) => {
-    if (game.id === gameId) {
+    if (game.id === gameID) {
       return { ...game, isInCart: true };
     }
 
@@ -66,6 +74,9 @@ export const handleAddToCart = (
 
   dispatch(setGames(updatedGames));
 
-  const inCartGames = updatedGames.filter((game) => game.isInCart);
-  dispatch(setInCartGames(inCartGames));
+  const newCartGames = updatedGames.filter(
+    ({ id, isInCart }) => isInCart && id === gameID
+  );
+
+  dispatch(setInCartGames(inCartGames.concat(newCartGames)));
 };

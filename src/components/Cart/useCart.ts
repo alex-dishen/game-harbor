@@ -70,6 +70,7 @@ const useCart = () => {
 
   const handleNavigation = (gameID: number) => {
     dispatch(setGameID(gameID));
+    hideCart();
   };
 
   useClickOutside(isOpenCart, cartRef, hideCart);

@@ -17,7 +17,7 @@ import {
 import { ReactComponent as Check } from 'assets/images/check.svg';
 
 function GameList() {
-  const { games, dispatch, handleNavigation } = useGameList();
+  const { games, inCartGames, dispatch, handleNavigation } = useGameList();
 
   return (
     <GameListWrapper games={games}>
@@ -51,7 +51,14 @@ function GameList() {
                   <Price>
                     <AddToCart
                       isInCart={isInCart}
-                      onClick={() => handleAddToCart(id, games, dispatch)}
+                      onClick={() =>
+                        handleAddToCart({
+                          gameID: id,
+                          games,
+                          inCartGames,
+                          dispatch,
+                        })
+                      }
                     >
                       {isInCart ? (
                         <>
