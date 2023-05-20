@@ -1,8 +1,10 @@
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setOrderTitle } from 'redux/counterSlice';
+import { setGames, setOrderTitle } from 'redux/counterSlice';
 import { RootState } from 'redux/types';
 import useClickOutside from 'hooks/useClickOutside';
+import { FILTER_TITLE } from 'pages/Games/constants';
+import { gameSpecification } from 'redux/constants';
 
 const useTop = () => {
   const dispatch = useDispatch();
@@ -12,7 +14,6 @@ const useTop = () => {
   const orderRef = useRef<HTMLUListElement>(null);
 
   const { currentFilter, orderTitle, isSearching } = reduxStore;
-  const orderOptions = ['Name', 'Release date', 'Popularity', 'Rating'];
 
   const openAndHideOrder = () => {
     setIsOrderOpen(!isOrderOpen);
@@ -28,15 +29,16 @@ const useTop = () => {
   const handleOptionClick = (e: MouseEvent<HTMLElement>) => {
     changeTitle(e);
     openAndHideOrder();
+    dispatch(setGames([gameSpecification]));
   };
 
   useClickOutside(isOrderOpen, orderRef, openAndHideOrder);
 
   useEffect(() => {
     if (
-      currentFilter === 'All time top' ||
-      currentFilter === 'Popular in 2022' ||
-      currentFilter === 'Best of the year' ||
+      currentFilter === FILTER_TITLE.ALL_TIME_TOP ||
+      currentFilter === FILTER_TITLE.POPULAR_PREV_YEAR ||
+      currentFilter === FILTER_TITLE.BEST_OF_THE_YEAR ||
       isSearching
     ) {
       setIsShowOrder(false);
@@ -52,7 +54,6 @@ const useTop = () => {
     orderTitle,
     isOrderOpen,
     orderRef,
-    orderOptions,
     openAndHideOrder,
     handleOptionClick,
   };

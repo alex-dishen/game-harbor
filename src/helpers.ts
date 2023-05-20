@@ -2,13 +2,14 @@ import { MouseEvent } from 'react';
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
 import { setCurrentFilter, setGames, setInCartGames } from 'redux/counterSlice';
 import { gameSpecification } from 'redux/constants';
-import { IGame, ResponseSchema } from 'api/interfaces';
 import { getPrice } from 'pages/Games/helpers';
+import { GameTypes } from 'api/types';
+import { LoadGamesTypes } from 'types';
 
 interface IHandleFilterClick {
   e: MouseEvent<HTMLElement>;
   dispatch: Dispatch<AnyAction>;
-  games: IGame[];
+  games: GameTypes[];
   currentFilter?: string;
   location?: string;
 }
@@ -30,37 +31,52 @@ export const handleFilterClick = ({
   if (textContent) dispatch(setCurrentFilter(textContent));
 };
 
-interface ILoadGames {
-  getGames?: () => Promise<ResponseSchema<IGame>>;
-  games?: ResponseSchema<IGame>;
-}
+const returnIsInCart = (id: number, inCartGames: GameTypes[]) =>
+  inCartGames.some((game) => game.id === id);
 
-export const returnGames = async ({ getGames, games }: ILoadGames) => {
+export const returnGames = async ({
+  getGames,
+  inCartGames,
+  games,
+}: LoadGamesTypes) => {
   const response = getGames ? await getGames() : games;
   if (!response) return;
   const { results } = response;
   const modifiedResults = results.map((game) => ({
     ...game,
     price: getPrice(game),
-    isInCart: false,
+    isInCart: returnIsInCart(game.id, inCartGames),
   }));
+
   return modifiedResults;
 };
 
-export const handleAddToCart = (
-  gameId: number,
-  games: IGame[],
-  dispatch: Dispatch<AnyAction>
-) => {
+type HandleAddToCartTypes = {
+  gameID: number;
+  games: GameTypes[];
+  inCartGames: GameTypes[];
+  dispatch: Dispatch<AnyAction>;
+};
+
+export const handleAddToCart = ({
+  gameID,
+  games,
+  inCartGames,
+  dispatch,
+}: HandleAddToCartTypes) => {
   const updatedGames = games.map((game) => {
-    if (game.id === gameId) {
+    if (game.id === gameID) {
       return { ...game, isInCart: true };
     }
+
     return game;
   });
 
   dispatch(setGames(updatedGames));
 
-  const inCartGames = updatedGames.filter((game) => game.isInCart);
-  dispatch(setInCartGames(inCartGames));
+  const newCartGames = updatedGames.filter(
+    ({ id, isInCart }) => isInCart && id === gameID
+  );
+
+  dispatch(setInCartGames(inCartGames.concat(newCartGames)));
 };

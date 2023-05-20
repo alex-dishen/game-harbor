@@ -1,6 +1,6 @@
 <h1 align='center'>Game Harbor</h1>
 
-![Preview](public/images/preview.png)
+![Preview](images/preview.png)
 
 <p align='center'>Shopping Cart for <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript">The Odin Project</a></p>
 
@@ -28,9 +28,9 @@
 
 ## Screenshots
 
-![](public/images/home-page.webp)
-![](public/images/games-page.webp)
-![](public/images/game-page.webp)
+![](images/home-page.webp)
+![](images/games-page.webp)
+![](images/game-page.webp)
 
 ## Development
 
@@ -74,4 +74,4 @@ $ yarn start
 
 ## **Navigation**
 * See my previous project [Currency Converter](https://github.com/alex-dishen/currency-converter)
-* See my next project [Swipi](https://github.com/Domdev-corporation/swipi)
+* See my next project [Swipi](https://github.com/midstem/swipi)

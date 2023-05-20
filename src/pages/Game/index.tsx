@@ -1,7 +1,7 @@
 import GameHeader from 'pages/Game/GameHeader';
 import Carousel from 'pages/Game/Carousel';
 import Info from 'pages/Game/Info';
-import Price from 'pages/Game/Price';
+import Price from 'pages/Game/Indicators';
 import useGame from 'pages/Game/useGame';
 import { GameWrapper, Main } from 'pages/Game/styles';
 

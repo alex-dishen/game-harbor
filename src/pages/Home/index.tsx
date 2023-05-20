@@ -1,8 +1,8 @@
 import Description from 'pages/Home/Description';
 import QuickNavigation from 'pages/Home/QuickNavigation';
-import video from 'assets/images/pyke.mp4';
+import useHome from 'pages/Home/useHome';
 import { Main, Video } from 'pages/Home/styles';
-import useHome from './useHome';
+import video from 'assets/images/pyke.mp4';
 
 const Home = () => {
   useHome();

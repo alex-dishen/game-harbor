@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
-import { ISearchGamesWrapper } from 'components/SearchGames/interfaces';
+import { ISearchGamesWrapper } from 'components/Search/interfaces';
 
 export const SearchGamesWrapper = styled.div<ISearchGamesWrapper>(
   ({ games }) => css`

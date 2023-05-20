@@ -1,6 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
-import uniqid from 'uniqid';
-import { IInfoGameSpecification } from 'api/interfaces';
+import { InfoGameSpecificationTypes } from 'api/types';
 import useInfo from 'pages/Game/Info/useInfo';
 import Detail from 'pages/Game/Info/components/Detail';
 import { specifications } from 'pages/Game/Info/constants';
@@ -52,14 +51,12 @@ function Info() {
                 </a>
               </li>
               <li>Released: {getReleaseDate()}</li>
-              {specifications.map((specification) => (
-                <li key={uniqid()}>
-                  {specification.name}
+              {specifications.map(({ id, name, category }) => (
+                <li key={id}>
+                  {name}
                   <Detail
                     specifications={
-                      gameSpecification[
-                        specification.category
-                      ] as IInfoGameSpecification[]
+                      gameSpecification[category] as InfoGameSpecificationTypes[]
                     }
                   />
                 </li>

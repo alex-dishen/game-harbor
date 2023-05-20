@@ -12,7 +12,9 @@ import { RootState } from 'redux/types';
 
 const useQuickNavigation = () => {
   const dispatch = useDispatch();
-  const games = useSelector((state: RootState) => state.harbor.games);
+  const reduxStore = useSelector((state: RootState) => state.harbor);
+
+  const { games, inCartGames } = reduxStore;
 
   const getRandomID = async () => {
     const randomPage = Math.floor(Math.random() * 10) + 1;
@@ -21,8 +23,10 @@ const useQuickNavigation = () => {
       page_size: 40,
       ordering: '-added',
     });
-    const results = await returnGames({ games: response });
+    const results = await returnGames({ games: response, inCartGames });
     if (!results) return;
+    // We set games here to be able to click Back To Harbor what opens a
+    // catalog of games and so we could see the list of games
     dispatch(setGames(results));
     const IDs = results.map((result) => result.id);
     const randomIndex = Math.floor(Math.random() * 40);

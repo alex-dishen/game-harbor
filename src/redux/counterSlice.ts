@@ -1,17 +1,23 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 import { CounterState } from 'redux/types';
-import { IGame, IScreenshots, ResponseSchema } from 'api/interfaces';
+import { GameTypes, ScreenshotsTypes, ResponseSchema } from 'api/types';
 import { gameSpecification } from 'redux/constants';
 
-const saveToLocalStorage = (name: string, item: string | number) =>
-  localStorage.setItem(name, JSON.stringify(item));
+const saveToLocalStorage = (
+  name: string,
+  item: string | number | GameTypes[]
+) => localStorage.setItem(name, JSON.stringify(item));
 
 const currentFilter =
   (JSON.parse(localStorage.getItem('currentFilter') as string) as string) || '';
 
 const currentGameID =
   (JSON.parse(localStorage.getItem('currentGameID') as string) as number) || 0;
+
+const currentGamesInCart =
+  (JSON.parse(localStorage.getItem('inCartGames') as string) as GameTypes[]) ||
+  [];
 
 const initialState: CounterState = {
   currentFilter: currentFilter,
@@ -21,7 +27,7 @@ const initialState: CounterState = {
   isOpenCart: false,
   games: [],
   searchedGames: [],
-  inCartGames: [],
+  inCartGames: currentGamesInCart,
   gameID: currentGameID,
   gameSpecification,
   gameScreenshots: { results: [{ id: 0, image: '' }] },
@@ -46,14 +52,15 @@ export const counterSlice = createSlice({
     setOrderTitle: (state, action: PayloadAction<string>) => {
       state.orderTitle = action.payload;
     },
-    setGames: (state, action: PayloadAction<IGame[]>) => {
+    setGames: (state, action: PayloadAction<GameTypes[]>) => {
       state.games = action.payload;
     },
-    setSearchedGames: (state, action: PayloadAction<IGame[]>) => {
+    setSearchedGames: (state, action: PayloadAction<GameTypes[]>) => {
       state.searchedGames = action.payload;
     },
-    setInCartGames: (state, action: PayloadAction<IGame[]>) => {
+    setInCartGames: (state, action: PayloadAction<GameTypes[]>) => {
       state.inCartGames = action.payload;
+      saveToLocalStorage('inCartGames', state.inCartGames);
     },
     setIsOpenCart: (state, action: PayloadAction<boolean>) => {
       state.isOpenCart = action.payload;
@@ -62,12 +69,12 @@ export const counterSlice = createSlice({
       state.gameID = action.payload;
       saveToLocalStorage('currentGameID', state.gameID);
     },
-    setGameSpecification: (state, action: PayloadAction<IGame>) => {
+    setGameSpecification: (state, action: PayloadAction<GameTypes>) => {
       state.gameSpecification = action.payload;
     },
     setGameScreenshots: (
       state,
-      action: PayloadAction<ResponseSchema<IScreenshots>>
+      action: PayloadAction<ResponseSchema<ScreenshotsTypes>>
     ) => {
       state.gameScreenshots = action.payload;
     },

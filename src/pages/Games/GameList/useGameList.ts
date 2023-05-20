@@ -4,7 +4,9 @@ import { RootState } from 'redux/types';
 
 const useGameList = () => {
   const dispatch = useDispatch();
-  const games = useSelector((state: RootState) => state.harbor.games);
+  const reduxStore = useSelector((state: RootState) => state.harbor);
+
+  const { games, inCartGames } = reduxStore;
 
   const handleNavigation = (gameID: number) => {
     dispatch(setGameID(gameID));
@@ -12,6 +14,7 @@ const useGameList = () => {
 
   return {
     games,
+    inCartGames,
     dispatch,
     handleNavigation,
   };

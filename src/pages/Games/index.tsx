@@ -4,14 +4,14 @@ import useGames from 'pages/Games/useGames';
 import Sidebar from 'pages/Games/Sidebar';
 import Top from 'pages/Games/Top';
 import GameList from 'pages/Games/GameList';
-import { ReactComponent as Menu } from 'assets/images/menu.svg';
-import { ReactComponent as Close } from 'assets/images/close.svg';
 import {
   StyledGamePage,
   MenuHolder,
   Content,
   Overflow,
 } from 'pages/Games/styles';
+import { ReactComponent as Menu } from 'assets/images/menu.svg';
+import { ReactComponent as Close } from 'assets/images/close.svg';
 
 function Games() {
   const { games, isShowMenu, isHideSidebar, handleOnClick } = useGames();

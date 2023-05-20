@@ -1,27 +1,28 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
-import { IStyledGamePage, IOverflow } from 'pages/Games/interfaces';
+import { StyledGamePageTypes, OverflowTypes } from 'pages/Games/types';
 
-const CustomGamePage = ({ GAMES, ...rest }: IStyledGamePage) => (
+const CustomGamePage = ({ GAMES, ...rest }: StyledGamePageTypes) => (
   <motion.main {...rest} />
 );
 
-const StyledGamePage = styled(CustomGamePage)<IStyledGamePage>`
-  ${({ GAMES }) =>
-    GAMES?.length === 0 && {
+const StyledGamePage = styled(CustomGamePage)<StyledGamePageTypes>(
+  ({ GAMES }) => css`
+    ${GAMES?.length === 0 && {
       flex: '1',
       justifyContent: 'center',
       alignItems: 'center',
     }}
-  display: flex;
-  gap: 45px;
-  padding: 0px 30px;
-  color: white;
+    display: flex;
+    gap: 45px;
+    padding: 0px 30px;
+    color: white;
 
-  @media (max-width: 700px) {
-    padding: 25px 0px;
-  }
-`;
+    @media (max-width: 700px) {
+      padding: 25px 0px;
+    }
+  `
+);
 
 const MenuHolder = styled.div`
   position: fixed;
@@ -43,15 +44,17 @@ const MenuHolder = styled.div`
   }
 `;
 
-export const Overflow = styled(MenuHolder)<IOverflow>`
-  z-index: 5;
-  bottom: 20px;
-  right: 20px;
-  height: 40px;
-  width: 40px;
-  transform: scale(${({ isHideSidebar }) => (isHideSidebar ? '1' : '72')});
-  transition: 1.5s;
-`;
+export const Overflow = styled(MenuHolder)<OverflowTypes>(
+  ({ isHideSidebar }) => css`
+    z-index: 5;
+    bottom: 20px;
+    right: 20px;
+    height: 40px;
+    width: 40px;
+    transform: scale(${isHideSidebar ? '1' : '72'});
+    transition: 1.5s;
+  `
+);
 
 const Content = styled.div`
   flex: 1;
