@@ -12,8 +12,9 @@ import {
   Input,
   MagnifyGlass,
   CartWrapper,
-  Bag,
+  Circle,
 } from 'components/Header/styles';
+import { ReactComponent as CartSVG } from 'assets/images/cart.svg';
 
 function Header() {
   const {
@@ -60,8 +61,8 @@ function Header() {
           {isOpenSearchGames && <SearchGames />}
         </InputWrapper>
         <CartWrapper onClick={openCart}>
-          <Bag />
-          <div>Cart: {inCartGames.length}</div>
+          <CartSVG />
+          {inCartGames.length > 0 && <Circle />}
         </CartWrapper>
       </HeaderWrapper>
       <AnimatePresence>{isOpenCart && <Cart />}</AnimatePresence>

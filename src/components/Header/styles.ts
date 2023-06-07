@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { HeaderWrapperTypes } from 'components/Header/types';
-import { ReactComponent as ShoppingBag } from 'assets/images/shopping-bag.svg';
 import { ReactComponent as MagnifyingGlass } from 'assets/images/magnify.svg';
 
 export const HeaderWrapper = styled.header<HeaderWrapperTypes>(
@@ -83,6 +82,7 @@ export const MagnifyGlass = styled(MagnifyingGlass)`
 `;
 
 export const CartWrapper = styled(InputWrapper)`
+  position: relative;
   flex-shrink: 0;
   width: fit-content;
   background-color: transparent;
@@ -91,18 +91,16 @@ export const CartWrapper = styled(InputWrapper)`
   transition: 0.3s;
 
   &:hover {
-    transform: scale(1.05);
-  }
-
-  @media (max-width: 760px) {
-    div {
-      display: none;
-    }
+    transform: scale(1.1);
   }
 `;
 
-export const Bag = styled(ShoppingBag)`
-  height: 25px;
-  width: 25px;
-  fill: white;
+export const Circle = styled.div`
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  height: 6px;
+  width: 6px;
+  background-color: #18b0ab;
+  border-radius: 50%;
 `;
