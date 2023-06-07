@@ -2,12 +2,14 @@
   "name": "shop",
   "version": "0.0.1",
   "homepage": "https://alex-dishen.github.io/shop",
+  "type": "module",
   "scripts": {
-    "start": "vite --host",
+    "start": "vite --host --open",
     "build:prod": "vite build --base=/game-harbor/",
     "build:dev": "vite build",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "nova": "node cli.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
@@ -31,6 +33,8 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "@vitejs/plugin-react": "^3.1.0",
+    "chalk": "^5.2.0",
+    "commander": "^10.0.1",
     "eslint": "^8.36.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
     "eslint-config-prettier": "^8.8.0",

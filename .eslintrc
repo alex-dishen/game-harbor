@@ -3,6 +3,7 @@
     "browser": true,
       "es2021": true
   },
+  "ignorePatterns": ["cli.js"],
   "extends": [
     "plugin:@typescript-eslint/recommended",
     "airbnb-typescript",
