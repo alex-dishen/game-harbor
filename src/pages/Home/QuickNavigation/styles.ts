@@ -5,10 +5,10 @@ export const Navigation = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14px;
-  width: 235px;
-  padding: 15px 25px;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 30px;
+  padding: 20px 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(7px);
 
   svg {
     height: 20px;

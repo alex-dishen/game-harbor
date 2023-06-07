@@ -6,31 +6,33 @@ import {
   Links,
   Link,
   RAWGLogo,
+  EnjoyBlock,
+  Header,
 } from 'pages/Home/Description/styles';
 
-function Description() {
-  return (
-    <StyledDescription>
-      <Pitch>
-        <h1>Game Harbor</h1>
-        <p>
-          The best destination to buy new games to competitive prices. 24 hour
-          support, "best price" guarantee and a flawless UX. Wish for more? Tell
-          us below — or check out our <span>careers</span>.
-        </p>
-      </Pitch>
-      <Links>
-        <Link href="https://github.com/alex-dishen" target="_blank">
-          <Github />
-          alex-dishen
-        </Link>
-        <Link href="https://rawg.io/apidocs" target="_blank">
-          <RAWGLogo src={rawg} alt="RAWG logo" />
-          RAWG API
-        </Link>
-      </Links>
-    </StyledDescription>
-  );
-}
+const Description = () => (
+  <StyledDescription>
+    <Pitch>
+      <Header>Game Harbor</Header>
+      <p>
+        It’s not a commercial project. You can’t buy any games here and all of
+        the prices are generated to imitate a real game shop.
+      </p>
+      <EnjoyBlock>
+        <p>Enjoy</p> <p>😉</p>
+      </EnjoyBlock>
+    </Pitch>
+    <Links>
+      <Link href="https://github.com/alex-dishen" target="_blank">
+        <Github />
+        alex-dishen
+      </Link>
+      <Link href="https://rawg.io/apidocs" target="_blank">
+        <RAWGLogo src={rawg} alt="RAWG logo" />
+        RAWG API
+      </Link>
+    </Links>
+  </StyledDescription>
+);
 
 export default Description;
