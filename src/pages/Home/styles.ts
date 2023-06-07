@@ -21,8 +21,4 @@ export const Video = styled(motion.video)`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-
-  @media (max-width: 815px) {
-    filter: brightness(60%);
-  }
 `;

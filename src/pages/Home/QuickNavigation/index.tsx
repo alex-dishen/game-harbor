@@ -7,7 +7,7 @@ import {
   StyledLink,
 } from 'pages/Home/QuickNavigation/styles';
 
-function QuickNavigation() {
+const QuickNavigation = () => {
   const { handleOnClick } = useQuickNavigation();
 
   return (
@@ -25,6 +25,6 @@ function QuickNavigation() {
       </Links>
     </Navigation>
   );
-}
+};
 
 export default QuickNavigation;
