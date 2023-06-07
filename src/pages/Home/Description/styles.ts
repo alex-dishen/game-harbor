@@ -28,7 +28,7 @@ export const Pitch = styled.div`
 export const Header = styled.h1`
   margin: 0;
   text-align: center;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 800;
 `;
 
