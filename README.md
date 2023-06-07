@@ -7,7 +7,7 @@
 
 ## Demo
 
-🔥 [Live Demo](https://alex-dishen.github.io/shop/)
+🔥 [Live Demo](https://alex-dishen.github.io/game-harbor/)
 
 ## Built with
 

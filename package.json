@@ -4,7 +4,7 @@
   "homepage": "https://alex-dishen.github.io/shop",
   "scripts": {
     "start": "vite --host",
-    "build:prod": "vite build --base=/shop/",
+    "build:prod": "vite build --base=/game-harbor/",
     "build:dev": "vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
