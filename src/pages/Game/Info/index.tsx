@@ -56,7 +56,9 @@ function Info() {
                   {name}
                   <Detail
                     specifications={
-                      gameSpecification[category] as InfoGameSpecificationTypes[]
+                      gameSpecification[
+                        category
+                      ] as InfoGameSpecificationTypes[]
                     }
                   />
                 </li>

@@ -6,7 +6,11 @@ export const StyledPrice = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 16px 22px;
-  background-color: rgb(26, 26, 26);
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 26, 0) 0%,
+    rgba(26, 26, 26, 1) 100%
+  );
   color: white;
   border-radius: 10px;
   grid-area: price;
