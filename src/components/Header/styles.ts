@@ -81,6 +81,12 @@ export const MagnifyGlass = styled(MagnifyingGlass)`
   }
 `;
 
+export const Navigation = styled.div`
+  display: flex;
+  gap: 15px;
+  align-items: center;
+`;
+
 export const CartWrapper = styled(InputWrapper)`
   position: relative;
   flex-shrink: 0;

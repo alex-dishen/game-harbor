@@ -11,10 +11,13 @@ import {
   InputWrapper,
   Input,
   MagnifyGlass,
+  Navigation,
   CartWrapper,
   Circle,
 } from 'components/Header/styles';
 import { ReactComponent as CartSVG } from 'assets/images/cart.svg';
+import { ReactComponent as Divider } from 'assets/images/divider.svg';
+import { ReactComponent as Plus } from 'assets/images/plus.svg';
 
 function Header() {
   const {
@@ -60,10 +63,14 @@ function Header() {
 
           {isOpenSearchGames && <SearchGames />}
         </InputWrapper>
-        <CartWrapper onClick={openCart}>
-          <CartSVG />
-          {inCartGames.length > 0 && <Circle />}
-        </CartWrapper>
+        <Navigation>
+          <Plus />
+          <Divider />
+          <CartWrapper onClick={openCart}>
+            <CartSVG />
+            {inCartGames.length > 0 && <Circle />}
+          </CartWrapper>
+        </Navigation>
       </HeaderWrapper>
       <AnimatePresence>{isOpenCart && <Cart />}</AnimatePresence>
     </>
