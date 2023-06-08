@@ -5,8 +5,9 @@ import Price from 'pages/Game/Indicators';
 import useGame from 'pages/Game/useGame';
 import { GameWrapper, Main } from 'pages/Game/styles';
 
-function Game() {
+const Game = () => {
   useGame();
+
   return (
     <GameWrapper
       initial={{ opacity: 0, x: -25 }}
@@ -22,6 +23,6 @@ function Game() {
       </Main>
     </GameWrapper>
   );
-}
+};
 
 export default Game;

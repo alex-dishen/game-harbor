@@ -1,79 +1,30 @@
 import useCarousel from 'pages/Game/Carousel/useCarousel';
 import { ReactComponent as ChevronLeft } from 'assets/images/chevron-left.svg';
 import { ReactComponent as ChevronRight } from 'assets/images/chevron-right.svg';
-import {
-  CarouselWrapper,
-  LeftButton,
-  ImageHolder,
-  Image,
-  RightButton,
-  DotsWrapper,
-  Dot,
-  ActiveDot,
-} from 'pages/Game/Carousel/styles';
+import { ImageHolder, Image, StyledSlider } from 'pages/Game/Carousel/styles';
 
 function Carousel() {
-  const {
-    carouselRef,
-    index,
-    timeout,
-    carouselControls,
-    screenshots,
-    setIndex,
-    setIndexByPosition,
-  } = useCarousel();
+  const { screenshots } = useCarousel();
 
   return (
-    <CarouselWrapper ref={carouselRef}>
-      <LeftButton
-        onClick={() => {
-          setIndex(index - 1);
-        }}
-      >
-        <ChevronLeft />
-      </LeftButton>
-      <ImageHolder
-        drag="x"
-        dragMomentum={false}
-        onMouseDown={(e) => e.preventDefault()}
-        onDragStart={() => clearTimeout(timeout.current)}
-        onDragEnd={setIndexByPosition}
-        initial={{ x: 0 }}
-        animate={carouselControls}
-        transition={{ duration: 0.6 }}
-      >
-        {screenshots &&
-          screenshots.map((screenshot) => (
-            <Image key={screenshot.id} src={screenshot.image} />
-          ))}
-      </ImageHolder>
-      <DotsWrapper>
-        {screenshots &&
-          screenshots.map((screenshot, i) => (
-            <Dot
-              key={screenshot.id}
-              initial={false}
-              animate={{ scale: +(index !== i) }}
-              transition={{ duration: 0.2 }}
-              onClick={() => {
-                setIndex(i);
-              }}
-            />
-          ))}
-        <ActiveDot
-          initial={false}
-          transition={{ duration: 0.35 }}
-          animate={{ x: index * 22 }}
-        />
-      </DotsWrapper>
-      <RightButton
-        onClick={() => {
-          setIndex(index + 1);
-        }}
-      >
-        <ChevronRight />
-      </RightButton>
-    </CarouselWrapper>
+    <StyledSlider
+      loop
+      slidesNumber={1}
+      showDots={screenshots[1].id !== 0}
+      sizeForDefaultDot={9}
+      sizeForDefaultActiveDot={11}
+      dotColor="rgb(140, 140, 140)"
+      activeDotColor="rgb(24, 176, 171)"
+      nextButton={screenshots[1].id === 0 || <ChevronRight />}
+      prevButton={screenshots[1].id === 0 || <ChevronLeft />}
+      dotsAnimation="sliding"
+    >
+      {screenshots.map(({ id, image }) => (
+        <ImageHolder key={id}>
+          <Image src={image} />
+        </ImageHolder>
+      ))}
+    </StyledSlider>
   );
 }
 

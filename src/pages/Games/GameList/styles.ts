@@ -44,19 +44,24 @@ export const Info = styled.div`
 export const Price = styled.div`
   display: flex;
   justify-content: space-between;
+  color: rgb(153, 153, 153);
   cursor: auto;
 `;
 
-export const AddToCart = styled.span<AddToCartTypes>(
+export const AddToCart = styled.button<AddToCartTypes>(
   ({ isInCart }) => css`
     display: flex;
     align-items: center;
     gap: 3px;
+    padding: 0;
+    background-color: transparent;
     color: ${isInCart ? 'rgb(24, 176, 171)' : 'rgb(153, 153, 153)'};
+    border: none;
     cursor: ${isInCart ? '' : 'pointer'};
+
     svg {
-      height: 20px;
-      width: 20px;
+      height: 18px;
+      width: 18px;
       fill: rgb(24, 176, 171);
     }
   `
