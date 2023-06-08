@@ -52,6 +52,7 @@ function GameList() {
                     <AddToCart
                       isInCart={isInCart}
                       onClick={() =>
+                        isInCart ||
                         handleAddToCart({
                           gameID: id,
                           games,

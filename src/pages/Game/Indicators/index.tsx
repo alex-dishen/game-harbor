@@ -13,7 +13,7 @@ function Price() {
       <Status
         isInCart={isInCart}
         onClick={() =>
-          handleAddToCart({ gameID, games, inCartGames, dispatch })
+          isInCart || handleAddToCart({ gameID, games, inCartGames, dispatch })
         }
       >
         {isInCart ? (

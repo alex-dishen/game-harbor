@@ -20,7 +20,7 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.6.1",
     "styled-components": "^5.3.6",
-    "swipi": "^1.1.4",
+    "swipi": "^1.1.7",
     "uniqid": "^5.4.0"
   },
   "devDependencies": {

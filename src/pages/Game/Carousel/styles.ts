@@ -1,5 +1,5 @@
 import styled, { keyframes } from 'styled-components';
-import { motion } from 'framer-motion';
+import Swipi from 'swipi';
 
 const leftToRightBackground = keyframes`
   from {
@@ -9,8 +9,7 @@ const leftToRightBackground = keyframes`
   }
 `;
 
-export const CarouselWrapper = styled.div`
-  position: relative;
+export const StyledSlider = styled(Swipi)`
   min-height: 445px;
   background: linear-gradient(
     90deg,
@@ -24,84 +23,47 @@ export const CarouselWrapper = styled.div`
   background-repeat: no-repeat;
   overflow: hidden;
   animation: ${leftToRightBackground} 3.4s linear infinite;
+
   grid-area: images;
 
-  svg {
-    height: 50px;
-    width: 50px;
+  .swipi-container {
+    display: flex;
+    position: absolute;
+    height: 100%;
+    width: 100%;
   }
-`;
 
-export const LeftButton = styled.div`
-  position: absolute;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  width: 80px;
-  cursor: pointer;
+  button {
+    z-index: 1;
+    position: absolute;
+    height: 100%;
 
-  &:hover {
     svg {
-      fill: white;
+      height: 45px;
+      width: 45px;
     }
   }
+
+  .right-button {
+    right: 0;
+  }
+
+  .dots-wrapper {
+    position: absolute;
+    bottom: 20px;
+    padding: 14px 18px;
+    background-color: rgb(15, 16, 17);
+    border-radius: 10px;
+  }
 `;
 
-export const ImageHolder = styled(motion.div)`
-  position: absolute;
+export const ImageHolder = styled.div`
   display: flex;
   height: 100%;
-  width: 100%;
-  cursor: grab;
-
-  &:active {
-    cursor: grabbing;
-  }
 `;
 
 export const Image = styled.img`
   height: 100%;
   min-width: 100%;
   object-fit: cover;
-`;
-
-export const DotsWrapper = styled.div`
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  display: flex;
-  gap: 13px;
-  width: fit-content;
-  padding: 14px 18px;
-
-  background-color: rgb(15, 16, 17);
-  border-radius: 10px;
-`;
-
-export const Dot = styled(motion.div)`
-  height: 9px;
-  width: 9px;
-  background-color: rgb(140, 140, 140);
-  border-radius: 50%;
-  cursor: pointer;
-`;
-
-export const ActiveDot = styled(motion.div)`
-  position: absolute;
-  top: 35%;
-  left: 16px;
-  height: 11px;
-  width: 11px;
-  background-color: rgb(24, 176, 171);
-  border-radius: 50%;
-  cursor: pointer;
-`;
-
-export const RightButton = styled(LeftButton)`
-  top: 0;
-  right: 0;
-  justify-content: flex-end;
 `;
