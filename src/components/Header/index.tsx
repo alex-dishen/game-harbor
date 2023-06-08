@@ -11,13 +11,8 @@ import {
   InputWrapper,
   Input,
   MagnifyGlass,
-  Navigation,
-  CartWrapper,
-  Circle,
 } from 'components/Header/styles';
-import { ReactComponent as CartSVG } from 'assets/images/cart.svg';
-import { ReactComponent as Divider } from 'assets/images/divider.svg';
-import { ReactComponent as Plus } from 'assets/images/plus.svg';
+import Navigation from 'components/Navigation';
 
 function Header() {
   const {
@@ -29,10 +24,8 @@ function Header() {
     isOpenCart,
     inputWrapperRef,
     isOpenSearchGames,
-    inCartGames,
     handleOnChange,
     handleKeyDown,
-    openCart,
     handleOnFocus,
     handleSearchedGames,
   } = useHeader();
@@ -63,14 +56,7 @@ function Header() {
 
           {isOpenSearchGames && <SearchGames />}
         </InputWrapper>
-        <Navigation>
-          <Plus />
-          <Divider />
-          <CartWrapper onClick={openCart}>
-            <CartSVG />
-            {inCartGames.length > 0 && <Circle />}
-          </CartWrapper>
-        </Navigation>
+        <Navigation />
       </HeaderWrapper>
       <AnimatePresence>{isOpenCart && <Cart />}</AnimatePresence>
     </>

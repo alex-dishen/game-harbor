@@ -10,7 +10,6 @@ import {
   setIsOpenSearchGames,
   setCurrentFilter,
   setIsSearching,
-  setIsOpenCart,
 } from 'redux/counterSlice';
 import useClickOutside from 'hooks/useClickOutside';
 import useScrollDirection from 'hooks/useScrollDirection';
@@ -38,11 +37,6 @@ const useHeader = () => {
 
   const setInputMaxWidth = (width: number) => {
     inputControls.start({ maxWidth: width });
-  };
-
-  const openCart = () => {
-    dispatch(setIsOpenCart(true));
-    document.body.style.overflow = 'hidden';
   };
 
   const minimizeInput = () => {
@@ -121,10 +115,8 @@ const useHeader = () => {
     isOpenCart,
     inputWrapperRef,
     isOpenSearchGames,
-    inCartGames,
     handleOnChange,
     handleKeyDown,
-    openCart,
     handleOnFocus,
     handleSearchedGames,
   };

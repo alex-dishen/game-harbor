@@ -35,7 +35,6 @@ program
 
     let componentFolder;
     let indexFile;
-    let reexportStatement;
     let trimmedPath;
 
     if (options.path) {
@@ -44,12 +43,10 @@ program
       trimmedPath = componentFolder.substring(
         componentFolder.indexOf(options.path || 'components')
       );
-      reexportStatement = `export { default as ${name} } from '${trimmedPath}';\n`;
     } else {
       componentFolder = path.join(__dirname, 'src', 'components', name);
       indexFile = path.join(__dirname, 'src', 'components', `index.ts`);
       trimmedPath = `components/${name};`;
-      reexportStatement = `export { default as ${name} } from 'components/${name}';\n`;
     }
 
     const componentFile = path.join(componentFolder, 'index.tsx');
@@ -81,7 +78,6 @@ export default ${name};\n`;
     fs.writeFileSync(stylesFile, stylesContent);
     fs.writeFileSync(typesFile, typesContent);
     fs.writeFileSync(hookFile, hookContent);
-    fs.appendFileSync(indexFile, reexportStatement);
 
     console.log(returnCommandStatus(name, trimmedPath));
   });
