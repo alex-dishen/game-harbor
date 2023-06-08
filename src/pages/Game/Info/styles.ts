@@ -9,7 +9,11 @@ export const StyledInfo = styled.div`
 export const Description = styled.div`
   max-height: 300px;
   padding: 20px 20px 0px 20px;
-  background-color: rgb(26, 26, 26);
+  background: linear-gradient(
+    90deg,
+    rgba(26, 26, 26, 0) 0%,
+    rgba(26, 26, 26, 1) 100%
+  );
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
   overflow: scroll;
@@ -18,14 +22,15 @@ export const Description = styled.div`
   clip-path: inset(0px 0px -30px 0px);
 
   &::after {
+    position: absolute;
     content: '';
     height: 45px;
     margin-top: -25px;
-    width: 100%;
+    width: 110%;
     display: block;
     position: sticky;
     bottom: -1px;
-    background-image: linear-gradient(to bottom, transparent, rgb(28, 28, 28));
+    background-image: linear-gradient(to bottom, transparent, rgb(15, 15, 15));
     pointer-events: none;
   }
 
@@ -41,7 +46,11 @@ export const MoreInfo = styled(motion.div)`
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: rgb(38, 38, 38);
+  background: linear-gradient(
+    90deg,
+    rgba(38, 38, 38, 0) 0%,
+    rgba(38, 38, 38, 1) 100%
+  );
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 `;
