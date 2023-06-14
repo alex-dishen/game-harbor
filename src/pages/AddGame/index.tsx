@@ -3,7 +3,7 @@ import { AddGameProps } from 'pages/AddGame/types';
 import { AddGameWrapper, Header } from 'pages/AddGame/styles';
 import { Video } from 'pages/Home/styles';
 import video from 'assets/images/crystal.mp4';
-import Form from 'components/Form';
+import Form from 'pages/AddGame/Form';
 
 const AddGame = ({}: AddGameProps) => {
   useAddGame();

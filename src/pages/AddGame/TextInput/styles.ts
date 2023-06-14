@@ -8,7 +8,3 @@ export const Input = styled.input`
   border-radius: 15px;
   outline: none;
 `;
-
-export const Star = styled.span`
-  color: #61bdff;
-`;
