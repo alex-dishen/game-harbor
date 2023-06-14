@@ -15,6 +15,20 @@ export const AddButton = styled.button`
   border-radius: 15px;
   color: #bcbcbc;
   cursor: pointer;
+
+  &,
+  svg {
+    transition: 300ms;
+  }
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    svg {
+      fill: rgba(255, 255, 255, 0.8);
+    }
+  }
 `;
 
 export const DescriptionHolder = styled.div`

@@ -1,12 +1,5 @@
 export const GameDetails = [
   {
-    title: 'Release date',
-    isRequired: true,
-    placeholder: 'Select a release date',
-    emoji: '📅',
-    description: 'When was the game released?',
-  },
-  {
     title: 'Platforms',
     isRequired: true,
     placeholder: 'Add platform',
