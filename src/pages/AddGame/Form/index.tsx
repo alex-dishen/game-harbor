@@ -1,4 +1,3 @@
-import { FormProps } from 'pages/AddGame/Form/types';
 import { SecondaryHeader, Section } from 'pages/AddGame/Form/styles';
 import TextInput from 'pages/AddGame/TextInput';
 import Selection from 'pages/AddGame/Selection';
@@ -6,12 +5,14 @@ import TextArea from 'pages/AddGame/TextArea';
 import { GameDetails } from '../constants';
 import ButtonGroup from '../ButtonGroup';
 
-const Form = ({}: FormProps) => (
+const Form = () => (
   <form onSubmit={(e) => e.preventDefault()}>
     <Section>
       <SecondaryHeader>General information</SecondaryHeader>
       <TextInput title="Title" placeHolder="Add title" isRequired />
       <Selection
+        type="file"
+        isRequired
         title="Coverage image"
         placeholder="Add image"
         emoji="☹️"
@@ -24,6 +25,7 @@ const Form = ({}: FormProps) => (
       {GameDetails.map(
         ({ title, placeholder, emoji, description, isRequired }) => (
           <Selection
+            type="selection"
             title={title}
             placeholder={placeholder}
             emoji={emoji}
