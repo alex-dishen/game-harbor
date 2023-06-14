@@ -18,7 +18,10 @@ const Navigation = () => {
         <Plus />
       </Link>
       <Divider />
-      <CartWrapper onClick={openCart}>
+      <CartWrapper
+        darkenImages={location.pathname === '/add-game'}
+        onClick={openCart}
+      >
         <CartSVG />
         {inCartGames.length > 0 && <Circle />}
       </CartWrapper>

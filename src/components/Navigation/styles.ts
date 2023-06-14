@@ -14,19 +14,25 @@ export const StyledNavigation = styled.div<StyledNavigationTypes>(
   `
 );
 
-export const CartWrapper = styled(InputWrapper)`
-  position: relative;
-  flex-shrink: 0;
-  width: fit-content;
-  background-color: transparent;
-  cursor: pointer;
+export const CartWrapper = styled(InputWrapper)<StyledNavigationTypes>(
+  ({ darkenImages }) => css`
+    position: relative;
+    flex-shrink: 0;
+    width: fit-content;
+    background-color: transparent;
+    cursor: pointer;
 
-  transition: 0.3s;
+    transition: 0.3s;
 
-  &:hover {
-    transform: scale(1.1);
-  }
-`;
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    div:last-child {
+      background-color: ${darkenImages ? '#0790F3' : '#18b0ab'};
+    }
+  `
+);
 
 export const Circle = styled.div`
   position: absolute;
@@ -34,6 +40,5 @@ export const Circle = styled.div`
   right: -8px;
   height: 6px;
   width: 6px;
-  background-color: #18b0ab;
   border-radius: 50%;
 `;
