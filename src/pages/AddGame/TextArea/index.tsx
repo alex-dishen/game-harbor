@@ -1,6 +1,6 @@
 import { TextAreaProps } from 'pages/AddGame/TextArea/types';
 import { StyledTextArea } from 'pages/AddGame/TextArea/styles';
-import { InputsWrapper, Star } from 'styles';
+import { InputsWrapper, Star } from 'pages/AddGame/styles';
 
 const TextArea = ({ title, placeHolder }: TextAreaProps) => (
   <InputsWrapper>

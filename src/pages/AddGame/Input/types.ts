@@ -1,4 +1,4 @@
-export type TextInputProps = {
+export type InputProps = {
   type: string;
   title: string;
   placeHolder?: string;

@@ -8,4 +8,11 @@ export type SelectionProps = {
   placeholder: string;
   icon?: ReactNode;
   isRequired?: boolean;
+  inputDescription?: string;
+  inputPlaceholder?: string;
+  options?: {
+    key: string;
+    name: string;
+    icon: JSX.Element;
+  }[];
 };

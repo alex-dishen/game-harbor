@@ -1,17 +1,18 @@
-import { useState } from 'react';
-import { SelectionProps } from 'pages/AddGame/Selection/types';
+import SelectionModule from 'pages/AddGame/SelectionModule';
+import { handleImageUpload } from 'pages/AddGame/SelectionInput/helpers';
+import { SelectionProps } from 'pages/AddGame/SelectionInput/types';
 import {
   SelectionBody,
   AddButton,
   DescriptionHolder,
   Image,
-} from 'pages/AddGame/Selection/styles';
-import { InputsWrapper, Star } from 'styles';
+} from 'pages/AddGame/SelectionInput/styles';
+import { InputsWrapper, Star } from 'pages/AddGame/styles';
 import { ReactComponent as Plus } from 'assets/images/plus_without_frame.svg';
 import { ReactComponent as Recycle } from 'assets/images/recycle.svg';
-import { handleImageUpload } from './helpers';
+import { useSelectionInput } from './useSelectionInput';
 
-const Selection = ({
+const SelectionInput = ({
   type,
   title,
   description,
@@ -19,8 +20,17 @@ const Selection = ({
   icon = <Plus />,
   placeholder,
   isRequired,
+  inputDescription,
+  inputPlaceholder,
+  options,
 }: SelectionProps) => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const {
+    selectedImage,
+    isOpenSelections,
+    popupRef,
+    setSelectedImage,
+    setIsOpenSelections,
+  } = useSelectionInput();
 
   return (
     <InputsWrapper>
@@ -43,7 +53,7 @@ const Selection = ({
             </AddButton>
           </>
         ) : (
-          <AddButton type="button">
+          <AddButton type="button" onClick={() => setIsOpenSelections(true)}>
             {icon} {placeholder}
           </AddButton>
         )}
@@ -57,8 +67,18 @@ const Selection = ({
           </DescriptionHolder>
         )}
       </SelectionBody>
+      {isOpenSelections && (
+        <SelectionModule
+          popupRef={popupRef}
+          title={title}
+          emoji={emoji}
+          description={inputDescription}
+          placeholder={inputPlaceholder}
+          options={options}
+        />
+      )}
     </InputsWrapper>
   );
 };
 
-export default Selection;
+export default SelectionInput;

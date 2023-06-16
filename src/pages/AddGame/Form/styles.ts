@@ -17,5 +17,5 @@ export const Section = styled.div`
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(20px);
 `;

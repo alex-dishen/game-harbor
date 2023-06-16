@@ -1,16 +1,16 @@
-import { SecondaryHeader, Section } from 'pages/AddGame/Form/styles';
-import TextInput from 'pages/AddGame/TextInput';
-import Selection from 'pages/AddGame/Selection';
+import Input from 'pages/AddGame/Input';
+import SelectionInput from 'pages/AddGame/SelectionInput';
 import TextArea from 'pages/AddGame/TextArea';
-import { GameDetails } from '../constants';
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup from 'pages/AddGame/ButtonGroup';
+import { GameDetails } from 'pages/AddGame/constants';
+import { SecondaryHeader, Section } from 'pages/AddGame/Form/styles';
 
 const Form = () => (
   <form onSubmit={(e) => e.preventDefault()}>
     <Section>
       <SecondaryHeader>General information</SecondaryHeader>
-      <TextInput type="text" title="Title" placeHolder="Add title" isRequired />
-      <Selection
+      <Input type="text" title="Title" placeHolder="Add title" isRequired />
+      <SelectionInput
         type="file"
         isRequired
         title="Coverage image"
@@ -22,20 +22,21 @@ const Form = () => (
     </Section>
 
     <Section>
-      <TextInput type="date" title="Release date" isRequired />
-      {GameDetails.map(
-        ({ title, placeholder, emoji, description, isRequired }) => (
-          <Selection
-            type="selection"
-            title={title}
-            placeholder={placeholder}
-            emoji={emoji}
-            description={description}
-            isRequired={isRequired}
-          />
-        )
-      )}
-      <TextInput type="url" title="Website" placeHolder="Website URL" />
+      <Input type="date" title="Release date" isRequired />
+      {GameDetails.map((detail) => (
+        <SelectionInput
+          type="selection"
+          title={detail.title}
+          placeholder={detail.placeholder}
+          emoji={detail.emoji}
+          description={detail.description}
+          isRequired={detail.isRequired}
+          inputDescription={detail.inputDescription}
+          inputPlaceholder={detail.inputPlaceholder}
+          options={detail.options}
+        />
+      ))}
+      <Input type="url" title="Website" placeHolder="Website URL" />
     </Section>
 
     <ButtonGroup />

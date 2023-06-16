@@ -1,13 +1,8 @@
-import { TextInputProps } from 'pages/AddGame/TextInput/types';
-import { Input } from 'pages/AddGame/TextInput/styles';
-import { InputsWrapper, Star } from 'styles';
+import { InputProps } from 'pages/AddGame/Input/types';
+import { StyledInput } from 'pages/AddGame/Input/styles';
+import { InputsWrapper, Star } from 'pages/AddGame/styles';
 
-const TextInput = ({
-  type,
-  title,
-  placeHolder,
-  isRequired,
-}: TextInputProps) => {
+const Input = ({ type, title, placeHolder, isRequired }: InputProps) => {
   const lowerCaseTitle = title.toLowerCase();
 
   return (
@@ -16,7 +11,7 @@ const TextInput = ({
         {title}
         {isRequired ? <Star>*</Star> : ''}
       </label>
-      <Input
+      <StyledInput
         type={type}
         name={lowerCaseTitle}
         id={lowerCaseTitle}
@@ -28,4 +23,4 @@ const TextInput = ({
   );
 };
 
-export default TextInput;
+export default Input;
