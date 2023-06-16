@@ -13,7 +13,7 @@ const SelectionModule = ({
   options,
 }: SelectionModuleProps) => {
   const { optionsList, selectedOptions, handleOptionClick } =
-    useSelectionModule(options);
+    useSelectionModule(title);
 
   return (
     <SelectionModuleWrapper ref={popupRef}>
@@ -22,9 +22,11 @@ const SelectionModule = ({
       </h3>
       <p>{description}</p>
       <Input type="text" title="" placeHolder={placeholder} />
-      <OptionsList value={optionsList} onClick={handleOptionClick} />
+      {options.length !== 0 && (
+        <OptionsList value={optionsList} onClick={handleOptionClick} />
+      )}
 
-      {selectedOptions.length !== 0 && (
+      {options.length !== 0 && selectedOptions.length !== 0 && (
         <>
           <h3>Selected {title}</h3>
           <OptionsList

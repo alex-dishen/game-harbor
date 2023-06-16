@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { OptionsT } from 'pages/AddGame/SelectionModule/types';
 
 export type SelectionProps = {
   type: string;
@@ -10,9 +11,5 @@ export type SelectionProps = {
   isRequired?: boolean;
   inputDescription?: string;
   inputPlaceholder?: string;
-  options?: {
-    key: string;
-    name: string;
-    icon: JSX.Element;
-  }[];
+  options?: OptionsT[];
 };

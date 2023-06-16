@@ -3,6 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { CounterState } from 'redux/types';
 import { GameTypes, ScreenshotsTypes, ResponseSchema } from 'api/types';
 import { gameSpecification } from 'redux/constants';
+import { OptionsT } from 'pages/AddGame/SelectionModule/types';
 
 const saveToLocalStorage = (
   name: string,
@@ -33,6 +34,10 @@ const initialState: CounterState = {
   gameScreenshots: { results: [{ id: 0, image: '' }] },
   isOpenSearchGames: false,
   isSearching: false,
+  platforms: [],
+  genres: [],
+  selectedPlatforms: [],
+  selectedGenres: [],
 };
 
 export const counterSlice = createSlice({
@@ -84,6 +89,18 @@ export const counterSlice = createSlice({
     setIsSearching: (state, action: PayloadAction<boolean>) => {
       state.isSearching = action.payload;
     },
+    setPlatforms: (state, action: PayloadAction<OptionsT[]>) => {
+      state.platforms = action.payload;
+    },
+    setGenres: (state, action: PayloadAction<OptionsT[]>) => {
+      state.genres = action.payload;
+    },
+    setSelectedPlatforms: (state, action: PayloadAction<OptionsT[]>) => {
+      state.selectedPlatforms = action.payload;
+    },
+    setSelectedGenres: (state, action: PayloadAction<OptionsT[]>) => {
+      state.selectedGenres = action.payload;
+    },
   },
 });
 
@@ -101,6 +118,10 @@ export const {
   setGameScreenshots,
   setIsOpenSearchGames,
   setIsSearching,
+  setPlatforms,
+  setGenres,
+  setSelectedPlatforms,
+  setSelectedGenres,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

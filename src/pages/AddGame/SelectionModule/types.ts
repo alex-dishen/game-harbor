@@ -12,5 +12,5 @@ export type SelectionModuleProps = {
   popupRef: RefObject<HTMLDivElement>;
   description?: string;
   placeholder?: string;
-  options?: OptionsT[];
+  options: OptionsT[];
 };

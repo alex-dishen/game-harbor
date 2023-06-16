@@ -1,4 +1,5 @@
 import { GameTypes, ResponseSchema, ScreenshotsTypes } from 'api/types';
+import { OptionsT } from 'pages/AddGame/SelectionModule/types';
 import { store } from 'redux/store';
 
 export type RootState = ReturnType<typeof store.getState>;
@@ -19,4 +20,8 @@ export interface CounterState {
   gameScreenshots: ResponseSchema<ScreenshotsTypes>;
   isOpenSearchGames: boolean;
   isSearching: boolean;
+  platforms: OptionsT[];
+  genres: OptionsT[];
+  selectedPlatforms: OptionsT[];
+  selectedGenres: OptionsT[];
 }

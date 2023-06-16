@@ -22,7 +22,7 @@ const SelectionInput = ({
   isRequired,
   inputDescription,
   inputPlaceholder,
-  options,
+  options = [],
 }: SelectionProps) => {
   const {
     selectedImage,
@@ -30,7 +30,7 @@ const SelectionInput = ({
     popupRef,
     setSelectedImage,
     setIsOpenSelections,
-  } = useSelectionInput();
+  } = useSelectionInput(options, title);
 
   return (
     <InputsWrapper>
