@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import useClickOutside from 'hooks/useClickOutside';
-import { OptionsT } from '../SelectionModule/types';
+import { OptionsT } from '../SelectionModal/types';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPlatforms, setGenres } from 'redux/counterSlice';
 import { RootState } from 'redux/types';

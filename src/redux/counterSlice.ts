@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { CounterState } from 'redux/types';
 import { GameTypes, ScreenshotsTypes, ResponseSchema } from 'api/types';
 import { gameSpecification } from 'redux/constants';
-import { OptionsT } from 'pages/AddGame/SelectionModule/types';
+import { OptionsT } from 'pages/AddGame/SelectionModal/types';
 
 const saveToLocalStorage = (
   name: string,

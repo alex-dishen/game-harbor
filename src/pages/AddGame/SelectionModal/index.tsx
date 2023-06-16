@@ -1,10 +1,10 @@
 import Input from 'pages/AddGame/Input';
-import { useSelectionModule } from 'pages/AddGame/SelectionModule/useSelectionModule';
-import { SelectionModuleProps } from 'pages/AddGame/SelectionModule/types';
-import { SelectionModuleWrapper } from 'pages/AddGame/SelectionModule/styles';
-import OptionsList from '../OptionsList';
+import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModal';
+import { SelectionModuleProps } from 'pages/AddGame/SelectionModal/types';
+import { SelectionModuleWrapper } from 'pages/AddGame/SelectionModal/styles';
+import OptionsList from 'pages/AddGame/OptionsList';
 
-const SelectionModule = ({
+const SelectionModal = ({
   title,
   emoji,
   popupRef,
@@ -13,7 +13,7 @@ const SelectionModule = ({
   options,
 }: SelectionModuleProps) => {
   const { optionsList, selectedOptions, handleOptionClick } =
-    useSelectionModule(title);
+    useSelectionModal(title);
 
   return (
     <SelectionModuleWrapper ref={popupRef}>
@@ -40,4 +40,4 @@ const SelectionModule = ({
   );
 };
 
-export default SelectionModule;
+export default SelectionModal;

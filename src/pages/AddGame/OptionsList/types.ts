@@ -1,4 +1,4 @@
-import { OptionsT } from '../SelectionModule/types';
+import { OptionsT } from '../SelectionModal/types';
 
 export type OptionsListProps = {
   value: OptionsT[];

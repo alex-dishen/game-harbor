@@ -1,4 +1,7 @@
-import SelectionModule from 'pages/AddGame/SelectionModule';
+import OptionsList from 'pages/AddGame/OptionsList';
+import SelectionModule from 'pages/AddGame/SelectionModal';
+import { useSelectionInput } from 'pages/AddGame/SelectionInput/useSelectionInput';
+import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModal';
 import { handleImageUpload } from 'pages/AddGame/SelectionInput/helpers';
 import { SelectionProps } from 'pages/AddGame/SelectionInput/types';
 import {
@@ -10,10 +13,6 @@ import {
 import { InputsWrapper, Star } from 'pages/AddGame/styles';
 import { ReactComponent as Plus } from 'assets/images/plus_without_frame.svg';
 import { ReactComponent as Recycle } from 'assets/images/recycle.svg';
-import { useSelectionInput } from './useSelectionInput';
-import { ListOption, OptionsHolder } from '../OptionsList/styles';
-import OptionsList from '../OptionsList';
-import { useSelectionModule } from '../SelectionModule/useSelectionModule';
 
 const SelectionInput = ({
   type,
@@ -36,7 +35,7 @@ const SelectionInput = ({
     setIsOpenSelections,
   } = useSelectionInput(options, title);
 
-  const { handleOptionClick } = useSelectionModule(title);
+  const { handleOptionClick } = useSelectionModal(title);
 
   return (
     <InputsWrapper>

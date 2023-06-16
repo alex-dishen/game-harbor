@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { OptionsT } from 'pages/AddGame/SelectionModule/types';
+import { OptionsT } from 'pages/AddGame/SelectionModal/types';
 
 export type SelectionProps = {
   type: string;

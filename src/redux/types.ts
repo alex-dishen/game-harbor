@@ -1,5 +1,5 @@
 import { GameTypes, ResponseSchema, ScreenshotsTypes } from 'api/types';
-import { OptionsT } from 'pages/AddGame/SelectionModule/types';
+import { OptionsT } from 'pages/AddGame/SelectionModal/types';
 import { store } from 'redux/store';
 
 export type RootState = ReturnType<typeof store.getState>;

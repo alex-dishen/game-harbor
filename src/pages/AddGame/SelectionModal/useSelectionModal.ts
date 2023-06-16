@@ -1,4 +1,4 @@
-import { OptionsT } from 'pages/AddGame/SelectionModule/types';
+import { OptionsT } from 'pages/AddGame/SelectionModal/types';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   setPlatforms,
@@ -8,7 +8,7 @@ import {
 } from 'redux/counterSlice';
 import { RootState } from 'redux/types';
 
-export const useSelectionModule = (title: string) => {
+export const useSelectionModal = (title: string) => {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
 
