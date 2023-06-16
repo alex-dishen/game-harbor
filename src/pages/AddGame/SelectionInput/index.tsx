@@ -11,6 +11,9 @@ import { InputsWrapper, Star } from 'pages/AddGame/styles';
 import { ReactComponent as Plus } from 'assets/images/plus_without_frame.svg';
 import { ReactComponent as Recycle } from 'assets/images/recycle.svg';
 import { useSelectionInput } from './useSelectionInput';
+import { ListOption, OptionsHolder } from '../OptionsList/styles';
+import OptionsList from '../OptionsList';
+import { useSelectionModule } from '../SelectionModule/useSelectionModule';
 
 const SelectionInput = ({
   type,
@@ -28,9 +31,12 @@ const SelectionInput = ({
     selectedImage,
     isOpenSelections,
     popupRef,
+    selectedOptions,
     setSelectedImage,
     setIsOpenSelections,
   } = useSelectionInput(options, title);
+
+  const { handleOptionClick } = useSelectionModule(title);
 
   return (
     <InputsWrapper>
@@ -38,6 +44,7 @@ const SelectionInput = ({
         {title}
         {isRequired ? <Star>*</Star> : ''}
       </p>
+
       <SelectionBody>
         {type === 'file' ? (
           <>
@@ -58,15 +65,27 @@ const SelectionInput = ({
           </AddButton>
         )}
 
-        {selectedImage ? (
+        {type === 'file' && selectedImage ? (
           <Image src={selectedImage} />
         ) : (
-          <DescriptionHolder>
-            <p>{emoji}</p>
-            <p>{description}</p>
-          </DescriptionHolder>
+          <>
+            {selectedOptions.length === 0 ? (
+              <DescriptionHolder>
+                <p>{emoji}</p>
+                <p>{description}</p>
+              </DescriptionHolder>
+            ) : (
+              <OptionsList
+                value={selectedOptions}
+                onClick={handleOptionClick}
+                reverse
+                alignToStart
+              />
+            )}
+          </>
         )}
       </SelectionBody>
+
       {isOpenSelections && (
         <SelectionModule
           popupRef={popupRef}

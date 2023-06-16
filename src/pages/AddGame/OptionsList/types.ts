@@ -1,7 +1,8 @@
 import { OptionsT } from '../SelectionModule/types';
 
 export type OptionsListProps = {
-  value?: OptionsT[];
+  value: OptionsT[];
   reverse?: boolean;
+  alignToStart?: boolean;
   onClick: (value: OptionsT, reverse?: boolean) => void;
 };

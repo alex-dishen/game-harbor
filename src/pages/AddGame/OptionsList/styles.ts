@@ -1,15 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const OptionsHolder = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
-  width: 100%;
-  margin: 10px 0;
-  padding: 0;
-  list-style: none;
-`;
+type OptionsHolderT = {
+  alignToStart?: boolean;
+};
+
+export const OptionsHolder = styled.ul<OptionsHolderT>(
+  ({ alignToStart }) => css`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: ${alignToStart ? '' : 'center'};
+    gap: 5px;
+    width: 100%;
+    margin: ${alignToStart ? '0' : '10px 0'};
+    padding: 0;
+    list-style: none;
+  `
+);
 
 export const ListOption = styled.li`
   display: flex;
