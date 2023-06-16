@@ -3,6 +3,7 @@ import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModa
 import { SelectionModuleProps } from 'pages/AddGame/SelectionModal/types';
 import { SelectionModuleWrapper } from 'pages/AddGame/SelectionModal/styles';
 import OptionsList from 'pages/AddGame/OptionsList';
+import { ReactComponent as Plus } from 'assets/images/plus.svg';
 
 const SelectionModal = ({
   title,
@@ -21,9 +22,15 @@ const SelectionModal = ({
         {emoji} {title}
       </h3>
       <p>{description}</p>
-      <Input type="text" title="" placeHolder={placeholder} />
-      {options.length !== 0 && (
+      {options.length !== 0 ? (
         <OptionsList value={optionsList} onClick={handleOptionClick} />
+      ) : (
+        <Input
+          type="text"
+          title=""
+          placeHolder={placeholder}
+          icon={<Plus style={{ fill: 'white' }} />}
+        />
       )}
 
       {options.length !== 0 && selectedOptions.length !== 0 && (

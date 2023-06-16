@@ -3,4 +3,5 @@ export type InputProps = {
   title: string;
   placeHolder?: string;
   isRequired?: boolean;
+  icon?: JSX.Element;
 };
