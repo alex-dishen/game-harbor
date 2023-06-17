@@ -59,3 +59,22 @@ export enum PATHS {
   game = '/games/game',
   addGame = '/add-game',
 }
+
+export const gameSpecification = {
+  id: -1,
+  slug: '',
+  name: '',
+  price: 0,
+  isInCart: false,
+  ratings_count: 0,
+  description_raw: '',
+  website: '',
+  released: '',
+  background_image: '',
+  developers: [{ name: '' }],
+  publishers: [{ name: '' }],
+  parent_platforms: [{ platform: { id: 0, slug: '', name: '' } }],
+  platforms: [{ platform: { id: 0, slug: '', name: '' } }],
+  genres: [{ name: '' }],
+  short_screenshots: [{ id: 0, image: '' }],
+};

@@ -6,11 +6,11 @@ import {
   setSelectedPlatforms,
   setPublishers,
   setDevelopers,
-} from 'redux/counterSlice';
+} from 'redux/addGameSlice';
 import { RootState } from 'redux/types';
 
 export const useSelectedOptions = () => {
-  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const addGamesState = useSelector((state: RootState) => state.addGame);
 
   const {
     platforms,
@@ -19,7 +19,7 @@ export const useSelectedOptions = () => {
     selectedGenres,
     publishers,
     developers,
-  } = reduxStore;
+  } = addGamesState;
 
   const optionsList = {
     Platforms: platforms,

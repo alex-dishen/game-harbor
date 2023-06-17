@@ -1,10 +1,11 @@
 import { MouseEvent } from 'react';
 import { AnyAction, Dispatch } from '@reduxjs/toolkit';
-import { setCurrentFilter, setGames, setInCartGames } from 'redux/counterSlice';
-import { gameSpecification } from 'redux/constants';
+import { setCurrentFilter } from 'redux/harborSlice';
 import { getPrice } from 'pages/Games/helpers';
+import { gameSpecification } from './constants';
 import { GameTypes } from 'api/types';
 import { LoadGamesTypes } from 'types';
+import { setGames, setInCartGames } from 'redux/gamesSlice';
 
 interface IHandleFilterClick {
   e: MouseEvent<HTMLElement>;

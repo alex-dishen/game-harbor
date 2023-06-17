@@ -1,20 +1,17 @@
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setGameID,
-  setGames,
-  setInCartGames,
-  setIsOpenCart,
-} from 'redux/counterSlice';
+import { setGameID, setGames, setInCartGames } from 'redux/gamesSlice';
+import { setIsOpenCart } from 'redux/harborSlice';
 import { RootState } from 'redux/types';
 import useClickOutside from 'hooks/useClickOutside';
 
 const useCart = () => {
   const dispatch = useDispatch();
-  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const gamesState = useSelector((state: RootState) => state.games);
   const cartRef = useRef<HTMLDivElement>(null);
 
-  const { isOpenCart, inCartGames, games } = reduxStore;
+  const isOpenCart = useSelector((state: RootState) => state.harbor.isOpenCart);
+  const { inCartGames, games } = gamesState;
 
   const returnGamesPriceSum = () => {
     const gamesPrices = inCartGames.map((game) => game.price);

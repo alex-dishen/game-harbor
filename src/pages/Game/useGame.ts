@@ -1,15 +1,13 @@
+import { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getGameDetails, getGameScreenshots } from 'api/gameData';
-import { setGameScreenshots, setGameSpecification } from 'redux/counterSlice';
+import { setGameScreenshots, setGameSpecification } from 'redux/gamesSlice';
+import { gameSpecification } from '../../constants';
 import { RootState } from 'redux/types';
-import { useCallback, useEffect } from 'react';
-import { gameSpecification } from 'redux/constants';
 
 const useGame = () => {
   const dispatch = useDispatch();
-  const reduxStore = useSelector((state: RootState) => state.harbor);
-
-  const { gameID } = reduxStore;
+  const gameID = useSelector((state: RootState) => state.games.gameID);
 
   const cleanGamePage = useCallback(() => {
     dispatch(setGameSpecification({ ...gameSpecification, id: gameID }));

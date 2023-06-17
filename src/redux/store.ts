@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from 'redux/counterSlice';
+import harborReducer from 'redux/harborSlice';
+import addGameReducer from 'redux/addGameSlice';
+import gamesReducer from 'redux/gamesSlice';
 
 export const store = configureStore({
   reducer: {
-    harbor: counterReducer,
+    harbor: harborReducer,
+    addGame: addGameReducer,
+    games: gamesReducer,
   },
 });

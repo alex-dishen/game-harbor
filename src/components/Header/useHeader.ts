@@ -3,14 +3,13 @@ import { createSearchParams, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAnimation } from 'framer-motion';
 import { getGamesList } from 'api/gameData';
+import { setGames, setSearchedGames } from 'redux/gamesSlice';
 import { RootState } from 'redux/types';
 import {
-  setGames,
-  setSearchedGames,
   setIsOpenSearchGames,
   setCurrentFilter,
   setIsSearching,
-} from 'redux/counterSlice';
+} from 'redux/harborSlice';
 import useClickOutside from 'hooks/useClickOutside';
 import useScrollDirection from 'hooks/useScrollDirection';
 import { returnGames } from 'helpers';
@@ -18,7 +17,8 @@ import { returnGames } from 'helpers';
 const useHeader = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const reduxState = useSelector((state: RootState) => state.harbor);
+  const harborState = useSelector((state: RootState) => state.harbor);
+  const gamesState = useSelector((state: RootState) => state.games);
   const inputControls = useAnimation();
   const scrollDirection = useScrollDirection();
   const location = useLocation();
@@ -26,14 +26,9 @@ const useHeader = () => {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [isModifyHeader, setIsModifyHeader] = useState(false);
   const [typingTimer, setTypingTimer] = useState<NodeJS.Timeout>();
-  const {
-    isChangeSidebar,
-    isOpenSearchGames,
-    isHideSidebar,
-    searchedGames,
-    isOpenCart,
-    inCartGames,
-  } = reduxState;
+  const { isChangeSidebar, isOpenSearchGames, isHideSidebar, isOpenCart } =
+    harborState;
+  const { searchedGames, inCartGames } = gamesState;
 
   const setInputMaxWidth = (width: number) => {
     inputControls.start({ maxWidth: width });
