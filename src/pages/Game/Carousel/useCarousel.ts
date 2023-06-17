@@ -3,13 +3,15 @@ import uniqid from 'uniqid';
 import { RootState } from 'redux/types';
 
 const useCarousel = () => {
-  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const gamesState = useSelector((state: RootState) => state.games);
+
+  const { gameSpecification, gameScreenshots } = gamesState;
 
   const gameBackground = {
     id: uniqid(),
-    image: reduxStore.gameSpecification.background_image,
+    image: gameSpecification.background_image,
   };
-  const screenshots = [gameBackground, ...reduxStore.gameScreenshots.results];
+  const screenshots = [gameBackground, ...gameScreenshots.results];
 
   return { screenshots };
 };

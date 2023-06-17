@@ -4,11 +4,11 @@ import { RootState } from 'redux/types';
 
 const usePrice = () => {
   const dispatch = useDispatch();
-  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const gamesState = useSelector((state: RootState) => state.games);
   const [gamePrice, setGamePrice] = useState(0);
   const [isInCart, setIsInCart] = useState(false);
 
-  const { gameID, games, inCartGames } = reduxStore;
+  const { gameID, games, inCartGames } = gamesState;
 
   const getGamePrice = () => {
     const currentGame = games.filter((game) => game.id === gameID);

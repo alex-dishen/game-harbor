@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setGameID, setGames, setIsOpenSearchGames } from 'redux/counterSlice';
+import { setGameID, setGames } from 'redux/gamesSlice';
+import { setIsOpenSearchGames } from 'redux/harborSlice';
 import { RootState } from 'redux/types';
 
 const useSearchGames = () => {
   const dispatch = useDispatch();
-  const reduxState = useSelector((state: RootState) => state.harbor);
+  const gamesState = useSelector((state: RootState) => state.games);
 
-  const { searchedGames } = reduxState;
+  const { searchedGames } = gamesState;
 
   const games = searchedGames.slice(0, 8);
 

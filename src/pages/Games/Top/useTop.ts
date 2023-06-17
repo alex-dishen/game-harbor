@@ -1,19 +1,20 @@
 import { MouseEvent, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setGames, setOrderTitle } from 'redux/counterSlice';
+import { setOrderTitle } from 'redux/harborSlice';
+import { setGames } from 'redux/gamesSlice';
 import { RootState } from 'redux/types';
 import useClickOutside from 'hooks/useClickOutside';
 import { FILTER_TITLE } from 'pages/Games/constants';
-import { gameSpecification } from 'redux/constants';
+import { gameSpecification } from '../../../constants';
 
 const useTop = () => {
   const dispatch = useDispatch();
-  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const harborState = useSelector((state: RootState) => state.harbor);
   const [isShowOrder, setIsShowOrder] = useState(true);
   const [isOrderOpen, setIsOrderOpen] = useState(false);
   const orderRef = useRef<HTMLUListElement>(null);
 
-  const { currentFilter, orderTitle, isSearching } = reduxStore;
+  const { currentFilter, orderTitle, isSearching } = harborState;
 
   const openAndHideOrder = () => {
     setIsOrderOpen(!isOrderOpen);

@@ -4,7 +4,7 @@ import { RootState } from 'redux/types';
 
 const useInfo = () => {
   const gameSpecification = useSelector(
-    (state: RootState) => state.harbor.gameSpecification
+    (state: RootState) => state.games.gameSpecification
   );
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 

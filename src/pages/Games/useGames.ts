@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setGames,
-  setIsChangeSidebar,
-  setIsHideSidebar,
-} from 'redux/counterSlice';
+import { setIsChangeSidebar, setIsHideSidebar } from 'redux/harborSlice';
+import { setGames } from 'redux/gamesSlice';
 import { getGamesList } from 'api/gameData';
 import { RootState } from 'redux/types';
 import { returnGames } from 'helpers';
@@ -19,17 +16,14 @@ import {
 
 const useGames = () => {
   const dispatch = useDispatch();
-  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const harborState = useSelector((state: RootState) => state.harbor);
+  const gamesState = useSelector((state: RootState) => state.games);
   const [isShowMenu, setIsShowMenu] = useState(false);
 
-  const {
-    currentFilter,
-    orderTitle,
-    isChangeSidebar,
-    isHideSidebar,
-    games,
-    inCartGames,
-  } = reduxStore;
+  const { currentFilter, orderTitle, isChangeSidebar, isHideSidebar } =
+    harborState;
+
+  const { games, inCartGames } = gamesState;
 
   const manipulateSideBar = () => {
     const { innerWidth } = window;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
-import { setPublishers, setDevelopers } from 'redux/counterSlice';
+import { setPublishers, setDevelopers } from 'redux/addGameSlice';
 import { useSelectedOptions } from 'hooks/useSelectedOptions';
 import { RootState } from 'redux/types';
 import { PlatformsAndGenres, TitleT } from 'pages/AddGame/types';
@@ -9,10 +9,10 @@ import { OptionsT } from 'types';
 
 export const useSelectionModal = (title: TitleT) => {
   const dispatch = useDispatch();
-  const reduxStore = useSelector((state: RootState) => state.harbor);
+  const addGamesState = useSelector((state: RootState) => state.addGame);
   const [publishersInputValue, setPublishersInputValue] = useState('');
   const [developersInputValue, setDevelopersInputValue] = useState('');
-  const { publishers, developers } = reduxStore;
+  const { publishers, developers } = addGamesState;
 
   const {
     optionsList,

@@ -1,25 +1,23 @@
 import { store } from 'redux/store';
 import { GameTypes, ResponseSchema, ScreenshotsTypes } from 'api/types';
 import { OptionsT } from 'types';
+import { PayloadAction } from '@reduxjs/toolkit';
 
 export type RootState = ReturnType<typeof store.getState>;
 
 export type AppDispatch = typeof store.dispatch;
 
-export interface CounterState {
+export interface HarborState {
   currentFilter: string;
   isChangeSidebar: boolean;
   isHideSidebar: boolean;
   orderTitle: string;
-  games: GameTypes[];
-  searchedGames: GameTypes[];
-  inCartGames: GameTypes[];
   isOpenCart: boolean;
-  gameID: number;
-  gameSpecification: GameTypes;
-  gameScreenshots: ResponseSchema<ScreenshotsTypes>;
   isOpenSearchGames: boolean;
   isSearching: boolean;
+}
+
+export type AddGameState = {
   platforms: OptionsT[];
   genres: OptionsT[];
   publishers: OptionsT[];
@@ -28,4 +26,15 @@ export interface CounterState {
   selectedGenres: OptionsT[];
   selectedPublishers: OptionsT[];
   selectedDevelopers: OptionsT[];
-}
+};
+
+export type GamesState = {
+  games: GameTypes[];
+  searchedGames: GameTypes[];
+  inCartGames: GameTypes[];
+  gameID: number;
+  gameSpecification: GameTypes;
+  gameScreenshots: ResponseSchema<ScreenshotsTypes>;
+};
+
+export type ActionT = PayloadAction<OptionsT[]>;

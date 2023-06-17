@@ -6,7 +6,7 @@ import { PATHS } from '../../../constants';
 
 function GameHeader() {
   const gameName = useSelector(
-    (state: RootState) => state.harbor.gameSpecification.name
+    (state: RootState) => state.games.gameSpecification.name
   );
 
   return (
