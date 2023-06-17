@@ -3,7 +3,8 @@ import { AnimatePresence } from 'framer-motion';
 import useHeader from 'components/Header/useHeader';
 import Cart from 'components/Cart';
 import SearchGames from 'components/Search';
-import logo from 'assets/images/logo.png';
+import Navigation from 'components/Navigation';
+import { PATHS } from '../../constants';
 import {
   HeaderWrapper,
   LogoWrapper,
@@ -11,13 +12,8 @@ import {
   InputWrapper,
   Input,
   MagnifyGlass,
-  Navigation,
-  CartWrapper,
-  Circle,
 } from 'components/Header/styles';
-import { ReactComponent as CartSVG } from 'assets/images/cart.svg';
-import { ReactComponent as Divider } from 'assets/images/divider.svg';
-import { ReactComponent as Plus } from 'assets/images/plus.svg';
+import logo from 'assets/images/logo.png';
 
 function Header() {
   const {
@@ -29,10 +25,8 @@ function Header() {
     isOpenCart,
     inputWrapperRef,
     isOpenSearchGames,
-    inCartGames,
     handleOnChange,
     handleKeyDown,
-    openCart,
     handleOnFocus,
     handleSearchedGames,
   } = useHeader();
@@ -45,7 +39,7 @@ function Header() {
         isChangeSidebar={isChangeSidebar}
         isHideSidebar={isHideSidebar}
       >
-        <LogoWrapper as={Link} to="/">
+        <LogoWrapper as={Link} to={PATHS.home}>
           <Logo src={logo} alt="Logo" />
           <div>Game Harbor</div>
         </LogoWrapper>
@@ -63,14 +57,7 @@ function Header() {
 
           {isOpenSearchGames && <SearchGames />}
         </InputWrapper>
-        <Navigation>
-          <Plus />
-          <Divider />
-          <CartWrapper onClick={openCart}>
-            <CartSVG />
-            {inCartGames.length > 0 && <Circle />}
-          </CartWrapper>
-        </Navigation>
+        <Navigation />
       </HeaderWrapper>
       <AnimatePresence>{isOpenCart && <Cart />}</AnimatePresence>
     </>

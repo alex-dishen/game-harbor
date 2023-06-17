@@ -5,3 +5,9 @@ export type LoadGamesTypes = {
   inCartGames: GameTypes[];
   getGames?: () => Promise<ResponseSchema<GameTypes>>;
 };
+
+export type OptionsT = {
+  key: string;
+  name: string;
+  icon?: JSX.Element;
+};
