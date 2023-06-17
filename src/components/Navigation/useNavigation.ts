@@ -1,7 +1,8 @@
-import { setIsOpenCart } from 'redux/counterSlice';
+import { PATHS } from '../../constants';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'redux/types';
 import { useLocation } from 'react-router-dom';
+import { setIsOpenCart } from 'redux/counterSlice';
+import { RootState } from 'redux/types';
 
 export const useNavigation = () => {
   const dispatch = useDispatch();
@@ -11,10 +12,12 @@ export const useNavigation = () => {
     (state: RootState) => state.harbor.inCartGames
   );
 
+  const isAddGamePage = location.pathname === PATHS.addGame;
+
   const openCart = () => {
     dispatch(setIsOpenCart(true));
     document.body.style.overflow = 'hidden';
   };
 
-  return { location, inCartGames, openCart };
+  return { isAddGamePage, inCartGames, openCart };
 };

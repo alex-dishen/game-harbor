@@ -1,8 +1,5 @@
 import styled, { css } from 'styled-components';
-
-type OptionsHolderT = {
-  alignToStart?: boolean;
-};
+import { OptionsHolderT } from 'pages/AddGame/OptionsList/types';
 
 export const OptionsHolder = styled.ul<OptionsHolderT>(
   ({ alignToStart }) => css`

@@ -1,4 +1,4 @@
-import { ButtonGroupWrapper, Button } from './styles';
+import { ButtonGroupWrapper, Button } from 'pages/AddGame/ButtonGroup/styles';
 
 const ButtonGroup = () => (
   <ButtonGroupWrapper>

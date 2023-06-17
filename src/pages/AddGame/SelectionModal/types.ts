@@ -1,10 +1,6 @@
 import { RefObject } from 'react';
-
-export type OptionsT = {
-  key: string;
-  name: string;
-  icon?: JSX.Element;
-};
+import { OptionsT } from 'types';
+import { TitleT } from 'pages/AddGame/types';
 
 export type SelectionModuleProps = {
   title: TitleT;
@@ -14,9 +10,3 @@ export type SelectionModuleProps = {
   placeholder?: string;
   optionsList: OptionsT[];
 };
-
-export type PlatformsAndGenres = 'Platforms' | 'Genres';
-
-export type PublishersAndDevelopers = 'Publishers' | 'Developers';
-
-export type TitleT = PlatformsAndGenres | PublishersAndDevelopers;

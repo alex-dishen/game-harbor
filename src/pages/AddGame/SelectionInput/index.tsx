@@ -4,6 +4,7 @@ import { useSelectionInput } from 'pages/AddGame/SelectionInput/useSelectionInpu
 import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModal';
 import { handleImageUpload } from 'pages/AddGame/SelectionInput/helpers';
 import { SelectionProps } from 'pages/AddGame/SelectionInput/types';
+import { TitleT } from 'pages/AddGame/types';
 import {
   SelectionBody,
   AddButton,
@@ -33,9 +34,9 @@ const SelectionInput = ({
     selectedOptions,
     setSelectedImage,
     setIsOpenSelections,
-  } = useSelectionInput(optionsList, title);
+  } = useSelectionInput(optionsList, title as TitleT);
 
-  const { handleOptionClick } = useSelectionModal(title);
+  const { handleOptionClick } = useSelectionModal(title as TitleT);
 
   return (
     <InputsWrapper>
@@ -88,7 +89,7 @@ const SelectionInput = ({
       {isOpenSelections && (
         <SelectionModule
           popupRef={popupRef}
-          title={title}
+          title={title as TitleT}
           emoji={emoji}
           description={inputDescription}
           placeholder={inputPlaceholder}

@@ -2,13 +2,10 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { setPublishers, setDevelopers } from 'redux/counterSlice';
-import { useSelectedOptions } from 'pages/AddGame/SelectionModal/useSelectedOptions';
+import { useSelectedOptions } from 'hooks/useSelectedOptions';
 import { RootState } from 'redux/types';
-import {
-  OptionsT,
-  PlatformsAndGenres,
-  TitleT,
-} from 'pages/AddGame/SelectionModal/types';
+import { PlatformsAndGenres, TitleT } from 'pages/AddGame/types';
+import { OptionsT } from 'types';
 
 export const useSelectionModal = (title: TitleT) => {
   const dispatch = useDispatch();

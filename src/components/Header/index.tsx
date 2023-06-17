@@ -3,7 +3,8 @@ import { AnimatePresence } from 'framer-motion';
 import useHeader from 'components/Header/useHeader';
 import Cart from 'components/Cart';
 import SearchGames from 'components/Search';
-import logo from 'assets/images/logo.png';
+import Navigation from 'components/Navigation';
+import { PATHS } from '../../constants';
 import {
   HeaderWrapper,
   LogoWrapper,
@@ -12,7 +13,7 @@ import {
   Input,
   MagnifyGlass,
 } from 'components/Header/styles';
-import Navigation from 'components/Navigation';
+import logo from 'assets/images/logo.png';
 
 function Header() {
   const {
@@ -38,7 +39,7 @@ function Header() {
         isChangeSidebar={isChangeSidebar}
         isHideSidebar={isHideSidebar}
       >
-        <LogoWrapper as={Link} to="/">
+        <LogoWrapper as={Link} to={PATHS.home}>
           <Logo src={logo} alt="Logo" />
           <div>Game Harbor</div>
         </LogoWrapper>

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useNavigation } from 'components/Navigation/useNavigation';
+import { PATHS } from '../../constants';
 import {
   StyledNavigation,
   CartWrapper,
@@ -10,18 +11,15 @@ import { ReactComponent as CartSVG } from 'assets/images/cart.svg';
 import { ReactComponent as Plus } from 'assets/images/plus.svg';
 
 const Navigation = () => {
-  const { location, inCartGames, openCart } = useNavigation();
+  const { isAddGamePage, inCartGames, openCart } = useNavigation();
 
   return (
-    <StyledNavigation darkenImages={location.pathname === '/add-game'}>
-      <Link to="/add-game">
+    <StyledNavigation darkenImages={isAddGamePage}>
+      <Link to={PATHS.addGame}>
         <Plus />
       </Link>
       <Divider />
-      <CartWrapper
-        darkenImages={location.pathname === '/add-game'}
-        onClick={openCart}
-      >
+      <CartWrapper darkenImages={isAddGamePage} onClick={openCart}>
         <CartSVG />
         {inCartGames.length > 0 && <Circle />}
       </CartWrapper>

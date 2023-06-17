@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useSelectedOptions } from '../SelectionModal/useSelectedOptions';
+import { useSelectedOptions } from 'hooks/useSelectedOptions';
 import useClickOutside from 'hooks/useClickOutside';
-import { OptionsT, PlatformsAndGenres, TitleT } from '../SelectionModal/types';
+import { OptionsT } from 'types';
+import { PlatformsAndGenres, TitleT } from 'pages/AddGame/types';
 
 export const useSelectionInput = (options: OptionsT[], title: TitleT) => {
   const dispatch = useDispatch();

@@ -6,6 +6,7 @@ import Game from 'pages/Game';
 import AddGame from 'pages/AddGame';
 import Header from 'components/Header';
 import useScrollToTop from 'hooks/useScrollToTop';
+import { PATHS } from './constants';
 import 'styles/normalize.css';
 import 'styles/fonts.css';
 
@@ -18,10 +19,10 @@ function App() {
       <Header />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/games" element={<Games />} />
-          <Route path="/games/game" element={<Game />} />
-          <Route path="/add-game" element={<AddGame />} />
+          <Route path={PATHS.home} element={<Home />} />
+          <Route path={PATHS.games} element={<Games />} />
+          <Route path={PATHS.game} element={<Game />} />
+          <Route path={PATHS.addGame} element={<AddGame />} />
         </Routes>
       </AnimatePresence>
     </>

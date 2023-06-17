@@ -1,9 +1,10 @@
 import { ReactNode } from 'react';
-import { OptionsT, TitleT } from 'pages/AddGame/SelectionModal/types';
+import { OptionsT } from 'types';
+import { TitleT } from 'pages/AddGame/types';
 
 export type SelectionProps = {
   type: string;
-  title: TitleT;
+  title: TitleT | string;
   description: string;
   emoji: string;
   placeholder: string;

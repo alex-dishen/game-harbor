@@ -52,3 +52,10 @@ export const GENRES = [
   { key: uniqid(), name: FILTER_TITLE.RACING, icon: <Racing /> },
   { key: uniqid(), name: FILTER_TITLE.SPORTS, icon: <Sports /> },
 ];
+
+export enum PATHS {
+  home = '/',
+  games = '/games',
+  game = '/games/game',
+  addGame = '/add-game',
+}
