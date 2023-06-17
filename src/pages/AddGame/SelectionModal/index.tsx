@@ -11,10 +11,15 @@ const SelectionModal = ({
   popupRef,
   description,
   placeholder,
-  options,
+  optionsList,
 }: SelectionModuleProps) => {
-  const { optionsList, selectedOptions, handleOptionClick } =
-    useSelectionModal(title);
+  const {
+    options,
+    selectedOptions,
+    handleOptionClick,
+    setInputValue,
+    handlePlusClick,
+  } = useSelectionModal(title);
 
   return (
     <SelectionModuleWrapper ref={popupRef}>
@@ -22,18 +27,20 @@ const SelectionModal = ({
         {emoji} {title}
       </h3>
       <p>{description}</p>
-      {options.length !== 0 ? (
-        <OptionsList value={optionsList} onClick={handleOptionClick} />
+      {optionsList.length !== 0 ? (
+        <OptionsList value={options} onClick={handleOptionClick} />
       ) : (
         <Input
           type="text"
           title=""
           placeHolder={placeholder}
           icon={<Plus style={{ fill: 'white' }} />}
+          setAction={setInputValue}
+          onClick={handlePlusClick}
         />
       )}
 
-      {options.length !== 0 && selectedOptions.length !== 0 && (
+      {selectedOptions.length !== 0 && (
         <>
           <h3>Selected {title}</h3>
           <OptionsList

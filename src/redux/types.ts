@@ -22,6 +22,10 @@ export interface CounterState {
   isSearching: boolean;
   platforms: OptionsT[];
   genres: OptionsT[];
+  publishers: OptionsT[];
+  developers: OptionsT[];
   selectedPlatforms: OptionsT[];
   selectedGenres: OptionsT[];
+  selectedPublishers: OptionsT[];
+  selectedDevelopers: OptionsT[];
 }

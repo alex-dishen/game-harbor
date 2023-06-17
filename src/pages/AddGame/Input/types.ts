@@ -4,4 +4,6 @@ export type InputProps = {
   placeHolder?: string;
   isRequired?: boolean;
   icon?: JSX.Element;
+  setAction?: (a: string) => void;
+  onClick?: () => void;
 };

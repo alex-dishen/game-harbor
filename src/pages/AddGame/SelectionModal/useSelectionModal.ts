@@ -1,46 +1,76 @@
-import { OptionsT } from 'pages/AddGame/SelectionModal/types';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  setPlatforms,
-  setGenres,
-  setSelectedGenres,
-  setSelectedPlatforms,
-} from 'redux/counterSlice';
+import uniqid from 'uniqid';
+import { setPublishers, setDevelopers } from 'redux/counterSlice';
+import { useSelectedOptions } from 'pages/AddGame/SelectionModal/useSelectedOptions';
 import { RootState } from 'redux/types';
+import {
+  OptionsT,
+  PlatformsAndGenres,
+  TitleT,
+} from 'pages/AddGame/SelectionModal/types';
 
-export const useSelectionModal = (title: string) => {
+export const useSelectionModal = (title: TitleT) => {
   const dispatch = useDispatch();
   const reduxStore = useSelector((state: RootState) => state.harbor);
+  const [publishersInputValue, setPublishersInputValue] = useState('');
+  const [developersInputValue, setDevelopersInputValue] = useState('');
+  const { publishers, developers } = reduxStore;
 
-  const { platforms, genres, selectedPlatforms, selectedGenres } = reduxStore;
-  const isPlatforms = title === 'Platforms';
+  const {
+    optionsList,
+    selectedOptionsList,
+    setOptionsList,
+    setSelectedOptionsList,
+  } = useSelectedOptions();
 
-  const optionsList = isPlatforms ? platforms : genres;
-  const selectedOptions = isPlatforms ? selectedPlatforms : selectedGenres;
-  const setOptions = isPlatforms ? setPlatforms : setGenres;
-  const setSelectedOptions = isPlatforms
-    ? setSelectedPlatforms
-    : setSelectedGenres;
+  const options = optionsList[title];
+  const selectedOptions = selectedOptionsList[title];
+  const setOptions = setOptionsList[title as PlatformsAndGenres];
+  const setSelectedOptions = setSelectedOptionsList[title];
+
+  const setInputValue =
+    title === 'Publishers' ? setPublishersInputValue : setDevelopersInputValue;
 
   const handleOptionClick = (option: OptionsT, reverse?: boolean) => {
-    const arrayToIterate = reverse ? selectedOptions : optionsList;
+    const arrayToIterate = reverse ? selectedOptions : options;
 
     const updatedOptions = arrayToIterate?.filter(
       (optionList) => optionList.name !== option.name
     );
 
-    const newOptionsList = reverse ? [...optionsList, option] : updatedOptions;
+    const newOptionsList = reverse ? [...options, option] : updatedOptions;
     const newSelectedOptions = reverse
       ? updatedOptions
       : [...selectedOptions, option];
 
-    dispatch(setOptions(newOptionsList));
+    if (setOptions) dispatch(setOptions(newOptionsList));
     dispatch(setSelectedOptions(newSelectedOptions));
   };
 
+  const handlePlusClick = () => {
+    if (title === 'Publishers')
+      dispatch(
+        setPublishers([
+          ...publishers,
+          { key: uniqid(), name: publishersInputValue },
+        ])
+      );
+
+    if (title === 'Developers')
+      dispatch(
+        setDevelopers([
+          ...developers,
+          { key: uniqid(), name: developersInputValue },
+        ])
+      );
+  };
+
   return {
-    optionsList,
+    options,
     selectedOptions,
     handleOptionClick,
+    setInputValue,
+    handlePlusClick,
   };
 };

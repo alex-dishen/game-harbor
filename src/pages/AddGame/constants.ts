@@ -10,7 +10,7 @@ export const GameDetails = [
     inputDescription:
       'Platforms are devices or operating systems that the game was released for.',
     inputPlaceholder: 'Choose platform',
-    options: PLATFORMS,
+    optionsList: PLATFORMS,
   },
   {
     title: 'Genres',
@@ -21,7 +21,7 @@ export const GameDetails = [
     inputDescription:
       'Genres are a means to classify games, mostly by their distinct features of gameplay.',
     inputPlaceholder: 'Choose genre',
-    options: GENRES,
+    optionsList: GENRES,
   },
   {
     title: 'Publishers',

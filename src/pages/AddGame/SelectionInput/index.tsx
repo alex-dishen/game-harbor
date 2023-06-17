@@ -24,7 +24,7 @@ const SelectionInput = ({
   isRequired,
   inputDescription,
   inputPlaceholder,
-  options = [],
+  optionsList = [],
 }: SelectionProps) => {
   const {
     selectedImage,
@@ -33,7 +33,7 @@ const SelectionInput = ({
     selectedOptions,
     setSelectedImage,
     setIsOpenSelections,
-  } = useSelectionInput(options, title);
+  } = useSelectionInput(optionsList, title);
 
   const { handleOptionClick } = useSelectionModal(title);
 
@@ -68,7 +68,7 @@ const SelectionInput = ({
           <Image src={selectedImage} />
         ) : (
           <>
-            {selectedOptions.length === 0 ? (
+            {selectedOptions?.length === 0 ? (
               <DescriptionHolder>
                 <p>{emoji}</p>
                 <p>{description}</p>
@@ -92,7 +92,7 @@ const SelectionInput = ({
           emoji={emoji}
           description={inputDescription}
           placeholder={inputPlaceholder}
-          options={options}
+          optionsList={optionsList}
         />
       )}
     </InputsWrapper>

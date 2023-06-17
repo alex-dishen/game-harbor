@@ -33,7 +33,7 @@ const Form = () => (
           isRequired={detail.isRequired}
           inputDescription={detail.inputDescription}
           inputPlaceholder={detail.inputPlaceholder}
-          options={detail.options}
+          optionsList={detail.optionsList}
         />
       ))}
       <Input type="url" title="Website" placeHolder="Website URL" />

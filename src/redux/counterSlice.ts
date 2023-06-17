@@ -36,8 +36,12 @@ const initialState: CounterState = {
   isSearching: false,
   platforms: [],
   genres: [],
+  publishers: [],
+  developers: [],
   selectedPlatforms: [],
   selectedGenres: [],
+  selectedPublishers: [],
+  selectedDevelopers: [],
 };
 
 export const counterSlice = createSlice({
@@ -95,11 +99,23 @@ export const counterSlice = createSlice({
     setGenres: (state, action: PayloadAction<OptionsT[]>) => {
       state.genres = action.payload;
     },
+    setPublishers: (state, action: PayloadAction<OptionsT[]>) => {
+      state.publishers = action.payload;
+    },
+    setDevelopers: (state, action: PayloadAction<OptionsT[]>) => {
+      state.developers = action.payload;
+    },
     setSelectedPlatforms: (state, action: PayloadAction<OptionsT[]>) => {
       state.selectedPlatforms = action.payload;
     },
     setSelectedGenres: (state, action: PayloadAction<OptionsT[]>) => {
       state.selectedGenres = action.payload;
+    },
+    setSelectedPublishers: (state, action: PayloadAction<OptionsT[]>) => {
+      state.selectedPublishers = action.payload;
+    },
+    setSelectedDevelopers: (state, action: PayloadAction<OptionsT[]>) => {
+      state.selectedDevelopers = action.payload;
     },
   },
 });
@@ -120,8 +136,12 @@ export const {
   setIsSearching,
   setPlatforms,
   setGenres,
+  setPublishers,
+  setDevelopers,
   setSelectedPlatforms,
   setSelectedGenres,
+  setSelectedPublishers,
+  setSelectedDevelopers,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;

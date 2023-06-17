@@ -6,7 +6,15 @@ import {
 } from 'pages/AddGame/Input/styles';
 import { InputsWrapper, Star } from 'pages/AddGame/styles';
 
-const Input = ({ type, title, placeHolder, isRequired, icon }: InputProps) => {
+const Input = ({
+  type,
+  title,
+  placeHolder,
+  isRequired,
+  icon,
+  setAction,
+  onClick,
+}: InputProps) => {
   const lowerCaseTitle = title.toLowerCase();
 
   return (
@@ -17,6 +25,9 @@ const Input = ({ type, title, placeHolder, isRequired, icon }: InputProps) => {
       </label>
       <InputContainer>
         <StyledInput
+          onChange={(e) => {
+            if (setAction) setAction(e.target.value);
+          }}
           type={type}
           name={lowerCaseTitle}
           id={lowerCaseTitle}
@@ -24,7 +35,11 @@ const Input = ({ type, title, placeHolder, isRequired, icon }: InputProps) => {
           autoComplete="off"
           required={isRequired}
         />
-        {icon && <IconHolder type="button">{icon}</IconHolder>}
+        {icon && (
+          <IconHolder type="button" onClick={onClick}>
+            {icon}
+          </IconHolder>
+        )}
       </InputContainer>
     </InputsWrapper>
   );

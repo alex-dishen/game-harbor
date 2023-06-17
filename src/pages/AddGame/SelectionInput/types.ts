@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
-import { OptionsT } from 'pages/AddGame/SelectionModal/types';
+import { OptionsT, TitleT } from 'pages/AddGame/SelectionModal/types';
 
 export type SelectionProps = {
   type: string;
-  title: string;
+  title: TitleT;
   description: string;
   emoji: string;
   placeholder: string;
@@ -11,5 +11,5 @@ export type SelectionProps = {
   isRequired?: boolean;
   inputDescription?: string;
   inputPlaceholder?: string;
-  options?: OptionsT[];
+  optionsList?: OptionsT[];
 };
