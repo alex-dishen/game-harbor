@@ -77,9 +77,11 @@ export const PlatformIcons = styled.div`
   }
 `;
 
-export const GameName = styled(Link)`
-  font-size: 22px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-`;
+export const GameName = styled(Link)(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes.sm};
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+  `
+);

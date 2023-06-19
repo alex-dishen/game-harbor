@@ -1,33 +1,35 @@
 import styled, { css } from 'styled-components';
 import { StatusTypes } from 'pages/Game/Indicators/types';
 
-export const StyledPrice = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 22px;
-  background: linear-gradient(
-    90deg,
-    rgba(26, 26, 26, 0) 0%,
-    rgba(26, 26, 26, 1) 100%
-  );
-  color: white;
-  border-radius: 10px;
-  grid-area: price;
+export const StyledPrice = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    background: linear-gradient(
+      90deg,
+      rgba(26, 26, 26, 0) 0%,
+      rgba(26, 26, 26, 1) 100%
+    );
+    color: white;
+    border-radius: 10px;
+    grid-area: price;
 
-  & > span:first-child {
-    font-size: 18px;
-    font-weight: 500;
-  }
-`;
+    & > span:first-child {
+      font-size: ${theme.fontSizes.xs};
+      font-weight: 500;
+    }
+  `
+);
 
 export const Status = styled.span<StatusTypes>(
-  ({ isInCart }) => css`
+  ({ isInCart, theme }) => css`
     display: flex;
     align-items: center;
     gap: 8px;
     color: ${isInCart ? 'rgb(24, 176, 171)' : 'white'};
-    font-size: 22px;
+    font-size: ${theme.fontSizes.sm};
     font-weight: 600;
     cursor: ${isInCart ? '' : 'pointer'};
 

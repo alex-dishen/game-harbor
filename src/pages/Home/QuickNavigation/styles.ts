@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Navigation = styled.div`
   display: flex;
@@ -16,11 +16,13 @@ export const Navigation = styled.div`
   }
 `;
 
-export const Header = styled.h3`
-  margin: 0;
-  color: white;
-  font-size: 22px;
-`;
+export const Header = styled.h3(
+  ({ theme }) => css`
+    margin: 0;
+    color: white;
+    font-size: ${theme.fontSizes.sm};
+  `
+);
 
 export const Links = styled.ul`
   display: flex;

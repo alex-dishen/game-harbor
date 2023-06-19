@@ -1,25 +1,28 @@
-import styled from 'styled-components';
-import { OrderTypes } from 'pages/Games/Top/types';
+import styled, { css } from 'styled-components';
 
-export const StyledTop = styled.div`
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 15px;
+export const StyledTop = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
 
-  @media (max-width: 700px) {
-    align-items: center;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.md}) {
+      align-items: center;
+    }
+  `
+);
 
-export const FilterName = styled.div`
-  font-size: 60px;
-  font-weight: 800;
+export const FilterName = styled.div(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes['3xl']};
+    font-weight: 800;
 
-  @media (max-width: 700px) {
-    font-size: 48px;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.md}) {
+      font-size: ${theme.fontSizes.xl};
+    }
+  `
+);
 
 export const OrderWrapper = styled.div`
   position: relative;
@@ -63,7 +66,6 @@ export const OptionWrapper = styled.ul`
   border-radius: 10px;
 
   li {
-    font-size: 15px;
     padding: 3px 8px;
     border-radius: 7px;
     transition: 0.2s;

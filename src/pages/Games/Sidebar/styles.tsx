@@ -20,11 +20,13 @@ export const CategoryHolder = styled.div`
   gap: 10px;
 `;
 
-export const Header = styled.h3`
-  font-size: 26px;
-  font-weight: 600;
-  margin: 0;
-`;
+export const Header = styled.h3(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes.lg};
+    font-weight: 600;
+    margin: 0;
+  `
+);
 
 export const Filter = styled.div`
   display: flex;

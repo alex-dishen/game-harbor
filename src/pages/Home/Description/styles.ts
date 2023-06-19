@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledDescription = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const Pitch = styled.div`
   align-items: center;
   gap: 10px;
 
-  width: clamp(350px, 57vw, 515px);
+  width: clamp(350px, 70vw, 515px);
   padding: 20px 30px;
 
   background-color: rgba(255, 255, 255, 0.2);
@@ -25,21 +25,25 @@ export const Pitch = styled.div`
   }
 `;
 
-export const Header = styled.h1`
-  margin: 0;
-  text-align: center;
-  font-size: 50px;
-  font-weight: 800;
-`;
+export const Header = styled.h1(
+  ({ theme }) => css`
+    margin: 0;
+    text-align: center;
+    font-size: ${theme.fontSizes['2xl']};
+    font-weight: 800;
+  `
+);
 
-export const EnjoyBlock = styled.div`
-  display: flex;
-  gap: 5px;
+export const EnjoyBlock = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    gap: 5px;
 
-  p:last-child {
-    font-size: 20px;
-  }
-`;
+    p:last-child {
+      font-size: ${theme.fontSizes.sm};
+    }
+  `
+);
 
 export const Links = styled(Pitch)`
   display: flex;

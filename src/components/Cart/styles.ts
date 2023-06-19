@@ -1,23 +1,25 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const CartWrapper = styled(motion.div)`
-  z-index: 3;
-  position: fixed;
-  right: 0;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 360px;
-  padding: 30px;
-  background-color: rgb(26, 26, 26);
-  color: rgb(153, 153, 153);
+export const CartWrapper = styled(motion.div)(
+  ({ theme }) => css`
+    z-index: 3;
+    position: fixed;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 360px;
+    padding: 30px;
+    background-color: rgb(26, 26, 26);
+    color: rgb(153, 153, 153);
 
-  @media (max-width: 565px) {
-    width: 280px;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.md}) {
+      width: 280px;
+    }
+  `
+);
 
 export const Header = styled.header`
   display: flex;
@@ -25,12 +27,14 @@ export const Header = styled.header`
   justify-content: space-between;
 `;
 
-export const NumberOfGames = styled.h3`
-  margin: 0;
-  color: white;
-  font-size: 24px;
-  font-weight: 800;
-`;
+export const NumberOfGames = styled.h3(
+  ({ theme }) => css`
+    margin: 0;
+    color: white;
+    font-size: ${theme.fontSizes.md};
+    font-weight: 800;
+  `
+);
 
 export const ClearButton = styled.button`
   background-color: inherit;
@@ -48,44 +52,50 @@ export const ChosenGames = styled.main`
   overflow: scroll;
 `;
 
-export const GameHolder = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 13px;
-  background-color: rgb(38, 38, 38);
-  border-radius: 10px;
-
-  @media (max-width: 565px) {
-    gap: 10px;
-  }
-`;
-
-export const Details = styled(Link)`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  text-decoration: none;
-
-  @media (max-width: 565px) {
+export const GameHolder = styled.div(
+  ({ theme }) => css`
+    display: flex;
     flex-direction: column;
-    align-items: flex-end;
-  }
-`;
+    gap: 5px;
+    padding: 13px;
+    background-color: rgb(38, 38, 38);
+    border-radius: 10px;
 
-export const Image = styled.img`
-  flex-shrink: 0;
-  height: 90px;
-  width: 130px;
-  object-fit: cover;
-  border-radius: 8px;
+    @media (max-width: ${theme.breakpoints.md}) {
+      gap: 10px;
+    }
+  `
+);
 
-  @media (max-width: 565px) {
-    height: 120px;
-    width: 100%;
-  }
-`;
+export const Details = styled(Link)(
+  ({ theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    text-decoration: none;
+
+    @media (max-width: ${theme.breakpoints.md}) {
+      flex-direction: column;
+      align-items: flex-end;
+    }
+  `
+);
+
+export const Image = styled.img(
+  ({ theme }) => css`
+    flex-shrink: 0;
+    height: 90px;
+    width: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+
+    @media (max-width: ${theme.breakpoints.md}) {
+      height: 120px;
+      width: 100%;
+    }
+  `
+);
 
 export const Info = styled.div`
   display: flex;
