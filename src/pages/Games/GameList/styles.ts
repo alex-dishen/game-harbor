@@ -49,20 +49,20 @@ export const Price = styled.div`
 `;
 
 export const AddToCart = styled.button<AddToCartTypes>(
-  ({ isInCart }) => css`
+  ({ isInCart, theme }) => css`
     display: flex;
     align-items: center;
     gap: 3px;
     padding: 0;
     background-color: transparent;
-    color: ${isInCart ? 'rgb(24, 176, 171)' : 'rgb(153, 153, 153)'};
+    color: ${isInCart ? theme.colors.teal.teal100 : 'rgb(153, 153, 153)'};
     border: none;
     cursor: ${isInCart ? '' : 'pointer'};
 
     svg {
       height: 18px;
       width: 18px;
-      fill: rgb(24, 176, 171);
+      fill: ${theme.colors.teal.teal100};
     }
   `
 );

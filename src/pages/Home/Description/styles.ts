@@ -59,26 +59,28 @@ export const Links = styled(Pitch)`
   }
 `;
 
-export const Link = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background-color: white;
-  color: black;
-  text-decoration: none;
-  border-radius: 12px;
-  transition: 0.3s;
+export const Link = styled.a(
+  ({ theme }) => css`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: 0.3s;
 
-  &:hover {
-    background-color: rgb(106, 190, 187);
-    transform: scale(1.05);
-  }
+    &:hover {
+      background-color: ${theme.colors.teal.teal50};
+      transform: scale(1.05);
+    }
 
-  &:active {
-    transform: scale(1);
-  }
-`;
+    &:active {
+      transform: scale(1);
+    }
+  `
+);
 
 export const RAWGLogo = styled.img`
   height: 20px;

@@ -1,5 +1,6 @@
 import { CircularProgress } from 'react-cssfx-loading';
 import uniqid from 'uniqid';
+import { useTheme } from 'styled-components';
 import useSearchGames from 'components/Search/useSearchGames';
 import {
   SearchGamesWrapper,
@@ -10,12 +11,13 @@ import {
 
 function SearchGames() {
   const { games, handleOnClick } = useSearchGames();
+  const theme = useTheme();
 
   return (
     <SearchGamesWrapper games={games}>
       {games.length === 0 ? (
         <CircularProgress
-          color="rgb(24, 176, 171)"
+          color={theme.colors.teal.teal100}
           height="80px"
           width="80px"
           duration="2s"

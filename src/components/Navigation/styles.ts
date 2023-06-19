@@ -15,7 +15,7 @@ export const StyledNavigation = styled.div<StyledNavigationTypes>(
 );
 
 export const CartWrapper = styled(InputWrapper)<StyledNavigationTypes>(
-  ({ darkenImages }) => css`
+  ({ darkenImages, theme }) => css`
     position: relative;
     flex-shrink: 0;
     width: fit-content;
@@ -29,7 +29,7 @@ export const CartWrapper = styled(InputWrapper)<StyledNavigationTypes>(
     }
 
     div:last-child {
-      background-color: ${darkenImages ? '#0790F3' : '#18b0ab'};
+      background-color: ${darkenImages ? '#0790F3' : theme.colors.teal.teal100};
     }
   `
 );

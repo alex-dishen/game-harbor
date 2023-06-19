@@ -1,3 +1,4 @@
+import { useTheme } from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
 import { CircularProgress } from 'react-cssfx-loading';
 import useGames from 'pages/Games/useGames';
@@ -15,6 +16,7 @@ import { ReactComponent as Close } from 'assets/images/close.svg';
 
 function Games() {
   const { games, isShowMenu, isHideSidebar, handleOnClick } = useGames();
+  const theme = useTheme();
 
   return (
     <StyledGamePage
@@ -27,7 +29,7 @@ function Games() {
     >
       {games.length === 0 ? (
         <CircularProgress
-          color="rgb(24, 176, 171)"
+          color={theme.colors.teal.teal100}
           height="100px"
           width="100px"
           duration="2.5s"

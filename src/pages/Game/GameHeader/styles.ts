@@ -39,10 +39,10 @@ export const BackButton = styled(Link)(
     }
 
     &:hover {
-      color: rgb(24, 176, 171);
+      color: ${theme.colors.teal.teal100};
 
       svg {
-        fill: rgb(24, 176, 171);
+        fill: ${theme.colors.teal.teal100};
       }
     }
   `
