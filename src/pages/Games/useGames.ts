@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from 'styled-components';
 import { setIsChangeSidebar, setIsHideSidebar } from 'redux/harborSlice';
 import { setGames } from 'redux/gamesSlice';
 import { getGamesList } from 'api/gameData';
 import { RootState } from 'redux/types';
-import { returnGames } from 'helpers';
+import { emToPx, returnGames } from 'helpers';
 import { ORDER_TITLE, FILTER_TITLE } from 'pages/Games/constants';
 import {
   getLast30Days,
@@ -16,6 +17,7 @@ import {
 
 const useGames = () => {
   const dispatch = useDispatch();
+  const theme = useTheme();
   const harborState = useSelector((state: RootState) => state.harbor);
   const gamesState = useSelector((state: RootState) => state.games);
   const [isShowMenu, setIsShowMenu] = useState(false);
@@ -28,7 +30,7 @@ const useGames = () => {
   const manipulateSideBar = () => {
     const { innerWidth } = window;
 
-    if (innerWidth <= 700) {
+    if (innerWidth <= emToPx(theme.breakpoints.md)) {
       setIsShowMenu(true);
       // This check prevents sidebar from hiding when
       // it is opened and user resizes the screen

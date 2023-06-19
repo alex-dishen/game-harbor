@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
+import { useTheme } from 'styled-components';
 import { CircularProgress } from 'react-cssfx-loading';
 import useGameList from 'pages/Games/GameList/useGameList';
 import { platformIcons } from 'pages/Games/GameList/constants';
@@ -18,6 +19,7 @@ import { ReactComponent as Check } from 'assets/images/check.svg';
 
 function GameList() {
   const { games, inCartGames, dispatch, handleNavigation } = useGameList();
+  const theme = useTheme();
 
   return (
     <GameListWrapper games={games}>
@@ -27,7 +29,7 @@ function GameList() {
           array to show the spinner only on gamesList section */}
       {games[0].id === -1 ? (
         <CircularProgress
-          color="rgb(24, 176, 171)"
+          color={theme.colors.teal[100]}
           height="80px"
           width="80px"
           duration="2s"

@@ -1,11 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const SecondaryHeader = styled.h2`
-  margin: 0;
-  font-size: 26px;
-  font-weight: 500;
-  margin-bottom: -15px;
-`;
+export const SecondaryHeader = styled.h2(
+  ({ theme }) => css`
+    margin: 0;
+    font-size: ${theme.fontSizes.lg};
+    font-weight: 500;
+    margin-bottom: -15px;
+  `
+);
 
 export const Section = styled.div`
   display: flex;

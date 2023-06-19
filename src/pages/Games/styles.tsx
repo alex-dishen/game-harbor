@@ -2,12 +2,8 @@ import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 import { StyledGamePageTypes, OverflowTypes } from 'pages/Games/types';
 
-const CustomGamePage = ({ GAMES, ...rest }: StyledGamePageTypes) => (
-  <motion.main {...rest} />
-);
-
-const StyledGamePage = styled(CustomGamePage)<StyledGamePageTypes>(
-  ({ GAMES }) => css`
+const StyledGamePage = styled(motion.main)<StyledGamePageTypes>(
+  ({ GAMES, theme }) => css`
     ${GAMES?.length === 0 && {
       flex: '1',
       justifyContent: 'center',
@@ -18,7 +14,7 @@ const StyledGamePage = styled(CustomGamePage)<StyledGamePageTypes>(
     padding: 0px 30px;
     color: white;
 
-    @media (max-width: 700px) {
+    @media (max-width: ${theme.breakpoints.md}) {
       padding: 25px 0px;
     }
   `
@@ -56,15 +52,17 @@ export const Overflow = styled(MenuHolder)<OverflowTypes>(
   `
 );
 
-const Content = styled.div`
-  flex: 1;
-  padding: 0 15px 10px 15px;
-  padding-bottom: 30px;
-  overflow: scroll;
+const Content = styled.div(
+  ({ theme }) => css`
+    flex: 1;
+    padding: 0 15px 10px 15px;
+    padding-bottom: 30px;
+    overflow: scroll;
 
-  @media (max-width: 700px) {
-    padding: 0 35px 10px 35px;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.md}) {
+      padding: 0 35px 10px 35px;
+    }
+  `
+);
 
 export { StyledGamePage, MenuHolder, Content };

@@ -1,19 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { motion } from 'framer-motion';
 
-export const Main = styled(motion.main)`
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 40px 30px 40px;
+export const Main = styled(motion.main)(
+  ({ theme }) => css`
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px 30px 40px;
 
-  @media (max-width: 815px) {
-    flex-direction: column;
-    justify-content: center;
-    gap: 25px;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.lg}) {
+      flex-direction: column;
+      justify-content: center;
+      gap: 25px;
+    }
+  `
+);
 
 export const Video = styled(motion.video)`
   position: fixed;

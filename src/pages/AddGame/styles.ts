@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const AddGameWrapper = styled.div`
   display: flex;
@@ -7,9 +7,11 @@ export const AddGameWrapper = styled.div`
   color: white;
 `;
 
-export const Header = styled.h1`
-  font-size: 50px;
-`;
+export const Header = styled.h1(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes['2xl']};
+  `
+);
 
 export const InputsWrapper = styled.div`
   position: relative;
@@ -23,6 +25,8 @@ export const InputsWrapper = styled.div`
   }
 `;
 
-export const Star = styled.span`
-  color: #61bdff;
-`;
+export const Star = styled.span(
+  ({ theme }) => css`
+    color: ${theme.colors.blue[50]};
+  `
+);

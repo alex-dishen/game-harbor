@@ -81,3 +81,9 @@ export const handleAddToCart = ({
 
   dispatch(setInCartGames(inCartGames.concat(newCartGames)));
 };
+
+export const emToPx = (emValue: string) => {
+  const numericalValue = parseFloat(emValue);
+
+  return numericalValue * 16;
+};

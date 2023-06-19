@@ -21,50 +21,55 @@ export const SearchGamesWrapper = styled.div<ISearchGamesWrapper>(
   `
 );
 
-export const GameWrapper = styled(Link)`
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  color: black;
-  font-size: 17px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s;
+export const GameWrapper = styled(Link)(
+  ({ theme }) => css`
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.3s;
 
-  &:first-child {
-    padding-top: 20px;
-  }
-  &:last-child {
-    padding-bottom: 20px;
-  }
+    &:first-child {
+      padding-top: 20px;
+    }
+    &:last-child {
+      padding-bottom: 20px;
+    }
 
-  &:hover {
-    background-color: rgb(218, 218, 218);
-  }
+    &:hover {
+      background-color: ${theme.colors.white[200]};
+    }
 
-  @media (max-width: 760px) {
-    flex-direction: column;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.md}) {
+      flex-direction: column;
+    }
+  `
+);
 
-export const BackgroundImage = styled.img`
-  flex-shrink: 0;
-  aspect-ratio: 1.4 / 1;
-  width: 140px;
-  object-fit: cover;
-  background-position: center;
-  border-radius: 8px;
+export const BackgroundImage = styled.img(
+  ({ theme }) => css`
+    flex-shrink: 0;
+    aspect-ratio: 1.4 / 1;
+    width: 140px;
+    object-fit: cover;
+    background-position: center;
+    border-radius: 8px;
 
-  @media (max-width: 760px) {
-    width: 100%;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.md}) {
+      width: 100%;
+    }
+  `
+);
 
-export const GameName = styled.p`
-  margin: 0;
+export const GameName = styled.p(
+  ({ theme }) => css`
+    margin: 0;
 
-  @media (max-width: 760px) {
-    text-align: center;
-  }
-`;
+    @media (max-width: ${theme.breakpoints.md}) {
+      text-align: center;
+    }
+  `
+);

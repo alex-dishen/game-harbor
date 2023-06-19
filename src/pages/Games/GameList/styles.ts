@@ -13,17 +13,19 @@ export const GameListWrapper = styled.div<GameListWrapperTypes>`
   margin-top: 30px;
 `;
 
-export const GameWrapper = styled.div`
-  background-color: rgb(32, 32, 32);
-  color: white;
-  border-radius: 18px;
-  transition: 0.3s;
+export const GameWrapper = styled.div(
+  ({ theme }) => css`
+    background-color: ${theme.colors.black[200]};
+    color: white;
+    border-radius: 18px;
+    transition: 0.3s;
 
-  &:hover {
-    background-color: rgb(45, 45, 45);
-    transform: scale(1.05);
-  }
-`;
+    &:hover {
+      background-color: ${theme.colors.black[200]};
+      transform: scale(1.05);
+    }
+  `
+);
 
 export const Image = styled.img`
   aspect-ratio: 1.7 / 1;
@@ -41,28 +43,30 @@ export const Info = styled.div`
   margin: 15px 20px;
 `;
 
-export const Price = styled.div`
-  display: flex;
-  justify-content: space-between;
-  color: rgb(153, 153, 153);
-  cursor: auto;
-`;
+export const Price = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    justify-content: space-between;
+    color: ${theme.colors.white[50]};
+    cursor: auto;
+  `
+);
 
 export const AddToCart = styled.button<AddToCartTypes>(
-  ({ isInCart }) => css`
+  ({ isInCart, theme }) => css`
     display: flex;
     align-items: center;
     gap: 3px;
     padding: 0;
     background-color: transparent;
-    color: ${isInCart ? 'rgb(24, 176, 171)' : 'rgb(153, 153, 153)'};
+    color: ${isInCart ? theme.colors.teal[100] : theme.colors.white[50]};
     border: none;
     cursor: ${isInCart ? '' : 'pointer'};
 
     svg {
       height: 18px;
       width: 18px;
-      fill: rgb(24, 176, 171);
+      fill: ${theme.colors.teal[100]};
     }
   `
 );
@@ -77,9 +81,11 @@ export const PlatformIcons = styled.div`
   }
 `;
 
-export const GameName = styled(Link)`
-  font-size: 22px;
-  font-weight: 600;
-  text-decoration: none;
-  color: white;
-`;
+export const GameName = styled(Link)(
+  ({ theme }) => css`
+    font-size: ${theme.fontSizes.sm};
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+  `
+);
