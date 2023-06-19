@@ -72,7 +72,7 @@ export const Link = styled.a(
     transition: 0.3s;
 
     &:hover {
-      background-color: ${theme.colors.teal.teal50};
+      background-color: ${theme.colors.teal[50]};
       transform: scale(1.05);
     }
 

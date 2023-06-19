@@ -46,7 +46,7 @@ export const Filter = styled.div`
 `;
 
 export const IconHolder = styled.div<IconHolderTypes>(
-  ({ isHighlight }) => css`
+  ({ isHighlight, theme }) => css`
     /* z-index is needed here to make the function
       get text content of its parent  */
     z-index: -1;
@@ -54,7 +54,7 @@ export const IconHolder = styled.div<IconHolderTypes>(
     height: 38px;
     width: 38px;
     padding: 8px;
-    background-color: ${isHighlight ? 'white' : 'rgb(45, 45, 45)'};
+    background-color: ${isHighlight ? 'white' : theme.colors.black[200]};
     border-radius: 8px;
     transition: 0.5s;
 

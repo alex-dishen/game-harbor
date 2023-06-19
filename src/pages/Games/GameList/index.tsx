@@ -29,7 +29,7 @@ function GameList() {
           array to show the spinner only on gamesList section */}
       {games[0].id === -1 ? (
         <CircularProgress
-          color={theme.colors.teal.teal100}
+          color={theme.colors.teal[100]}
           height="80px"
           width="80px"
           duration="2s"

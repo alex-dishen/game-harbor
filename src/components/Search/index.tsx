@@ -17,7 +17,7 @@ function SearchGames() {
     <SearchGamesWrapper games={games}>
       {games.length === 0 ? (
         <CircularProgress
-          color={theme.colors.teal.teal100}
+          color={theme.colors.teal[100]}
           height="80px"
           width="80px"
           duration="2s"

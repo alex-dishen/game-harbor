@@ -40,7 +40,7 @@ export const GameWrapper = styled(Link)(
     }
 
     &:hover {
-      background-color: rgb(218, 218, 218);
+      background-color: ${theme.colors.white[200]};
     }
 
     @media (max-width: ${theme.breakpoints.md}) {

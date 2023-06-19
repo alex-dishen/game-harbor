@@ -18,7 +18,7 @@ export const Description = styled.div(
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     overflow: scroll;
-    color: rgb(204, 204, 204);
+    color: ${theme.colors.white[150]};
     box-shadow: 0 0 20px rgb(10, 10, 10);
     clip-path: inset(0px 0px -30px 0px);
 
@@ -61,47 +61,51 @@ export const MoreInfo = styled(motion.div)`
   border-bottom-right-radius: 12px;
 `;
 
-export const Details = styled(motion.ul)`
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin: 0;
-  padding: 0;
-  color: rgb(153, 153, 153);
-  list-style: none;
-  overflow: scroll;
-
-  li {
+export const Details = styled(motion.ul)(
+  ({ theme }) => css`
     display: flex;
-    gap: 7px;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    color: ${theme.colors.white[50]};
+    list-style: none;
+    overflow: scroll;
 
-    a {
-      word-break: break-all;
-      text-decoration: none;
-      color: rgb(153, 153, 153);
+    li {
+      display: flex;
+      gap: 7px;
+
+      a {
+        word-break: break-all;
+        text-decoration: none;
+        color: ${theme.colors.white[50]};
+      }
     }
-  }
-`;
+  `
+);
 
-export const MoreButton = styled.div<MoreButtonTypes>`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 5px;
-  padding-top: ${({ showMoreInfo }) => (showMoreInfo ? '5px' : '0')};
-  color: rgb(204, 204, 204);
-  cursor: pointer;
-  transition: 0.3s;
-
-  svg {
-    height: 20px;
-  }
-
-  &:hover {
-    color: white;
+export const MoreButton = styled.div<MoreButtonTypes>(
+  ({ showMoreInfo, theme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 5px;
+    padding-top: ${showMoreInfo ? '5px' : '0'};
+    color: ${theme.colors.white[150]};
+    cursor: pointer;
+    transition: 0.3s;
 
     svg {
-      fill: white;
+      height: 20px;
     }
-  }
-`;
+
+    &:hover {
+      color: white;
+
+      svg {
+        fill: white;
+      }
+    }
+  `
+);

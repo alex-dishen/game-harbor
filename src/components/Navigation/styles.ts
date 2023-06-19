@@ -29,7 +29,9 @@ export const CartWrapper = styled(InputWrapper)<StyledNavigationTypes>(
     }
 
     div:last-child {
-      background-color: ${darkenImages ? '#0790F3' : theme.colors.teal.teal100};
+      background-color: ${darkenImages
+        ? theme.colors.blue[100]
+        : theme.colors.teal[100]};
     }
   `
 );

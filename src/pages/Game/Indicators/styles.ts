@@ -28,14 +28,14 @@ export const Status = styled.span<StatusTypes>(
     display: flex;
     align-items: center;
     gap: 8px;
-    color: ${isInCart ? theme.colors.teal.teal100 : 'white'};
+    color: ${isInCart ? theme.colors.teal[100] : 'white'};
     font-size: ${theme.fontSizes.sm};
     font-weight: 600;
     cursor: ${isInCart ? '' : 'pointer'};
 
     svg {
       height: 25px;
-      fill: ${theme.colors.teal.teal100} !important;
+      fill: ${theme.colors.teal[100]} !important;
     }
   `
 );

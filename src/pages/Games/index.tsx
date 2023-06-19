@@ -29,7 +29,7 @@ function Games() {
     >
       {games.length === 0 ? (
         <CircularProgress
-          color={theme.colors.teal.teal100}
+          color={theme.colors.teal[100]}
           height="100px"
           width="100px"
           duration="2.5s"

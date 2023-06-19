@@ -25,6 +25,8 @@ export const InputsWrapper = styled.div`
   }
 `;
 
-export const Star = styled.span`
-  color: #61bdff;
-`;
+export const Star = styled.span(
+  ({ theme }) => css`
+    color: ${theme.colors.blue[50]};
+  `
+);

@@ -21,7 +21,9 @@ export const HeaderWrapper = styled.header<HeaderWrapperTypes>(
     height: 90px;
     gap: 20px;
     padding: 20px 40px;
-    background-color: ${isModifyHeader ? 'rgb(15, 16, 17)' : 'transparent'};
+    background-color: ${isModifyHeader
+      ? theme.colors.black[250]
+      : 'transparent'};
     color: white;
     transition: top 0.5s;
 

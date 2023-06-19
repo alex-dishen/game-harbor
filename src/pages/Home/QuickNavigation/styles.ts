@@ -51,7 +51,7 @@ export const StyledLink = styled(Link)(
     text-decoration: none;
 
     &:hover {
-      background-color: ${theme.colors.teal.teal50};
+      background-color: ${theme.colors.teal[50]};
       transform: scale(1.05);
     }
 

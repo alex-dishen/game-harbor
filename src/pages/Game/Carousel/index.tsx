@@ -15,8 +15,8 @@ function Carousel() {
       showDots={screenshots[1].id !== 0}
       sizeForDefaultDot={9}
       sizeForDefaultActiveDot={11}
-      dotColor="rgb(140, 140, 140)"
-      activeDotColor={theme.colors.teal.teal100}
+      dotColor={theme.colors.white[50]}
+      activeDotColor={theme.colors.teal[100]}
       nextButton={screenshots[1].id === 0 || <ChevronRight />}
       prevButton={screenshots[1].id === 0 || <ChevronLeft />}
       dotsAnimation="sliding"

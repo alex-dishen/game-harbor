@@ -18,31 +18,29 @@ export const FontSizes = {
 
 export const Colors = {
   teal: {
-    teal50: '#6abebb',
-    teal100: '#18b0ab',
+    50: '#6abebb',
+    100: '#18b0ab',
+  },
+  blue: {
+    50: '#61bdff',
+    100: '#0790F3',
+    150: '#1E80C7',
+  },
+  black: {
+    50: '#404040',
+    100: '#2d2d2d',
+    150: '#262626',
+    200: '#202020',
+    250: '#0f1011',
+  },
+  white: {
+    50: '#999999',
+    100: '#bcbcbc',
+    150: '#cccccc',
+    200: '#dadada',
+    250: '#e5e5e5',
   },
 };
-
-// #61bdff
-// #1E80C7
-// #0790F3
-
-// rgb(15, 16, 17)
-// rgb(26, 26, 26)
-// rgb(32, 32, 32)
-// rgb(38, 38, 38)
-// rgb(45, 45, 45)
-// rgb(46, 46, 46)
-// rgb(153, 153, 153)
-// rgb(64, 64, 64)
-// rgb(218, 218, 218)
-// #4F4F4F
-// #bcbcbc
-// rgba(255, 255, 255, 0.2)
-// rgba(255, 255, 255, 0.8)
-// rgb(140, 140, 140)
-// rgb(204, 204, 204)
-// rgb(229, 229, 229)
 
 const theme: DefaultTheme = {
   breakpoints: BreakPoints,

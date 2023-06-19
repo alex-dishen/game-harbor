@@ -12,8 +12,8 @@ export const CartWrapper = styled(motion.div)(
     height: 100vh;
     width: 360px;
     padding: 30px;
-    background-color: rgb(26, 26, 26);
-    color: rgb(153, 153, 153);
+    background-color: ${theme.colors.black[200]};
+    color: ${theme.colors.white[50]};
 
     @media (max-width: ${theme.breakpoints.md}) {
       width: 280px;
@@ -58,7 +58,7 @@ export const GameHolder = styled.div(
     flex-direction: column;
     gap: 5px;
     padding: 13px;
-    background-color: rgb(38, 38, 38);
+    background-color: ${theme.colors.black[150]};
     border-radius: 10px;
 
     @media (max-width: ${theme.breakpoints.md}) {
@@ -103,26 +103,30 @@ export const Info = styled.div`
   gap: 8px;
 `;
 
-export const Detail = styled.p`
-  margin: 0;
-  text-align: end;
-  color: rgb(153, 153, 153);
+export const Detail = styled.p(
+  ({ theme }) => css`
+    margin: 0;
+    text-align: end;
+    color: ${theme.colors.white[50]};
 
-  &:first-child {
-    color: white;
-  }
-`;
+    &:first-child {
+      color: white;
+    }
+  `
+);
 
-export const Cross = styled.div`
-  display: flex;
-  justify-content: center;
-  align-self: flex-end;
-  height: 22px;
-  width: 22px;
-  background-color: rgb(64, 64, 64);
-  border-radius: 50%;
-  cursor: pointer;
-`;
+export const Cross = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    justify-content: center;
+    align-self: flex-end;
+    height: 22px;
+    width: 22px;
+    background-color: ${theme.colors.black[250]};
+    border-radius: 50%;
+    cursor: pointer;
+  `
+);
 
 export const TotalPrice = styled.footer`
   color: inherit;

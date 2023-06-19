@@ -26,7 +26,7 @@ export const BackButton = styled(Link)(
     display: flex;
     align-items: center;
     gap: 10px;
-    color: rgb(204, 204, 204);
+    color: ${theme.colors.white[150]};
     font-size: ${theme.fontSizes.sm};
     font-weight: 600;
     text-decoration: none;
@@ -39,10 +39,10 @@ export const BackButton = styled(Link)(
     }
 
     &:hover {
-      color: ${theme.colors.teal.teal100};
+      color: ${theme.colors.teal[100]};
 
       svg {
-        fill: ${theme.colors.teal.teal100};
+        fill: ${theme.colors.teal[100]};
       }
     }
   `
