@@ -25,6 +25,7 @@ const Form = () => (
       <Input type="date" title="Release date" isRequired />
       {GameDetails.map(detail => (
         <SelectionInput
+          key={detail.id}
           type="selection"
           title={detail.title}
           placeholder={detail.placeholder}

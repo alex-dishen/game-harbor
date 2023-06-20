@@ -1,5 +1,4 @@
 import { CircularProgress } from 'react-cssfx-loading'
-import uniqid from 'uniqid'
 import { useTheme } from 'styled-components'
 import useSearchGames from 'components/Search/useSearchGames'
 import {
@@ -26,7 +25,7 @@ const SearchGames = () => {
         <>
           {games.map(game => (
             <GameWrapper
-              key={uniqid()}
+              key={game.id}
               to="games/game"
               onClick={() => handleOnClick(game.id)}
             >

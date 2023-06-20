@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import uniqid from 'uniqid'
+import { nanoid } from 'nanoid'
 import { useTheme } from 'styled-components'
 import { CircularProgress } from 'react-cssfx-loading'
 import useGameList from 'pages/Games/GameList/useGameList'
@@ -45,7 +45,7 @@ const GameList = () => {
               parent_platforms,
               name,
             }) => (
-              <GameWrapper key={uniqid()}>
+              <GameWrapper key={nanoid()}>
                 <Link to="game" onClick={() => handleNavigation(id)}>
                   <Image src={background_image} />
                 </Link>
@@ -75,7 +75,7 @@ const GameList = () => {
                   </Price>
                   <PlatformIcons>
                     {parent_platforms.map(({ platform }) => (
-                      <span key={uniqid()}>{platformIcons[platform.slug]}</span>
+                      <span key={nanoid()}>{platformIcons[platform.slug]}</span>
                     ))}
                   </PlatformIcons>
                   <GameName to="game" onClick={() => handleNavigation(id)}>
