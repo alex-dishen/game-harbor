@@ -6,6 +6,7 @@ node_modules
 /dist
 .firebase
 *.log
+.eslintcache
 
 # misc
 .env

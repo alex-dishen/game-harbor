@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux'
 import {
   setPlatforms,
   setGenres,
@@ -6,11 +6,11 @@ import {
   setSelectedPlatforms,
   setPublishers,
   setDevelopers,
-} from 'redux/addGameSlice';
-import { RootState } from 'redux/types';
+} from 'redux/addGameSlice'
+import { RootState } from 'redux/types'
 
 export const useSelectedOptions = () => {
-  const addGamesState = useSelector((state: RootState) => state.addGame);
+  const addGamesState = useSelector((state: RootState) => state.addGame)
 
   const {
     platforms,
@@ -19,38 +19,38 @@ export const useSelectedOptions = () => {
     selectedGenres,
     publishers,
     developers,
-  } = addGamesState;
+  } = addGamesState
 
   const optionsList = {
     Platforms: platforms,
     Genres: genres,
     Publishers: publishers,
     Developers: developers,
-  };
+  }
 
   const selectedOptionsList = {
     Platforms: selectedPlatforms,
     Genres: selectedGenres,
     Publishers: publishers,
     Developers: developers,
-  };
+  }
 
   const setOptionsList = {
     Platforms: setPlatforms,
     Genres: setGenres,
-  };
+  }
 
   const setSelectedOptionsList = {
     Platforms: setSelectedPlatforms,
     Genres: setSelectedGenres,
     Publishers: setPublishers,
     Developers: setDevelopers,
-  };
+  }
 
   return {
     optionsList,
     selectedOptionsList,
     setOptionsList,
     setSelectedOptionsList,
-  };
-};
+  }
+}

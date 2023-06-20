@@ -8,7 +8,9 @@
     "build:prod": "vite build --base=/game-harbor/",
     "build:dev": "vite build",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:format": "prettier --write --loglevel warn \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
+    "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore ",
+    "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
@@ -47,5 +49,6 @@
     "vite": "^4.2.1",
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.0.7"
-  }
+  },
+  "pre-commit": "lint-tsc"
 }

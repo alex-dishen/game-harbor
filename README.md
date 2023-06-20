@@ -4,7 +4,6 @@
 
 <p align='center'>Shopping Cart for <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript">The Odin Project</a></p>
 
-
 ## Demo
 
 🔥 [Live Demo](https://alex-dishen.github.io/game-harbor/)
@@ -73,5 +72,6 @@ $ yarn start
 ```
 
 ## **Navigation**
-* See my previous project [Currency Converter](https://github.com/alex-dishen/currency-converter)
-* See my next project [Swipi](https://github.com/midstem/swipi)
+
+- See my previous project [Currency Converter](https://github.com/alex-dishen/currency-converter)
+- See my next project [Swipi](https://github.com/midstem/swipi)
