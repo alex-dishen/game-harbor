@@ -3,10 +3,10 @@ import SelectionInput from 'pages/AddGame/SelectionInput'
 import TextArea from 'pages/AddGame/TextArea'
 import ButtonGroup from 'pages/AddGame/ButtonGroup'
 import { GameDetails } from 'pages/AddGame/constants'
-import { SecondaryHeader, Section } from 'pages/AddGame/Form/styles'
+import { SecondaryHeader, Section, StyledForm } from 'pages/AddGame/Form/styles'
 
 const Form = () => (
-  <form onSubmit={e => e.preventDefault()}>
+  <StyledForm onSubmit={e => e.preventDefault()}>
     <Section>
       <SecondaryHeader>General information</SecondaryHeader>
       <Input type="text" title="Title" placeHolder="Add title" isRequired />
@@ -40,7 +40,7 @@ const Form = () => (
     </Section>
 
     <ButtonGroup />
-  </form>
+  </StyledForm>
 )
 
 export default Form

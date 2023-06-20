@@ -1,10 +1,17 @@
 import styled, { css } from 'styled-components'
 
-export const SelectionBody = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 15px;
-`
+export const SelectionBody = styled.div(
+  ({ theme }) => css`
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    @media (max-width: ${theme.breakpoints.sm}) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  `,
+)
 
 export const AddButton = styled.button(
   ({ theme }) => css`

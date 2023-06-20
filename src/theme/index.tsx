@@ -11,9 +11,10 @@ export const FontSizes = {
   sm: '1.375rem', // 22px
   md: '1.5rem', // 24px
   lg: '1.625rem', // 26px
-  xl: '2.875rem', // 46px
-  '2xl': '3.125rem', // 50px
-  '3xl': '3.75rem', // 60px
+  xl: '2.5rem', // 46px
+  '2xl': '3.125rem', // 46px
+  '3xl': '3.125rem', // 50px
+  '4xl': '3.75rem', // 60px
 }
 
 export const Colors = {
