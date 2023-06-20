@@ -29,7 +29,7 @@ export const Header = styled.h1(
   ({ theme }) => css`
     margin: 0;
     text-align: center;
-    font-size: ${theme.fontSizes['2xl']};
+    font-size: ${theme.fontSizes['3xl']};
     font-weight: 800;
   `,
 )

@@ -69,7 +69,7 @@ const SelectionInput = ({
           <Image src={selectedImage} />
         ) : (
           <>
-            {selectedOptions?.length === 0 ? (
+            {selectedOptions?.length === 0 || !selectedOptions ? (
               <DescriptionHolder>
                 <p>{emoji}</p>
                 <p>{description}</p>

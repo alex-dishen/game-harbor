@@ -9,7 +9,12 @@ export const AddGameWrapper = styled.div`
 
 export const Header = styled.h1(
   ({ theme }) => css`
-    font-size: ${theme.fontSizes['2xl']};
+    font-size: ${theme.fontSizes['3xl']};
+    text-align: center;
+
+    @media (max-width: ${theme.breakpoints.md}) {
+      font-size: ${theme.fontSizes.xl};
+    }
   `,
 )
 

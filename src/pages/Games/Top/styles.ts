@@ -15,11 +15,11 @@ export const StyledTop = styled.div(
 
 export const FilterName = styled.div(
   ({ theme }) => css`
-    font-size: ${theme.fontSizes['3xl']};
+    font-size: ${theme.fontSizes['4xl']};
     font-weight: 800;
 
     @media (max-width: ${theme.breakpoints.md}) {
-      font-size: ${theme.fontSizes.xl};
+      font-size: ${theme.fontSizes['2xl']};
     }
   `,
 )

@@ -1,5 +1,11 @@
 import styled, { css } from 'styled-components'
 
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 export const SecondaryHeader = styled.h2(
   ({ theme }) => css`
     margin: 0;
@@ -14,7 +20,7 @@ export const Section = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 45px;
-  width: clamp(280px, 65vw, 570px);
+  width: clamp(340px, 80vw, 550px);
   margin-bottom: 40px;
   padding: 40px;
   background-color: rgba(255, 255, 255, 0.2);
