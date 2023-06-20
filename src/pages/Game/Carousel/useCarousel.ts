@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import uniqid from 'uniqid'
+import { nanoid } from 'nanoid'
 import { RootState } from 'redux/types'
 
 const useCarousel = () => {
@@ -8,7 +8,7 @@ const useCarousel = () => {
   const { gameSpecification, gameScreenshots } = gamesState
 
   const gameBackground = {
-    id: uniqid(),
+    id: nanoid(),
     image: gameSpecification.background_image,
   }
   const screenshots = [gameBackground, ...gameScreenshots.results]

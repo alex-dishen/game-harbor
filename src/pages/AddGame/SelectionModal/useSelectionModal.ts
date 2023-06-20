@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import uniqid from 'uniqid'
+import { nanoid } from 'nanoid'
 import { setPublishers, setDevelopers } from 'redux/addGameSlice'
 import { useSelectedOptions } from 'hooks/useSelectedOptions'
 import { RootState } from 'redux/types'
@@ -51,7 +51,7 @@ export const useSelectionModal = (title: TitleT) => {
       dispatch(
         setPublishers([
           ...publishers,
-          { key: uniqid(), name: publishersInputValue },
+          { key: nanoid(), name: publishersInputValue },
         ]),
       )
 
@@ -59,7 +59,7 @@ export const useSelectionModal = (title: TitleT) => {
       dispatch(
         setDevelopers([
           ...developers,
-          { key: uniqid(), name: developersInputValue },
+          { key: nanoid(), name: developersInputValue },
         ]),
       )
   }

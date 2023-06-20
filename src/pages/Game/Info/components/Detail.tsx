@@ -1,4 +1,4 @@
-import uniqid from 'uniqid'
+import { nanoid } from 'nanoid'
 import { setEmptyOrComa } from 'pages/Game/Info/helpers'
 
 interface DevelopersProps {
@@ -9,7 +9,7 @@ const Details = ({ specifications }: DevelopersProps) => {
   return (
     <span>
       {specifications.map((specification, index) => (
-        <span key={uniqid()}>
+        <span key={nanoid()}>
           {specification.name ? (
             <>
               {specification.name + setEmptyOrComa(index, specifications as [])}

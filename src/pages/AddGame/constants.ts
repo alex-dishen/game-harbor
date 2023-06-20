@@ -1,7 +1,9 @@
+import { nanoid } from 'nanoid'
 import { PLATFORMS, GENRES } from '../../constants'
 
 export const GameDetails = [
   {
+    id: nanoid(),
     title: 'Platforms',
     isRequired: true,
     placeholder: 'Add platform',
@@ -13,6 +15,7 @@ export const GameDetails = [
     optionsList: PLATFORMS,
   },
   {
+    id: nanoid(),
     title: 'Genres',
     isRequired: true,
     placeholder: 'Add genre',
@@ -24,6 +27,7 @@ export const GameDetails = [
     optionsList: GENRES,
   },
   {
+    id: nanoid(),
     title: 'Publishers',
     placeholder: 'Add publisher',
     emoji: '🧑🏻‍💻',
@@ -33,6 +37,7 @@ export const GameDetails = [
     inputPlaceholder: 'Specify publishers',
   },
   {
+    id: nanoid(),
     title: 'Developers',
     isRequired: true,
     placeholder: 'Add developer',

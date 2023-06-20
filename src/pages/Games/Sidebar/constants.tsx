@@ -1,24 +1,24 @@
-import uniqid from 'uniqid'
+import { nanoid } from 'nanoid'
 import { RELEASES, TOP_GAMES, PLATFORMS, GENRES } from '../../../constants'
 
 export const filters = [
   {
-    id: uniqid(),
+    id: nanoid(),
     header: 'NewReleases',
     options: RELEASES,
   },
   {
-    id: uniqid(),
+    id: nanoid(),
     header: 'Top',
     options: TOP_GAMES,
   },
   {
-    id: uniqid(),
+    id: nanoid(),
     header: 'Platforms',
     options: PLATFORMS,
   },
   {
-    id: uniqid(),
+    id: nanoid(),
     header: 'Genres',
     options: GENRES,
   },

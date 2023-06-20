@@ -1,23 +1,23 @@
-import uniqid from 'uniqid'
+import { nanoid } from 'nanoid'
 
 export const specifications = [
   {
-    id: uniqid(),
+    id: nanoid(),
     name: 'Genres:',
     category: 'genres',
   },
   {
-    id: uniqid(),
+    id: nanoid(),
     name: 'Platforms:',
     category: 'platforms',
   },
   {
-    id: uniqid(),
+    id: nanoid(),
     name: 'Developers:',
     category: 'developers',
   },
   {
-    id: uniqid(),
+    id: nanoid(),
     name: 'Publishers:',
     category: 'publishers',
   },
