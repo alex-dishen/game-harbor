@@ -1,10 +1,9 @@
-import { Link } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import useHeader from 'components/Header/useHeader';
-import Cart from 'components/Cart';
-import SearchGames from 'components/Search';
-import Navigation from 'components/Navigation';
-import { PATHS } from '../../constants';
+import { Link } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import useHeader from 'components/Header/useHeader'
+import Cart from 'components/Cart'
+import SearchGames from 'components/Search'
+import Navigation from 'components/Navigation'
 import {
   HeaderWrapper,
   LogoWrapper,
@@ -12,10 +11,11 @@ import {
   InputWrapper,
   Input,
   MagnifyGlass,
-} from 'components/Header/styles';
-import logo from 'assets/images/logo.png';
+} from 'components/Header/styles'
+import logo from 'assets/images/logo.png'
+import { PATHS } from '../../constants'
 
-function Header() {
+const Header = () => {
   const {
     scrollDirection,
     isModifyHeader,
@@ -29,7 +29,7 @@ function Header() {
     handleKeyDown,
     handleOnFocus,
     handleSearchedGames,
-  } = useHeader();
+  } = useHeader()
 
   return (
     <>
@@ -61,7 +61,7 @@ function Header() {
       </HeaderWrapper>
       <AnimatePresence>{isOpenCart && <Cart />}</AnimatePresence>
     </>
-  );
+  )
 }
 
-export default Header;
+export default Header

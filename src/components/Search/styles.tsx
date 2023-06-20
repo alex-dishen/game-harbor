@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import { ISearchGamesWrapper } from 'components/Search/interfaces';
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
+import { ISearchGamesWrapper } from 'components/Search/interfaces'
 
 export const SearchGamesWrapper = styled.div<ISearchGamesWrapper>(
   ({ games }) => css`
@@ -18,8 +18,8 @@ export const SearchGamesWrapper = styled.div<ISearchGamesWrapper>(
     border-radius: 16px;
     overflow: scroll;
     box-shadow: 0 0 20px #000000;
-  `
-);
+  `,
+)
 
 export const GameWrapper = styled(Link)(
   ({ theme }) => css`
@@ -46,8 +46,8 @@ export const GameWrapper = styled(Link)(
     @media (max-width: ${theme.breakpoints.md}) {
       flex-direction: column;
     }
-  `
-);
+  `,
+)
 
 export const BackgroundImage = styled.img(
   ({ theme }) => css`
@@ -61,8 +61,8 @@ export const BackgroundImage = styled.img(
     @media (max-width: ${theme.breakpoints.md}) {
       width: 100%;
     }
-  `
-);
+  `,
+)
 
 export const GameName = styled.p(
   ({ theme }) => css`
@@ -71,5 +71,5 @@ export const GameName = styled.p(
     @media (max-width: ${theme.breakpoints.md}) {
       text-align: center;
     }
-  `
-);
+  `,
+)

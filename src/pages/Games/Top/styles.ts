@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const StyledTop = styled.div(
   ({ theme }) => css`
@@ -10,8 +10,8 @@ export const StyledTop = styled.div(
     @media (max-width: ${theme.breakpoints.md}) {
       align-items: center;
     }
-  `
-);
+  `,
+)
 
 export const FilterName = styled.div(
   ({ theme }) => css`
@@ -21,8 +21,8 @@ export const FilterName = styled.div(
     @media (max-width: ${theme.breakpoints.md}) {
       font-size: ${theme.fontSizes.xl};
     }
-  `
-);
+  `,
+)
 
 export const OrderWrapper = styled.div`
   position: relative;
@@ -32,7 +32,7 @@ export const OrderWrapper = styled.div`
     height: 20px;
     width: 20px;
   }
-`;
+`
 
 export const Order = styled.div(
   ({ theme }) => css`
@@ -49,8 +49,8 @@ export const Order = styled.div(
     span {
       font-weight: 700;
     }
-  `
-);
+  `,
+)
 
 export const OptionWrapper = styled.ul(
   ({ theme }) => css`
@@ -77,8 +77,8 @@ export const OptionWrapper = styled.ul(
         background-color: ${theme.colors.white[250]};
       }
     }
-  `
-);
+  `,
+)
 
 export const Option = styled.li`
   display: flex;
@@ -89,4 +89,4 @@ export const Option = styled.li`
   svg {
     fill: green;
   }
-`;
+`

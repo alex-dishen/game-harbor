@@ -1,12 +1,12 @@
-import Input from 'pages/AddGame/Input';
-import SelectionInput from 'pages/AddGame/SelectionInput';
-import TextArea from 'pages/AddGame/TextArea';
-import ButtonGroup from 'pages/AddGame/ButtonGroup';
-import { GameDetails } from 'pages/AddGame/constants';
-import { SecondaryHeader, Section } from 'pages/AddGame/Form/styles';
+import Input from 'pages/AddGame/Input'
+import SelectionInput from 'pages/AddGame/SelectionInput'
+import TextArea from 'pages/AddGame/TextArea'
+import ButtonGroup from 'pages/AddGame/ButtonGroup'
+import { GameDetails } from 'pages/AddGame/constants'
+import { SecondaryHeader, Section } from 'pages/AddGame/Form/styles'
 
 const Form = () => (
-  <form onSubmit={(e) => e.preventDefault()}>
+  <form onSubmit={e => e.preventDefault()}>
     <Section>
       <SecondaryHeader>General information</SecondaryHeader>
       <Input type="text" title="Title" placeHolder="Add title" isRequired />
@@ -23,7 +23,7 @@ const Form = () => (
 
     <Section>
       <Input type="date" title="Release date" isRequired />
-      {GameDetails.map((detail) => (
+      {GameDetails.map(detail => (
         <SelectionInput
           type="selection"
           title={detail.title}
@@ -41,6 +41,6 @@ const Form = () => (
 
     <ButtonGroup />
   </form>
-);
+)
 
-export default Form;
+export default Form

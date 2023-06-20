@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const StyledDescription = styled.div`
   display: flex;
   flex-direction: column;
   gap: 25px;
-`;
+`
 
 export const Pitch = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ export const Pitch = styled.div`
   p {
     margin: 0;
   }
-`;
+`
 
 export const Header = styled.h1(
   ({ theme }) => css`
@@ -31,8 +31,8 @@ export const Header = styled.h1(
     text-align: center;
     font-size: ${theme.fontSizes['2xl']};
     font-weight: 800;
-  `
-);
+  `,
+)
 
 export const EnjoyBlock = styled.div(
   ({ theme }) => css`
@@ -42,8 +42,8 @@ export const EnjoyBlock = styled.div(
     p:last-child {
       font-size: ${theme.fontSizes.sm};
     }
-  `
-);
+  `,
+)
 
 export const Links = styled(Pitch)`
   display: flex;
@@ -57,7 +57,7 @@ export const Links = styled(Pitch)`
     height: 22px;
     width: 22px;
   }
-`;
+`
 
 export const Link = styled.a(
   ({ theme }) => css`
@@ -79,9 +79,9 @@ export const Link = styled.a(
     &:active {
       transform: scale(1);
     }
-  `
-);
+  `,
+)
 
 export const RAWGLogo = styled.img`
   height: 20px;
-`;
+`

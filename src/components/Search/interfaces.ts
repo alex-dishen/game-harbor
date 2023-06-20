@@ -1,5 +1,5 @@
-import { GameTypes } from 'api/types';
+import { GameTypes } from 'api/types'
 
 export interface ISearchGamesWrapper {
-  games: GameTypes[];
+  games: GameTypes[]
 }

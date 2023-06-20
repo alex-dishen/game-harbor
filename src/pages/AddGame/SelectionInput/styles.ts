@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const SelectionBody = styled.div`
   display: flex;
   align-items: center;
   gap: 15px;
-`;
+`
 
 export const AddButton = styled.button(
   ({ theme }) => css`
@@ -32,17 +32,17 @@ export const AddButton = styled.button(
         fill: rgba(255, 255, 255, 0.8);
       }
     }
-  `
-);
+  `,
+)
 
 export const DescriptionHolder = styled.div`
   display: flex;
   gap: 5px;
-`;
+`
 
 export const Image = styled.img`
   height: 50px;
   width: 70px;
   object-fit: cover;
   border-radius: 5px;
-`;
+`

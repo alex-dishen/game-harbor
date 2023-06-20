@@ -1,9 +1,9 @@
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'framer-motion'
 
 export type StyledSidebarTypes = MotionProps & {
-  isChangeSidebar: boolean;
-};
+  isChangeSidebar: boolean
+}
 
 export type IconHolderTypes = {
-  isHighlight: boolean;
-};
+  isHighlight: boolean
+}

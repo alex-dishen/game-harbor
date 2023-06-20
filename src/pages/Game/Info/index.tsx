@@ -1,25 +1,25 @@
-import { AnimatePresence } from 'framer-motion';
-import { InfoGameSpecificationTypes } from 'api/types';
-import useInfo from 'pages/Game/Info/useInfo';
-import Detail from 'pages/Game/Info/components/Detail';
-import { specifications } from 'pages/Game/Info/constants';
-import { ReactComponent as ChevronDown } from 'assets/images/chevron-down.svg';
-import { ReactComponent as ChevronUp } from 'assets/images/chevron-up.svg';
+import { AnimatePresence } from 'framer-motion'
+import { InfoGameSpecificationTypes } from 'api/types'
+import useInfo from 'pages/Game/Info/useInfo'
+import Detail from 'pages/Game/Info/components/Detail'
+import { specifications } from 'pages/Game/Info/constants'
+import { ReactComponent as ChevronDown } from 'assets/images/chevron-down.svg'
+import { ReactComponent as ChevronUp } from 'assets/images/chevron-up.svg'
 import {
   StyledInfo,
   Description,
   MoreInfo,
   Details,
   MoreButton,
-} from 'pages/Game/Info/styles';
+} from 'pages/Game/Info/styles'
 
-function Info() {
+const Info = () => {
   const {
     gameSpecification,
     showMoreInfo,
     openAndHideMoreInfo,
     getReleaseDate,
-  } = useInfo();
+  } = useInfo()
 
   return (
     <StyledInfo>
@@ -71,7 +71,7 @@ function Info() {
         </MoreButton>
       </MoreInfo>
     </StyledInfo>
-  );
+  )
 }
 
-export default Info;
+export default Info

@@ -1,17 +1,17 @@
-import { Link } from 'react-router-dom';
-import { useNavigation } from 'components/Navigation/useNavigation';
-import { PATHS } from '../../constants';
+import { Link } from 'react-router-dom'
+import { useNavigation } from 'components/Navigation/useNavigation'
 import {
   StyledNavigation,
   CartWrapper,
   Circle,
-} from 'components/Navigation/styles';
-import { ReactComponent as Divider } from 'assets/images/divider.svg';
-import { ReactComponent as CartSVG } from 'assets/images/cart.svg';
-import { ReactComponent as Plus } from 'assets/images/plus.svg';
+} from 'components/Navigation/styles'
+import { ReactComponent as Divider } from 'assets/images/divider.svg'
+import { ReactComponent as CartSVG } from 'assets/images/cart.svg'
+import { ReactComponent as Plus } from 'assets/images/plus.svg'
+import { PATHS } from '../../constants'
 
 const Navigation = () => {
-  const { isAddGamePage, inCartGames, openCart } = useNavigation();
+  const { isAddGamePage, inCartGames, openCart } = useNavigation()
 
   return (
     <StyledNavigation darkenImages={isAddGamePage}>
@@ -24,7 +24,7 @@ const Navigation = () => {
         {inCartGames.length > 0 && <Circle />}
       </CartWrapper>
     </StyledNavigation>
-  );
-};
+  )
+}
 
-export default Navigation;
+export default Navigation

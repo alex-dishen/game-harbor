@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import styled, { css } from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const Main = styled(motion.main)(
   ({ theme }) => css`
@@ -14,8 +14,8 @@ export const Main = styled(motion.main)(
       justify-content: center;
       gap: 25px;
     }
-  `
-);
+  `,
+)
 
 export const Video = styled(motion.video)`
   position: fixed;
@@ -23,4 +23,4 @@ export const Video = styled(motion.video)`
   width: 100%;
   height: 100vh;
   object-fit: cover;
-`;
+`

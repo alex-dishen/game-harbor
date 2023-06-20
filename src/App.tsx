@@ -1,18 +1,18 @@
-import { Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
-import Home from 'pages/Home';
-import Games from 'pages/Games';
-import Game from 'pages/Game';
-import AddGame from 'pages/AddGame';
-import Header from 'components/Header';
-import useScrollToTop from 'hooks/useScrollToTop';
-import { PATHS } from './constants';
-import 'styles/normalize.css';
-import 'styles/fonts.css';
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import Home from 'pages/Home'
+import Games from 'pages/Games'
+import Game from 'pages/Game'
+import AddGame from 'pages/AddGame'
+import useScrollToTop from 'hooks/useScrollToTop'
+import Header from 'components/Header'
+import { PATHS } from './constants'
+import 'styles/normalize.css'
+import 'styles/fonts.css'
 
-function App() {
-  const location = useLocation();
-  useScrollToTop();
+const App = () => {
+  const location = useLocation()
+  useScrollToTop()
 
   return (
     <>
@@ -26,7 +26,7 @@ function App() {
         </Routes>
       </AnimatePresence>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

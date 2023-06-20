@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { ButtonT } from 'pages/AddGame/ButtonGroup/types';
+import styled, { css } from 'styled-components'
+import { ButtonT } from 'pages/AddGame/ButtonGroup/types'
 
 export const ButtonGroupWrapper = styled.div`
   position: sticky;
@@ -8,7 +8,7 @@ export const ButtonGroupWrapper = styled.div`
   justify-content: center;
   gap: 40px;
   margin-bottom: 50px;
-`;
+`
 
 export const Button = styled.button<ButtonT>(
   ({ color }) => css`
@@ -16,5 +16,5 @@ export const Button = styled.button<ButtonT>(
     background-color: ${color};
     color: white;
     border-radius: 10px;
-  `
-);
+  `,
+)

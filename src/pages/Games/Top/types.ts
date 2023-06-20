@@ -1,3 +1,3 @@
 export type OrderTypes = {
-  orderTitle: string;
-};
+  orderTitle: string
+}

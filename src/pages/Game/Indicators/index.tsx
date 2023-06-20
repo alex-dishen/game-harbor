@@ -1,11 +1,11 @@
-import usePrice from 'pages/Game/Indicators/useIndicators';
-import { StyledPrice, Status } from 'pages/Game/Indicators/styles';
-import { ReactComponent as Check } from 'assets/images/check.svg';
-import { handleAddToCart } from 'helpers';
+import usePrice from 'pages/Game/Indicators/useIndicators'
+import { StyledPrice, Status } from 'pages/Game/Indicators/styles'
+import { ReactComponent as Check } from 'assets/images/check.svg'
+import { handleAddToCart } from 'helpers'
 
-function Price() {
+const Price = () => {
   const { games, gameID, isInCart, gamePrice, inCartGames, dispatch } =
-    usePrice();
+    usePrice()
 
   return (
     <StyledPrice>
@@ -25,7 +25,7 @@ function Price() {
         )}
       </Status>
     </StyledPrice>
-  );
+  )
 }
 
-export default Price;
+export default Price

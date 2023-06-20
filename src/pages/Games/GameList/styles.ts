@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 import {
   GameListWrapperTypes,
   AddToCartTypes,
-} from 'pages/Games/GameList/types';
+} from 'pages/Games/GameList/types'
 
 export const GameListWrapper = styled.div<GameListWrapperTypes>`
   display: ${({ games }) => (games[0].id === -1 ? 'flex' : 'grid')};
@@ -11,7 +11,7 @@ export const GameListWrapper = styled.div<GameListWrapperTypes>`
   justify-content: center;
   gap: 30px;
   margin-top: 30px;
-`;
+`
 
 export const GameWrapper = styled.div(
   ({ theme }) => css`
@@ -24,8 +24,8 @@ export const GameWrapper = styled.div(
       background-color: ${theme.colors.black[200]};
       transform: scale(1.05);
     }
-  `
-);
+  `,
+)
 
 export const Image = styled.img`
   aspect-ratio: 1.7 / 1;
@@ -34,14 +34,14 @@ export const Image = styled.img`
   background-position: center;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
-`;
+`
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin: 15px 20px;
-`;
+`
 
 export const Price = styled.div(
   ({ theme }) => css`
@@ -49,8 +49,8 @@ export const Price = styled.div(
     justify-content: space-between;
     color: ${theme.colors.white[50]};
     cursor: auto;
-  `
-);
+  `,
+)
 
 export const AddToCart = styled.button<AddToCartTypes>(
   ({ isInCart, theme }) => css`
@@ -68,8 +68,8 @@ export const AddToCart = styled.button<AddToCartTypes>(
       width: 18px;
       fill: ${theme.colors.teal[100]};
     }
-  `
-);
+  `,
+)
 
 export const PlatformIcons = styled.div`
   display: flex;
@@ -79,7 +79,7 @@ export const PlatformIcons = styled.div`
     height: 13px;
     fill: white;
   }
-`;
+`
 
 export const GameName = styled(Link)(
   ({ theme }) => css`
@@ -87,5 +87,5 @@ export const GameName = styled(Link)(
     font-weight: 600;
     text-decoration: none;
     color: white;
-  `
-);
+  `,
+)

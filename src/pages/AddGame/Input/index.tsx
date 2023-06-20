@@ -1,10 +1,10 @@
-import { InputProps } from 'pages/AddGame/Input/types';
+import { InputProps } from 'pages/AddGame/Input/types'
 import {
   StyledInput,
   InputContainer,
   IconHolder,
-} from 'pages/AddGame/Input/styles';
-import { InputsWrapper, Star } from 'pages/AddGame/styles';
+} from 'pages/AddGame/Input/styles'
+import { InputsWrapper, Star } from 'pages/AddGame/styles'
 
 const Input = ({
   type,
@@ -15,7 +15,7 @@ const Input = ({
   setAction,
   onClick,
 }: InputProps) => {
-  const lowerCaseTitle = title.toLowerCase();
+  const lowerCaseTitle = title.toLowerCase()
 
   return (
     <InputsWrapper>
@@ -25,8 +25,8 @@ const Input = ({
       </label>
       <InputContainer>
         <StyledInput
-          onChange={(e) => {
-            if (setAction) setAction(e.target.value);
+          onChange={e => {
+            if (setAction) setAction(e.target.value)
           }}
           type={type}
           name={lowerCaseTitle}
@@ -42,7 +42,7 @@ const Input = ({
         )}
       </InputContainer>
     </InputsWrapper>
-  );
-};
+  )
+}
 
-export default Input;
+export default Input

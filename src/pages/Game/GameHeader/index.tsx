@@ -1,13 +1,13 @@
-import { useSelector } from 'react-redux';
-import { RootState } from 'redux/types';
-import { Header, BackButton, GameName } from 'pages/Game/GameHeader/styles';
-import { ReactComponent as ArrowLeft } from 'assets/images/arrow-left.svg';
-import { PATHS } from '../../../constants';
+import { useSelector } from 'react-redux'
+import { RootState } from 'redux/types'
+import { Header, BackButton, GameName } from 'pages/Game/GameHeader/styles'
+import { ReactComponent as ArrowLeft } from 'assets/images/arrow-left.svg'
+import { PATHS } from '../../../constants'
 
-function GameHeader() {
+const GameHeader = () => {
   const gameName = useSelector(
-    (state: RootState) => state.games.gameSpecification.name
-  );
+    (state: RootState) => state.games.gameSpecification.name,
+  )
 
   return (
     <Header>
@@ -16,7 +16,7 @@ function GameHeader() {
       </BackButton>
       <GameName>{gameName}</GameName>
     </Header>
-  );
+  )
 }
 
-export default GameHeader;
+export default GameHeader

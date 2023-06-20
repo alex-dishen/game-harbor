@@ -1,10 +1,10 @@
-import { Link } from 'react-router-dom';
-import uniqid from 'uniqid';
-import { useTheme } from 'styled-components';
-import { CircularProgress } from 'react-cssfx-loading';
-import useGameList from 'pages/Games/GameList/useGameList';
-import { platformIcons } from 'pages/Games/GameList/constants';
-import { handleAddToCart } from 'helpers';
+import { Link } from 'react-router-dom'
+import uniqid from 'uniqid'
+import { useTheme } from 'styled-components'
+import { CircularProgress } from 'react-cssfx-loading'
+import useGameList from 'pages/Games/GameList/useGameList'
+import { platformIcons } from 'pages/Games/GameList/constants'
+import { handleAddToCart } from 'helpers'
 import {
   GameListWrapper,
   GameWrapper,
@@ -14,12 +14,12 @@ import {
   AddToCart,
   PlatformIcons,
   GameName,
-} from 'pages/Games/GameList/styles';
-import { ReactComponent as Check } from 'assets/images/check.svg';
+} from 'pages/Games/GameList/styles'
+import { ReactComponent as Check } from 'assets/images/check.svg'
 
-function GameList() {
-  const { games, inCartGames, dispatch, handleNavigation } = useGameList();
-  const theme = useTheme();
+const GameList = () => {
+  const { games, inCartGames, dispatch, handleNavigation } = useGameList()
+  const theme = useTheme()
 
   return (
     <GameListWrapper games={games}>
@@ -83,12 +83,12 @@ function GameList() {
                   </GameName>
                 </Info>
               </GameWrapper>
-            )
+            ),
           )}
         </>
       )}
     </GameListWrapper>
-  );
+  )
 }
 
-export default GameList;
+export default GameList

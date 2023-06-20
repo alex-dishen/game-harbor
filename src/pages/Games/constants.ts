@@ -1,11 +1,11 @@
-import { previousYear } from 'pages/Games/helpers';
+import { previousYear } from 'pages/Games/helpers'
 
 export const ORDER_TITLE = {
   NAME: 'Name',
   RELEASE: 'Release date',
   POPULARITY: 'Popularity',
   RATING: 'Rating',
-};
+}
 
 export const FILTER_TITLE = {
   LAST_30_DAYS: 'Last 30 days',
@@ -28,4 +28,4 @@ export const FILTER_TITLE = {
   PUZZLE: 'Puzzle',
   RACING: 'Racing',
   SPORTS: 'Sports',
-};
+}

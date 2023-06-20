@@ -1,4 +1,4 @@
-import useCart from 'components/Cart/useCart';
+import useCart from 'components/Cart/useCart'
 import {
   CartWrapper,
   Header,
@@ -13,9 +13,9 @@ import {
   Info,
   Details,
   Detail,
-} from 'components/Cart/styles';
+} from 'components/Cart/styles'
 
-function Cart() {
+const Cart = () => {
   const {
     cartRef,
     inCartGames,
@@ -23,7 +23,7 @@ function Cart() {
     deleteGame,
     returnGamesPriceSum,
     handleNavigation,
-  } = useCart();
+  } = useCart()
 
   return (
     <>
@@ -63,7 +63,7 @@ function Cart() {
         exit={{ opacity: 0 }}
       />
     </>
-  );
+  )
 }
 
-export default Cart;
+export default Cart

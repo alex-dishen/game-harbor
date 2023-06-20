@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const SelectionModuleWrapper = styled.div`
   z-index: 2;
@@ -17,4 +17,4 @@ export const SelectionModuleWrapper = styled.div`
   h3 {
     margin: 0;
   }
-`;
+`

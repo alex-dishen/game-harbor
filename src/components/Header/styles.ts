@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
-import { HeaderWrapperTypes } from 'components/Header/types';
-import { ReactComponent as MagnifyingGlass } from 'assets/images/magnify.svg';
+import styled, { css } from 'styled-components'
+import { motion } from 'framer-motion'
+import { HeaderWrapperTypes } from 'components/Header/types'
+import { ReactComponent as MagnifyingGlass } from 'assets/images/magnify.svg'
 
 export const HeaderWrapper = styled.header<HeaderWrapperTypes>(
   ({
@@ -30,8 +30,8 @@ export const HeaderWrapper = styled.header<HeaderWrapperTypes>(
     @media (max-width: ${theme.breakpoints.md}) {
       gap: 16px;
     }
-  `
-);
+  `,
+)
 
 export const InputWrapper = styled(motion.div)`
   position: relative;
@@ -41,7 +41,7 @@ export const InputWrapper = styled(motion.div)`
   width: 100%;
   background-color: white;
   border-radius: 10px;
-`;
+`
 
 export const LogoWrapper = styled(InputWrapper)(
   ({ theme }) => css`
@@ -64,12 +64,12 @@ export const LogoWrapper = styled(InputWrapper)(
         display: none;
       }
     }
-  `
-);
+  `,
+)
 
 export const Logo = styled.img`
   height: 50px;
-`;
+`
 
 export const Input = styled.input.attrs(() => ({
   placeholder: 'Search games...',
@@ -79,7 +79,7 @@ export const Input = styled.input.attrs(() => ({
   outline: none;
   border: none;
   border-radius: 10px;
-`;
+`
 
 export const MagnifyGlass = styled(MagnifyingGlass)(
   ({ theme }) => css`
@@ -91,5 +91,5 @@ export const MagnifyGlass = styled(MagnifyingGlass)(
     @media (max-width: ${theme.breakpoints.md}) {
       display: none;
     }
-  `
-);
+  `,
+)

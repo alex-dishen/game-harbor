@@ -1,15 +1,15 @@
-import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { GameTypes, ResponseSchema, ScreenshotsTypes } from 'api/types';
-import { GamesState } from 'redux/types';
-import { gameSpecification } from '../constants';
-import { saveToLocalStorage } from 'redux/helpers';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit'
+import { GameTypes, ResponseSchema, ScreenshotsTypes } from 'api/types'
+import { GamesState } from 'redux/types'
+import { saveToLocalStorage } from 'redux/helpers'
+import { gameSpecification } from '../constants'
 
 const currentGameID =
-  (JSON.parse(localStorage.getItem('currentGameID') as string) as number) || 0;
+  (JSON.parse(localStorage.getItem('currentGameID') as string) as number) || 0
 
 const currentGamesInCart =
   (JSON.parse(localStorage.getItem('inCartGames') as string) as GameTypes[]) ||
-  [];
+  []
 
 const initialState: GamesState = {
   games: [],
@@ -18,37 +18,37 @@ const initialState: GamesState = {
   gameID: currentGameID,
   gameSpecification,
   gameScreenshots: { results: [{ id: 0, image: '' }] },
-};
+}
 
 export const gamesSlice = createSlice({
   name: 'games',
   initialState,
   reducers: {
     setGames: (state, action: PayloadAction<GameTypes[]>) => {
-      state.games = action.payload;
+      state.games = action.payload
     },
     setSearchedGames: (state, action: PayloadAction<GameTypes[]>) => {
-      state.searchedGames = action.payload;
+      state.searchedGames = action.payload
     },
     setInCartGames: (state, action: PayloadAction<GameTypes[]>) => {
-      state.inCartGames = action.payload;
-      saveToLocalStorage('inCartGames', state.inCartGames);
+      state.inCartGames = action.payload
+      saveToLocalStorage('inCartGames', state.inCartGames)
     },
     setGameID: (state, action: PayloadAction<number>) => {
-      state.gameID = action.payload;
-      saveToLocalStorage('currentGameID', state.gameID);
+      state.gameID = action.payload
+      saveToLocalStorage('currentGameID', state.gameID)
     },
     setGameSpecification: (state, action: PayloadAction<GameTypes>) => {
-      state.gameSpecification = action.payload;
+      state.gameSpecification = action.payload
     },
     setGameScreenshots: (
       state,
-      action: PayloadAction<ResponseSchema<ScreenshotsTypes>>
+      action: PayloadAction<ResponseSchema<ScreenshotsTypes>>,
     ) => {
-      state.gameScreenshots = action.payload;
+      state.gameScreenshots = action.payload
     },
   },
-});
+})
 
 export const {
   setGames,
@@ -57,6 +57,6 @@ export const {
   setGameID,
   setGameSpecification,
   setGameScreenshots,
-} = gamesSlice.actions;
+} = gamesSlice.actions
 
-export default gamesSlice.reducer;
+export default gamesSlice.reducer

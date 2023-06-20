@@ -1,16 +1,16 @@
-import useSidebar from 'pages/Games/Sidebar/useSidebar';
-import { filters } from 'pages/Games/Sidebar/constants';
+import useSidebar from 'pages/Games/Sidebar/useSidebar'
+import { filters } from 'pages/Games/Sidebar/constants'
 import {
   StyledSidebar,
   CategoryHolder,
   Header,
   Filter,
   IconHolder,
-} from 'pages/Games/Sidebar/styles';
+} from 'pages/Games/Sidebar/styles'
 
-function Sidebar() {
+const Sidebar = () => {
   const { isChangeSidebar, currentFilter, variant, exitOption, onClick } =
-    useSidebar();
+    useSidebar()
 
   return (
     <StyledSidebar
@@ -34,7 +34,7 @@ function Sidebar() {
         </CategoryHolder>
       ))}
     </StyledSidebar>
-  );
+  )
 }
 
-export default Sidebar;
+export default Sidebar

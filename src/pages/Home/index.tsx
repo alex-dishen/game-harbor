@@ -1,11 +1,11 @@
-import Description from 'pages/Home/Description';
-import QuickNavigation from 'pages/Home/QuickNavigation';
-import useHome from 'pages/Home/useHome';
-import { Main, Video } from 'pages/Home/styles';
-import video from 'assets/images/pyke.mp4';
+import Description from 'pages/Home/Description'
+import QuickNavigation from 'pages/Home/QuickNavigation'
+import useHome from 'pages/Home/useHome'
+import { Main, Video } from 'pages/Home/styles'
+import video from 'assets/images/pyke.mp4'
 
 const Home = () => {
-  useHome();
+  useHome()
 
   return (
     <>
@@ -31,7 +31,7 @@ const Home = () => {
         <source src={video} type="video/mp4" />
       </Video>
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

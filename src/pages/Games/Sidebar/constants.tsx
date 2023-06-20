@@ -1,5 +1,5 @@
-import uniqid from 'uniqid';
-import { RELEASES, TOP_GAMES, PLATFORMS, GENRES } from '../../../constants';
+import uniqid from 'uniqid'
+import { RELEASES, TOP_GAMES, PLATFORMS, GENRES } from '../../../constants'
 
 export const filters = [
   {
@@ -22,7 +22,7 @@ export const filters = [
     header: 'Genres',
     options: GENRES,
   },
-];
+]
 
 export const aside = {
   position: 'sticky',
@@ -33,7 +33,7 @@ export const aside = {
   gap: '30px',
   padding: '30px 0 20px 0',
   overflow: 'scroll',
-};
+}
 
 export const fullScreen = {
   position: 'fixed',
@@ -48,9 +48,9 @@ export const fullScreen = {
   padding: '30px',
   color: 'black',
   overflow: 'scroll',
-};
+}
 
 export const variants = {
   show: { opacity: 1, transition: { duration: 1, delay: 0.5 } },
   hidden: { opacity: 0, transition: { duration: 0.3 } },
-};
+}

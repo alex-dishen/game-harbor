@@ -1,3 +1,3 @@
 export type StatusTypes = {
-  isInCart: boolean;
-};
+  isInCart: boolean
+}

@@ -1,4 +1,4 @@
-import { PLATFORMS, GENRES } from '../../constants';
+import { PLATFORMS, GENRES } from '../../constants'
 
 export const GameDetails = [
   {
@@ -42,4 +42,4 @@ export const GameDetails = [
       'Developers are companies that design and program games. One game may have several developers.',
     inputPlaceholder: 'Specify developers',
   },
-];
+]

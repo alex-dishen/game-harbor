@@ -1,4 +1,4 @@
-import uniqid from 'uniqid';
+import uniqid from 'uniqid'
 
 export const specifications = [
   {
@@ -21,4 +21,4 @@ export const specifications = [
     name: 'Publishers:',
     category: 'publishers',
   },
-];
+]

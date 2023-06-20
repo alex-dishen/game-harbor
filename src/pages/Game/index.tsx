@@ -1,12 +1,12 @@
-import GameHeader from 'pages/Game/GameHeader';
-import Carousel from 'pages/Game/Carousel';
-import Info from 'pages/Game/Info';
-import Price from 'pages/Game/Indicators';
-import useGame from 'pages/Game/useGame';
-import { GameWrapper, Main } from 'pages/Game/styles';
+import GameHeader from 'pages/Game/GameHeader'
+import Carousel from 'pages/Game/Carousel'
+import Info from 'pages/Game/Info'
+import Price from 'pages/Game/Indicators'
+import useGame from 'pages/Game/useGame'
+import { GameWrapper, Main } from 'pages/Game/styles'
 
 const Game = () => {
-  useGame();
+  useGame()
 
   return (
     <GameWrapper
@@ -22,7 +22,7 @@ const Game = () => {
         <Price />
       </Main>
     </GameWrapper>
-  );
-};
+  )
+}
 
-export default Game;
+export default Game

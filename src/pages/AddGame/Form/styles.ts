@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 export const SecondaryHeader = styled.h2(
   ({ theme }) => css`
@@ -6,8 +6,8 @@ export const SecondaryHeader = styled.h2(
     font-size: ${theme.fontSizes.lg};
     font-weight: 500;
     margin-bottom: -15px;
-  `
-);
+  `,
+)
 
 export const Section = styled.div`
   display: flex;
@@ -20,4 +20,4 @@ export const Section = styled.div`
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 15px;
   backdrop-filter: blur(20px);
-`;
+`

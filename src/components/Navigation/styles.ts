@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { StyledNavigationTypes } from 'components/Navigation/types';
-import { InputWrapper } from 'components/Header/styles';
+import styled, { css } from 'styled-components'
+import { StyledNavigationTypes } from 'components/Navigation/types'
+import { InputWrapper } from 'components/Header/styles'
 
 export const StyledNavigation = styled.div<StyledNavigationTypes>(
   ({ darkenImages }) => css`
@@ -11,8 +11,8 @@ export const StyledNavigation = styled.div<StyledNavigationTypes>(
     svg {
       fill: ${darkenImages ? 'black' : 'white'};
     }
-  `
-);
+  `,
+)
 
 export const CartWrapper = styled(InputWrapper)<StyledNavigationTypes>(
   ({ darkenImages, theme }) => css`
@@ -33,8 +33,8 @@ export const CartWrapper = styled(InputWrapper)<StyledNavigationTypes>(
         ? theme.colors.blue[100]
         : theme.colors.teal[100]};
     }
-  `
-);
+  `,
+)
 
 export const Circle = styled.div`
   position: absolute;
@@ -43,4 +43,4 @@ export const Circle = styled.div`
   height: 6px;
   width: 6px;
   border-radius: 50%;
-`;
+`

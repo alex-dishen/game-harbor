@@ -1,22 +1,22 @@
-import { useTheme } from 'styled-components';
-import { AnimatePresence } from 'framer-motion';
-import { CircularProgress } from 'react-cssfx-loading';
-import useGames from 'pages/Games/useGames';
-import Sidebar from 'pages/Games/Sidebar';
-import Top from 'pages/Games/Top';
-import GameList from 'pages/Games/GameList';
+import { useTheme } from 'styled-components'
+import { AnimatePresence } from 'framer-motion'
+import { CircularProgress } from 'react-cssfx-loading'
+import useGames from 'pages/Games/useGames'
+import Sidebar from 'pages/Games/Sidebar'
+import Top from 'pages/Games/Top'
+import GameList from 'pages/Games/GameList'
 import {
   StyledGamePage,
   MenuHolder,
   Content,
   Overflow,
-} from 'pages/Games/styles';
-import { ReactComponent as Menu } from 'assets/images/menu.svg';
-import { ReactComponent as Close } from 'assets/images/close.svg';
+} from 'pages/Games/styles'
+import { ReactComponent as Menu } from 'assets/images/menu.svg'
+import { ReactComponent as Close } from 'assets/images/close.svg'
 
-function Games() {
-  const { games, isShowMenu, isHideSidebar, handleOnClick } = useGames();
-  const theme = useTheme();
+const Games = () => {
+  const { games, isShowMenu, isHideSidebar, handleOnClick } = useGames()
+  const theme = useTheme()
 
   return (
     <StyledGamePage
@@ -54,7 +54,7 @@ function Games() {
         </>
       )}
     </StyledGamePage>
-  );
+  )
 }
 
-export default Games;
+export default Games

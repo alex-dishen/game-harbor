@@ -1,4 +1,4 @@
-import * as styled from 'styled-components';
+import * as styled from 'styled-components'
 
 const GlobalStyle = styled.createGlobalStyle(
   ({ theme }) => styled.css`
@@ -12,7 +12,7 @@ const GlobalStyle = styled.createGlobalStyle(
       display: flex;
       flex-direction: column;
     }
-  `
-);
+  `,
+)
 
-export default GlobalStyle;
+export default GlobalStyle
