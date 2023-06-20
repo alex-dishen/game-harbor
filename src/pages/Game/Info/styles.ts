@@ -1,10 +1,10 @@
-import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
-import { MoreButtonTypes } from 'pages/Game/Info/types';
+import styled, { css } from 'styled-components'
+import { motion } from 'framer-motion'
+import { MoreButtonTypes } from 'pages/Game/Info/types'
 
 export const StyledInfo = styled.div`
   grid-area: info;
-`;
+`
 
 export const Description = styled.div(
   ({ theme }) => css`
@@ -45,8 +45,8 @@ export const Description = styled.div(
       font-size: ${theme.fontSizes.sm};
       font-weight: 600;
     }
-  `
-);
+  `,
+)
 
 export const MoreInfo = styled(motion.div)`
   display: flex;
@@ -59,7 +59,7 @@ export const MoreInfo = styled(motion.div)`
   );
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
-`;
+`
 
 export const Details = styled(motion.ul)(
   ({ theme }) => css`
@@ -82,8 +82,8 @@ export const Details = styled(motion.ul)(
         color: ${theme.colors.white[50]};
       }
     }
-  `
-);
+  `,
+)
 
 export const MoreButton = styled.div<MoreButtonTypes>(
   ({ showMoreInfo, theme }) => css`
@@ -107,5 +107,5 @@ export const MoreButton = styled.div<MoreButtonTypes>(
         fill: white;
       }
     }
-  `
-);
+  `,
+)

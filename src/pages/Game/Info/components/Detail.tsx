@@ -1,11 +1,11 @@
-import uniqid from 'uniqid';
-import { setEmptyOrComa } from 'pages/Game/Info/helpers';
+import uniqid from 'uniqid'
+import { setEmptyOrComa } from 'pages/Game/Info/helpers'
 
 interface DevelopersProps {
-  specifications: { name: string; platform?: { name: string } }[];
+  specifications: { name: string; platform?: { name: string } }[]
 }
 
-function Details({ specifications }: DevelopersProps) {
+const Details = ({ specifications }: DevelopersProps) => {
   return (
     <span>
       {specifications.map((specification, index) => (
@@ -23,7 +23,7 @@ function Details({ specifications }: DevelopersProps) {
         </span>
       ))}
     </span>
-  );
+  )
 }
 
-export default Details;
+export default Details

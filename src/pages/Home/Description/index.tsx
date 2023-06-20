@@ -1,5 +1,5 @@
-import rawg from 'assets/images/RAWG.png';
-import { ReactComponent as Github } from 'assets/images/github.svg';
+import rawg from 'assets/images/RAWG.png'
+import { ReactComponent as Github } from 'assets/images/github.svg'
 import {
   StyledDescription,
   Pitch,
@@ -8,7 +8,7 @@ import {
   RAWGLogo,
   EnjoyBlock,
   Header,
-} from 'pages/Home/Description/styles';
+} from 'pages/Home/Description/styles'
 
 const Description = () => (
   <StyledDescription>
@@ -33,6 +33,6 @@ const Description = () => (
       </Link>
     </Links>
   </StyledDescription>
-);
+)
 
-export default Description;
+export default Description

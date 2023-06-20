@@ -1,19 +1,19 @@
-import OptionsList from 'pages/AddGame/OptionsList';
-import SelectionModule from 'pages/AddGame/SelectionModal';
-import { useSelectionInput } from 'pages/AddGame/SelectionInput/useSelectionInput';
-import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModal';
-import { handleImageUpload } from 'pages/AddGame/SelectionInput/helpers';
-import { SelectionProps } from 'pages/AddGame/SelectionInput/types';
-import { TitleT } from 'pages/AddGame/types';
+import OptionsList from 'pages/AddGame/OptionsList'
+import SelectionModule from 'pages/AddGame/SelectionModal'
+import { useSelectionInput } from 'pages/AddGame/SelectionInput/useSelectionInput'
+import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModal'
+import { handleImageUpload } from 'pages/AddGame/SelectionInput/helpers'
+import { SelectionProps } from 'pages/AddGame/SelectionInput/types'
+import { TitleT } from 'pages/AddGame/types'
 import {
   SelectionBody,
   AddButton,
   DescriptionHolder,
   Image,
-} from 'pages/AddGame/SelectionInput/styles';
-import { InputsWrapper, Star } from 'pages/AddGame/styles';
-import { ReactComponent as Plus } from 'assets/images/plus_without_frame.svg';
-import { ReactComponent as Recycle } from 'assets/images/recycle.svg';
+} from 'pages/AddGame/SelectionInput/styles'
+import { InputsWrapper, Star } from 'pages/AddGame/styles'
+import { ReactComponent as Plus } from 'assets/images/plus_without_frame.svg'
+import { ReactComponent as Recycle } from 'assets/images/recycle.svg'
 
 const SelectionInput = ({
   type,
@@ -34,9 +34,9 @@ const SelectionInput = ({
     selectedOptions,
     setSelectedImage,
     setIsOpenSelections,
-  } = useSelectionInput(optionsList, title as TitleT);
+  } = useSelectionInput(optionsList, title as TitleT)
 
-  const { handleOptionClick } = useSelectionModal(title as TitleT);
+  const { handleOptionClick } = useSelectionModal(title as TitleT)
 
   return (
     <InputsWrapper>
@@ -53,7 +53,7 @@ const SelectionInput = ({
                 id="file"
                 type="file"
                 style={{ display: 'none' }}
-                onChange={(e) => handleImageUpload(e, setSelectedImage)}
+                onChange={e => handleImageUpload(e, setSelectedImage)}
               />
               {selectedImage ? <Recycle /> : icon}
               {selectedImage ? 'Replace image' : placeholder}
@@ -97,7 +97,7 @@ const SelectionInput = ({
         />
       )}
     </InputsWrapper>
-  );
-};
+  )
+}
 
-export default SelectionInput;
+export default SelectionInput

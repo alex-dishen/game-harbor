@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { OptionsHolderT } from 'pages/AddGame/OptionsList/types';
+import styled, { css } from 'styled-components'
+import { OptionsHolderT } from 'pages/AddGame/OptionsList/types'
 
 export const OptionsHolder = styled.ul<OptionsHolderT>(
   ({ alignToStart }) => css`
@@ -11,8 +11,8 @@ export const OptionsHolder = styled.ul<OptionsHolderT>(
     margin: ${alignToStart ? '0' : '10px 0'};
     padding: 0;
     list-style: none;
-  `
-);
+  `,
+)
 
 export const ListOption = styled.li`
   display: flex;
@@ -26,4 +26,4 @@ export const ListOption = styled.li`
     fill: white;
     height: 15px;
   }
-`;
+`

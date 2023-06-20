@@ -1,4 +1,4 @@
 export type TextAreaProps = {
-  title: string;
-  placeHolder: string;
-};
+  title: string
+  placeHolder: string
+}

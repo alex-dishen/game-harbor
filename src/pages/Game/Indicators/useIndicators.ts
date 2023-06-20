@@ -1,35 +1,35 @@
-import { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'redux/types';
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from 'redux/types'
 
 const usePrice = () => {
-  const dispatch = useDispatch();
-  const gamesState = useSelector((state: RootState) => state.games);
-  const [gamePrice, setGamePrice] = useState(0);
-  const [isInCart, setIsInCart] = useState(false);
+  const dispatch = useDispatch()
+  const gamesState = useSelector((state: RootState) => state.games)
+  const [gamePrice, setGamePrice] = useState(0)
+  const [isInCart, setIsInCart] = useState(false)
 
-  const { gameID, games, inCartGames } = gamesState;
+  const { gameID, games, inCartGames } = gamesState
 
   const getGamePrice = () => {
-    const currentGame = games.filter((game) => game.id === gameID);
+    const currentGame = games.filter(game => game.id === gameID)
 
-    if (currentGame.length === 0) return 0;
+    if (currentGame.length === 0) return 0
 
-    setGamePrice(currentGame[0].price);
-  };
+    setGamePrice(currentGame[0].price)
+  }
 
   const returnIsGameInCart = () => {
-    const currentGame = games.filter((game) => game.id === gameID);
+    const currentGame = games.filter(game => game.id === gameID)
 
-    if (currentGame.length === 0) return false;
+    if (currentGame.length === 0) return false
 
-    setIsInCart(currentGame[0].isInCart);
-  };
+    setIsInCart(currentGame[0].isInCart)
+  }
 
   useEffect(() => {
-    getGamePrice();
-    returnIsGameInCart();
-  }, [games]);
+    getGamePrice()
+    returnIsGameInCart()
+  }, [games])
 
   return {
     games,
@@ -38,7 +38,7 @@ const usePrice = () => {
     isInCart,
     inCartGames,
     dispatch,
-  };
-};
+  }
+}
 
-export default usePrice;
+export default usePrice

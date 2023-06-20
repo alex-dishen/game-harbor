@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
-import { StyledGamePageTypes, OverflowTypes } from 'pages/Games/types';
+import styled, { css } from 'styled-components'
+import { motion } from 'framer-motion'
+import { StyledGamePageTypes, OverflowTypes } from 'pages/Games/types'
 
 const StyledGamePage = styled(motion.main)<StyledGamePageTypes>(
   ({ GAMES, theme }) => css`
@@ -17,8 +17,8 @@ const StyledGamePage = styled(motion.main)<StyledGamePageTypes>(
     @media (max-width: ${theme.breakpoints.md}) {
       padding: 25px 0px;
     }
-  `
-);
+  `,
+)
 
 const MenuHolder = styled.div`
   position: fixed;
@@ -38,7 +38,7 @@ const MenuHolder = styled.div`
     height: 28px;
     width: 28px;
   }
-`;
+`
 
 export const Overflow = styled(MenuHolder)<OverflowTypes>(
   ({ isHideSidebar }) => css`
@@ -49,8 +49,8 @@ export const Overflow = styled(MenuHolder)<OverflowTypes>(
     width: 40px;
     transform: scale(${isHideSidebar ? '1' : '72'});
     transition: 1.5s;
-  `
-);
+  `,
+)
 
 const Content = styled.div(
   ({ theme }) => css`
@@ -62,7 +62,7 @@ const Content = styled.div(
     @media (max-width: ${theme.breakpoints.md}) {
       padding: 0 35px 10px 35px;
     }
-  `
-);
+  `,
+)
 
-export { StyledGamePage, MenuHolder, Content };
+export { StyledGamePage, MenuHolder, Content }

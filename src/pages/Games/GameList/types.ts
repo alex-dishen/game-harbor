@@ -1,9 +1,9 @@
-import { GameTypes } from 'api/types';
+import { GameTypes } from 'api/types'
 
 export type GameListWrapperTypes = {
-  games: GameTypes[];
-};
+  games: GameTypes[]
+}
 
 export type AddToCartTypes = {
-  isInCart: boolean;
-};
+  isInCart: boolean
+}

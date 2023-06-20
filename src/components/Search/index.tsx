@@ -1,17 +1,17 @@
-import { CircularProgress } from 'react-cssfx-loading';
-import uniqid from 'uniqid';
-import { useTheme } from 'styled-components';
-import useSearchGames from 'components/Search/useSearchGames';
+import { CircularProgress } from 'react-cssfx-loading'
+import uniqid from 'uniqid'
+import { useTheme } from 'styled-components'
+import useSearchGames from 'components/Search/useSearchGames'
 import {
   SearchGamesWrapper,
   GameWrapper,
   BackgroundImage,
   GameName,
-} from 'components/Search/styles';
+} from 'components/Search/styles'
 
-function SearchGames() {
-  const { games, handleOnClick } = useSearchGames();
-  const theme = useTheme();
+const SearchGames = () => {
+  const { games, handleOnClick } = useSearchGames()
+  const theme = useTheme()
 
   return (
     <SearchGamesWrapper games={games}>
@@ -24,7 +24,7 @@ function SearchGames() {
         />
       ) : (
         <>
-          {games.map((game) => (
+          {games.map(game => (
             <GameWrapper
               key={uniqid()}
               to="games/game"
@@ -37,7 +37,7 @@ function SearchGames() {
         </>
       )}
     </SearchGamesWrapper>
-  );
+  )
 }
 
-export default SearchGames;
+export default SearchGames

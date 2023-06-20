@@ -1,7 +1,7 @@
-import Form from 'pages/AddGame/Form';
-import { AddGameWrapper, Header } from 'pages/AddGame/styles';
-import { Video } from 'pages/Home/styles';
-import video from 'assets/images/crystal.mp4';
+import Form from 'pages/AddGame/Form'
+import { AddGameWrapper, Header } from 'pages/AddGame/styles'
+import { Video } from 'pages/Home/styles'
+import video from 'assets/images/crystal.mp4'
 
 const AddGame = () => (
   <>
@@ -22,6 +22,6 @@ const AddGame = () => (
       <source src={video} type="video/mp4" />
     </Video>
   </>
-);
+)
 
-export default AddGame;
+export default AddGame

@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { StatusTypes } from 'pages/Game/Indicators/types';
+import styled, { css } from 'styled-components'
+import { StatusTypes } from 'pages/Game/Indicators/types'
 
 export const StyledPrice = styled.div(
   ({ theme }) => css`
@@ -20,8 +20,8 @@ export const StyledPrice = styled.div(
       font-size: ${theme.fontSizes.xs};
       font-weight: 500;
     }
-  `
-);
+  `,
+)
 
 export const Status = styled.span<StatusTypes>(
   ({ isInCart, theme }) => css`
@@ -37,5 +37,5 @@ export const Status = styled.span<StatusTypes>(
       height: 25px;
       fill: ${theme.colors.teal[100]} !important;
     }
-  `
-);
+  `,
+)

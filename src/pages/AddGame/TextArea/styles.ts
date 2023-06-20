@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const StyledTextArea = styled.textarea`
   z-index: 1;
@@ -11,4 +11,4 @@ export const StyledTextArea = styled.textarea`
   border-radius: 15px;
   outline: none;
   resize: none;
-`;
+`

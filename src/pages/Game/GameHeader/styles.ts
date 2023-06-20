@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 
 export const Header = styled.div(
   ({ theme }) => css`
@@ -18,8 +18,8 @@ export const Header = styled.div(
         height: 25px;
       }
     }
-  `
-);
+  `,
+)
 
 export const BackButton = styled(Link)(
   ({ theme }) => css`
@@ -45,8 +45,8 @@ export const BackButton = styled(Link)(
         fill: ${theme.colors.teal[100]};
       }
     }
-  `
-);
+  `,
+)
 
 export const GameName = styled.span(
   ({ theme }) => css`
@@ -58,5 +58,5 @@ export const GameName = styled.span(
     @media (max-width: ${theme.breakpoints.md}) {
       font-size: ${theme.fontSizes.lg};
     }
-  `
-);
+  `,
+)

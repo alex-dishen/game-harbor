@@ -1,3 +1,3 @@
 export type MoreButtonTypes = {
-  showMoreInfo: boolean;
-};
+  showMoreInfo: boolean
+}

@@ -1,5 +1,5 @@
-import { OptionsListProps } from 'pages/AddGame/OptionsList/types';
-import { OptionsHolder, ListOption } from 'pages/AddGame/OptionsList/styles';
+import { OptionsListProps } from 'pages/AddGame/OptionsList/types'
+import { OptionsHolder, ListOption } from 'pages/AddGame/OptionsList/styles'
 
 const OptionsList = ({
   value,
@@ -8,13 +8,13 @@ const OptionsList = ({
   alignToStart,
 }: OptionsListProps) => (
   <OptionsHolder alignToStart={alignToStart}>
-    {value?.map((item) => (
+    {value?.map(item => (
       <ListOption key={item.key} onClick={() => onClick(item, reverse)}>
         {item.icon}
         {item.name}
       </ListOption>
     ))}
   </OptionsHolder>
-);
+)
 
-export default OptionsList;
+export default OptionsList

@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components';
-import { motion } from 'framer-motion';
+import styled, { css } from 'styled-components'
+import { motion } from 'framer-motion'
 
 export const GameWrapper = styled(motion.main)(
   ({ theme }) => css`
@@ -19,8 +19,8 @@ export const GameWrapper = styled(motion.main)(
       height: fit-content;
       padding: 0 20px 30px 20px;
     }
-  `
-);
+  `,
+)
 
 export const Main = styled.div(
   ({ theme }) => css`
@@ -39,5 +39,5 @@ export const Main = styled.div(
         'price'
         'info';
     }
-  `
-);
+  `,
+)

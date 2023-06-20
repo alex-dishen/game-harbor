@@ -1,8 +1,8 @@
-import { ButtonGroupWrapper, Button } from 'pages/AddGame/ButtonGroup/styles';
-import { useTheme } from 'styled-components';
+import { useTheme } from 'styled-components'
+import { ButtonGroupWrapper, Button } from 'pages/AddGame/ButtonGroup/styles'
 
 const ButtonGroup = () => {
-  const theme = useTheme();
+  const theme = useTheme()
 
   return (
     <ButtonGroupWrapper>
@@ -13,7 +13,7 @@ const ButtonGroup = () => {
         Cancel
       </Button>
     </ButtonGroupWrapper>
-  );
-};
+  )
+}
 
-export default ButtonGroup;
+export default ButtonGroup

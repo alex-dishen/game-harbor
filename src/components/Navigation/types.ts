@@ -1,3 +1,3 @@
 export type StyledNavigationTypes = {
-  darkenImages: boolean;
-};
+  darkenImages: boolean
+}

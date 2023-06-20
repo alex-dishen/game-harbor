@@ -1,48 +1,55 @@
-import { MouseEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getGamesList } from 'api/gameData';
-import { setCurrentFilter, setIsSearching } from 'redux/harborSlice';
-import { setGameID, setGames } from 'redux/gamesSlice';
-import { handleFilterClick, returnGames } from 'helpers';
-import { RootState } from 'redux/types';
+import { MouseEvent } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getGamesList } from 'api/gameData'
+import { setCurrentFilter, setIsSearching } from 'redux/harborSlice'
+import { setGameID, setGames } from 'redux/gamesSlice'
+import { handleFilterClick, returnGames } from 'helpers'
+import { RootState } from 'redux/types'
 
 const useQuickNavigation = () => {
-  const dispatch = useDispatch();
-  const gamesState = useSelector((state: RootState) => state.games);
+  const dispatch = useDispatch()
+  const gamesState = useSelector((state: RootState) => state.games)
 
-  const { games, inCartGames } = gamesState;
+  const { games, inCartGames } = gamesState
 
   const getRandomID = async () => {
-    const randomPage = Math.floor(Math.random() * 10) + 1;
+    const randomPage = Math.floor(Math.random() * 10) + 1
     const response = await getGamesList({
       page: randomPage,
       page_size: 40,
       ordering: '-added',
-    });
-    const results = await returnGames({ games: response, inCartGames });
-    if (!results) return;
+    })
+    const results = await returnGames({ games: response, inCartGames })
+
+    if (!results) return
+
     // We set games here to be able to click Back To Harbor what opens a
     // catalog of games and so we could see the list of games
-    dispatch(setGames(results));
-    const IDs = results.map((result) => result.id);
-    const randomIndex = Math.floor(Math.random() * 40);
-    return IDs[randomIndex];
-  };
+    dispatch(setGames(results))
+    const IDs = results.map(result => result.id)
+    const randomIndex = Math.floor(Math.random() * 40)
+
+    return IDs[randomIndex]
+  }
 
   const setRandomGame = async () => {
-    const randomID = await getRandomID();
-    if (randomID) dispatch(setGameID(randomID));
-    dispatch(setCurrentFilter(''));
-    dispatch(setIsSearching(true));
-  };
+    const randomID = await getRandomID()
+
+    if (randomID) dispatch(setGameID(randomID))
+
+    dispatch(setCurrentFilter(''))
+    dispatch(setIsSearching(true))
+  }
 
   const handleOnClick = (e: MouseEvent<HTMLElement>, name: string) => {
-    handleFilterClick({ e, dispatch, games });
-    if (name !== 'Play Dice') return;
-    setRandomGame();
-  };
+    handleFilterClick({ e, dispatch, games })
 
-  return { handleOnClick };
-};
+    if (name !== 'Play Dice') return
 
-export default useQuickNavigation;
+    setRandomGame()
+  }
+
+  return { handleOnClick }
+}
+
+export default useQuickNavigation

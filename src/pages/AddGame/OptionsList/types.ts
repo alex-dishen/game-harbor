@@ -1,12 +1,12 @@
-import { OptionsT } from 'types';
+import { OptionsT } from 'types'
 
 export type OptionsListProps = {
-  value: OptionsT[];
-  reverse?: boolean;
-  alignToStart?: boolean;
-  onClick: (value: OptionsT, reverse?: boolean) => void;
-};
+  value: OptionsT[]
+  reverse?: boolean
+  alignToStart?: boolean
+  onClick: (value: OptionsT, reverse?: boolean) => void
+}
 
 export type OptionsHolderT = {
-  alignToStart?: boolean;
-};
+  alignToStart?: boolean
+}

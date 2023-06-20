@@ -1,9 +1,9 @@
-import Input from 'pages/AddGame/Input';
-import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModal';
-import { SelectionModuleProps } from 'pages/AddGame/SelectionModal/types';
-import { SelectionModuleWrapper } from 'pages/AddGame/SelectionModal/styles';
-import OptionsList from 'pages/AddGame/OptionsList';
-import { ReactComponent as Plus } from 'assets/images/plus.svg';
+import Input from 'pages/AddGame/Input'
+import { useSelectionModal } from 'pages/AddGame/SelectionModal/useSelectionModal'
+import { SelectionModuleProps } from 'pages/AddGame/SelectionModal/types'
+import { SelectionModuleWrapper } from 'pages/AddGame/SelectionModal/styles'
+import OptionsList from 'pages/AddGame/OptionsList'
+import { ReactComponent as Plus } from 'assets/images/plus.svg'
 
 const SelectionModal = ({
   title,
@@ -19,7 +19,7 @@ const SelectionModal = ({
     handleOptionClick,
     setInputValue,
     handlePlusClick,
-  } = useSelectionModal(title);
+  } = useSelectionModal(title)
 
   return (
     <SelectionModuleWrapper ref={popupRef}>
@@ -51,7 +51,7 @@ const SelectionModal = ({
         </>
       )}
     </SelectionModuleWrapper>
-  );
-};
+  )
+}
 
-export default SelectionModal;
+export default SelectionModal

@@ -1,19 +1,19 @@
-import { useSelector } from 'react-redux';
-import uniqid from 'uniqid';
-import { RootState } from 'redux/types';
+import { useSelector } from 'react-redux'
+import uniqid from 'uniqid'
+import { RootState } from 'redux/types'
 
 const useCarousel = () => {
-  const gamesState = useSelector((state: RootState) => state.games);
+  const gamesState = useSelector((state: RootState) => state.games)
 
-  const { gameSpecification, gameScreenshots } = gamesState;
+  const { gameSpecification, gameScreenshots } = gamesState
 
   const gameBackground = {
     id: uniqid(),
     image: gameSpecification.background_image,
-  };
-  const screenshots = [gameBackground, ...gameScreenshots.results];
+  }
+  const screenshots = [gameBackground, ...gameScreenshots.results]
 
-  return { screenshots };
-};
+  return { screenshots }
+}
 
-export default useCarousel;
+export default useCarousel

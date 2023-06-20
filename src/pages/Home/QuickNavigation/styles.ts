@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 
 export const Navigation = styled.div`
   display: flex;
@@ -14,15 +14,15 @@ export const Navigation = styled.div`
     height: 20px;
     width: 20px;
   }
-`;
+`
 
 export const Header = styled.h3(
   ({ theme }) => css`
     margin: 0;
     color: white;
     font-size: ${theme.fontSizes.sm};
-  `
-);
+  `,
+)
 
 export const Links = styled.ul`
   display: flex;
@@ -34,7 +34,7 @@ export const Links = styled.ul`
   li {
     list-style: none;
   }
-`;
+`
 
 export const StyledLink = styled(Link)(
   ({ theme }) => css`
@@ -58,5 +58,5 @@ export const StyledLink = styled(Link)(
     &:active {
       transform: scale(1);
     }
-  `
-);
+  `,
+)

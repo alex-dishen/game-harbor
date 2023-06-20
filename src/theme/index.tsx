@@ -1,10 +1,10 @@
-import { DefaultTheme } from 'styled-components';
+import { DefaultTheme } from 'styled-components'
 
 export const BreakPoints = {
   sm: '35em', // 560px
   md: '46em', // 736px
   lg: '55em', // 880px
-};
+}
 
 export const FontSizes = {
   xs: '1.125rem', // 18px
@@ -14,7 +14,7 @@ export const FontSizes = {
   xl: '2.875rem', // 46px
   '2xl': '3.125rem', // 50px
   '3xl': '3.75rem', // 60px
-};
+}
 
 export const Colors = {
   teal: {
@@ -40,12 +40,12 @@ export const Colors = {
     200: '#dadada',
     250: '#e5e5e5',
   },
-};
+}
 
 const theme: DefaultTheme = {
   breakpoints: BreakPoints,
   fontSizes: FontSizes,
   colors: Colors,
-};
+}
 
-export default theme;
+export default theme

@@ -1,12 +1,12 @@
-import useCarousel from 'pages/Game/Carousel/useCarousel';
-import { useTheme } from 'styled-components';
-import { ReactComponent as ChevronLeft } from 'assets/images/chevron-left.svg';
-import { ReactComponent as ChevronRight } from 'assets/images/chevron-right.svg';
-import { ImageHolder, Image, StyledSlider } from 'pages/Game/Carousel/styles';
+import { useTheme } from 'styled-components'
+import useCarousel from 'pages/Game/Carousel/useCarousel'
+import { ReactComponent as ChevronLeft } from 'assets/images/chevron-left.svg'
+import { ReactComponent as ChevronRight } from 'assets/images/chevron-right.svg'
+import { ImageHolder, Image, StyledSlider } from 'pages/Game/Carousel/styles'
 
-function Carousel() {
-  const { screenshots } = useCarousel();
-  const theme = useTheme();
+const Carousel = () => {
+  const { screenshots } = useCarousel()
+  const theme = useTheme()
 
   return (
     <StyledSlider
@@ -27,7 +27,7 @@ function Carousel() {
         </ImageHolder>
       ))}
     </StyledSlider>
-  );
+  )
 }
 
-export default Carousel;
+export default Carousel

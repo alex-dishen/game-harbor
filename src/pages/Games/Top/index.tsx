@@ -1,5 +1,5 @@
-import useTop from 'pages/Games/Top/useTop';
-import { orderOptions } from 'pages/Games/Top/constants';
+import useTop from 'pages/Games/Top/useTop'
+import { orderOptions } from 'pages/Games/Top/constants'
 import {
   StyledTop,
   FilterName,
@@ -7,11 +7,11 @@ import {
   Order,
   OptionWrapper,
   Option,
-} from 'pages/Games/Top/styles';
-import { ReactComponent as Check } from 'assets/images/check.svg';
-import { ReactComponent as Chevron } from 'assets/images/chevron-down.svg';
+} from 'pages/Games/Top/styles'
+import { ReactComponent as Check } from 'assets/images/check.svg'
+import { ReactComponent as Chevron } from 'assets/images/chevron-down.svg'
 
-function Top() {
+const Top = () => {
   const {
     currentFilter,
     isShowOrder,
@@ -20,7 +20,7 @@ function Top() {
     orderRef,
     openAndHideOrder,
     handleOptionClick,
-  } = useTop();
+  } = useTop()
 
   return (
     <StyledTop>
@@ -45,7 +45,7 @@ function Top() {
         </OrderWrapper>
       )}
     </StyledTop>
-  );
+  )
 }
 
-export default Top;
+export default Top

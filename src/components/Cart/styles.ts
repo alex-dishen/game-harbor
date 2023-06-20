@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 
 export const CartWrapper = styled(motion.div)(
   ({ theme }) => css`
@@ -18,14 +18,14 @@ export const CartWrapper = styled(motion.div)(
     @media (max-width: ${theme.breakpoints.md}) {
       width: 280px;
     }
-  `
-);
+  `,
+)
 
 export const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
+`
 
 export const NumberOfGames = styled.h3(
   ({ theme }) => css`
@@ -33,15 +33,15 @@ export const NumberOfGames = styled.h3(
     color: white;
     font-size: ${theme.fontSizes.md};
     font-weight: 800;
-  `
-);
+  `,
+)
 
 export const ClearButton = styled.button`
   background-color: inherit;
   color: inherit;
   border: none;
   cursor: pointer;
-`;
+`
 
 export const ChosenGames = styled.main`
   flex: 1;
@@ -50,7 +50,7 @@ export const ChosenGames = styled.main`
   gap: 10px;
   margin: 15px 0;
   overflow: scroll;
-`;
+`
 
 export const GameHolder = styled.div(
   ({ theme }) => css`
@@ -64,8 +64,8 @@ export const GameHolder = styled.div(
     @media (max-width: ${theme.breakpoints.md}) {
       gap: 10px;
     }
-  `
-);
+  `,
+)
 
 export const Details = styled(Link)(
   ({ theme }) => css`
@@ -79,8 +79,8 @@ export const Details = styled(Link)(
       flex-direction: column;
       align-items: flex-end;
     }
-  `
-);
+  `,
+)
 
 export const Image = styled.img(
   ({ theme }) => css`
@@ -94,14 +94,14 @@ export const Image = styled.img(
       height: 120px;
       width: 100%;
     }
-  `
-);
+  `,
+)
 
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
-`;
+`
 
 export const Detail = styled.p(
   ({ theme }) => css`
@@ -112,8 +112,8 @@ export const Detail = styled.p(
     &:first-child {
       color: white;
     }
-  `
-);
+  `,
+)
 
 export const Cross = styled.div(
   ({ theme }) => css`
@@ -125,12 +125,12 @@ export const Cross = styled.div(
     background-color: ${theme.colors.black[250]};
     border-radius: 50%;
     cursor: pointer;
-  `
-);
+  `,
+)
 
 export const TotalPrice = styled.footer`
   color: inherit;
-`;
+`
 
 export const Overlay = styled(motion.div)`
   z-index: 2;
@@ -138,4 +138,4 @@ export const Overlay = styled(motion.div)`
   width: 100%;
   height: 100%;
   background-color: black;
-`;
+`

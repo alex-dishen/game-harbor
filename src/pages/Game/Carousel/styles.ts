@@ -1,5 +1,5 @@
-import styled, { css, keyframes } from 'styled-components';
-import Swipi from 'swipi';
+import styled, { css, keyframes } from 'styled-components'
+import Swipi from 'swipi'
 
 const leftToRightBackground = keyframes`
   from {
@@ -7,7 +7,7 @@ const leftToRightBackground = keyframes`
   } to {
     background-position: 340% 0;
   }
-`;
+`
 
 export const StyledSlider = styled(Swipi)(
   ({ theme }) => css`
@@ -56,16 +56,16 @@ export const StyledSlider = styled(Swipi)(
       background-color: ${theme.colors.black[250]};
       border-radius: 10px;
     }
-  `
-);
+  `,
+)
 
 export const ImageHolder = styled.div`
   display: flex;
   height: 100%;
-`;
+`
 
 export const Image = styled.img`
   height: 100%;
   min-width: 100%;
   object-fit: cover;
-`;
+`
