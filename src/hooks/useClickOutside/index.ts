@@ -1,4 +1,4 @@
-import { RefObject, useEffect } from 'react';
+import { RefObject, useEffect } from 'react'
 
 const useClickOutside = (
   // Indicates whether the element is present on the page or not
@@ -6,21 +6,21 @@ const useClickOutside = (
   // Ref to the object you want to hide
   ref: RefObject<HTMLElement>,
   // Action to be taken when clicked outside
-  todo: () => void
+  todo: () => void,
 ) => {
   const handleClickOutside = (e: Event) => {
     if (condition && !ref.current?.contains(e.target as HTMLElement)) {
-      todo();
+      todo()
     }
-  };
+  }
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside)
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  });
-};
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  })
+}
 
-export default useClickOutside;
+export default useClickOutside
