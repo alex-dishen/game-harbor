@@ -6,7 +6,7 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "project": "tsconfig.json"
+    "project": "client/tsconfig.json"
   },
   "ignorePatterns": ["*.mjs", "*.config.*", "use*/"],
   "plugins": ["@typescript-eslint", "prettier", "react", "import"],

@@ -1,0 +1,35 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "npx tsc",
+    "start": "nodemon dist/index.js",
+    "dev": "nodemon src/server.ts",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "pg": "^8.11.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/node": "^18.14.6",
+    "@types/pg": "^8.10.2",
+    "@typescript-eslint/eslint-plugin": "^5.54.1",
+    "@typescript-eslint/parser": "^5.54.1",
+    "dotenv": "^16.3.1",
+    "eslint": "^8.36.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "nodemon": "^2.0.22",
+    "prettier": "^2.8.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.5"
+  }
+}
