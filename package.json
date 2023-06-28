@@ -2,7 +2,7 @@
   "name": "game-harbor",
   "version": "1.0.0",
   "scripts": {
-    "client": "cd client && npm start",
-    "server": "cd server && npm dev"
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn dev"
   }
 }
