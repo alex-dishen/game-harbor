@@ -1,14 +1,23 @@
 import express from 'express'
-import { getGames, createGame, updateGame, deleteGame } from '../controllers'
+import {
+  getGames,
+  getGame,
+  createGame,
+  updateGame,
+  deleteGame
+} from '../controllers'
+import tryCatch from '../helpers'
 
 const router = express.Router()
 
-router.get('/games', getGames)
+router.get('/games', tryCatch(getGames))
 
-router.post('/games', createGame)
+router.get('/games/:id', tryCatch(getGame))
 
-router.put('/games/:id', updateGame)
+router.post('/games', tryCatch(createGame))
 
-router.delete('/games/:id', deleteGame)
+router.put('/games/:id', tryCatch(updateGame))
+
+router.delete('/games/:id', tryCatch(deleteGame))
 
 export default router

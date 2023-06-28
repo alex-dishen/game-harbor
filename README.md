@@ -4,11 +4,13 @@
 
 <p align='center'>Shopping Cart for <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript">The Odin Project</a></p>
 
-## Demo
+<h2>Demo</h2>
 
 🔥 [Live Demo](https://alex-dishen.github.io/game-harbor/)
 
-## Built with
+<h2>Built with</h2>
+
+<h3>Front-End</h3>
 
 - React
 - Redux ToolKit
@@ -16,7 +18,15 @@
 - Styled-Components
 - RAWG API
 
-## Features
+<h3>Back-End</h3>
+
+- Node.js
+- Express
+- PostgreSQL
+
+</br>
+
+<h2>Features</h2>
 
 - Extensive catalog of games thanks to the [RAWG API](https://rawg.io/apidocs).
 - Search any game you want.
@@ -25,15 +35,31 @@
 - Filters to find exact genre or release period.
 - Cart for games user wants to 'buy'
 
-## Screenshots
+</br>
+
+<h2>Screenshots</h2>
 
 ![](images/home-page.webp)
 ![](images/games-page.webp)
 ![](images/game-page.webp)
 
-## Development
+</br>
 
-Here are the steps to run the project locally.
+<h2>Custom API endpoints</h2>
+
+</br>
+
+<h2>Request/Response Examples</h2>
+
+Here are some examples of request and response payloads for the endpoints:
+
+1. **GET** ```/games```
+
+</br>
+
+<h2>Development</h2>
+
+Here are the steps to start the project locally.
 
 1. Clone the repository.
 
@@ -63,15 +89,10 @@ $ yarn
 
 6. Add: <code>VITE_RAWG_API = YOUR API KEY</code>. (Remember to replace <code>YOUR API KEY</code> with generated key after creating and account)
 
-7. Run the project.
+7. Start the project.
 
 ```sh
 $ npm start
 or
 $ yarn start
 ```
-
-## **Navigation**
-
-- See my previous project [Currency Converter](https://github.com/alex-dishen/currency-converter)
-- See my next project [Swipi](https://github.com/midstem/swipi)
