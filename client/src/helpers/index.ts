@@ -5,7 +5,7 @@ import { setCurrentFilter } from 'redux/harborSlice'
 import { setGames, setInCartGames } from 'redux/gamesSlice'
 import { getPrice } from 'pages/Games/helpers'
 import { GameTypes } from 'api/types'
-import { gameSpecification } from './constants'
+import { gameSpecification } from '../constants'
 
 interface IHandleFilterClick {
   e: MouseEvent<HTMLElement>

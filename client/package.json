@@ -9,8 +9,7 @@
     "build:dev": "vite build",
     "lint": "eslint .",
     "lint:format": "prettier --write --loglevel warn \"./**/*.{js,jsx,ts,tsx,css,md,json}\"",
-    "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore ",
-    "lint-tsc": "yarn tsc && yarn lint:format && yarn lint:fix"
+    "lint:fix": "eslint --cache ./src --ext .jsx,.js,.ts,.tsx --quiet --fix --ignore-path ./.gitignore "
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.1",
@@ -41,13 +40,11 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "nanoid": "^4.0.2",
-    "pre-commit": "^1.2.2",
     "prettier": "^2.8.8",
     "swipi": "^1.1.8",
     "typescript": "^5.0.2",
     "vite": "^4.2.1",
     "vite-plugin-svgr": "^2.4.0",
     "vite-tsconfig-paths": "^4.0.7"
-  },
-  "pre-commit": "lint-tsc"
+  }
 }
