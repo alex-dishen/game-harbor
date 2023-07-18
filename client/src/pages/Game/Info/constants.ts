@@ -1,6 +1,7 @@
 import { nanoid } from 'nanoid'
+import { SpecificationsT } from 'pages/Game/Info/types'
 
-export const specifications = [
+export const specifications: SpecificationsT[] = [
   {
     id: nanoid(),
     name: 'Genres:',
