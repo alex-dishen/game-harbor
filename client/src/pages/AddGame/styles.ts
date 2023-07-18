@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import styled, { css } from 'styled-components'
 
-export const AddGameWrapper = styled.div`
+export const AddGameWrapper = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;

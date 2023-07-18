@@ -5,7 +5,12 @@ import video from 'assets/images/crystal.mp4'
 
 const AddGame = () => (
   <>
-    <AddGameWrapper>
+    <AddGameWrapper
+      initial={{ opacity: 0, x: -25 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4 }}
+      exit={{ opacity: 0, x: -25 }}
+    >
       <Header>Add a missing game</Header>
       <Form />
     </AddGameWrapper>
