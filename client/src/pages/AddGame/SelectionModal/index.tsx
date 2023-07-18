@@ -12,14 +12,15 @@ const SelectionModal = ({
   description,
   placeholder,
   optionsList,
+  onChange,
 }: SelectionModuleProps) => {
   const {
     options,
+    inputName,
     selectedOptions,
-    handleOptionClick,
-    setInputValue,
     handlePlusClick,
-  } = useSelectionModal(title)
+    handleOptionClick,
+  } = useSelectionModal(title, onChange)
 
   return (
     <SelectionModuleWrapper ref={popupRef}>
@@ -32,10 +33,10 @@ const SelectionModal = ({
       ) : (
         <Input
           type="text"
+          name={inputName}
           title=""
           placeHolder={placeholder}
           icon={<Plus style={{ fill: 'white' }} />}
-          setAction={setInputValue}
           onClick={handlePlusClick}
         />
       )}

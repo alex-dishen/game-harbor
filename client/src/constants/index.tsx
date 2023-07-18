@@ -62,11 +62,9 @@ export enum PATHS {
 
 export const gameSpecification = {
   id: -1,
-  slug: '',
   name: '',
   price: 0,
   isInCart: false,
-  ratings_count: 0,
   description_raw: '',
   website: '',
   released: '',

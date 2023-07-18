@@ -9,7 +9,7 @@ export const specifications = [
   {
     id: nanoid(),
     name: 'Platforms:',
-    category: 'platforms',
+    category: 'parent_platforms',
   },
   {
     id: nanoid(),

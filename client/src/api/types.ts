@@ -37,11 +37,9 @@ type PlatformTypes = {
 
 export type GameTypes = {
   id: number
-  slug: string
   name: string
   price: number
   isInCart: boolean
-  ratings_count: number
   description_raw: string
   website: string
   released: string
@@ -49,16 +47,8 @@ export type GameTypes = {
   developers: NameTypes[]
   publishers: NameTypes[]
   parent_platforms: PlatformTypes[]
-  platforms: PlatformTypes[]
   genres: NameTypes[]
   short_screenshots: ScreenshotsTypes[]
-
-  [key: string]:
-    | number
-    | string
-    | boolean
-    | NameTypes[]
-    | InfoGameSpecificationTypes[]
-    | ScreenshotsTypes[]
-    | PlatformTypes[]
+  publisher_value?: string
+  developer_value?: string
 }
