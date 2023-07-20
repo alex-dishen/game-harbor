@@ -42,7 +42,7 @@ const SelectionInput = ({
         </AddButton>
 
         <>
-          {selectedOptions?.length === 0 || !selectedOptions ? (
+          {selectedOptions?.length === 0 ? (
             <DescriptionHolder>
               <p>{emoji}</p>
               <p>{description}</p>

@@ -1,20 +1,18 @@
-import { useForm, Controller, FormProvider } from 'react-hook-form'
+import { Controller, FormProvider } from 'react-hook-form'
 import Input from 'pages/AddGame/Input'
 import SelectionInput from 'pages/AddGame/SelectionInput'
 import TextArea from 'pages/AddGame/TextArea'
 import ButtonGroup from 'pages/AddGame/ButtonGroup'
 import { GameDetails } from 'pages/AddGame/constants'
 import { SecondaryHeader, Section, StyledForm } from 'pages/AddGame/Form/styles'
+import { UseCustomForm } from './useCustomForm'
 
 const Form = () => {
-  const methods = useForm()
-  const { control } = methods
+  const { methods, control, handleSubmit, onSubmit } = UseCustomForm()
 
   return (
     <FormProvider {...methods}>
-      <StyledForm
-      // onSubmit={handleSubmit(onSubmit)}
-      >
+      <StyledForm onSubmit={handleSubmit(onSubmit)}>
         <Section>
           <SecondaryHeader>General information</SecondaryHeader>
           <Input
@@ -32,7 +30,11 @@ const Form = () => {
             placeHolder="Add a link to the picture"
           />
 
-          <TextArea title="About" placeHolder="Add game description" />
+          <TextArea
+            title="About"
+            name="description_raw"
+            placeHolder="Add game description"
+          />
         </Section>
 
         <Section>
@@ -42,6 +44,7 @@ const Form = () => {
               key={detail.id}
               control={control}
               name={detail.name}
+              rules={{ required: detail.isRequired }}
               render={({ field: { onChange } }) => (
                 <SelectionInput
                   title={detail.title}

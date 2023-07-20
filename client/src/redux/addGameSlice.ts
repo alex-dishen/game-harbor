@@ -34,12 +34,6 @@ export const addGameSlice = createSlice({
     setSelectedGenres: (state, action: ActionT) => {
       state.selectedGenres = action.payload
     },
-    setSelectedPublishers: (state, action: ActionT) => {
-      state.selectedPublishers = action.payload
-    },
-    setSelectedDevelopers: (state, action: ActionT) => {
-      state.selectedDevelopers = action.payload
-    },
   },
 })
 
@@ -50,8 +44,6 @@ export const {
   setDevelopers,
   setSelectedPlatforms,
   setSelectedGenres,
-  setSelectedPublishers,
-  setSelectedDevelopers,
 } = addGameSlice.actions
 
 export default addGameSlice.reducer
