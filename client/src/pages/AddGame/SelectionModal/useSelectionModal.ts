@@ -55,23 +55,23 @@ export const useSelectionModal = (
   const handlePlusClick = () => {
     if (title === 'Publishers' && publisherValue) {
       dispatch(
-        setPublishers([...publishers, { key: nanoid(), name: publisherValue }]),
+        setPublishers([...publishers, { id: nanoid(), name: publisherValue }]),
       )
       setValue('publisher_value', '')
       setValue('publishers', [
         ...publishers,
-        { key: nanoid(), name: publisherValue },
+        { id: nanoid(), name: publisherValue },
       ])
     }
 
     if (title === 'Developers' && developerValue) {
       dispatch(
-        setDevelopers([...developers, { key: nanoid(), name: developerValue }]),
+        setDevelopers([...developers, { id: nanoid(), name: developerValue }]),
       )
       setValue('developer_value', '')
       setValue('developers', [
         ...developers,
-        { key: nanoid(), name: developerValue },
+        { id: nanoid(), name: developerValue },
       ])
     }
   }

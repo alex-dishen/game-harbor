@@ -8,7 +8,8 @@ import { SecondaryHeader, Section, StyledForm } from 'pages/AddGame/Form/styles'
 import { UseCustomForm } from './useCustomForm'
 
 const Form = () => {
-  const { methods, control, handleSubmit, onSubmit } = UseCustomForm()
+  const { methods, control, handleSubmit, onSubmit, resetForm } =
+    UseCustomForm()
 
   return (
     <FormProvider {...methods}>
@@ -68,7 +69,7 @@ const Form = () => {
           />
         </Section>
 
-        <ButtonGroup />
+        <ButtonGroup resetForm={resetForm} />
       </StyledForm>
     </FormProvider>
   )

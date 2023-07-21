@@ -5,6 +5,7 @@ import { setCurrentFilter } from 'redux/harborSlice'
 import { setGames, setInCartGames } from 'redux/gamesSlice'
 import { getPrice } from 'pages/Games/helpers'
 import { GameTypes } from 'api/types'
+import { setResponseMessage, setIsError } from 'redux/addGameSlice'
 import { gameSpecification } from '../constants'
 
 interface IHandleFilterClick {
@@ -81,4 +82,20 @@ export const emToPx = (emValue: string) => {
   const numericalValue = parseFloat(emValue)
 
   return numericalValue * 16
+}
+
+export const handleResponse = (
+  message: string,
+  dispatch: Dispatch<AnyAction>,
+  isError?: boolean,
+) => {
+  if (isError) dispatch(setIsError(true))
+
+  dispatch(setResponseMessage(message))
+
+  setTimeout(() => {
+    if (isError) dispatch(setIsError(false))
+
+    dispatch(setResponseMessage(''))
+  }, 4000)
 }

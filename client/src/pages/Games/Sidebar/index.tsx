@@ -23,12 +23,12 @@ const Sidebar = () => {
       {filters.map(({ id, header, options }) => (
         <CategoryHolder key={id}>
           <Header>{header}</Header>
-          {options.map(({ key, name, icon }) => (
-            <Filter key={key} onClick={onClick}>
-              <IconHolder isHighlight={name === currentFilter}>
-                {icon}
+          {options.map(option => (
+            <Filter key={option.id} onClick={onClick}>
+              <IconHolder isHighlight={option.name === currentFilter}>
+                {option.icon}
               </IconHolder>
-              {name}
+              {option.name}
             </Filter>
           ))}
         </CategoryHolder>

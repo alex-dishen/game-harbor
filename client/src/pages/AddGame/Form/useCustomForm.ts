@@ -7,14 +7,16 @@ import {
   setSelectedPlatforms,
 } from 'redux/addGameSlice'
 import { GameTypes } from 'api/types'
+import { createGame } from 'api/CustomAPI'
+import { ResponseT } from 'types'
+import { handleResponse } from 'helpers'
 
 export const UseCustomForm = () => {
   const methods = useForm<GameTypes>()
   const { control, reset, handleSubmit } = methods
   const dispatch = useDispatch()
 
-  const onSubmit = data => {
-    console.log(data)
+  const resetForm = () => {
     reset()
     dispatch(setSelectedPlatforms([]))
     dispatch(setSelectedGenres([]))
@@ -22,5 +24,15 @@ export const UseCustomForm = () => {
     dispatch(setDevelopers([]))
   }
 
-  return { methods, control, handleSubmit, onSubmit }
+  const onSubmit = async (data: GameTypes) => {
+    const response = (await createGame(data)) as ResponseT
+
+    if (response.status !== 200)
+      return handleResponse(response.response.data, dispatch, true)
+
+    resetForm()
+    handleResponse('The game is created', dispatch)
+  }
+
+  return { methods, control, handleSubmit, resetForm, onSubmit }
 }

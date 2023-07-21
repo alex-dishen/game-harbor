@@ -2,12 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 import { AddGameState, ActionT } from 'redux/types'
 
 const initialState: AddGameState = {
-  platforms: [],
   genres: [],
+  platforms: [],
   publishers: [],
   developers: [],
-  selectedPlatforms: [],
+  isError: false,
   selectedGenres: [],
+  responseMessage: '',
+  selectedPlatforms: [],
   selectedPublishers: [],
   selectedDevelopers: [],
 }
@@ -34,16 +36,24 @@ export const addGameSlice = createSlice({
     setSelectedGenres: (state, action: ActionT) => {
       state.selectedGenres = action.payload
     },
+    setResponseMessage: (state, action) => {
+      state.responseMessage = action.payload
+    },
+    setIsError: (state, action) => {
+      state.isError = action.payload
+    },
   },
 })
 
 export const {
-  setPlatforms,
   setGenres,
+  setIsError,
+  setPlatforms,
   setPublishers,
   setDevelopers,
-  setSelectedPlatforms,
   setSelectedGenres,
+  setResponseMessage,
+  setSelectedPlatforms,
 } = addGameSlice.actions
 
 export default addGameSlice.reducer

@@ -7,16 +7,10 @@ export const errorHandler = (
   res: Response,
   next: NextFunction
 ) => {
-  if (error.constraint === 'game_title_key') {
-    const { title } = req.body
+  if (error.constraint === 'game_name_key') {
+    const { name } = req.body
 
-    res.status(400).send(`A game with the title '${title}' already exists`)
-  }
-
-  if (error.constraint === 'game_website_url_key') {
-    const { website } = req.body
-
-    res.status(400).send(`A game with  website URL '${website}' already exists`)
+    res.status(400).send(`A game with the title '${name}' already exists`)
   }
 
   res.status(400).send(error.message)

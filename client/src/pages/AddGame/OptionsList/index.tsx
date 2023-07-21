@@ -9,7 +9,7 @@ const OptionsList = ({
 }: OptionsListProps) => (
   <OptionsHolder alignToStart={alignToStart}>
     {value?.map(item => (
-      <ListOption key={item.key} onClick={() => onClick(item, reverse)}>
+      <ListOption key={item.id} onClick={() => onClick(item, reverse)}>
         {item.icon}
         {item.name}
       </ListOption>

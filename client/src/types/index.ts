@@ -9,7 +9,7 @@ export type LoadGamesTypes = {
 }
 
 export type OptionsT = {
-  key: string
+  id: string
   name: string
   icon?: JSX.Element
 }
@@ -19,4 +19,10 @@ export type HandleAddToCartTypes = {
   games: GameTypes[]
   inCartGames: GameTypes[]
   dispatch: Dispatch<AnyAction>
+}
+
+export type ResponseT = {
+  status: number
+  data: GameTypes[]
+  response: { status: number; data: string }
 }
