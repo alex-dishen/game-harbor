@@ -20,7 +20,6 @@ import { ReactComponent as Check } from 'assets/images/check.svg'
 const GameList = () => {
   const { games, inCartGames, dispatch, handleNavigation } = useGameList()
   const theme = useTheme()
-  console.log(games)
 
   return (
     <GameListWrapper games={games}>

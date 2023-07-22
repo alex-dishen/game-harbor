@@ -20,6 +20,11 @@ import { ReactComponent as Apple } from 'assets/images/apple.svg'
 import { ReactComponent as Android } from 'assets/images/android.svg'
 import { ReactComponent as Adventure } from 'assets/images/adventure.svg'
 import { ReactComponent as Action } from 'assets/images/action.svg'
+import { ReactComponent as Tiles } from 'assets/images/tiles.svg'
+
+export const CUSTOM_API = [
+  { id: nanoid(), name: FILTER_TITLE.ADDED_GAMES, icon: <Tiles /> },
+]
 
 export const RELEASES = [
   { id: nanoid(), name: FILTER_TITLE.LAST_30_DAYS, icon: <Star /> },
