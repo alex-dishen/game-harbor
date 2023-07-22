@@ -14,7 +14,6 @@ const getData = async <T>(
     if (!response.ok) throw new Error(response.statusText)
 
     const data = (await response.json()) as Promise<T>
-    console.log(data)
 
     return data
   }

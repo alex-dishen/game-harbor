@@ -34,12 +34,43 @@ export const TOP_GAMES = [
 ]
 
 export const PLATFORMS = [
-  { id: nanoid(), name: FILTER_TITLE.PC, icon: <Windows /> },
-  { id: nanoid(), name: FILTER_TITLE.PS, icon: <PlayStation /> },
-  { id: nanoid(), name: FILTER_TITLE.XBOX, icon: <Xbox /> },
-  { id: nanoid(), name: FILTER_TITLE.NINTENDO, icon: <Nintendo /> },
-  { id: nanoid(), name: FILTER_TITLE.IOS, icon: <Apple /> },
-  { id: nanoid(), name: FILTER_TITLE.ANDROID, icon: <Android /> },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.PC,
+    icon: <Windows />,
+    slug: 'pc',
+  },
+
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.PS,
+    icon: <PlayStation />,
+    slug: 'playstation',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.XBOX,
+    icon: <Xbox />,
+    slug: 'xbox',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.NINTENDO,
+    icon: <Nintendo />,
+    slug: 'nintendo',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.IOS,
+    icon: <Apple />,
+    slug: 'android',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.ANDROID,
+    icon: <Android />,
+    slug: 'mac',
+  },
 ]
 
 export const GENRES = [
@@ -71,7 +102,7 @@ export const gameSpecification = {
   background_image: '',
   developers: [{ name: '' }],
   publishers: [{ name: '' }],
-  parent_platforms: [{ platform: { id: 0, slug: '', name: '' } }],
+  parent_platforms: [{ id: 0, slug: '', name: '' }],
   platforms: [{ platform: { id: 0, slug: '', name: '' } }],
   genres: [{ name: '' }],
   short_screenshots: [{ id: 0, image: '' }],

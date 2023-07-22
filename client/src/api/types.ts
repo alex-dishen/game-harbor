@@ -1,5 +1,6 @@
 export type ResponseSchema<T> = {
   results: T[]
+  data?: T[]
 }
 
 export type GetGameListTypes = {
@@ -27,7 +28,7 @@ type NameTypes = {
   name: string
 }
 
-type PlatformTypes = {
+export type PlatformTypes = {
   platform: {
     id: number
     slug: string
@@ -35,7 +36,13 @@ type PlatformTypes = {
   }
 }
 
-export type GameTypes = {
+export type ParentPlatformsT = {
+  id: number
+  slug: string
+  name: string
+}
+
+type Response = {
   id: number
   name: string
   price: number
@@ -46,9 +53,12 @@ export type GameTypes = {
   background_image: string
   developers: NameTypes[]
   publishers: NameTypes[]
-  parent_platforms: PlatformTypes[]
   genres: NameTypes[]
   short_screenshots: ScreenshotsTypes[]
   publisher_value?: string
   developer_value?: string
 }
+
+export type GameTypes = Response & { parent_platforms: ParentPlatformsT[] }
+
+export type RAWGResponseT = Response & { parent_platforms: PlatformTypes[] }

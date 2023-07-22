@@ -8,6 +8,7 @@ export const ORDER_TITLE = {
 }
 
 export const FILTER_TITLE = {
+  ADDED_GAMES: 'Added Games',
   LAST_30_DAYS: 'Last 30 days',
   THIS_WEEK: 'This week',
   NEXT_WEEK: 'Next week',

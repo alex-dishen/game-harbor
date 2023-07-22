@@ -2,12 +2,16 @@ import getData from 'api/api'
 import {
   GameTypes,
   GetGameListTypes,
+  RAWGResponseT,
   ResponseSchema,
   ScreenshotsTypes,
 } from 'api/types'
 
 export const getGamesList = (params?: GetGameListTypes) =>
-  getData<ResponseSchema<GameTypes>>('games', params as Record<string, string>)
+  getData<ResponseSchema<RAWGResponseT>>(
+    'games',
+    params as Record<string, string>,
+  )
 
 export const getGameDetails = (id: number) => getData<GameTypes>(`games/${id}`)
 
