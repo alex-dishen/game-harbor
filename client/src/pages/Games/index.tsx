@@ -13,9 +13,11 @@ import {
 } from 'pages/Games/styles'
 import { ReactComponent as Menu } from 'assets/images/menu.svg'
 import { ReactComponent as Close } from 'assets/images/close.svg'
+import Response from 'components/Response'
 
 const Games = () => {
-  const { games, isShowMenu, isHideSidebar, handleOnClick } = useGames()
+  const { games, isShowMenu, isHideSidebar, responseMessage, handleOnClick } =
+    useGames()
   const theme = useTheme()
 
   return (
@@ -27,6 +29,7 @@ const Games = () => {
       transition={{ duration: 0.4 }}
       exit={{ opacity: 0, x: 25 }}
     >
+      {responseMessage && <Response />}
       {games.length === 0 ? (
         <CircularProgress
           color={theme.colors.teal[100]}

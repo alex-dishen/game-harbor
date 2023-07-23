@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import { nanoid } from 'nanoid'
 import { useTheme } from 'styled-components'
 import { CircularProgress } from 'react-cssfx-loading'
@@ -14,12 +13,21 @@ import {
   AddToCart,
   PlatformIcons,
   GameName,
+  DeleteButton,
 } from 'pages/Games/GameList/styles'
 import { ReactComponent as Check } from 'assets/images/check.svg'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { RootState } from 'redux/types'
+import { FILTER_TITLE } from '../constants'
 
 const GameList = () => {
-  const { games, inCartGames, dispatch, handleNavigation } = useGameList()
+  const { games, inCartGames, dispatch, onDeleteGame, handleNavigation } =
+    useGameList()
   const theme = useTheme()
+  const currentFilter = useSelector(
+    (state: RootState) => state.harbor.currentFilter,
+  )
 
   return (
     <GameListWrapper games={games}>
@@ -46,6 +54,11 @@ const GameList = () => {
               name,
             }) => (
               <GameWrapper key={nanoid()}>
+                {currentFilter === FILTER_TITLE.ADDED_GAMES && (
+                  <DeleteButton onClick={() => onDeleteGame(id)}>
+                    x
+                  </DeleteButton>
+                )}
                 <Link to="game" onClick={() => handleNavigation(id)}>
                   <Image src={background_image} />
                 </Link>

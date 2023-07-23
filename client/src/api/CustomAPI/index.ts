@@ -33,7 +33,7 @@ export const createGame = async (streamerData: GameTypes) => {
   }
 }
 
-export const deleteStreamer = async (id?: string) => {
+export const deleteGame = async (id: string | number) => {
   try {
     const response = await axios.delete(`${API_URL}/${id}`)
 
@@ -42,13 +42,3 @@ export const deleteStreamer = async (id?: string) => {
     return error
   }
 }
-
-// export const updateVotes = async (id: string | undefined, newData: VotesT) => {
-//   try {
-//     const response = await axios.put(`${API_URL}/${id}/vote`, newData)
-
-//     return response
-//   } catch (error) {
-//     return error
-//   }
-// }

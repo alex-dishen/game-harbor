@@ -2,6 +2,7 @@
 import { NextFunction, Request, Response } from 'express'
 import pool from '../db'
 import { UpdatedRequest } from '../types'
+import { QueryResult } from 'pg'
 
 export const getGames = async (
   req: Request,
@@ -66,45 +67,15 @@ export const createGame = async (
   res.status(200).json(newGame.rows)
 }
 
-export const updateGame = async (
-  req: UpdatedRequest,
-  res: Response,
-  next: NextFunction
-) => {
-  const { id } = req.params
-  const {
-    name,
-    background_image,
-    description_raw,
-    released,
-    parent_platforms,
-    genres,
-    publishers,
-    developers,
-    website
-  } = req.body
-
-  await pool.query(
-    'UPDATE game SET name = $1, background_image = $2, description_raw = $3, released = $4, parent_platforms = $5, genres = $6, publishers = $7, developers = $8, website = $9 WHERE id = $10;',
-    [
-      name,
-      background_image,
-      description_raw,
-      released,
-      parent_platforms,
-      genres,
-      publishers,
-      developers,
-      website,
-      id
-    ]
-  )
-
-  await getGame(req, res, next)
-}
-
 export const deleteGame = async (req: Request, res: Response) => {
   const { id } = req.params
+  const queryResult: QueryResult<{ count: string }> = await pool.query(
+    'SELECT COUNT(*) FROM game;'
+  )
+
+  const totalGames = parseInt(queryResult.rows[0].count, 10)
+
+  if (totalGames <= 1) throw new Error("You can't delete the last game")
 
   const data = await pool.query('DELETE FROM game WHERE id = $1;', [id])
   res.json(data)

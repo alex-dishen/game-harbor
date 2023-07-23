@@ -24,6 +24,9 @@ const useGames = () => {
   const gamesState = useSelector((state: RootState) => state.games)
   const [isShowMenu, setIsShowMenu] = useState(false)
 
+  const responseMessage = useSelector(
+    (state: RootState) => state.addGame.responseMessage,
+  )
   const { currentFilter, orderTitle, isChangeSidebar, isHideSidebar } =
     harborState
 
@@ -157,7 +160,7 @@ const useGames = () => {
     loadGames()
   }, [currentFilter, orderTitle])
 
-  return { games, isShowMenu, isHideSidebar, handleOnClick }
+  return { games, isShowMenu, responseMessage, isHideSidebar, handleOnClick }
 }
 
 export default useGames

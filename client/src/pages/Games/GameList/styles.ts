@@ -15,6 +15,7 @@ export const GameListWrapper = styled.div<GameListWrapperTypes>`
 
 export const GameWrapper = styled.div(
   ({ theme }) => css`
+    position: relative;
     background-color: ${theme.colors.black[200]};
     color: white;
     border-radius: 18px;
@@ -26,6 +27,20 @@ export const GameWrapper = styled.div(
     }
   `,
 )
+
+export const DeleteButton = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  justify-content: center;
+  height: 20px;
+  width: 20px;
+  background-color: black;
+  color: #ff0000;
+  border-radius: 50%;
+  cursor: pointer;
+`
 
 export const Image = styled.img`
   aspect-ratio: 1.7 / 1;
