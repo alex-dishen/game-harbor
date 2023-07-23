@@ -16,6 +16,9 @@ const useGameList = () => {
   }
 
   const onDeleteGame = async (id: number | string) => {
+    if (games.length <= 1)
+      return handleResponse("You can't delete the last game", dispatch, true)
+
     const response = (await deleteGame(id)) as ResponseT
 
     if (response.status !== 200)
