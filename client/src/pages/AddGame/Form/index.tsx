@@ -31,10 +31,18 @@ const Form = () => {
             placeHolder="Add a link to the picture"
           />
 
-          <TextArea
-            title="About"
+          <Controller
+            control={control}
             name="description_raw"
-            placeHolder="Add game description"
+            rules={{ required: true }}
+            render={({ field: { onChange } }) => (
+              <TextArea
+                required
+                title="About"
+                placeHolder="Add game description"
+                onChange={onChange}
+              />
+            )}
           />
         </Section>
 

@@ -1,12 +1,13 @@
 import { TextAreaProps } from 'pages/AddGame/TextArea/types'
 import { StyledTextArea } from 'pages/AddGame/TextArea/styles'
 import { InputsWrapper, Star } from 'pages/AddGame/styles'
-import { useFormContext } from 'react-hook-form'
-import { GameTypes } from 'api/types'
 
-const TextArea = ({ name, required, title, placeHolder }: TextAreaProps) => {
-  const { register } = useFormContext<GameTypes>()
-
+const TextArea = ({
+  required,
+  title,
+  placeHolder,
+  onChange,
+}: TextAreaProps) => {
   return (
     <InputsWrapper>
       <p>
@@ -14,9 +15,9 @@ const TextArea = ({ name, required, title, placeHolder }: TextAreaProps) => {
         {required && <Star>*</Star>}
       </p>
       <StyledTextArea
-        {...register(name, { required })}
         name="About"
         placeholder={placeHolder}
+        onChange={onChange}
       />
     </InputsWrapper>
   )
