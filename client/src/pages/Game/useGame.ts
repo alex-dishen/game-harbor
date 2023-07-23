@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getGameDetails, getGameScreenshots } from 'api/gameData'
 import { setGameScreenshots, setGameSpecification } from 'redux/gamesSlice'
 import { RootState } from 'redux/types'
+import { getGame } from 'api/CustomAPI'
+import { RAWGGameSpecificationResponseT } from 'api/types'
 import { gameSpecification } from '../../constants'
 
 const useGame = () => {
@@ -14,11 +16,21 @@ const useGame = () => {
     dispatch(setGameScreenshots({ results: [{ id: 0, image: '' }] }))
   }, [dispatch, gameID])
 
+  const isRAWGGame = typeof gameID === 'number'
+
   const setGameDetails = useCallback(async () => {
-    const details = await getGameDetails(gameID)
-    const screenshots = await getGameScreenshots(gameID)
-    dispatch(setGameSpecification(details))
-    dispatch(setGameScreenshots(screenshots))
+    const details = isRAWGGame
+      ? await getGameDetails(gameID)
+      : ((await getGame(gameID)) as RAWGGameSpecificationResponseT)
+
+    if ('data' in details) dispatch(setGameSpecification(details.data[0]))
+
+    if (!('data' in details)) dispatch(setGameSpecification(details))
+
+    if (isRAWGGame) {
+      const screenshots = await getGameScreenshots(gameID)
+      dispatch(setGameScreenshots(screenshots))
+    }
   }, [dispatch, gameID])
 
   useEffect(() => {

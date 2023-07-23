@@ -61,4 +61,8 @@ type Response = {
 
 export type GameTypes = Response & { parent_platforms: ParentPlatformsT[] }
 
+export type RAWGGameSpecificationResponseT = Response & {
+  data: GameTypes[]
+}
+
 export type RAWGResponseT = Response & { parent_platforms: PlatformTypes[] }
