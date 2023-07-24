@@ -90,16 +90,20 @@ export const emToPx = (emValue: string) => {
   return numericalValue * 16
 }
 
+let timeoutID: NodeJS.Timeout | null = null
+
 export const handleResponse = (
   message: string,
   dispatch: Dispatch<AnyAction>,
   isError?: boolean,
 ) => {
+  if (timeoutID !== null) clearTimeout(timeoutID)
+
   if (isError) dispatch(setIsError(true))
 
   dispatch(setResponseMessage(message))
 
-  setTimeout(() => {
+  timeoutID = setTimeout(() => {
     if (isError) dispatch(setIsError(false))
 
     dispatch(setResponseMessage(''))

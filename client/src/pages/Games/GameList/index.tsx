@@ -19,6 +19,7 @@ import { ReactComponent as Check } from 'assets/images/check.svg'
 import { Link } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { RootState } from 'redux/types'
+import { memo } from 'react'
 import { FILTER_TITLE } from '../constants'
 
 const GameList = () => {
@@ -104,4 +105,4 @@ const GameList = () => {
   )
 }
 
-export default GameList
+export default memo(GameList)

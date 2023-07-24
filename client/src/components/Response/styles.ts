@@ -3,6 +3,7 @@ import { TextT } from 'components/Response/types'
 
 export const Text = styled.p<TextT>(
   ({ theme, isError }) => css`
+    z-index: 2;
     position: fixed;
     bottom: 30px;
     left: 50%;
