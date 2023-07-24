@@ -17,6 +17,9 @@ jobs:
       - name: Go to client directory
         run: cd client
 
+      - name: Log current files
+        run: ls -la
+
       - uses: actions/checkout@v3
       - run: yarn && yarn build:dev
         env: 
