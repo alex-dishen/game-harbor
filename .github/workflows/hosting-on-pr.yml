@@ -8,10 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: Log files before cd current files
+        run: ls
+
+      - name: Go to client directory
+        run: cd client
+
+      - name: Log files after cd current files
+        run: ls
+
       - name: Install and build
-        working-directory: client
-        run: yarn && yarn build:dev
-        uses: FirebaseExtended/action-hosting-deploy@v0
+      - run: yarn && yarn build:dev
+      - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GAME_HARBOR_DEVELOP }}'
