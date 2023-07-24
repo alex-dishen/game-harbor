@@ -9,13 +9,13 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Log files before cd current files
-        run: ls -la
+        run: ls
 
       - name: Go to client directory
         run: cd client
 
       - name: Log files after cd current files
-        run: ls -la
+        run: ls
 
       - run: yarn && yarn build:dev
       - uses: FirebaseExtended/action-hosting-deploy@v0
