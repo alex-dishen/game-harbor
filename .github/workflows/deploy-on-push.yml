@@ -1,0 +1,66 @@
+name: Deploy website
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  DevDeploy:
+    name: Build and deploy for dev
+    if: github.event.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: 
+      name: development
+      url: https://game-harbor-develop.web.app
+    steps:
+      - uses: actions/checkout@v3
+      - run: cd client && yarn && yarn build:dev
+        env: 
+          VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
+
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          entryPoint: client
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GAME_HARBOR_DEVELOP }}'
+          channelId: live
+          projectId: game-harbor-develop
+
+  ProdDeploy:
+    name: Build and deploy for prod
+    if: github.event.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: https://alex-dishen.github.io/shop/
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Install and build project
+        run: cd client && yarn && yarn build:prod
+        env: 
+          VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
+        
+      - name: Upload production-ready build files
+        uses: actions/upload-artifact@v3
+        with:
+          name: production-files
+          path: ./client/dist
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: production-files
+          path: ./client/dist
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./client/dist
+
