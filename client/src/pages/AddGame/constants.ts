@@ -1,10 +1,12 @@
 import { nanoid } from 'nanoid'
 import { PLATFORMS, GENRES } from '../../constants'
+import { GameDetailsT } from './types'
 
-export const GameDetails = [
+export const GameDetails: GameDetailsT[] = [
   {
     id: nanoid(),
     title: 'Platforms',
+    name: 'parent_platforms',
     isRequired: true,
     placeholder: 'Add platform',
     emoji: '🎮',
@@ -17,6 +19,7 @@ export const GameDetails = [
   {
     id: nanoid(),
     title: 'Genres',
+    name: 'genres',
     isRequired: true,
     placeholder: 'Add genre',
     emoji: '💭',
@@ -29,6 +32,7 @@ export const GameDetails = [
   {
     id: nanoid(),
     title: 'Publishers',
+    name: 'publishers',
     placeholder: 'Add publisher',
     emoji: '🧑🏻‍💻',
     description: 'Who did publish the game?',
@@ -39,6 +43,7 @@ export const GameDetails = [
   {
     id: nanoid(),
     title: 'Developers',
+    name: 'developers',
     isRequired: true,
     placeholder: 'Add developer',
     emoji: '🚀',

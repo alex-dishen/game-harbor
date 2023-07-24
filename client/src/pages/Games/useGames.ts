@@ -14,6 +14,8 @@ import {
   getThisYear,
   getPreviousYear,
 } from 'pages/Games/helpers'
+import { getAllGames } from 'api/CustomAPI'
+import { RAWGResponseT, ResponseSchema } from 'api/types'
 
 const useGames = () => {
   const dispatch = useDispatch()
@@ -22,6 +24,9 @@ const useGames = () => {
   const gamesState = useSelector((state: RootState) => state.games)
   const [isShowMenu, setIsShowMenu] = useState(false)
 
+  const responseMessage = useSelector(
+    (state: RootState) => state.addGame.responseMessage,
+  )
   const { currentFilter, orderTitle, isChangeSidebar, isHideSidebar } =
     harborState
 
@@ -66,6 +71,9 @@ const useGames = () => {
 
   const getGames = () => {
     switch (currentFilter) {
+      case FILTER_TITLE.ADDED_GAMES:
+        return getAllGames() as Promise<ResponseSchema<RAWGResponseT>>
+
       case FILTER_TITLE.LAST_30_DAYS:
         return getGamesList({ dates: getLast30Days(), ordering: getOrder() })
 
@@ -152,7 +160,7 @@ const useGames = () => {
     loadGames()
   }, [currentFilter, orderTitle])
 
-  return { games, isShowMenu, isHideSidebar, handleOnClick }
+  return { games, isShowMenu, responseMessage, isHideSidebar, handleOnClick }
 }
 
 export default useGames

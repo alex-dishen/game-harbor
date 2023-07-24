@@ -40,12 +40,10 @@ const useTop = () => {
       currentFilter === FILTER_TITLE.ALL_TIME_TOP ||
       currentFilter === FILTER_TITLE.POPULAR_PREV_YEAR ||
       currentFilter === FILTER_TITLE.BEST_OF_THE_YEAR ||
+      currentFilter === FILTER_TITLE.ADDED_GAMES ||
       isSearching
-    ) {
-      setIsShowOrder(false)
-
-      return
-    }
+    )
+      return setIsShowOrder(false)
 
     setIsShowOrder(true)
   }, [currentFilter])

@@ -46,10 +46,3 @@ export const DescriptionHolder = styled.div`
   display: flex;
   gap: 5px;
 `
-
-export const Image = styled.img`
-  height: 50px;
-  width: 70px;
-  object-fit: cover;
-  border-radius: 5px;
-`

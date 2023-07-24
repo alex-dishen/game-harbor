@@ -3,14 +3,14 @@ import { OptionsT } from 'types'
 import { TitleT } from 'pages/AddGame/types'
 
 export type SelectionProps = {
-  type: string
-  title: TitleT | string
-  description: string
   emoji: string
-  placeholder: string
   icon?: ReactNode
+  description: string
+  placeholder: string
   isRequired?: boolean
+  title: TitleT | string
+  optionsList?: OptionsT[]
   inputDescription?: string
   inputPlaceholder?: string
-  optionsList?: OptionsT[]
+  onChange: (a: OptionsT[]) => void
 }

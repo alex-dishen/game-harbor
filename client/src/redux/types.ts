@@ -8,22 +8,24 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 
 export interface HarborState {
-  currentFilter: string
-  isChangeSidebar: boolean
-  isHideSidebar: boolean
   orderTitle: string
   isOpenCart: boolean
-  isOpenSearchGames: boolean
   isSearching: boolean
+  currentFilter: string
+  isHideSidebar: boolean
+  isChangeSidebar: boolean
+  isOpenSearchGames: boolean
 }
 
 export type AddGameState = {
-  platforms: OptionsT[]
+  isError: boolean
   genres: OptionsT[]
+  platforms: OptionsT[]
   publishers: OptionsT[]
   developers: OptionsT[]
-  selectedPlatforms: OptionsT[]
+  responseMessage: string
   selectedGenres: OptionsT[]
+  selectedPlatforms: OptionsT[]
   selectedPublishers: OptionsT[]
   selectedDevelopers: OptionsT[]
 }

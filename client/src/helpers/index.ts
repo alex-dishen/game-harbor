@@ -4,7 +4,8 @@ import { HandleAddToCartTypes, LoadGamesTypes } from 'types'
 import { setCurrentFilter } from 'redux/harborSlice'
 import { setGames, setInCartGames } from 'redux/gamesSlice'
 import { getPrice } from 'pages/Games/helpers'
-import { GameTypes } from 'api/types'
+import { GameTypes, ParentPlatformsT, PlatformTypes } from 'api/types'
+import { setResponseMessage, setIsError } from 'redux/addGameSlice'
 import { gameSpecification } from '../constants'
 
 interface IHandleFilterClick {
@@ -32,26 +33,32 @@ export const handleFilterClick = ({
   if (textContent) dispatch(setCurrentFilter(textContent))
 }
 
+const modifyPlatforms = (array: PlatformTypes[]): ParentPlatformsT[] =>
+  array.map(({ platform }) => platform)
+
 const returnIsInCart = (id: number, inCartGames: GameTypes[]) =>
   inCartGames.some(game => game.id === id)
 
 export const returnGames = async ({
-  getGames,
-  inCartGames,
   games,
+  inCartGames,
+  getGames,
 }: LoadGamesTypes) => {
   const response = getGames ? await getGames() : games
 
-  if (!response) return
+  if (!response) return []
 
-  const { results } = response
+  const results = response.results || response.data
   const modifiedResults = results.map(game => ({
     ...game,
+    parent_platforms: response.results
+      ? modifyPlatforms(game.parent_platforms)
+      : game.parent_platforms,
     price: getPrice(game),
     isInCart: returnIsInCart(game.id, inCartGames),
   }))
 
-  return modifiedResults
+  return modifiedResults as GameTypes[]
 }
 
 export const handleAddToCart = ({
@@ -81,4 +88,24 @@ export const emToPx = (emValue: string) => {
   const numericalValue = parseFloat(emValue)
 
   return numericalValue * 16
+}
+
+let timeoutID: NodeJS.Timeout | null = null
+
+export const handleResponse = (
+  message: string,
+  dispatch: Dispatch<AnyAction>,
+  isError?: boolean,
+) => {
+  if (timeoutID !== null) clearTimeout(timeoutID)
+
+  if (isError) dispatch(setIsError(true))
+
+  dispatch(setResponseMessage(message))
+
+  timeoutID = setTimeout(() => {
+    if (isError) dispatch(setIsError(false))
+
+    dispatch(setResponseMessage(''))
+  }, 4000)
 }

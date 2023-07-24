@@ -8,20 +8,22 @@ interface DevelopersProps {
 const Details = ({ specifications }: DevelopersProps) => {
   return (
     <span>
-      {specifications.map((specification, index) => (
-        <span key={nanoid()}>
-          {specification.name ? (
-            <>
-              {specification.name + setEmptyOrComa(index, specifications as [])}
-            </>
-          ) : (
-            <>
-              {(specification.platform?.name ?? '') +
-                setEmptyOrComa(index, specifications as [])}
-            </>
-          )}
-        </span>
-      ))}
+      {specifications &&
+        specifications.map((specification, index) => (
+          <span key={nanoid()}>
+            {specification.name ? (
+              <>
+                {specification.name +
+                  setEmptyOrComa(index, specifications as [])}
+              </>
+            ) : (
+              <>
+                {(specification.platform?.name ?? '') +
+                  setEmptyOrComa(index, specifications as [])}
+              </>
+            )}
+          </span>
+        ))}
     </span>
   )
 }

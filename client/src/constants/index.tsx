@@ -20,37 +20,73 @@ import { ReactComponent as Apple } from 'assets/images/apple.svg'
 import { ReactComponent as Android } from 'assets/images/android.svg'
 import { ReactComponent as Adventure } from 'assets/images/adventure.svg'
 import { ReactComponent as Action } from 'assets/images/action.svg'
+import { ReactComponent as Tiles } from 'assets/images/tiles.svg'
+
+export const CUSTOM_API = [
+  { id: nanoid(), name: FILTER_TITLE.ADDED_GAMES, icon: <Tiles /> },
+]
 
 export const RELEASES = [
-  { key: nanoid(), name: FILTER_TITLE.LAST_30_DAYS, icon: <Star /> },
-  { key: nanoid(), name: FILTER_TITLE.THIS_WEEK, icon: <Fire /> },
-  { key: nanoid(), name: FILTER_TITLE.NEXT_WEEK, icon: <Skip /> },
+  { id: nanoid(), name: FILTER_TITLE.LAST_30_DAYS, icon: <Star /> },
+  { id: nanoid(), name: FILTER_TITLE.THIS_WEEK, icon: <Fire /> },
+  { id: nanoid(), name: FILTER_TITLE.NEXT_WEEK, icon: <Skip /> },
 ]
 
 export const TOP_GAMES = [
-  { key: nanoid(), name: FILTER_TITLE.BEST_OF_THE_YEAR, icon: <Cup /> },
-  { key: nanoid(), name: FILTER_TITLE.POPULAR_PREV_YEAR, icon: <Rating /> },
-  { key: nanoid(), name: FILTER_TITLE.ALL_TIME_TOP, icon: <Crown /> },
+  { id: nanoid(), name: FILTER_TITLE.BEST_OF_THE_YEAR, icon: <Cup /> },
+  { id: nanoid(), name: FILTER_TITLE.POPULAR_PREV_YEAR, icon: <Rating /> },
+  { id: nanoid(), name: FILTER_TITLE.ALL_TIME_TOP, icon: <Crown /> },
 ]
 
 export const PLATFORMS = [
-  { key: nanoid(), name: FILTER_TITLE.PC, icon: <Windows /> },
-  { key: nanoid(), name: FILTER_TITLE.PS, icon: <PlayStation /> },
-  { key: nanoid(), name: FILTER_TITLE.XBOX, icon: <Xbox /> },
-  { key: nanoid(), name: FILTER_TITLE.NINTENDO, icon: <Nintendo /> },
-  { key: nanoid(), name: FILTER_TITLE.IOS, icon: <Apple /> },
-  { key: nanoid(), name: FILTER_TITLE.ANDROID, icon: <Android /> },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.PC,
+    icon: <Windows />,
+    slug: 'pc',
+  },
+
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.PS,
+    icon: <PlayStation />,
+    slug: 'playstation',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.XBOX,
+    icon: <Xbox />,
+    slug: 'xbox',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.NINTENDO,
+    icon: <Nintendo />,
+    slug: 'nintendo',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.IOS,
+    icon: <Apple />,
+    slug: 'android',
+  },
+  {
+    id: nanoid(),
+    name: FILTER_TITLE.ANDROID,
+    icon: <Android />,
+    slug: 'mac',
+  },
 ]
 
 export const GENRES = [
-  { key: nanoid(), name: FILTER_TITLE.ACTION, icon: <Action /> },
-  { key: nanoid(), name: FILTER_TITLE.STRATEGY, icon: <Strategy /> },
-  { key: nanoid(), name: FILTER_TITLE.RPG, icon: <RPG /> },
-  { key: nanoid(), name: FILTER_TITLE.SHOOTER, icon: <Shooter /> },
-  { key: nanoid(), name: FILTER_TITLE.ADVENTURE, icon: <Adventure /> },
-  { key: nanoid(), name: FILTER_TITLE.PUZZLE, icon: <Puzzle /> },
-  { key: nanoid(), name: FILTER_TITLE.RACING, icon: <Racing /> },
-  { key: nanoid(), name: FILTER_TITLE.SPORTS, icon: <Sports /> },
+  { id: nanoid(), name: FILTER_TITLE.ACTION, icon: <Action /> },
+  { id: nanoid(), name: FILTER_TITLE.STRATEGY, icon: <Strategy /> },
+  { id: nanoid(), name: FILTER_TITLE.RPG, icon: <RPG /> },
+  { id: nanoid(), name: FILTER_TITLE.SHOOTER, icon: <Shooter /> },
+  { id: nanoid(), name: FILTER_TITLE.ADVENTURE, icon: <Adventure /> },
+  { id: nanoid(), name: FILTER_TITLE.PUZZLE, icon: <Puzzle /> },
+  { id: nanoid(), name: FILTER_TITLE.RACING, icon: <Racing /> },
+  { id: nanoid(), name: FILTER_TITLE.SPORTS, icon: <Sports /> },
 ]
 
 export enum PATHS {
@@ -62,18 +98,16 @@ export enum PATHS {
 
 export const gameSpecification = {
   id: -1,
-  slug: '',
   name: '',
   price: 0,
   isInCart: false,
-  ratings_count: 0,
   description_raw: '',
   website: '',
   released: '',
   background_image: '',
   developers: [{ name: '' }],
   publishers: [{ name: '' }],
-  parent_platforms: [{ platform: { id: 0, slug: '', name: '' } }],
+  parent_platforms: [{ id: 0, slug: '', name: '' }],
   platforms: [{ platform: { id: 0, slug: '', name: '' } }],
   genres: [{ name: '' }],
   short_screenshots: [{ id: 0, image: '' }],

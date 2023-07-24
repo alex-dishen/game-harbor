@@ -1,7 +1,14 @@
 import { nanoid } from 'nanoid'
-import { RELEASES, TOP_GAMES, PLATFORMS, GENRES } from '../../../constants'
+import {
+  RELEASES,
+  TOP_GAMES,
+  PLATFORMS,
+  GENRES,
+  CUSTOM_API,
+} from '../../../constants'
 
 export const filters = [
+  { id: nanoid(), header: 'Your Games', options: CUSTOM_API },
   {
     id: nanoid(),
     header: 'NewReleases',

@@ -1,4 +1,4 @@
-import { GameTypes } from 'api/types'
+import { GameTypes, RAWGResponseT } from 'api/types'
 
 const currentDate = new Date()
 
@@ -62,7 +62,7 @@ export const getPreviousYear = () => {
   return `${thisYear - 1}-01-01,${thisYear - 1}-12-31`
 }
 
-export const getPrice = (game: GameTypes) => {
+export const getPrice = (game: RAWGResponseT) => {
   const { released } = game
   const releaseYear = new Date(released).getFullYear()
   const currentYear = new Date().getFullYear()

@@ -7,7 +7,6 @@ import { PlatformsAndGenres, TitleT } from 'pages/AddGame/types'
 
 export const useSelectionInput = (options: OptionsT[], title: TitleT) => {
   const dispatch = useDispatch()
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [isOpenSelections, setIsOpenSelections] = useState(false)
   const [selectedOptions, setSelectedOptions] = useState<OptionsT[]>([])
   const popupRef = useRef<HTMLDivElement>(null)
@@ -28,11 +27,9 @@ export const useSelectionInput = (options: OptionsT[], title: TitleT) => {
   }, [dispatch, options, title])
 
   return {
-    selectedImage,
     isOpenSelections,
     popupRef,
     selectedOptions,
-    setSelectedImage,
     setIsOpenSelections,
   }
 }

@@ -1,6 +1,6 @@
 import { RefObject } from 'react'
-import { OptionsT } from 'types'
 import { TitleT } from 'pages/AddGame/types'
+import { OptionsT } from 'types'
 
 export type SelectionModuleProps = {
   title: TitleT
@@ -9,4 +9,5 @@ export type SelectionModuleProps = {
   description?: string
   placeholder?: string
   optionsList: OptionsT[]
+  onChange: (a: OptionsT[]) => void
 }

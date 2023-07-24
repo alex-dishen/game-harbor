@@ -2,11 +2,11 @@ import { Request } from 'express'
 import { ParamsDictionary } from 'express-serve-static-core'
 
 type RequestBody = {
-  title: string
-  image: string
-  about: string
-  releaseDate: string
-  platforms: string[]
+  name: string
+  background_image: string
+  description_raw: string
+  released: string
+  parent_platforms: string[]
   genres: string[]
   publishers: string[]
   developers: string[]

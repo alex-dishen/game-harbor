@@ -1,9 +1,11 @@
+import { GameTypes } from 'api/types'
+
 export type InputProps = {
   type: string
+  name: keyof GameTypes
   title: string
   placeHolder?: string
-  isRequired?: boolean
+  required?: boolean
   icon?: JSX.Element
-  setAction?: (a: string) => void
   onClick?: () => void
 }

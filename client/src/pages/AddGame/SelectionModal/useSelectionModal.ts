@@ -1,18 +1,24 @@
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { nanoid } from 'nanoid'
+import { useFormContext } from 'react-hook-form'
 import { setPublishers, setDevelopers } from 'redux/addGameSlice'
 import { useSelectedOptions } from 'hooks/useSelectedOptions'
 import { RootState } from 'redux/types'
-import { PlatformsAndGenres, TitleT } from 'pages/AddGame/types'
+import { GameTypes } from 'api/types'
 import { OptionsT } from 'types'
+import { PlatformsAndGenres, TitleT } from 'pages/AddGame/types'
 
-export const useSelectionModal = (title: TitleT) => {
+export const useSelectionModal = (
+  title: TitleT,
+  onChange: (a: OptionsT[]) => void,
+) => {
   const dispatch = useDispatch()
   const addGamesState = useSelector((state: RootState) => state.addGame)
-  const [publishersInputValue, setPublishersInputValue] = useState('')
-  const [developersInputValue, setDevelopersInputValue] = useState('')
   const { publishers, developers } = addGamesState
+  const { watch, setValue } = useFormContext<GameTypes>()
+
+  const publisherValue = watch('publisher_value')
+  const developerValue = watch('developer_value')
 
   const {
     optionsList,
@@ -25,9 +31,8 @@ export const useSelectionModal = (title: TitleT) => {
   const selectedOptions = selectedOptionsList[title]
   const setOptions = setOptionsList[title as PlatformsAndGenres]
   const setSelectedOptions = setSelectedOptionsList[title]
-
-  const setInputValue =
-    title === 'Publishers' ? setPublishersInputValue : setDevelopersInputValue
+  const inputName: keyof GameTypes =
+    title === 'Publishers' ? 'publisher_value' : 'developer_value'
 
   const handleOptionClick = (option: OptionsT, reverse?: boolean) => {
     const arrayToIterate = reverse ? selectedOptions : options
@@ -44,31 +49,38 @@ export const useSelectionModal = (title: TitleT) => {
     if (setOptions) dispatch(setOptions(newOptionsList))
 
     dispatch(setSelectedOptions(newSelectedOptions))
+    onChange(newSelectedOptions)
   }
 
   const handlePlusClick = () => {
-    if (title === 'Publishers')
+    if (title === 'Publishers' && publisherValue) {
       dispatch(
-        setPublishers([
-          ...publishers,
-          { key: nanoid(), name: publishersInputValue },
-        ]),
+        setPublishers([...publishers, { id: nanoid(), name: publisherValue }]),
       )
+      setValue('publisher_value', '')
+      setValue('publishers', [
+        ...publishers,
+        { id: nanoid(), name: publisherValue },
+      ])
+    }
 
-    if (title === 'Developers')
+    if (title === 'Developers' && developerValue) {
       dispatch(
-        setDevelopers([
-          ...developers,
-          { key: nanoid(), name: developersInputValue },
-        ]),
+        setDevelopers([...developers, { id: nanoid(), name: developerValue }]),
       )
+      setValue('developer_value', '')
+      setValue('developers', [
+        ...developers,
+        { id: nanoid(), name: developerValue },
+      ])
+    }
   }
 
   return {
     options,
+    inputName,
     selectedOptions,
-    handleOptionClick,
-    setInputValue,
     handlePlusClick,
+    handleOptionClick,
   }
 }

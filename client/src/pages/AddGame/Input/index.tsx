@@ -1,3 +1,5 @@
+import { useFormContext } from 'react-hook-form'
+import { GameTypes } from 'api/types'
 import { InputProps } from 'pages/AddGame/Input/types'
 import {
   StyledInput,
@@ -7,33 +9,29 @@ import {
 import { InputsWrapper, Star } from 'pages/AddGame/styles'
 
 const Input = ({
+  icon,
+  name,
   type,
   title,
+  required,
   placeHolder,
-  isRequired,
-  icon,
-  setAction,
   onClick,
 }: InputProps) => {
   const lowerCaseTitle = title.toLowerCase()
+  const { register } = useFormContext<GameTypes>()
 
   return (
     <InputsWrapper>
       <label htmlFor={lowerCaseTitle}>
         {title}
-        {isRequired ? <Star>*</Star> : ''}
+        {required ? <Star>*</Star> : ''}
       </label>
       <InputContainer>
         <StyledInput
-          onChange={e => {
-            if (setAction) setAction(e.target.value)
-          }}
+          {...register(name, { required })}
           type={type}
-          name={lowerCaseTitle}
           id={lowerCaseTitle}
           placeholder={placeHolder}
-          autoComplete="off"
-          required={isRequired}
         />
         {icon && (
           <IconHolder type="button" onClick={onClick}>
