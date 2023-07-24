@@ -14,19 +14,14 @@ jobs:
       name: development
       url: https://game-harbor-develop.web.app
     steps:
-      - name: Go to client directory
-        run: cd client
-
-      - name: Log current files
-        run: ls -la
-
       - uses: actions/checkout@v3
-      - run: yarn && yarn build:dev
+      - run: cd client && yarn && yarn build:dev
         env: 
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
+          entryPoint: client
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GAME_HARBOR_DEVELOP }}'
           channelId: live
@@ -46,11 +41,8 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
 
-      - name: Install dependencies
-        run: yarn
-
-      - name: Build project
-        run: yarn build:prod
+      - name: Install and build project
+        run: cd client && yarn && yarn build:prod
         env: 
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
         
@@ -58,17 +50,17 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: ./dist
+          path: ./client/dist
 
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: production-files
-          path: ./dist
+          path: ./client/dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./client/dist
 
