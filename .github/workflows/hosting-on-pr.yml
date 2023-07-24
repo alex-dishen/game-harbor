@@ -34,6 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - working-directory: client
       - run: yarn && yarn build:dev
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
