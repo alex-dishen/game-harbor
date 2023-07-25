@@ -1,7 +1,7 @@
 import { GameTypes } from 'api/types'
 import axios from 'axios'
 
-const API_URL = import.meta.env.VITE_CUSTOM_API_URL
+const API_URL = import.meta.env.VITE_RAWG_API
 
 export const getAllGames = async () => {
   try {
