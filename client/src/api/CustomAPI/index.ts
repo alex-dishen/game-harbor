@@ -5,6 +5,7 @@ const API_URL = import.meta.env.VITE_CUSTOM_API_URL
 
 export const getAllGames = async () => {
   try {
+    console.log(API_URL)
     const response = await axios.get(API_URL)
 
     return response
