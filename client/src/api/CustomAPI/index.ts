@@ -1,7 +1,7 @@
 import { GameTypes } from 'api/types'
 import axios from 'axios'
 
-const API_URL = 'http://localhost:8000/games'
+const API_URL = import.meta.env.VITE_CUSTOM_API_URL
 
 export const getAllGames = async () => {
   try {
