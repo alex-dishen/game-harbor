@@ -5,7 +5,6 @@ const API_URL = import.meta.env.VITE_RAWG_API
 
 export const getAllGames = async () => {
   try {
-    console.log(API_URL)
     const response = await axios.get(API_URL)
 
     return response
