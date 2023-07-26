@@ -1,7 +1,7 @@
 import { deleteGame } from 'api/CustomAPI'
 import { handleResponse } from 'helpers'
 import { useDispatch, useSelector } from 'react-redux'
-import { setGameID, setGames } from 'redux/gamesSlice'
+import { setGames } from 'redux/gamesSlice'
 import { RootState } from 'redux/types'
 import { ResponseT } from 'types'
 
@@ -10,10 +10,6 @@ const useGameList = () => {
   const gamesState = useSelector((state: RootState) => state.games)
 
   const { games, inCartGames } = gamesState
-
-  const handleNavigation = (gameID: number) => {
-    dispatch(setGameID(gameID))
-  }
 
   const onDeleteGame = async (id: number | string) => {
     if (games.length <= 1)
@@ -33,7 +29,6 @@ const useGameList = () => {
     inCartGames,
     dispatch,
     onDeleteGame,
-    handleNavigation,
   }
 }
 

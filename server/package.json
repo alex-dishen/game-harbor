@@ -1,10 +1,10 @@
 {
-  "name": "test",
+  "name": "game-harbor",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "npx tsc",
-    "start": "nodemon dist/index.js",
+    "start": "node dist/server.js",
     "dev": "nodemon src/server.ts",
     "lint": "eslint .",
     "lint:fix": "eslint --fix"

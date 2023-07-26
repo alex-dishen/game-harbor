@@ -1,13 +1,15 @@
 import { MouseEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { getGamesList } from 'api/gameData'
 import { setCurrentFilter, setIsSearching } from 'redux/harborSlice'
-import { setGameID, setGames } from 'redux/gamesSlice'
+import { setGames } from 'redux/gamesSlice'
 import { handleFilterClick, returnGames } from 'helpers'
 import { RootState } from 'redux/types'
 
 const useQuickNavigation = () => {
   const dispatch = useDispatch()
+  const navigate = useNavigate()
   const gamesState = useSelector((state: RootState) => state.games)
 
   const { games, inCartGames } = gamesState
@@ -35,7 +37,7 @@ const useQuickNavigation = () => {
   const setRandomGame = async () => {
     const randomID = await getRandomID()
 
-    if (randomID) dispatch(setGameID(randomID))
+    if (randomID) navigate(`games/game/${randomID}`)
 
     dispatch(setCurrentFilter(''))
     dispatch(setIsSearching(true))

@@ -19,10 +19,10 @@ const Cart = () => {
   const {
     cartRef,
     inCartGames,
-    clearInCartGames,
+    hideCart,
     deleteGame,
+    clearInCartGames,
     returnGamesPriceSum,
-    handleNavigation,
   } = useCart()
 
   return (
@@ -44,7 +44,7 @@ const Cart = () => {
           {inCartGames.map(({ id, background_image, name, price }) => (
             <GameHolder key={id}>
               <Cross onClick={() => deleteGame(id)}>x</Cross>
-              <Details to="games/game" onClick={() => handleNavigation(id)}>
+              <Details to={`games/game/${id}`} onClick={hideCart}>
                 <Image src={background_image} />
                 <Info>
                   <Detail>{name}</Detail>

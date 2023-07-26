@@ -6,7 +6,7 @@ export const GameWrapper = styled(motion.main)(
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5px;
     height: 100%;
     padding: 0 40px 30px 40px;
 

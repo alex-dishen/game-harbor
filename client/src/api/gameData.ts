@@ -13,7 +13,8 @@ export const getGamesList = (params?: GetGameListTypes) =>
     params as Record<string, string>,
   )
 
-export const getGameDetails = (id: number) => getData<GameTypes>(`games/${id}`)
+export const getGameDetails = (id: string | number) =>
+  getData<GameTypes>(`games/${id}`)
 
-export const getGameScreenshots = (id: number) =>
+export const getGameScreenshots = (id: string | number) =>
   getData<ResponseSchema<ScreenshotsTypes>>(`games/${id}/screenshots`)

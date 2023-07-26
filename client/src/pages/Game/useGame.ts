@@ -1,22 +1,24 @@
 import { useCallback, useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
+import { useLocation } from 'react-router-dom'
 import { getGameDetails, getGameScreenshots } from 'api/gameData'
 import { setGameScreenshots, setGameSpecification } from 'redux/gamesSlice'
-import { RootState } from 'redux/types'
 import { getGame } from 'api/CustomAPI'
+import { cutOffGame } from 'pages/Game/helpers'
 import { RAWGGameSpecificationResponseT } from 'api/types'
 import { gameSpecification } from '../../constants'
 
 const useGame = () => {
   const dispatch = useDispatch()
-  const gameID = useSelector((state: RootState) => state.games.gameID)
+  const location = useLocation()
+
+  const gameID = cutOffGame(location.pathname)
+  const isRAWGGame = !isNaN(+gameID)
 
   const cleanGamePage = useCallback(() => {
     dispatch(setGameSpecification({ ...gameSpecification, id: gameID }))
     dispatch(setGameScreenshots({ results: [{ id: 0, image: '' }] }))
   }, [dispatch, gameID])
-
-  const isRAWGGame = typeof gameID === 'number'
 
   const setGameDetails = useCallback(async () => {
     const details = isRAWGGame
@@ -36,7 +38,7 @@ const useGame = () => {
   useEffect(() => {
     cleanGamePage()
     setGameDetails()
-  }, [cleanGamePage, setGameDetails])
+  }, [])
 }
 
 export default useGame

@@ -18,6 +18,7 @@ jobs:
       - run: cd client && yarn && yarn build:dev
         env: 
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
+          VITE_CUSTOM_API_URL: ${{secrets.VITE_CUSTOM_API_URL}}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -45,6 +46,7 @@ jobs:
         run: cd client && yarn && yarn build:prod
         env: 
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
+          VITE_CUSTOM_API_URL: ${{secrets.VITE_CUSTOM_API_URL}}
         
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3

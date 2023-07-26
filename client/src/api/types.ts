@@ -43,7 +43,7 @@ export type ParentPlatformsT = {
 }
 
 type Response = {
-  id: number
+  id: number | string
   name: string
   price: number
   isInCart: boolean

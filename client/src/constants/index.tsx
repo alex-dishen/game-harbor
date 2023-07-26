@@ -92,7 +92,7 @@ export const GENRES = [
 export enum PATHS {
   home = '/',
   games = '/games',
-  game = '/games/game',
+  game = '/games/game/:id',
   addGame = '/add-game',
 }
 

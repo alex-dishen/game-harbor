@@ -50,6 +50,9 @@ export const BackButton = styled(Link)(
 
 export const GameName = styled.span(
   ({ theme }) => css`
+    display: flex;
+    align-items: center;
+    min-height: 60px;
     font-size: ${theme.fontSizes['2xl']};
     font-weight: 800;
     word-break: keep-all;
