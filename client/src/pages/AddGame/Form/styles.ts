@@ -27,3 +27,12 @@ export const Section = styled.div`
   border-radius: 15px;
   backdrop-filter: blur(20px);
 `
+
+export const SubmitSection = styled.div`
+  position: sticky;
+  bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 50px;
+`

@@ -15,13 +15,14 @@ const useGameList = () => {
     if (games.length <= 1)
       return handleResponse("You can't delete the last game", dispatch, true)
 
+    const updatedGames = games.filter(game => game.id !== id)
+
+    dispatch(setGames(updatedGames))
+
     const response = (await deleteGame(id)) as ResponseT
 
     if (response.status !== 200)
       return handleResponse(response.response.data, dispatch, true)
-
-    const updatedGames = games.filter(game => game.id !== id)
-    dispatch(setGames(updatedGames))
   }
 
   return {
