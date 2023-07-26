@@ -1,7 +1,5 @@
 <h1 align='center'>Game Harbor</h1>
 
-![Preview](images/preview.png)
-
 <p align='center'>Shopping Cart for <a href="https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript">The Odin Project</a></p>
 
 <h2>Demo</h2>
