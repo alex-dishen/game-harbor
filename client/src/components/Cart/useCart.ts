@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setGameID, setGames, setInCartGames } from 'redux/gamesSlice'
+import { setGames, setInCartGames } from 'redux/gamesSlice'
 import { setIsOpenCart } from 'redux/harborSlice'
 import { RootState } from 'redux/types'
 import useClickOutside from 'hooks/useClickOutside'
@@ -43,7 +43,7 @@ const useCart = () => {
     dispatch(setGames(updatedGames))
   }
 
-  const deleteGame = (gameID: number) => {
+  const deleteGame = (gameID: number | string) => {
     const updatedInCartGames = inCartGames.map(game => {
       if (game.id === gameID) {
         return { ...game, isInCart: false }
@@ -66,20 +66,15 @@ const useCart = () => {
     dispatch(setGames(updatedGames))
   }
 
-  const handleNavigation = (gameID: number) => {
-    dispatch(setGameID(gameID))
-    hideCart()
-  }
-
   useClickOutside(isOpenCart, cartRef, hideCart)
 
   return {
     cartRef,
     inCartGames,
-    clearInCartGames,
+    hideCart,
     deleteGame,
+    clearInCartGames,
     returnGamesPriceSum,
-    handleNavigation,
   }
 }
 

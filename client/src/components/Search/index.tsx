@@ -26,8 +26,8 @@ const SearchGames = () => {
           {games.map(game => (
             <GameWrapper
               key={game.id}
-              to="games/game"
-              onClick={() => handleOnClick(game.id)}
+              to={`games/game/${game.id}`}
+              onClick={handleOnClick}
             >
               <BackgroundImage src={game.background_image} />
               <GameName>{game.name}</GameName>

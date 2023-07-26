@@ -34,7 +34,6 @@ export type GamesState = {
   games: GameTypes[]
   searchedGames: GameTypes[]
   inCartGames: GameTypes[]
-  gameID: number
   gameSpecification: GameTypes
   gameScreenshots: ResponseSchema<ScreenshotsTypes>
 }

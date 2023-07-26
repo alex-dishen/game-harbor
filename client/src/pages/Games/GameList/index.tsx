@@ -23,8 +23,7 @@ import { memo } from 'react'
 import { FILTER_TITLE } from '../constants'
 
 const GameList = () => {
-  const { games, inCartGames, dispatch, onDeleteGame, handleNavigation } =
-    useGameList()
+  const { games, inCartGames, dispatch, onDeleteGame } = useGameList()
   const theme = useTheme()
   const currentFilter = useSelector(
     (state: RootState) => state.harbor.currentFilter,
@@ -60,7 +59,7 @@ const GameList = () => {
                     x
                   </DeleteButton>
                 )}
-                <Link to="game" onClick={() => handleNavigation(id)}>
+                <Link to={`game/${id}`}>
                   <Image src={background_image} />
                 </Link>
                 <Info>
@@ -92,9 +91,7 @@ const GameList = () => {
                       <span key={nanoid()}>{platformIcons[slug]}</span>
                     ))}
                   </PlatformIcons>
-                  <GameName to="game" onClick={() => handleNavigation(id)}>
-                    {name}
-                  </GameName>
+                  <GameName to={`game/${id}`}>{name}</GameName>
                 </Info>
               </GameWrapper>
             ),

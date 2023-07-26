@@ -16,7 +16,7 @@ export type OptionsT = {
 }
 
 export type HandleAddToCartTypes = {
-  gameID: number
+  gameID: number | string
   games: GameTypes[]
   inCartGames: GameTypes[]
   dispatch: Dispatch<AnyAction>

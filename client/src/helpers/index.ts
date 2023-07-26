@@ -36,7 +36,7 @@ export const handleFilterClick = ({
 const modifyPlatforms = (array: PlatformTypes[]): ParentPlatformsT[] =>
   array.map(({ platform }) => platform)
 
-const returnIsInCart = (id: number, inCartGames: GameTypes[]) =>
+const returnIsInCart = (id: number | string, inCartGames: GameTypes[]) =>
   inCartGames.some(game => game.id === id)
 
 export const returnGames = async ({
