@@ -49,10 +49,6 @@
 
 <h2>Custom API endpoints</h2>
 
-</br>
-
-<h2>Request/Response Examples</h2>
-
 Here are some examples of request and response payloads for the endpoints:
 
 1. **GET** ```/games```
