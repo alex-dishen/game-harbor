@@ -57,7 +57,7 @@ const Content = styled.div(
     flex: 1;
     padding: 0 15px 10px 15px;
     padding-bottom: 30px;
-    overflow: scroll;
+    overflow: auto;
 
     @media (max-width: ${theme.breakpoints.md}) {
       padding: 0 35px 10px 35px;

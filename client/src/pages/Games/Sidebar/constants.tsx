@@ -39,7 +39,7 @@ export const aside = {
   height: '100vh',
   gap: '30px',
   padding: '30px 0 20px 0',
-  overflow: 'scroll',
+  overflow: 'auto',
 }
 
 export const fullScreen = {
@@ -54,7 +54,7 @@ export const fullScreen = {
   width: '100%',
   padding: '30px',
   color: 'black',
-  overflow: 'scroll',
+  overflow: 'auto',
 }
 
 export const variants = {

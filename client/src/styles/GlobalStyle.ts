@@ -5,6 +5,10 @@ const GlobalStyle = styled.createGlobalStyle(
     body {
       font-family: 'GT Walsheim Pro';
       background-color: ${theme.colors.black[250]};
+
+      *::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     #root {

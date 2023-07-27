@@ -17,7 +17,7 @@ export const Description = styled.div(
     );
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
-    overflow: scroll;
+    overflow: auto;
     color: ${theme.colors.white[150]};
     box-shadow: 0 0 20px rgb(10, 10, 10);
     clip-path: inset(0px 0px -30px 0px);
@@ -70,7 +70,7 @@ export const Details = styled(motion.ul)(
     padding: 0;
     color: ${theme.colors.white[50]};
     list-style: none;
-    overflow: scroll;
+    overflow: auto;
 
     li {
       display: flex;

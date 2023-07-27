@@ -11,10 +11,6 @@ const CustomMotionAside = ({
 export const StyledSidebar = styled(CustomMotionAside)<StyledSidebarTypes>(
   ({ isChangeSidebar }) => css`
     ${isChangeSidebar ? (fullScreen as CSSObject) : (aside as CSSObject)}
-
-    ::-webkit-scrollbar {
-      display: none;
-    }
   `,
 )
 

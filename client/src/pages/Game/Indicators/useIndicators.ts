@@ -23,11 +23,11 @@ const usePrice = () => {
   }
 
   const returnIsGameInCart = () => {
-    const currentGame = games.filter(game => game.id === gameID)
+    const currentGame = games.filter(game => game.id == gameID)
 
-    if (currentGame.length === 0) return false
+    const isGameInCart = inCartGames.filter(game => game.id == gameID)
 
-    setIsInCart(currentGame[0].isInCart)
+    setIsInCart(currentGame[0]?.isInCart || isGameInCart.length !== 0)
   }
 
   useEffect(() => {

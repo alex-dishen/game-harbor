@@ -16,7 +16,7 @@ export const SearchGamesWrapper = styled.div<ISearchGamesWrapper>(
     background-color: white;
     color: black;
     border-radius: 16px;
-    overflow: scroll;
+    overflow: auto;
     box-shadow: 0 0 20px #000000;
   `,
 )

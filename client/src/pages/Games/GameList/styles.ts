@@ -16,7 +16,6 @@ export const GameListWrapper = styled.div<GameListWrapperTypes>`
 export const GameWrapper = styled.div(
   ({ theme }) => css`
     position: relative;
-    height: fit-content;
     max-width: 700px;
     background-color: ${theme.colors.black[200]};
     color: white;

@@ -49,7 +49,7 @@ export const ChosenGames = styled.main`
   flex-direction: column;
   gap: 10px;
   margin: 15px 0;
-  overflow: scroll;
+  overflow: auto;
 `
 
 export const GameHolder = styled.div(

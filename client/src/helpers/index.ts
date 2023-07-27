@@ -68,7 +68,7 @@ export const handleAddToCart = ({
   dispatch,
 }: HandleAddToCartTypes) => {
   const updatedGames = games.map(game => {
-    if (game.id === gameID) {
+    if (game.id == gameID) {
       return { ...game, isInCart: true }
     }
 
@@ -78,7 +78,7 @@ export const handleAddToCart = ({
   dispatch(setGames(updatedGames))
 
   const newCartGames = updatedGames.filter(
-    ({ id, isInCart }) => isInCart && id === gameID,
+    ({ id, isInCart }) => isInCart && id == gameID,
   )
 
   dispatch(setInCartGames(inCartGames.concat(newCartGames)))
