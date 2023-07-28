@@ -12,6 +12,7 @@ import {
   Section,
   StyledForm,
   SubmitSection,
+  Blur,
 } from 'pages/AddGame/Form/styles'
 
 const Form = () => {
@@ -52,6 +53,7 @@ const Form = () => {
               />
             )}
           />
+          <Blur />
         </Section>
 
         <Section>
@@ -83,6 +85,7 @@ const Form = () => {
             title="Website"
             placeHolder="Website URL"
           />
+          <Blur />
         </Section>
 
         <SubmitSection>

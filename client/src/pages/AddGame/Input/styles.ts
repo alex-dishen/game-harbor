@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const InputContainer = styled.div`
   display: flex;
@@ -9,13 +9,19 @@ export const InputContainer = styled.div`
   border-radius: 15px;
 `
 
-export const StyledInput = styled.input`
-  width: 100%;
-  background-color: transparent;
-  color: white;
-  border: none;
-  outline: none;
-`
+export const StyledInput = styled.input(
+  ({ theme }) => css`
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: none;
+    outline: none;
+
+    ::placeholder {
+      color: ${theme.colors.white[100]};
+    }
+  `,
+)
 
 export const IconHolder = styled.button`
   display: flex;
