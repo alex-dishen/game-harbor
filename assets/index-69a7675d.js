@@ -944,6 +944,7 @@ Error generating stack: `+i.message+`
   border-radius: 15px;
   overflow: hidden;
 `,ER=L.div`
+  z-index: 1;
   position: sticky;
   bottom: 20px;
   display: flex;
