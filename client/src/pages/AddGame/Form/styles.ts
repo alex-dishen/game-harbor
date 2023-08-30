@@ -30,6 +30,7 @@ export const Section = styled.div`
 `
 
 export const SubmitSection = styled.div`
+  z-index: 1;
   position: sticky;
   bottom: 20px;
   display: flex;

@@ -8,6 +8,8 @@ node_modules
 *.log
 .eslintcache
 
+._*
+
 # misc
 .env
 .env.local
