@@ -15,7 +15,7 @@ jobs:
       url: https://game-harbor-develop.web.app
     steps:
       - uses: actions/checkout@v3
-      - run: cd client && yarn && yarn build:dev
+      - run: cd client && npm install && npm run build:dev
         env: 
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
           VITE_CUSTOM_API_URL: ${{secrets.VITE_CUSTOM_API_URL}}
@@ -43,7 +43,7 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install and build project
-        run: cd client && yarn && yarn build:prod
+        run: cd client && npm install && npm run build:prod
         env: 
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
           VITE_CUSTOM_API_URL: ${{secrets.VITE_CUSTOM_API_URL}}

@@ -6,6 +6,7 @@ import Game from 'pages/Game'
 import AddGame from 'pages/AddGame'
 import useScrollToTop from 'hooks/useScrollToTop'
 import Header from 'components/Header'
+import ReactFlowTest from 'pages/ReactFlow'
 import { PATHS } from './constants'
 import 'styles/normalize.css'
 import 'styles/fonts.css'
@@ -19,6 +20,7 @@ const App = () => {
       <Header />
       <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
+          <Route path="/react-flow" element={<ReactFlowTest />} />
           <Route path={PATHS.home} element={<Home />} />
           <Route path={PATHS.games} element={<Games />} />
           <Route path={PATHS.game} element={<Game />} />
