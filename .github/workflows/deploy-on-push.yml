@@ -10,19 +10,18 @@ jobs:
     name: Build and deploy for dev
     if: github.event.ref == 'refs/heads/develop'
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: development
       url: https://game-harbor-develop.web.app
     steps:
       - uses: actions/checkout@v3
-      - run: cd client && yarn && yarn build:dev
-        env: 
+      - run: npm install && npm run build:dev
+        env:
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
           VITE_CUSTOM_API_URL: ${{secrets.VITE_CUSTOM_API_URL}}
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          entryPoint: client
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_GAME_HARBOR_DEVELOP }}'
           channelId: live
@@ -43,26 +42,25 @@ jobs:
         uses: actions/setup-node@v3
 
       - name: Install and build project
-        run: cd client && yarn && yarn build:prod
-        env: 
+        run: npm install && npm run build:prod
+        env:
           VITE_RAWG_API: ${{secrets.VITE_RAWG_API}}
           VITE_CUSTOM_API_URL: ${{secrets.VITE_CUSTOM_API_URL}}
-        
+
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v3
         with:
           name: production-files
-          path: ./client/dist
+          path: ./dist
 
       - name: Download artifact
         uses: actions/download-artifact@v3
         with:
           name: production-files
-          path: ./client/dist
+          path: ./dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./client/dist
-
+          publish_dir: ./dist
