@@ -25,5 +25,5 @@ export type HandleAddToCartTypes = {
 export type ResponseT = {
   status: number
   data: GameTypes[]
-  response: { status: number; data: string }
+  response: { status: number; data: { message: string } }
 }

@@ -1,10 +1,10 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import { PLATFORMS, GENRES } from '../../constants'
 import { GameDetailsT } from './types'
 
 export const GameDetails: GameDetailsT[] = [
   {
-    id: nanoid(),
+    id: uuidv4(),
     title: 'Platforms',
     name: 'parent_platforms',
     isRequired: true,
@@ -17,7 +17,7 @@ export const GameDetails: GameDetailsT[] = [
     optionsList: PLATFORMS,
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     title: 'Genres',
     name: 'genres',
     isRequired: true,
@@ -30,7 +30,7 @@ export const GameDetails: GameDetailsT[] = [
     optionsList: GENRES,
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     title: 'Publishers',
     name: 'publishers',
     placeholder: 'Add publisher',
@@ -41,7 +41,7 @@ export const GameDetails: GameDetailsT[] = [
     inputPlaceholder: 'Specify publishers',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     title: 'Developers',
     name: 'developers',
     isRequired: true,

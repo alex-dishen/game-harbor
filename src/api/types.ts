@@ -48,12 +48,12 @@ type Response = {
   price: number
   isInCart: boolean
   description_raw: string
-  website: string
+  website: string | null
   released: string
   background_image: string
   developers: NameTypes[]
   publishers: NameTypes[]
-  genres: NameTypes[]
+  genres: { id: string; name: string }[]
   short_screenshots: ScreenshotsTypes[]
   publisher_value?: string
   developer_value?: string
@@ -62,7 +62,7 @@ type Response = {
 export type GameTypes = Response & { parent_platforms: ParentPlatformsT[] }
 
 export type RAWGGameSpecificationResponseT = Response & {
-  data: GameTypes[]
+  data: GameTypes
 }
 
 export type RAWGResponseT = Response & { parent_platforms: PlatformTypes[] }

@@ -1,6 +1,9 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import { useTheme } from 'styled-components'
 import { CircularProgress } from 'react-cssfx-loading'
+import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import { memo } from 'react'
 import useGameList from 'pages/Games/GameList/useGameList'
 import { platformIcons } from 'pages/Games/GameList/constants'
 import { handleAddToCart } from 'helpers'
@@ -16,10 +19,7 @@ import {
   DeleteButton,
 } from 'pages/Games/GameList/styles'
 import { ReactComponent as Check } from 'assets/images/check.svg'
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
 import { RootState } from 'redux/types'
-import { memo } from 'react'
 import { FILTER_TITLE } from '../constants'
 
 const GameList = () => {
@@ -53,7 +53,7 @@ const GameList = () => {
               parent_platforms,
               name,
             }) => (
-              <GameWrapper key={nanoid()}>
+              <GameWrapper key={uuidv4()}>
                 {currentFilter === FILTER_TITLE.ADDED_GAMES && (
                   <DeleteButton onClick={() => onDeleteGame(id)}>
                     x
@@ -88,7 +88,7 @@ const GameList = () => {
                   </Price>
                   <PlatformIcons>
                     {parent_platforms.map(({ slug }) => (
-                      <span key={nanoid()}>{platformIcons[slug]}</span>
+                      <span key={uuidv4()}>{platformIcons[slug]}</span>
                     ))}
                   </PlatformIcons>
                   <GameName to={`game/${id}`}>{name}</GameName>

@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import {
   RELEASES,
   TOP_GAMES,
@@ -8,24 +8,24 @@ import {
 } from '../../../constants'
 
 export const filters = [
-  { id: nanoid(), header: 'Your Games', options: CUSTOM_API },
+  { id: uuidv4(), header: 'Your Games', options: CUSTOM_API },
   {
-    id: nanoid(),
+    id: uuidv4(),
     header: 'NewReleases',
     options: RELEASES,
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     header: 'Top',
     options: TOP_GAMES,
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     header: 'Platforms',
     options: PLATFORMS,
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     header: 'Genres',
     options: GENRES,
   },

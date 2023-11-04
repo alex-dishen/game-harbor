@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import { FILTER_TITLE } from 'pages/Games/constants'
 import { ReactComponent as Xbox } from 'assets/images/xbox.svg'
 import { ReactComponent as Windows } from 'assets/images/windows.svg'
@@ -23,55 +23,55 @@ import { ReactComponent as Action } from 'assets/images/action.svg'
 import { ReactComponent as Tiles } from 'assets/images/tiles.svg'
 
 export const CUSTOM_API = [
-  { id: nanoid(), name: FILTER_TITLE.ADDED_GAMES, icon: <Tiles /> },
+  { id: uuidv4(), name: FILTER_TITLE.ADDED_GAMES, icon: <Tiles /> },
 ]
 
 export const RELEASES = [
-  { id: nanoid(), name: FILTER_TITLE.LAST_30_DAYS, icon: <Star /> },
-  { id: nanoid(), name: FILTER_TITLE.THIS_WEEK, icon: <Fire /> },
-  { id: nanoid(), name: FILTER_TITLE.NEXT_WEEK, icon: <Skip /> },
+  { id: uuidv4(), name: FILTER_TITLE.LAST_30_DAYS, icon: <Star /> },
+  { id: uuidv4(), name: FILTER_TITLE.THIS_WEEK, icon: <Fire /> },
+  { id: uuidv4(), name: FILTER_TITLE.NEXT_WEEK, icon: <Skip /> },
 ]
 
 export const TOP_GAMES = [
-  { id: nanoid(), name: FILTER_TITLE.BEST_OF_THE_YEAR, icon: <Cup /> },
-  { id: nanoid(), name: FILTER_TITLE.POPULAR_PREV_YEAR, icon: <Rating /> },
-  { id: nanoid(), name: FILTER_TITLE.ALL_TIME_TOP, icon: <Crown /> },
+  { id: uuidv4(), name: FILTER_TITLE.BEST_OF_THE_YEAR, icon: <Cup /> },
+  { id: uuidv4(), name: FILTER_TITLE.POPULAR_PREV_YEAR, icon: <Rating /> },
+  { id: uuidv4(), name: FILTER_TITLE.ALL_TIME_TOP, icon: <Crown /> },
 ]
 
 export const PLATFORMS = [
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: FILTER_TITLE.PC,
     icon: <Windows />,
     slug: 'pc',
   },
 
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: FILTER_TITLE.PS,
     icon: <PlayStation />,
     slug: 'playstation',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: FILTER_TITLE.XBOX,
     icon: <Xbox />,
     slug: 'xbox',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: FILTER_TITLE.NINTENDO,
     icon: <Nintendo />,
     slug: 'nintendo',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: FILTER_TITLE.IOS,
     icon: <Apple />,
     slug: 'android',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: FILTER_TITLE.ANDROID,
     icon: <Android />,
     slug: 'mac',
@@ -79,14 +79,14 @@ export const PLATFORMS = [
 ]
 
 export const GENRES = [
-  { id: nanoid(), name: FILTER_TITLE.ACTION, icon: <Action /> },
-  { id: nanoid(), name: FILTER_TITLE.STRATEGY, icon: <Strategy /> },
-  { id: nanoid(), name: FILTER_TITLE.RPG, icon: <RPG /> },
-  { id: nanoid(), name: FILTER_TITLE.SHOOTER, icon: <Shooter /> },
-  { id: nanoid(), name: FILTER_TITLE.ADVENTURE, icon: <Adventure /> },
-  { id: nanoid(), name: FILTER_TITLE.PUZZLE, icon: <Puzzle /> },
-  { id: nanoid(), name: FILTER_TITLE.RACING, icon: <Racing /> },
-  { id: nanoid(), name: FILTER_TITLE.SPORTS, icon: <Sports /> },
+  { id: uuidv4(), name: FILTER_TITLE.ACTION, icon: <Action /> },
+  { id: uuidv4(), name: FILTER_TITLE.STRATEGY, icon: <Strategy /> },
+  { id: uuidv4(), name: FILTER_TITLE.RPG, icon: <RPG /> },
+  { id: uuidv4(), name: FILTER_TITLE.SHOOTER, icon: <Shooter /> },
+  { id: uuidv4(), name: FILTER_TITLE.ADVENTURE, icon: <Adventure /> },
+  { id: uuidv4(), name: FILTER_TITLE.PUZZLE, icon: <Puzzle /> },
+  { id: uuidv4(), name: FILTER_TITLE.RACING, icon: <Racing /> },
+  { id: uuidv4(), name: FILTER_TITLE.SPORTS, icon: <Sports /> },
 ]
 
 export enum PATHS {
@@ -105,10 +105,10 @@ export const gameSpecification = {
   website: '',
   released: '',
   background_image: '',
-  developers: [{ name: '' }],
-  publishers: [{ name: '' }],
+  developers: [{ id: '', name: '' }],
+  publishers: [{ id: '', name: '' }],
   parent_platforms: [{ id: 0, slug: '', name: '' }],
   platforms: [{ platform: { id: 0, slug: '', name: '' } }],
-  genres: [{ name: '' }],
+  genres: [{ id: '', name: '' }],
   short_screenshots: [{ id: 0, image: '' }],
 }
