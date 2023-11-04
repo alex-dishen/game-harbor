@@ -23,11 +23,9 @@ const useGame = () => {
   const setGameDetails = useCallback(async () => {
     const details = isRAWGGame
       ? await getGameDetails(gameID)
-      : ((await getGame(gameID)) as RAWGGameSpecificationResponseT)
+      : ((await getGame(gameID)) as RAWGGameSpecificationResponseT).data
 
-    if ('data' in details) dispatch(setGameSpecification(details.data[0]))
-
-    if (!('data' in details)) dispatch(setGameSpecification(details))
+    dispatch(setGameSpecification(details))
 
     if (isRAWGGame) {
       const screenshots = await getGameScreenshots(gameID)

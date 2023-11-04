@@ -25,10 +25,22 @@ export const UseCustomForm = () => {
   }
 
   const onSubmit = async (data: GameTypes) => {
-    const response = (await createGame(data)) as ResponseT
+    const newData = {
+      ...data,
+      platformIds: data.parent_platforms.map(item => item.id),
+      genreIds: data.genres.map(item => item.id),
+      website: data.website || null,
+      publishers: data.publishers || [],
+    }
+
+    console.log(newData)
+
+    const response = (await createGame(newData)) as ResponseT
+
+    console.log(response)
 
     if (response.status !== 200)
-      return handleResponse(response.response.data, dispatch, true)
+      return handleResponse(response.response.data.message, dispatch, true)
 
     resetForm()
     handleResponse('The game is created', dispatch)

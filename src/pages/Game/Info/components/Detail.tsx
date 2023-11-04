@@ -1,4 +1,4 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import { setEmptyOrComa } from 'pages/Game/Info/helpers'
 
 interface DevelopersProps {
@@ -10,7 +10,7 @@ const Details = ({ specifications }: DevelopersProps) => {
     <span>
       {specifications &&
         specifications.map((specification, index) => (
-          <span key={nanoid()}>
+          <span key={uuidv4()}>
             {specification.name ? (
               <>
                 {specification.name +

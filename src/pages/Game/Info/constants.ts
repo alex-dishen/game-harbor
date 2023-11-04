@@ -1,24 +1,24 @@
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import { SpecificationsT } from 'pages/Game/Info/types'
 
 export const specifications: SpecificationsT[] = [
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: 'Genres:',
     category: 'genres',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: 'Platforms:',
     category: 'parent_platforms',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: 'Developers:',
     category: 'developers',
   },
   {
-    id: nanoid(),
+    id: uuidv4(),
     name: 'Publishers:',
     category: 'publishers',
   },

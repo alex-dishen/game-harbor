@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { nanoid } from 'nanoid'
+import { v4 as uuidv4 } from 'uuid'
 import { useFormContext } from 'react-hook-form'
 import { setPublishers, setDevelopers } from 'redux/addGameSlice'
 import { useSelectedOptions } from 'hooks/useSelectedOptions'
@@ -55,23 +55,23 @@ export const useSelectionModal = (
   const handlePlusClick = () => {
     if (title === 'Publishers' && publisherValue) {
       dispatch(
-        setPublishers([...publishers, { id: nanoid(), name: publisherValue }]),
+        setPublishers([...publishers, { id: uuidv4(), name: publisherValue }]),
       )
       setValue('publisher_value', '')
       setValue('publishers', [
         ...publishers,
-        { id: nanoid(), name: publisherValue },
+        { id: uuidv4(), name: publisherValue },
       ])
     }
 
     if (title === 'Developers' && developerValue) {
       dispatch(
-        setDevelopers([...developers, { id: nanoid(), name: developerValue }]),
+        setDevelopers([...developers, { id: uuidv4(), name: developerValue }]),
       )
       setValue('developer_value', '')
       setValue('developers', [
         ...developers,
-        { id: nanoid(), name: developerValue },
+        { id: uuidv4(), name: developerValue },
       ])
     }
   }
